@@ -98,4 +98,4 @@ public class MapPanel extends JPanel implements ActionListener{
 		}
 	}
 	
-}
+}//class MapPanel
