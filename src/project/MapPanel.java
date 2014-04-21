@@ -2,8 +2,8 @@ package project;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;//I think this is the right class to use; change later?
 import java.util.HashMap;
-import java.util.Set;
 import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements ActionListener{
@@ -24,6 +24,11 @@ public class MapPanel extends JPanel implements ActionListener{
 	private String currentCountry;//what country are we looking at right now?
 	private MapMode currentMapMode;//what mode is the map in?
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
+	
+	//images for the Maps
+	private BufferedImage worldMapEconomic;
+	private BufferedImage worldMapHealth;
+	//and so on for each continent
 	
 	/**
 	 * Creates a new MapPanel based on data from the given DataManager.
@@ -55,10 +60,27 @@ public class MapPanel extends JPanel implements ActionListener{
 		
 		//load data from the DataManager
 		String countryNames[] = worldData.getCountryList();
+		
 		//make a button for each country
+		CountryData countryData;
+		AppButton newButton;
 		for(int i = 0; i < countryNames.length; i++){
+			//get the country's data
+			countryData = worldData.getDataForCountry(countryNames[i]);
 			
+			//make the button and set appropriate values on it
+			newButton = new AppButton();
+			newButton.setId(countryNames[i]);
+			
+			//add the button to the hash
+			buttons.put(countryNames[i], newButton);
+			
+			//add the button to the layoutÉsomehow?
+			//TODO: make this work with layouts
+			//TODO: get x and y from the CountryData and pass them directly to the layout function thing
 		}
+		
+		//TODO: load all the map images here
 	}
 	
 	/**
@@ -68,6 +90,12 @@ public class MapPanel extends JPanel implements ActionListener{
 	 */
 	public void actionPerformed(ActionEvent e){
 		System.out.println("Event " + e.toString() + " did the thing!");
+		
+		//if the button clicked was the button for a country
+		if(buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast worksÉmake all buttons AppButtons to ensure that
+			//change currentCountry appropriately
+			
+		}
 	}
 	
 }

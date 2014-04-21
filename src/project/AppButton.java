@@ -14,7 +14,7 @@ import javax.swing.JButton;
 public class AppButton extends JButton{
 
 	private static final long serialVersionUID = 1L;
-	private String id;
+	private String id = "null";//default value
 	
 	/**
 	 * setId(String newId)
