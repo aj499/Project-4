@@ -1,9 +1,10 @@
 package project;
 
-import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.HashMap;
+import java.util.Set;
+import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements ActionListener{
 
@@ -53,7 +54,11 @@ public class MapPanel extends JPanel implements ActionListener{
 		currentMapMode = MapMode.ECONOMIC;
 		
 		//load data from the DataManager
-		
+		String countryNames[] = worldData.getCountryList();
+		//make a button for each country
+		for(int i = 0; i < countryNames.length; i++){
+			
+		}
 	}
 	
 	/**
