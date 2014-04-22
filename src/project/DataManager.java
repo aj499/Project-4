@@ -18,4 +18,8 @@ public class DataManager {
 		//TODO: actually implement this function!
 		return new CountryData();
 	}
+	
+	public void loadData(){
+		
+	}
 }
