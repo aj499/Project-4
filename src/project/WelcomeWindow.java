@@ -1,5 +1,7 @@
 package project;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,6 +26,8 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private JPanel window; 
 	private JButton startButton;
 	
+	private Image background; 
+	
 	public void init(){
 		setSize(width, height);
 		
@@ -31,6 +35,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		JLabel icon2 = new JLabel();
 		icon2.setIcon(icon);
 		window.add(icon2);*/
+		background = getImage(getCodeBase(), "mapImage2.png");
 		
 		window = new JPanel();
 		window.setLayout(new BoxLayout(window, BoxLayout.LINE_AXIS));
@@ -42,10 +47,11 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		startButton.setAlignmentY(CENTER_ALIGNMENT);
 		window.add(startButton);
 		getContentPane().add(window);
+		
 	}//init
 	
-	private void drawScreen(){
-		
+	private void drawScreen(Graphics g){
+		g.drawImage(background, 0, 0, (int)getBounds().getWidth(), (int)getBounds().getHeight(), this);
 	}//drawScreen
 	
 	private void goToMapPanel(){
