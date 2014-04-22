@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;//I think this is the right class to use; change later?
 import java.util.HashMap;
+import java.util.Vector;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -167,7 +168,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				
 				//start the quiz
 				runQuiz();
-			} else if(currentView == "World"){//you can't start a quiz from the world view
+			} else if(currentView.equals("World")){//you can't start a quiz from the world view
 				JOptionPane.showMessageDialog(this, "You must select a continent to take a quiz!", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
@@ -178,8 +179,17 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * currently selected continent based on the current map mode
 	 * (economic or health)
 	 */
-	public void runQuiz(){
-		
+	private void runQuiz(){
+		if(currentView.equals("World")){//you can't start a quiz from the world view
+			JOptionPane.showMessageDialog(this, "You must select a continent to take a quiz!", "Error", JOptionPane.ERROR_MESSAGE);
+		} else {
+			Vector<String> subjectCountries = worldData.getDataForContinent(currentView).getCountryList();
+			
+			//TODO: do the actual quiz here
+			//present question
+			//check answer
+			//profit/repeat!
+		}
 	}
 
 	/**
