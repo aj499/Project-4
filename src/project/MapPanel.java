@@ -186,7 +186,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			Vector<String> subjectCountries = worldData.getDataForContinent(currentView).getCountryList();
 			
 			//TODO: do the actual quiz here
-			//TODO: should this be programmatic or pre-defined?!
+			//TODO: should this be programmatic or predefined?!
 			//present question
 			//check answer
 			//profit/repeat!
