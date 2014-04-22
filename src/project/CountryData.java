@@ -1,5 +1,9 @@
 package project;
 
+/**
+ * CountryData class
+ * this class stores a country and the data about the country 
+ */
 public class CountryData {
 
 	private String countryName;
