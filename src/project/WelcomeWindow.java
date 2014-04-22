@@ -23,7 +23,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	//Width of the window
 	private final static int width = 600;
 	//Height of the window
-	private final static int height = 700;
+	private final static int height = 300;
 	
 	private final String WELCOME_MESSAGE = "Welcome to the World Map";
 	
@@ -34,7 +34,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private Container content = getContentPane();
 	
 	public void init(){
-		setSize(width, height);
 		
 		window = new JPanel();
 		startButton = new JButton("Start");
@@ -42,6 +41,9 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		startButton.setSize(200, 50);
 		
 		ImageIcon map = new ImageIcon("mapImage2.png"); 
+		ImageIcon map2 = new ImageIcon("lifeExpectancyEdit.png"); 
+		setSize(map2.getIconWidth() + 200, map2.getIconHeight());
+		//setSize(map.getIconWidth(), map.getIconHeight());
 		JLabel mapLabel = new JLabel();
 		mapLabel.setIcon(map);
 		mapLabel.add(startButton);

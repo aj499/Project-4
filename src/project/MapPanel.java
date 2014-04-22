@@ -1,13 +1,12 @@
 package project;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;//I think this is the right class to use; change later?
 import java.util.HashMap;
 
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -77,8 +76,7 @@ public class MapPanel extends JPanel implements ActionListener{
 	 * (Assumes that worldData has been set previously.)
 	 */
 	private void init(){
-		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
-		setSize(width, height);
+		setLayout(new BorderLayout());
 		//set default values for what we're looking at
 		currentView = Continent.WORLD;
 		currentCountry = "none";
@@ -86,17 +84,21 @@ public class MapPanel extends JPanel implements ActionListener{
 		
 		setBackground(Color.black);
 		ImageIcon map = new ImageIcon("lifeExpectancyEdit.png"); 
+		setSize(map.getIconWidth(), map.getIconHeight());
+		
 		JLabel mapLabel = new JLabel();
 		JLabel infoBox = new JLabel();
-		infoBox.setSize(200,200);
-		infoBox.setText("HELLLLLOOOOOO");
-		infoBox.setBackground(Color.CYAN);
+		infoBox.setSize(200,map.getIconHeight());
+		infoBox.setBackground(Color.RED);
 		infoBox.setVisible(true);
+		
+		infoBox.setText("INFOBOX");
+		
 		mapLabel.setIcon(map);
-		mapLabel.setSize(200,200);
 
-		add(mapLabel);	
-		add(infoBox);
+		add(mapLabel, BorderLayout.WEST);	
+		add(infoBox, BorderLayout.EAST);
+
 	}
 	
 	/**
