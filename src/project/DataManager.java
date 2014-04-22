@@ -41,7 +41,7 @@ public class DataManager {
 	
 	public void parseData(){
 
-		CountryData currentCountry = new CountryData();
+		
 		
 		try{
 			String filename ="/Users/michaelmcaneny/Desktop/exampleData.txt";
@@ -51,7 +51,7 @@ public class DataManager {
 					dataInputStream));
 			String currentLine;
 			while ((currentLine = bufferedReader.readLine())!=null){
-				
+				CountryData currentCountry = new CountryData();
 				currentCountry.setCountryName(currentLine);
 				
 				currentCountry.setGpdPerCapita(bufferedReader.readLine());
@@ -78,8 +78,7 @@ public class DataManager {
 				currentCountry.setPhotoPathHealth(bufferedReader.readLine());
 				
 				countryData.put(currentCountry.getCountryName(), currentCountry);
-				
-				
+				System.out.println("key was " + currentCountry.getCountryName());
 				bufferedReader.readLine();
 			}
 		}
@@ -106,6 +105,15 @@ public class DataManager {
 		DataManager dm = new DataManager("hello");
 		dm.parseData();
 		CountryData peru = new CountryData();
+		CountryData mongolia = new CountryData();
+		CountryData usa = new CountryData();
+		usa = dm.countryData.get("USA");
+		peru = dm.countryData.get("Peru");
+		mongolia = dm.countryData.get("Mongolia");
+		System.out.println("Peru: " + peru.getMajorHealthIssue());
+		System.out.println("Mongolia: " + mongolia.getMajorHealthIssue());
+		System.out.println("USA: " + usa.getMajorHealthIssue());
+		System.out.println(dm.countryData.size());
 		
 	}
 }
