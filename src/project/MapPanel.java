@@ -1,9 +1,11 @@
 package project;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;//I think this is the right class to use; change later?
 import java.util.HashMap;
+
 import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements ActionListener{
@@ -22,6 +24,11 @@ public class MapPanel extends JPanel implements ActionListener{
 	private static final long serialVersionUID = 1l;
 	
 	private DataManager worldData;
+	
+	//Width of the window
+	private final static int width = 600;
+	//Height of the window
+	private final static int height = 700;
 	
 	//
 	private Continent currentView;//which continent are we looking at?
@@ -65,34 +72,14 @@ public class MapPanel extends JPanel implements ActionListener{
 	 * (Assumes that worldData has been set previously.)
 	 */
 	private void init(){
+		setSize(width, height);
 		//set default values for what we're looking at
 		currentView = Continent.WORLD;
 		currentCountry = "none";
 		currentMapMode = MapMode.ECONOMIC;
 		
-		//load data from the DataManager
-		String countryNames[] = worldData.getCountryList();
-		
-		//make a button for each country
-		CountryData countryData;
-		AppButton newButton;
-		for(int i = 0; i < countryNames.length; i++){
-			//get the country's data
-			countryData = worldData.getDataForCountry(countryNames[i]);
-			
-			//make the button and set appropriate values on it
-			newButton = new AppButton();
-			newButton.setId(countryNames[i]);
-			
-			//add the button to the hash
-			buttons.put(countryNames[i], newButton);
-			
-			//add the button to the layoutÉsomehow?
-			//TODO: make this work with layouts
-			//TODO: get x and y from the CountryData and pass them directly to the layout function thing
-		}
-		
-		//TODO: load all the map images here
+		setBackground(Color.black);
+
 	}
 	
 	/**
@@ -125,7 +112,7 @@ public class MapPanel extends JPanel implements ActionListener{
 			currentCountry = countryClicked;
 			
 			//update the info box
-			updateInfoBox(worldData.getDataForCountry(countryClicked));
+			//updateInfoBox(worldData.getDataForCountry(countryClicked));
 		} else if(e.getSource().equals(backButton)){//back button
 			if(currentView != Continent.WORLD){//we only need to change things if we're not in world view
 				//go back to World view

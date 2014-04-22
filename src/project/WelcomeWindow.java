@@ -1,5 +1,9 @@
 package project;
 
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -22,42 +26,43 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private final static int height = 700;
 	
 	private final String WELCOME_MESSAGE = "Welcome to the World Map";
-	private MapPanel mapPanel;
-	private JPanel window; 
-	private JButton startButton;
 	
-	private Image background; 
+	private JPanel cards;
+	private JPanel window;
+	private MapPanel mapPanel;
+	private JButton startButton;
+	private Container content = getContentPane();
 	
 	public void init(){
 		setSize(width, height);
 		
-		/*ImageIcon icon = new ImageIcon("mapImage2.png");
-		JLabel icon2 = new JLabel();
-		icon2.setIcon(icon);
-		window.add(icon2);*/
-		background = getImage(getCodeBase(), "mapImage2.png");
-		
 		window = new JPanel();
-		window.setLayout(new BoxLayout(window, BoxLayout.LINE_AXIS));
 		startButton = new JButton("Start");
 		startButton.addActionListener(this);
-		startButton.setSize(200, 200);
+		startButton.setSize(200, 50);
 		
-		startButton.setAlignmentX(CENTER_ALIGNMENT);
-		startButton.setAlignmentY(CENTER_ALIGNMENT);
-		window.add(startButton);
-		getContentPane().add(window);
+		ImageIcon map = new ImageIcon("mapImage2.png"); 
+		JLabel mapLabel = new JLabel();
+		mapLabel.setIcon(map);
+		mapLabel.add(startButton);
+		startButton.setLocation(200, 200);
+
+		window.add(mapLabel);
+		window.setVisible(true);
+		content.add(window);
 		
 	}//init
 	
 	private void drawScreen(Graphics g){
-		g.drawImage(background, 0, 0, (int)getBounds().getWidth(), (int)getBounds().getHeight(), this);
+		
 	}//drawScreen
 	
 	private void goToMapPanel(){
 		
-		mapPanel = new MapPanel();
+		System.out.print("OK");
+		mapPanel = new MapPanel(null);
 		mapPanel.setVisible(true);
+		this.setContentPane(mapPanel);
 		
 	}//goToMapPanel
 
