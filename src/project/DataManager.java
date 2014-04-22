@@ -12,6 +12,7 @@ public class DataManager {
 	private HashMap<String, ContinentData> continentData;
 	private boolean dataLoaded;
 	private String fileLocation;
+
 	
 	
 
@@ -27,6 +28,7 @@ public class DataManager {
 		setFileLocation(newFileLocation);
 	}
 	
+
 	/**
 	 * sets the filepath
 	 * @param newFileLocation
@@ -35,9 +37,7 @@ public class DataManager {
 		fileLocation = newFileLocation;
 	}
 	
-	/**
-	 * 
-	 */
+
 	
 	public void parseData(){
 
@@ -79,7 +79,6 @@ public class DataManager {
 				
 				countryData.put(currentCountry.getCountryName(), currentCountry);
 				
-				System.out.println(currentCountry.getCountryName());
 				
 				bufferedReader.readLine();
 			}
@@ -106,6 +105,7 @@ public class DataManager {
 	public static void main(String args[]){
 		DataManager dm = new DataManager("hello");
 		dm.parseData();
+		CountryData peru = new CountryData();
 		
 	}
 }
