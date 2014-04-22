@@ -225,28 +225,48 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		}
 	}
 
+	/**
+	 * Respond to the mouse entering this component.
+	 * 
+	 * @param e a MouseEvent that represents a movement of the mouse
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e){
 		//Auto-generated method stub
-		//Do nothing; required by interface
+		//Does nothing; required by interface
 	}
 
+	/**
+	 * Respond to the mouse exiting this component.
+	 * 
+	 * @param e a MouseEvent that represents a movement of the mouse
+	 */
 	@Override
 	public void mouseExited(MouseEvent e){
 		//Auto-generated method stub
-		//Do nothing; required by interface
+		//Does nothing; required by interface
 	}
 
+	/**
+	 * Respond to mouse presses.
+	 * 
+	 * @param e a MouseEvent that represents a mouse press
+	 */
 	@Override
 	public void mousePressed(MouseEvent e){
 		//Auto-generated method stub
-		//Do nothing; required by interface		
+		//Does nothing; required by interface		
 	}
 
+	/**
+	 * Respond to mouse releases.
+	 * 
+	 * @param e a MouseEvent that represents a mouse release
+	 */
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
+	public void mouseReleased(MouseEvent e){
 		//Auto-generated method stub
-		//Do nothing; required by interface
+		//Does nothing; required by interface
 	}
 	
 }//class MapPanel
