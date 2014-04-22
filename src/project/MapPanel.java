@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;//I think this is the right class to use; change later?
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -12,14 +11,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
-
-	/*public enum Continent{
-		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
-	}*/
-	
-	public enum MapMode{
-		ECONOMIC, HEALTH; //TODO: rename later as appropriate to content?
-	}
 	
 	/* --||-- BEGIN VARIABLES --||-- */
 	
@@ -38,8 +29,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
 	
 	//images for the Maps
-	private BufferedImage worldMapEconomic;
-	private BufferedImage worldMapHealth;
 	//and so on for each continent
 	
 	//buttons for the UI
