@@ -25,4 +25,74 @@ public class CountryData {
 	private String makeADifferenceHealth;
 	private String photoPathHealth;
 	
+	CountryData() {
+		
+		countryName= "new country";
+		gpdPerCapita= "no money";
+		gdpRealGrowthRate="doesn't grow"; 
+		agriculturePercentageOfGdp="no agriculture percentage";
+		economicFreedomScore= "no economic freedom";
+		lowestTenIncome="no lowest ten income";
+		highestTenIncome="no highest ten income";
+		majorIndustries="no major industries";
+		unemploymentRate="everyone has a job";
+		majorEconomicIssue="no money problems";
+		makeADifferenceEconomic="can't make an economic difference";
+		photoPathEconomic="no photo path economic";
+		lifeExpectancy="nobody lives";
+		maternalMortalityRate="all mothers live";
+		infantMortalityRat="all infants live";
+		childrenUnderweightPercentage="all children are eating good";
+		physicianDensity="no doctors";
+		riskOfInfectiousDisease="disease free";
+		mostCommonDiseases="no common colds"; 
+		majorHealthIssue="everyone's healthy";
+		makeADifferenceHealth="can't make a health difference";
+		photoPathHealth="no photi path health";
+	}
+	
+	public void setCountryName(string newCountryName) {
+		countryName=newCountryName;
+	}
+	
+	public void setGpdPerCapita(string newGpdPerCapita) {
+		gpdPerCapita=newGpdPerCapita;
+	}
+	
+	public void setGdpRealGrowthRate(string newGdpRealGrowthRate) {
+		gdpRealGrowthRate=newGdpRealGrowthRate;
+	}
+	
+	public void setagriculturePercentageOfGdp(string newgpdPerCapita) {
+		gpdPerCapita=newgpdPerCapita;
+	}
+	
+	public void setEconomicFreedomScore(string newEconomicFreedomScore) {
+		economicFreedomScore=newEconomicFreedomScore;
+	}
+	
+	public void setLowestTenIncome(string newLowestTenIncome) {
+		lowestTenIncome=newLowestTenIncome;
+	}
+	
+	public void setHighestTenIncome(string newHighestTenIncome) {
+		highestTenIncome=newHighestTenIncome;
+	}
+	
+	public void setMajorIndustries(string newMajorIndustries) {
+		majorIndustries=newMajorIndustries;
+	}
+	
+	public void setUnemploymentRate(string newUnemploymentRate) {
+		unemploymentRate=newUnemploymentRate;
+	}
+
+	public void setMajorEconomicIssue(string newMajorEconomicIssue) {
+		majorEconomicIssue=newMajorEconomicIssue;
+	}
+
+	public void setMakeADifferenceEconomic(string newMakeADifferenceEconomic) {
+		makeADifferenceEconomic=newMakeADifferenceEconomic;
+	}
+	
 }
