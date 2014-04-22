@@ -1,16 +1,19 @@
 package project;
 
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;//I think this is the right class to use; change later?
 import java.util.HashMap;
+
 import javax.swing.JPanel;
 
-public class MapPanel extends JPanel implements ActionListener{
+public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
-	public enum Continent{
+	/*public enum Continent{
 		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
-	}
+	}*/
 	
 	public enum MapMode{
 		ECONOMIC, HEALTH; //TODO: rename later as appropriate to content?
@@ -24,7 +27,7 @@ public class MapPanel extends JPanel implements ActionListener{
 	private DataManager worldData;
 	
 	//
-	private Continent currentView;//which continent are we looking at?
+	private String currentView;//which continent are we looking at?
 	private String currentCountry;//what country are we looking at right now?
 	private MapMode currentMapMode;//what mode is the map in?
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
@@ -66,7 +69,7 @@ public class MapPanel extends JPanel implements ActionListener{
 	 */
 	private void init(){
 		//set default values for what we're looking at
-		currentView = Continent.WORLD;
+		currentView = "World";
 		currentCountry = "none";
 		currentMapMode = MapMode.ECONOMIC;
 		
@@ -114,6 +117,7 @@ public class MapPanel extends JPanel implements ActionListener{
 	 * 
 	 * @param e the ActionEvent that represents the event that occurred
 	 */
+	@Override
 	public void actionPerformed(ActionEvent e){
 		System.out.println("Event " + e.toString() + " did the thing!");
 		
@@ -127,9 +131,9 @@ public class MapPanel extends JPanel implements ActionListener{
 			//update the info box
 			updateInfoBox(worldData.getDataForCountry(countryClicked));
 		} else if(e.getSource().equals(backButton)){//back button
-			if(currentView != Continent.WORLD){//we only need to change things if we're not in world view
+			if(!currentView.equals("World")){//we only need to change things if we're not in world view
 				//go back to World view
-				currentView = Continent.WORLD;
+				currentView = "World";
 				
 				//update the display layer appropriately
 				//TODO: implement once the layout is known/how to work with it
@@ -143,6 +147,52 @@ public class MapPanel extends JPanel implements ActionListener{
 		}
 		
 		//TODO: track mouse movement so we can check for clicks on continents
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e){
+		//only check for clicks on continents if we're looking at the whole world
+		if(currentView.equals("World")){
+			//get the locations of the click
+			int mouseX = e.getX();
+			int mouseY = e.getY();
+			
+			//check it against the bounding box of each country
+			String continentNames[] = worldData.getContinentList();
+			for(int i = 0; i < continentNames.length; i++){
+				if(!continentNames[i].equals("World")){//don't check against the world's bounding box
+					ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
+					
+					if(continentData.isPointInBounds(mouseX, mouseY)){
+						
+					}
+				}
+			}
+		}
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e){
+		//Auto-generated method stub
+		//Do nothing; required by interface
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e){
+		//Auto-generated method stub
+		//Do nothing; required by interface
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e){
+		//Auto-generated method stub
+		//Do nothing; required by interface		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		//Auto-generated method stub
+		//Do nothing; required by interface
 	}
 	
 }//class MapPanel

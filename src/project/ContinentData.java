@@ -1,5 +1,22 @@
 package project;
 
 public class ContinentData extends CountryData{
-
+	private int topBound, bottomBound, rightBound, leftBound;
+	
+	/**
+	 * Check if the given point is inside this continent's bounding box.
+	 * 
+	 * @param pointX the x coordinate of the given point
+	 * @param pointY the y coordinate of the given point
+	 * @return whether or not the given point is inside this continent
+	 */
+	public boolean isPointInBounds(int pointX, int pointY){
+		if(pointX > leftBound && pointX < rightBound){
+			if(pointY > topBound && pointY < leftBound){
+				return true;
+			}
+		}
+		
+		return false;
+	}
 }
