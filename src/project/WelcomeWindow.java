@@ -25,12 +25,12 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private JButton startButton;
 	
 	public void init(){
-		setSize(width, height);
+		/*setSize(width, height);
 		
-		/*ImageIcon icon = new ImageIcon("mapImage2.png");
+		ImageIcon icon = new ImageIcon("mapImage2.png");
 		JLabel icon2 = new JLabel();
 		icon2.setIcon(icon);
-		window.add(icon2);*/
+		window.add(icon2);
 		
 		window = new JPanel();
 		window.setLayout(new BoxLayout(window, BoxLayout.LINE_AXIS));
@@ -41,7 +41,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		startButton.setAlignmentX(CENTER_ALIGNMENT);
 		startButton.setAlignmentY(CENTER_ALIGNMENT);
 		window.add(startButton);
-		getContentPane().add(window);
+		getContentPane().add(window);*/
 	}//init
 	
 	private void drawScreen(){
@@ -50,8 +50,8 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	
 	private void goToMapPanel(){
 		
-		mapPanel = new MapPanel();
-		mapPanel.setVisible(true);
+		//mapPanel = new MapPanel();
+		//mapPanel.setVisible(true);
 		
 	}//goToMapPanel
 
