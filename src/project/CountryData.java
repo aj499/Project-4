@@ -41,7 +41,7 @@ public class CountryData {
 		photoPathEconomic="no photo path economic";
 		lifeExpectancy="nobody lives";
 		maternalMortalityRate="all mothers live";
-		infantMortalityRat="all infants live";
+		infantMortalityRate="all infants live";
 		childrenUnderweightPercentage="all children are eating good";
 		physicianDensity="no doctors";
 		riskOfInfectiousDisease="disease free";
@@ -93,6 +93,50 @@ public class CountryData {
 
 	public void setMakeADifferenceEconomic(string newMakeADifferenceEconomic) {
 		makeADifferenceEconomic=newMakeADifferenceEconomic;
+	}
+
+	public void setPhotoPathEconomic(string newPhotoPathEconomic) {
+		photoPathEconomic=newPhotoPathEconomic;
+	}
+
+	public void setLifeExpectancy(string newLifeExpectancy) {
+		lifeExpectancy=newLifeExpectancy;
+	}
+
+	public void setMaternalMortalityRate(string newMaternalMortalityRate) {
+		maternalMortalityRate=newMaternalMortalityRate;
+	}
+
+	public void setInfantMortalityRate(string newInfantMortalityRate) {
+		infantMortalityRate=newInfantMortalityRate;
+	}
+
+	public void setChildrenUnderweightPercentage(string newChildrenUnderweightPercentage) {
+		childrenUnderweightPercentage=newChildrenUnderweightPercentage;
+	}
+
+	public void setPhysicianDensity(string newPhysicianDensity) {
+		physicianDensity=newPhysicianDensity;
+	}
+
+	public void setRiskOfInfectiousDisease(string newRiskOfInfectiousDisease) {
+		riskOfInfectiousDisease=newRiskOfInfectiousDisease;
+	}
+
+	public void setMostCommonDiseases(string newMostCommonDiseases) {
+		mostCommonDiseases=newMostCommonDiseases;
+	}
+
+	public void setMajorHealthIssue(string newMajorHealthIssue) {
+		majorHealthIssue=newMajorHealthIssue;
+	}
+
+	public void setMakeADifferenceHealth(string newMakeADifferenceHealth) {
+		makeADifferenceHealth=newMakeADifferenceHealth;
+	}
+
+	public void setPhotoPathHealth(string newPhotoPathHealth) {
+		photoPathHealth=newPhotoPathHealth;
 	}
 	
 }
