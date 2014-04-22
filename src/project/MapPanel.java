@@ -130,7 +130,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			currentCountry = countryClicked;
 			
 			//update the StudentData
-			currentStudent.addCountrySeen(currentCountry);
+			currentStudent.addCountrySeen(currentCountry, currentMapMode);
 			
 			//update the info box
 			//updateInfoBox(worldData.getDataForCountry(countryClicked));
@@ -219,7 +219,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 						currentView = continentNames[i];
 						
 						//update StudentData
-						currentStudent.addContinentSeen(currentView);
+						currentStudent.addContinentSeen(currentView, currentMapMode);
 						
 						//TODO: change layout appropriately here
 						

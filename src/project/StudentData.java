@@ -3,25 +3,33 @@ package project;
 import java.util.Vector;
 
 public class StudentData {
-	private Vector<String> countriesSeen;
-	private Vector<String> continentsSeen;
+	private Vector<String> countriesSeenHealth;
+	private Vector<String> countriesSeenEconomic;
+	private Vector<String> continentsSeenHealth;
+	private Vector<String> continentsSeenEconomic;
 	private String name;
 	
 	public StudentData(String newName){
 		name = newName;
-		countriesSeen = new Vector<String>();
-		continentsSeen = new Vector<String>();
+		countriesSeenHealth = new Vector<String>();
+		countriesSeenEconomic = new Vector<String>();
+		continentsSeenHealth = new Vector<String>();
+		continentsSeenEconomic = new Vector<String>();
 	}
 	
-	public void addCountrySeen(String country){
-		if(!countriesSeen.contains(country)){//deduplicate additions
-			countriesSeen.add(country);
+	public void addCountrySeen(String country, MapMode modeSeenIn){
+		if(modeSeenIn == MapMode.HEALTH && !countriesSeenHealth.contains(country)){//deduplicate additions
+			countriesSeenHealth.add(country);
+		} else if(modeSeenIn == MapMode.ECONOMIC && !countriesSeenEconomic.contains(country)){
+			countriesSeenEconomic.add(country);
 		}
 	}
 	
-	public void addContinentSeen(String continent){
-		if(!continentsSeen.contains(continent)){//deduplicate additions
-			continentsSeen.add(continent);
+	public void addContinentSeen(String continent, MapMode modeSeenIn){
+		if(modeSeenIn == MapMode.HEALTH && !continentsSeenHealth.contains(continent)){//deduplicate additions
+			continentsSeenHealth.add(continent);
+		} else if(modeSeenIn == MapMode.ECONOMIC && !continentsSeenEconomic.contains(continent)){
+			continentsSeenEconomic.add(continent);
 		}
 	}
 	
@@ -29,15 +37,30 @@ public class StudentData {
 		return name;
 	}
 	
-	public Vector<String> getCountriesSeen(){
-		return countriesSeen;
+	public Vector<String> getCountriesSeenHealth(){
+		return countriesSeenHealth;
 	}
 	
-	public Vector<String> getContinentsSeen(){
-		return continentsSeen;
+	public Vector<String> getCountriesSeenEconomic(){
+		return countriesSeenEconomic;
 	}
 	
-	public boolean hasCountryBeenSeen(String countryToCheck){
-		return countriesSeen.contains(countryToCheck);
+	public Vector<String> getContinentsSeenHealth(){
+		return continentsSeenHealth;
+	}
+	
+	public Vector<String> getContinentsSeenEconomic(){
+		return continentsSeenEconomic;
+	}
+	
+	public boolean hasCountryBeenSeen(String countryToCheck, MapMode modeSeenIn){
+		switch(modeSeenIn){
+		case HEALTH:
+			return countriesSeenHealth.contains(countryToCheck);
+		case ECONOMIC:
+			return countriesSeenEconomic.contains(countryToCheck);
+		default:
+			return false; //backup, unreachable; to make Eclipse happy
+		}
 	}
 }
