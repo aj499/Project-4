@@ -34,6 +34,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private String currentCountry;//what country are we looking at right now?
 	private MapMode currentMapMode;//what mode is the map in?
 	private boolean quizRunning;//is the user in a quiz right now?
+	private StudentData currentStudent;//who is the user and what have they seen?
 	
 	//buttons for the countries
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
@@ -54,12 +55,13 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * 
 	 * @param newWorldData the DataManager to load data from
 	 */
-	public MapPanel(DataManager newWorldData){
+	public MapPanel(DataManager newWorldData, StudentData newStudentData){
 		//TODO: do Swing set up here as necessary
 		//ie width, height setting, etc
 		
-		//assign DataManager
+		//handle passed-in data
 		worldData = newWorldData;
+		currentStudent = newStudentData;
 		
 		//delegate to helper function for rest of setup
 		setUp();
@@ -127,6 +129,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			//change currentCountry appropriately
 			currentCountry = countryClicked;
 			
+			//update the StudentData
+			currentStudent.addCountrySeen(currentCountry);
+			
 			//update the info box
 			//updateInfoBox(worldData.getDataForCountry(countryClicked));
 		} else if(e.getSource().equals(backButton)){//back button
@@ -174,17 +179,19 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * (economic or health)
 	 */
 	private void runQuiz(){
-		if(currentView.equals("World")){//you can't start a quiz from the world view
-			JOptionPane.showMessageDialog(this, "You must select a continent to take a quiz!", "Error", JOptionPane.ERROR_MESSAGE);
-		} else {
-			Vector<String> subjectCountries = worldData.getDataForContinent(currentView).getCountryList();
+		//if(currentView.equals("World")){//you can't start a quiz from the world view
+		//	JOptionPane.showMessageDialog(this, "You must select a continent to take a quiz!", "Error", JOptionPane.ERROR_MESSAGE);
+		//} else {
+			//Vector<String> subjectCountries = worldData.getDataForContinent(currentView).getCountryList();
 			
+		//get the list of subject countries by bouncing currentView off of StudentData.getCountriesSeen
+		
 			//TODO: do the actual quiz here
-			//TODO: should this be programmatic or predefined?!
+			//TODO: programmatic question generation; elsewhere
 			//present question
 			//check answer
 			//profit/repeat!
-		}
+		//}
 	}
 
 	/**
@@ -204,15 +211,19 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			String continentNames[] = worldData.getContinentList();
 			for(int i = 0; i < continentNames.length; i++){
 				if(!continentNames[i].equals("World")){//don't check against the world's bounding box
+					//get data on the continent
 					ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
 					
 					if(continentData.isPointInBounds(mouseX, mouseY)){//if we're inside this continent
 						//note that we've changed continent
 						currentView = continentNames[i];
 						
+						//update StudentData
+						currentStudent.addContinentSeen(currentView);
+						
 						//TODO: change layout appropriately here
 						
-						//stop checking
+						//stop checking by terminating the for loop
 						break;
 					}
 				}

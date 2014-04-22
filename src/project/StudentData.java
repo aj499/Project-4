@@ -14,18 +14,30 @@ public class StudentData {
 	}
 	
 	public void addCountrySeen(String country){
-		if(!countriesSeen.contains(country)){
+		if(!countriesSeen.contains(country)){//deduplicate additions
 			countriesSeen.add(country);
 		}
 	}
 	
 	public void addContinentSeen(String continent){
-		if(!continentsSeen.contains(continent)){
+		if(!continentsSeen.contains(continent)){//deduplicate additions
 			continentsSeen.add(continent);
 		}
 	}
 	
 	public String getName(){
 		return name;
+	}
+	
+	public Vector<String> getCountriesSeen(){
+		return countriesSeen;
+	}
+	
+	public Vector<String> getContinentsSeen(){
+		return continentsSeen;
+	}
+	
+	public boolean hasCountryBeenSeen(String countryToCheck){
+		return countriesSeen.contains(countryToCheck);
 	}
 }
