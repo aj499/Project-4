@@ -1,5 +1,7 @@
 package project;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -7,6 +9,9 @@ import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.Vector;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -19,8 +24,13 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
 	private DataManager worldData;
 	
+	//Width of the window
+	private final static int width = 600;
+	//Height of the window
+	private final static int height = 700;
+	
 	//state variables
-	private String currentView;//which continent are we looking at?
+	private String currentView;//which continent are we looking at?	
 	private String currentCountry;//what country are we looking at right now?
 	private MapMode currentMapMode;//what mode is the map in?
 	private boolean quizRunning;//is the user in a quiz right now?
@@ -62,34 +72,29 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * (Assumes that worldData has been set previously.)
 	 */
 	private void setUp(){
+		setLayout(new BorderLayout());
 		//set default values for what we're looking at
 		currentView = "World";
 		currentCountry = "none";
 		currentMapMode = MapMode.ECONOMIC;
 		
-		//load data from the DataManager
-		String countryNames[] = worldData.getCountryList();
+		setBackground(Color.black);
+		ImageIcon map = new ImageIcon("lifeExpectancyEdit.png"); 
+		setSize(map.getIconWidth(), map.getIconHeight());
 		
-		//make a button for each country
-		CountryData countryData;
-		AppButton newButton;
-		for(int i = 0; i < countryNames.length; i++){
-			//get the country's data
-			countryData = worldData.getDataForCountry(countryNames[i]);
-			
-			//make the button and set appropriate values on it
-			newButton = new AppButton();
-			newButton.setId(countryNames[i]);
-			
-			//add the button to the hash
-			buttons.put(countryNames[i], newButton);
-			
-			//add the button to the layoutÉsomehow?
-			//TODO: make this work with layouts
-			//TODO: get x and y from the CountryData and pass them directly to the layout function thing
-		}
+		JLabel mapLabel = new JLabel();
+		JLabel infoBox = new JLabel();
+		infoBox.setSize(200,map.getIconHeight());
+		infoBox.setBackground(Color.RED);
+		infoBox.setVisible(true);
 		
-		//TODO: load all the map images here
+		infoBox.setText("INFOBOX");
+		
+		mapLabel.setIcon(map);
+
+		add(mapLabel, BorderLayout.WEST);	
+		add(infoBox, BorderLayout.EAST);
+
 	}
 	
 	/**
@@ -123,7 +128,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			currentCountry = countryClicked;
 			
 			//update the info box
-			updateInfoBox(worldData.getDataForCountry(countryClicked));
+			//updateInfoBox(worldData.getDataForCountry(countryClicked));
 		} else if(e.getSource().equals(backButton)){//back button
 			if(!currentView.equals("World")){//we only need to change things if we're not in world view
 				//go back to World view

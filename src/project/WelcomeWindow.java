@@ -1,5 +1,11 @@
 package project;
 
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,12 +23,15 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	//Width of the window
 	private final static int width = 600;
 	//Height of the window
-	private final static int height = 700;
+	private final static int height = 300;
 	
 	private final String WELCOME_MESSAGE = "Welcome to the World Map";
+	
+	private JPanel cards;
+	private JPanel window;
 	private MapPanel mapPanel;
-	private JPanel window; 
 	private JButton startButton;
+	private Container content = getContentPane();
 	
 	public void init(){
 		/*setSize(width, height);
@@ -33,26 +42,39 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		window.add(icon2);
 		
 		window = new JPanel();
-		window.setLayout(new BoxLayout(window, BoxLayout.LINE_AXIS));
 		startButton = new JButton("Start");
 		startButton.addActionListener(this);
-		startButton.setSize(200, 200);
+		startButton.setSize(200, 50);
+		
+		ImageIcon map = new ImageIcon("mapImage2.png"); 
+		ImageIcon map2 = new ImageIcon("lifeExpectancyEdit.png"); 
+		setSize(map2.getIconWidth() + 200, map2.getIconHeight());
+		//setSize(map.getIconWidth(), map.getIconHeight());
+		JLabel mapLabel = new JLabel();
+		mapLabel.setIcon(map);
+		mapLabel.add(startButton);
+		startButton.setLocation(200, 200);
+
+		window.add(mapLabel);
+		window.setVisible(true);
+		content.add(window);
 		
 		startButton.setAlignmentX(CENTER_ALIGNMENT);
 		startButton.setAlignmentY(CENTER_ALIGNMENT);
 		window.add(startButton);
 		getContentPane().add(window);*/
+
 	}//init
 	
-	private void drawScreen(){
+	private void drawScreen(Graphics g){
 		
 	}//drawScreen
 	
 	private void goToMapPanel(){
-		
-		//mapPanel = new MapPanel();
-		//mapPanel.setVisible(true);
-		
+		System.out.print("OK");
+		mapPanel = new MapPanel(null);
+		mapPanel.setVisible(true);
+		this.setContentPane(mapPanel);
 	}//goToMapPanel
 
 	@Override
