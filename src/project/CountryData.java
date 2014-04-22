@@ -11,7 +11,7 @@ public class CountryData {
 	private String highestTenIncome;
 	private String majorIndustries;
 	private String unemploymentRate;
-	private String majorEconomicIssue
+	private String majorEconomicIssue;
 	private String makeADifferenceEconomic;
 	private String photoPathEconomic;
 	private String lifeExpectancy;
@@ -51,92 +51,96 @@ public class CountryData {
 		photoPathHealth="no photi path health";
 	}
 	
-	public void setCountryName(string newCountryName) {
+	public void setCountryName(String newCountryName) {
 		countryName=newCountryName;
 	}
-	
-	public void setGpdPerCapita(string newGpdPerCapita) {
+
+	public void setGpdPerCapita(String newGpdPerCapita) {
 		gpdPerCapita=newGpdPerCapita;
 	}
 	
-	public void setGdpRealGrowthRate(string newGdpRealGrowthRate) {
+	public void setGdpRealGrowthRate(String newGdpRealGrowthRate) {
 		gdpRealGrowthRate=newGdpRealGrowthRate;
 	}
 	
-	public void setagriculturePercentageOfGdp(string newgpdPerCapita) {
+	public void setAgriculturePercentageOfGdp(String newgpdPerCapita) {
 		gpdPerCapita=newgpdPerCapita;
 	}
 	
-	public void setEconomicFreedomScore(string newEconomicFreedomScore) {
+	public void setEconomicFreedomScore(String newEconomicFreedomScore) {
 		economicFreedomScore=newEconomicFreedomScore;
 	}
 	
-	public void setLowestTenIncome(string newLowestTenIncome) {
+	public void setLowestTenIncome(String newLowestTenIncome) {
 		lowestTenIncome=newLowestTenIncome;
 	}
 	
-	public void setHighestTenIncome(string newHighestTenIncome) {
+	
+	public void setHighestTenIncome(String newHighestTenIncome) {
 		highestTenIncome=newHighestTenIncome;
 	}
 	
-	public void setMajorIndustries(string newMajorIndustries) {
+	public void setMajorIndustries(String newMajorIndustries) {
 		majorIndustries=newMajorIndustries;
 	}
 	
-	public void setUnemploymentRate(string newUnemploymentRate) {
+	public void setUnemploymentRate(String newUnemploymentRate) {
 		unemploymentRate=newUnemploymentRate;
 	}
 
-	public void setMajorEconomicIssue(string newMajorEconomicIssue) {
+	public void setMajorEconomicIssue(String newMajorEconomicIssue) {
 		majorEconomicIssue=newMajorEconomicIssue;
 	}
 
-	public void setMakeADifferenceEconomic(string newMakeADifferenceEconomic) {
+	public void setMakeADifferenceEconomic(String newMakeADifferenceEconomic) {
 		makeADifferenceEconomic=newMakeADifferenceEconomic;
 	}
 
-	public void setPhotoPathEconomic(string newPhotoPathEconomic) {
+	public void setPhotoPathEconomic(String newPhotoPathEconomic) {
 		photoPathEconomic=newPhotoPathEconomic;
 	}
 
-	public void setLifeExpectancy(string newLifeExpectancy) {
+	public void setLifeExpectancy(String newLifeExpectancy) {
 		lifeExpectancy=newLifeExpectancy;
 	}
 
-	public void setMaternalMortalityRate(string newMaternalMortalityRate) {
+	public void setMaternalMortalityRate(String newMaternalMortalityRate) {
 		maternalMortalityRate=newMaternalMortalityRate;
 	}
 
-	public void setInfantMortalityRate(string newInfantMortalityRate) {
+	public void setInfantMortalityRate(String newInfantMortalityRate) {
 		infantMortalityRate=newInfantMortalityRate;
 	}
 
-	public void setChildrenUnderweightPercentage(string newChildrenUnderweightPercentage) {
+	public void setChildrenUnderweightPercentage(String newChildrenUnderweightPercentage) {
 		childrenUnderweightPercentage=newChildrenUnderweightPercentage;
 	}
 
-	public void setPhysicianDensity(string newPhysicianDensity) {
+	public void setPhysicianDensity(String newPhysicianDensity) {
 		physicianDensity=newPhysicianDensity;
 	}
 
-	public void setRiskOfInfectiousDisease(string newRiskOfInfectiousDisease) {
+	public void setRiskOfInfectiousDisease(String newRiskOfInfectiousDisease) {
 		riskOfInfectiousDisease=newRiskOfInfectiousDisease;
 	}
 
-	public void setMostCommonDiseases(string newMostCommonDiseases) {
+	public void setMostCommonDiseases(String newMostCommonDiseases) {
 		mostCommonDiseases=newMostCommonDiseases;
 	}
 
-	public void setMajorHealthIssue(string newMajorHealthIssue) {
+	public void setMajorHealthIssue(String newMajorHealthIssue) {
 		majorHealthIssue=newMajorHealthIssue;
 	}
 
-	public void setMakeADifferenceHealth(string newMakeADifferenceHealth) {
+	public void setMakeADifferenceHealth(String newMakeADifferenceHealth) {
 		makeADifferenceHealth=newMakeADifferenceHealth;
 	}
 
-	public void setPhotoPathHealth(string newPhotoPathHealth) {
+	public void setPhotoPathHealth(String newPhotoPathHealth) {
 		photoPathHealth=newPhotoPathHealth;
 	}
 	
+	public String getCountryName(){
+		return countryName;
+	}
 }
