@@ -12,8 +12,7 @@ public class DataManager {
 	private HashMap<String, ContinentData> continentData;
 	private boolean dataLoaded;
 	private String fileLocation;
-<<<<<<< HEAD
-=======
+
 	
 	
 
@@ -29,28 +28,7 @@ public class DataManager {
 		setFileLocation(newFileLocation);
 	}
 	
-	/**
-	 * sets the filepath
-	 * @param newFileLocation
-	 */
-	public void setFileLocation(String newFileLocation){
-		fileLocation = newFileLocation;
-	}
->>>>>>> Joe
-	
-	
-	/**
-	 * Constructor takes a String that is the filepath
-	 * @param newFileLocation
-	 */
-	DataManager(String newFileLocation){
-		countryData = new HashMap<String, CountryData>();
-		continentData = new HashMap<String, ContinentData>();
-		
-		dataLoaded=false;
-		setFileLocation(newFileLocation);
-	}
-	
+
 	/**
 	 * sets the filepath
 	 * @param newFileLocation
@@ -59,26 +37,7 @@ public class DataManager {
 		fileLocation = newFileLocation;
 	}
 	
-	/**
-	 * 
-	 */
-	
-	public void parseData(){
-		String countryName;
-		String gpdPerCapita, gdpRealGrowthRate, 
-		agriculturePercentageOfGdp, economicFreedomScore, lowestTenIncome,
-		highestTenIncome, majorIndustries, unemploymentRate, majorEconomicIssue,
-		makeADifferenceEconomic, photoPathEconomic;
-		
-		String lifeExpectancy, maternalMortalityRate, infantMortalityRate,
-		childrenUnderweightPercentage, physicianDensity, riskOfInfectiousDisease,
-		mostCommonDiseases, majorHealthIssue, makeADifferenceHealth, photoPathHealth;
-		
-		
-	}
-	/**
-	 * 
-	 */
+
 	
 	public void parseData(){
 
@@ -120,7 +79,6 @@ public class DataManager {
 				
 				countryData.put(currentCountry.getCountryName(), currentCountry);
 				
-				System.out.println(currentCountry.getCountryName());
 				
 				bufferedReader.readLine();
 			}
@@ -147,6 +105,7 @@ public class DataManager {
 	public static void main(String args[]){
 		DataManager dm = new DataManager("hello");
 		dm.parseData();
+		CountryData peru = new CountryData();
 		
 	}
 }
