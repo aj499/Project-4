@@ -63,7 +63,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		worldData = newWorldData;
 		
 		//delegate to helper function for rest of setup
-		init();
+		setUp();
 	}
 	
 	/**
@@ -72,7 +72,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * <p>
 	 * (Assumes that worldData has been set previously.)
 	 */
-	private void init(){
+	private void setUp(){
 		//set default values for what we're looking at
 		currentView = "World";
 		currentCountry = "none";
