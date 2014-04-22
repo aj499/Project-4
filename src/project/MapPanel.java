@@ -1,11 +1,16 @@
 package project;
 
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;//I think this is the right class to use; change later?
 import java.util.HashMap;
 
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements ActionListener{
@@ -72,6 +77,7 @@ public class MapPanel extends JPanel implements ActionListener{
 	 * (Assumes that worldData has been set previously.)
 	 */
 	private void init(){
+		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
 		setSize(width, height);
 		//set default values for what we're looking at
 		currentView = Continent.WORLD;
@@ -79,7 +85,18 @@ public class MapPanel extends JPanel implements ActionListener{
 		currentMapMode = MapMode.ECONOMIC;
 		
 		setBackground(Color.black);
+		ImageIcon map = new ImageIcon("lifeExpectancyEdit.png"); 
+		JLabel mapLabel = new JLabel();
+		JLabel infoBox = new JLabel();
+		infoBox.setSize(200,200);
+		infoBox.setText("HELLLLLOOOOOO");
+		infoBox.setBackground(Color.CYAN);
+		infoBox.setVisible(true);
+		mapLabel.setIcon(map);
+		mapLabel.setSize(200,200);
 
+		add(mapLabel);	
+		add(infoBox);
 	}
 	
 	/**
