@@ -75,7 +75,6 @@ public class CountryData {
 		lowestTenIncome=newLowestTenIncome;
 	}
 	
-	
 	public void setHighestTenIncome(String newHighestTenIncome) {
 		highestTenIncome=newHighestTenIncome;
 	}
@@ -139,8 +138,92 @@ public class CountryData {
 	public void setPhotoPathHealth(String newPhotoPathHealth) {
 		photoPathHealth=newPhotoPathHealth;
 	}
-	
-	public String getCountryName(){
+	//GETTERS//-------------------------------------
+	public String getCountryName() {
 		return countryName;
+	}
+	
+	public String getGpdPerCapita() {
+		return gpdPerCapita;
+	}
+	
+	public String getGdpRealGrowthRate() {
+		return gdpRealGrowthRate;
+	}
+	
+	public String getagriculturePercentageOfGdp() {
+		return gpdPerCapita;
+	}
+	
+	public String getEconomicFreedomScore() {
+		return economicFreedomScore;
+	}
+	
+	public String getLowestTenIncome() {
+		return lowestTenIncome;
+	}
+	
+	public String getHighestTenIncome() {
+		return highestTenIncome;
+	}
+	
+	public String getMajorIndustries() {
+		return majorIndustries;
+	}
+	
+	public String getUnemploymentRate() {
+		return unemploymentRate;
+	}
+
+	public String getMajorEconomicIssue() {
+		return majorEconomicIssue;
+	}
+
+	public String getMakeADifferenceEconomic() {
+		return makeADifferenceEconomic;
+	}
+
+	public String getPhotoPathEconomic() {
+		return photoPathEconomic;
+	}
+
+	public String getLifeExpectancy() {
+		return lifeExpectancy;
+	}
+
+	public String getMaternalMortalityRate() {
+		return maternalMortalityRate;
+	}
+
+	public String getInfantMortalityRate() {
+		return infantMortalityRate;
+	}
+
+	public String getChildrenUnderweightPercentage() {
+		return childrenUnderweightPercentage;
+	}
+
+	public String getPhysicianDensity() {
+		return physicianDensity;
+	}
+
+	public String getRiskOfInfectiousDisease() {
+		return riskOfInfectiousDisease;
+	}
+
+	public String getMostCommonDiseases() {
+		return mostCommonDiseases;
+	}
+
+	public String getMajorHealthIssue() {
+		return majorHealthIssue;
+	}
+
+	public String getMakeADifferenceHealth() {
+		return makeADifferenceHealth;
+	}
+
+	public String getPhotoPathHealth() {
+		return photoPathHealth;
 	}
 }
