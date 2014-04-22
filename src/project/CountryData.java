@@ -11,7 +11,7 @@ public class CountryData {
 	private String highestTenIncome;
 	private String majorIndustries;
 	private String unemploymentRate;
-	private String majorEconomicIssue
+	private String majorEconomicIssue;
 	private String makeADifferenceEconomic;
 	private String photoPathEconomic;
 	private String lifeExpectancy;
