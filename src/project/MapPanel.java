@@ -6,11 +6,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;//I think this is the right class to use; change later?
 import java.util.HashMap;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 
 public class MapPanel extends JPanel implements ActionListener{
 
@@ -99,6 +99,8 @@ public class MapPanel extends JPanel implements ActionListener{
 		add(mapLabel, BorderLayout.WEST);	
 		add(infoBox, BorderLayout.EAST);
 
+		mapLabel.validate();
+		mapLabel.repaint();
 	}
 	
 	/**
