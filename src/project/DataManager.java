@@ -3,7 +3,9 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+
 import java.io.FileReader;
+
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
@@ -38,10 +40,11 @@ public class DataManager {
 	}
 	
 
+
 	
 	public void parseData(){
 
-		CountryData currentCountry = new CountryData();
+		
 		
 		try{
 			String filename ="/Users/michaelmcaneny/Desktop/exampleData.txt";
@@ -51,7 +54,7 @@ public class DataManager {
 					dataInputStream));
 			String currentLine;
 			while ((currentLine = bufferedReader.readLine())!=null){
-				
+				CountryData currentCountry = new CountryData();
 				currentCountry.setCountryName(currentLine);
 				
 				currentCountry.setGpdPerCapita(bufferedReader.readLine());
@@ -78,16 +81,22 @@ public class DataManager {
 				currentCountry.setPhotoPathHealth(bufferedReader.readLine());
 				
 				countryData.put(currentCountry.getCountryName(), currentCountry);
-				
-				
+				System.out.println("key was " + currentCountry.getCountryName());
 				bufferedReader.readLine();
 			}
+			
+			bufferedReader.close();
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 		
 	}
+
+	
+	
+		
+	
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -97,15 +106,42 @@ public class DataManager {
 		return (String[]) countryData.keySet().toArray();
 	}
 	
+	/**
+	 * Returns a list of all the continents in the countryData hash.
+	 * 
+	 * @return a list of all the continents in the countryData hash
+	 */
+	public String[] getContinentList(){
+		return (String[]) continentData.keySet().toArray();
+	}
+	
 	public CountryData getDataForCountry(String countryName){
 		//TODO: actually implement this function!
 		return new CountryData();
 	}
 	
-	public static void main(String args[]){
+
+
+	public ContinentData getDataForContinent(String continentName){
+		//TODO: actually implement this function!
+		return new ContinentData();
+	}
+	}
+	
+	/*public static void main(String args[]){
 		DataManager dm = new DataManager("hello");
 		dm.parseData();
 		CountryData peru = new CountryData();
+		CountryData mongolia = new CountryData();
+		CountryData usa = new CountryData();
+		usa = dm.countryData.get("USA");
+		peru = dm.countryData.get("Peru");
+		mongolia = dm.countryData.get("Mongolia");
+		System.out.println("Peru: " + peru.getMajorHealthIssue());
+		System.out.println("Mongolia: " + mongolia.getMajorHealthIssue());
+		System.out.println("USA: " + usa.getMajorHealthIssue());
+		System.out.println(dm.countryData.size());
 		
-	}
-}
+	}*/
+
+
