@@ -8,7 +8,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.Vector;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -97,6 +96,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		add(mapLabel, BorderLayout.WEST);	
 		add(infoBox, BorderLayout.EAST);
 
+		mapLabel.validate();
+		mapLabel.repaint();
 	}
 	
 	/**
