@@ -235,9 +235,11 @@ public String generateEconQuestion(){
 	
 	int indexToChooseQuestionRandomly;
 	Random generator = new Random();
-	int Low = 0;
-	int High = 6;
-	indexToChooseQuestionRandomly = generator.nextInt(High-Low) + Low;
+	int minimum = 0;
+	int maximum = 6;
+	int range = maximum - minimum + 1;
+	indexToChooseQuestionRandomly =  generator.nextInt(range) + minimum;
+
 	
 	ArrayList<String> econQuestions = new ArrayList<String>();
 	econQuestions.add("Which country has a GDP per capita of " + getGpdPerCapita() + "?");
@@ -256,9 +258,10 @@ public String generateHealthQuestion(){
 	
 	int indexToChooseQuestionRandomly;
 	Random generator = new Random();
-	int Low = 0;
-	int High = 4;
-	indexToChooseQuestionRandomly = generator.nextInt(High-Low) + Low;
+	int minimum = 0;
+	int maximum = 4;
+	int range = maximum - minimum + 1;
+	indexToChooseQuestionRandomly =  generator.nextInt(range) + minimum;
 	
 	ArrayList<String> healthQuestions = new ArrayList<String>();
 	healthQuestions.add("Which country has an average life expectancy of " + getLifeExpectancy() + "?");
