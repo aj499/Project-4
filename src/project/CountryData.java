@@ -1,5 +1,9 @@
 package project;
 
+/**
+ * CountryData class
+ * this class stores a country and the data about the country 
+ */
 public class CountryData {
 
 	private String countryName;
@@ -54,7 +58,11 @@ public class CountryData {
 	public void setCountryName(String newCountryName) {
 		countryName=newCountryName;
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> Joe
 	public void setGpdPerCapita(String newGpdPerCapita) {
 		gpdPerCapita=newGpdPerCapita;
 	}
@@ -63,7 +71,11 @@ public class CountryData {
 		gdpRealGrowthRate=newGdpRealGrowthRate;
 	}
 	
+<<<<<<< HEAD
 	public void setagriculturePercentageOfGdp(String newgpdPerCapita) {
+=======
+	public void setAgriculturePercentageOfGdp(String newgpdPerCapita) {
+>>>>>>> Joe
 		gpdPerCapita=newgpdPerCapita;
 	}
 	
