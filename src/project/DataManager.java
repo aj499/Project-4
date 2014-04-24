@@ -39,13 +39,9 @@ public class DataManager {
 	
 
 	
-	public void parseData(){
-
-		
-		
+	public void parseData(){		
 		try{
-			String filename ="/Users/michaelmcaneny/Desktop/exampleData.txt";
-			FileInputStream fileInputStream = new FileInputStream(filename);
+			FileInputStream fileInputStream = new FileInputStream(fileLocation);
 			DataInputStream dataInputStream = new DataInputStream(fileInputStream);
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
 					dataInputStream));
@@ -76,13 +72,14 @@ public class DataManager {
 				currentCountry.setMajorHealthIssue(bufferedReader.readLine());
 				currentCountry.setMakeADifferenceHealth(bufferedReader.readLine());
 				currentCountry.setPhotoPathHealth(bufferedReader.readLine());
-				
 				countryData.put(currentCountry.getCountryName(), currentCountry);
-				System.out.println("key was " + currentCountry.getCountryName());
 				bufferedReader.readLine();
 			}
+			bufferedReader.close();
+			dataLoaded = true;
 		}
 		catch(Exception e){
+			System.out.println(e.toString());
 			e.printStackTrace();
 		}
 		
@@ -102,7 +99,7 @@ public class DataManager {
 	}
 	
 	public static void main(String args[]){
-		DataManager dm = new DataManager("hello");
+		DataManager dm = new DataManager("/Users/michaelmcaneny/Desktop/exampleData.txt");
 		dm.parseData();
 		CountryData peru = new CountryData();
 		CountryData mongolia = new CountryData();
@@ -110,10 +107,11 @@ public class DataManager {
 		usa = dm.countryData.get("USA");
 		peru = dm.countryData.get("Peru");
 		mongolia = dm.countryData.get("Mongolia");
+		usa.getCountryName();
+		
 		System.out.println("Peru: " + peru.getMajorHealthIssue());
 		System.out.println("Mongolia: " + mongolia.getMajorHealthIssue());
 		System.out.println("USA: " + usa.getMajorHealthIssue());
-		System.out.println(dm.countryData.size());
 		
 	}
 }
