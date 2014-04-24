@@ -9,7 +9,6 @@ import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.Vector;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,15 +17,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
 	/* --||-- BEGIN VARIABLES --||-- */
 	
-	//to make Eclipse shut up about the warning
+	//to make Eclipse shut up
 	private static final long serialVersionUID = 1l;
 	
 	private DataManager worldData;
-	
-	//Width of the window
-	private final static int width = 600;
-	//Height of the window
-	private final static int height = 700;
 	
 	//state variables
 	private String currentView;//which continent are we looking at?	
@@ -35,6 +29,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private boolean quizRunning;//is the user in a quiz right now?
 	private StudentData currentStudent;//who is the user and what have they seen?
 	private boolean inPreTest;//are they taking the pretest
+	//for use by quiz
+	private String currentQuestion;
+	private String currentCorrectAnswer;
+	private String currentAnswer;
 	
 	//buttons for the countries
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
@@ -59,6 +57,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
+		
+		//create a button for each country
+		String[] countryButtonList = worldData.getCountryList();
+		for(int i = 0; i < countryButtonList.length; i++){
+			buttons.put(countryButtonList[i], new AppButton(countryButtonList[i]));
+		}
 		
 		//set up basic state
 		inPreTest = true;//we start by trapping the user in the pre-test
