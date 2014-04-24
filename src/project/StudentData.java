@@ -1,5 +1,6 @@
 package project;
 
+import java.util.Random;
 import java.util.Vector;
 
 public class StudentData {
@@ -63,4 +64,19 @@ public class StudentData {
 			return false; //backup, unreachable; to make Eclipse happy
 		}
 	}
+	
+	public boolean hasContinentBeenSeen(String continentToCheck, MapMode modeSeenIn){
+		switch(modeSeenIn){
+		case HEALTH:
+			return continentsSeenHealth.contains(continentToCheck);
+		case ECONOMIC:
+			return continentsSeenEconomic.contains(continentToCheck);
+		default:
+			return false; //backup, unreachable; to make Eclipse happy
+		}
+	}
+	
+	
+	
+	
 }

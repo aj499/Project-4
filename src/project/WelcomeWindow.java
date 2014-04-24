@@ -70,13 +70,13 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	}//init
 	
 	private void goToMapPanel(){
-<<<<<<< HEAD
+
 		System.out.print("OK");
 		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"));
-=======
+
 		
-		mapPanel = new MapPanel(null);
->>>>>>> origin/Min
+		//mapPanel = new MapPanel(null);
+
 		mapPanel.setVisible(true);
 		window.setVisible(false);
 		this.setContentPane(mapPanel);

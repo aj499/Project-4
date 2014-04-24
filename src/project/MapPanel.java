@@ -7,22 +7,18 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
-<<<<<<< HEAD
+
 import java.util.Vector;
 
-=======
->>>>>>> origin/Min
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-<<<<<<< HEAD
-public class MapPanel extends JPanel implements ActionListener, MouseListener{
-=======
 
-public class MapPanel extends JPanel implements ActionListener{
+
+public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 	public enum Continent{
 		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
@@ -31,7 +27,7 @@ public class MapPanel extends JPanel implements ActionListener{
 	public enum MapMode{
 		ECONOMIC, HEALTH; //TODO: rename later as appropriate to content?
 	}
->>>>>>> origin/Min
+
 	
 	/* --||-- BEGIN VARIABLES --||-- */
 	
