@@ -78,6 +78,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private void setUp(){
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
 		
+		quizButton.setText("End Quiz");
+		
 		setLayout(new BorderLayout());
 		//set default values for what we're looking at
 		currentView = "World";
@@ -117,6 +119,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//extract data from the CountryData and format it appropriately
 		//then add it
+		
+		
 	}
 	
 	/**
@@ -139,7 +143,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			currentStudent.addCountrySeen(currentCountry, currentMapMode);
 			
 			//update the info box
-			//updateInfoBox(worldData.getDataForCountry(countryClicked));
+			updateInfoBox(worldData.getDataForCountry(countryClicked));
 		} else if(e.getSource().equals(backButton)){//back button
 			if(!currentView.equals("World")){//we only need to change things if we're not in world view
 				//go back to World view
@@ -168,7 +172,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					//change the label on the button
 					quizButton.setText("Start Quiz");
 				}
-			} else if(!quizRunning && currentView != "World"){//they're in a continent but not in a quiz, so let's start one!
+			} else if(!quizRunning){//they're not in a quiz, so let's start one!
 				//flip the bool
 				quizRunning = true;
 				
@@ -177,8 +181,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				
 				//start the quiz
 				runQuiz();
-			} else if(currentView.equals("World")){//you can't start a quiz from the world view
-				JOptionPane.showMessageDialog(this, "You must select a continent to take a quiz!", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}
