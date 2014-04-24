@@ -44,7 +44,9 @@ public class QuizRunner {
 		Vector<String> countriesToAskAbout = worldData.getDataForContinent(currentTopic).getCountryList();
 		Random random = new Random();
 		
-		prospectiveQuestion = worldData.getDataForCountry(countriesToAskAbout.get(random.nextInt(countriesToAskAbout.size()))).generateQuestion();
+		CountryData country = worldData.getDataForCountry(countriesToAskAbout.get(random.nextInt(countriesToAskAbout.size())));
+		
+		prospectiveQuestion = ((currentMode == MapMode.HEALTH) ? country.generateHealthQuestion() : country.generateEconQuestion());
 	}
 	
 	public void endQuiz(){

@@ -3,6 +3,9 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+
+import java.io.FileReader;
+
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
@@ -11,9 +14,6 @@ public class DataManager {
 	private HashMap<String, ContinentData> continentData;
 	private boolean dataLoaded;
 	private String fileLocation;
-
-	
-	
 
 	/**
 	 * Constructor takes a String that is the filepath
@@ -86,6 +86,10 @@ public class DataManager {
 		}
 		
 	}
+
+	
+	
+		
 	
 	/**
 	 * Returns a list of all the countries in the countryData hash.
@@ -110,9 +114,12 @@ public class DataManager {
 		return new CountryData();
 	}
 	
+
+
 	public ContinentData getDataForContinent(String continentName){
 		//TODO: actually implement this function!
 		return new ContinentData();
+	}
 	}
 	
 	/*public static void main(String args[]){
@@ -131,4 +138,4 @@ public class DataManager {
 		
 	}*/
 
-}
+
