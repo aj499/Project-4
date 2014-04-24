@@ -52,7 +52,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @param newWorldData the DataManager to load data from
 	 */
 
-	public MapPanel(DataManager newWorldData, StudentData newStudentData){
+	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode type){
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
@@ -63,7 +63,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
-		setUp();
+		setUp(type);
 	}
 	
 	/**
@@ -72,7 +72,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * <p>
 	 * (Assumes that worldData has been set previously.)
 	 */
-	private void setUp(){
+	private void setUp(MapMode type){
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
 		
 		quizButton.setText("End Quiz");
@@ -99,7 +99,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		add(mapLabel, BorderLayout.WEST);	
 		add(infoBox, BorderLayout.EAST);
 		
-		/*if(type == MapMode.ECONOMIC){
+		if(type == MapMode.ECONOMIC){
 			JLabel GDPperCap = new JLabel();
 			JLabel GDPgrowth = new JLabel();
 			JLabel agriculture = new JLabel();
@@ -111,7 +111,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			JLabel econIssue = new JLabel();
 			JLabel difference = new JLabel();
 			
-		}//if Economic mode*/
+		}//if Economic mode
 		
 	}
 	
