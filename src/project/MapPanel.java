@@ -129,6 +129,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		currentStudent.addContinentSeen(continentToChangeTo, currentMapMode);
 		
 		//TODO: load new image here as appropriate
+		//TODO: update the InfoBox here as well
 		
 		//set up new buttons
 		layoutButtons();
