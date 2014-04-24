@@ -2,10 +2,12 @@ package project;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;//I think this is the right class to use; change later?
 import java.util.HashMap;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -53,7 +55,7 @@ public class MapPanel extends JPanel implements ActionListener{
 	 * 
 	 * @param newWorldData the DataManager to load data from
 	 */
-	public MapPanel(DataManager newWorldData){
+	public MapPanel(DataManager newWorldData, MapMode type){
 		//TODO: do Swing set up here as necessary
 		//ie width, height setting, etc
 		
@@ -61,7 +63,7 @@ public class MapPanel extends JPanel implements ActionListener{
 		worldData = newWorldData;
 		
 		//delegate to helper function for rest of setup
-		init();
+		init(type);
 	}
 	
 	/**
@@ -70,7 +72,7 @@ public class MapPanel extends JPanel implements ActionListener{
 	 * <p>
 	 * (Assumes that worldData has been set previously.)
 	 */
-	private void init(){
+	private void init(MapMode type){
 		//setLayout(new BorderLayout());
 		
 		//set default values for what we're looking at
@@ -83,17 +85,30 @@ public class MapPanel extends JPanel implements ActionListener{
 		setSize(map.getIconWidth(), map.getIconHeight());
 		
 		JLabel mapLabel = new JLabel();
-		JLabel infoBox = new JLabel();
-		infoBox.setSize(20,map.getIconHeight());
+		JPanel infoBox = new JPanel();
+		infoBox.setPreferredSize(new Dimension(100, map.getIconHeight()));
 		infoBox.setLocation(200,200);
 		infoBox.setBackground(Color.RED);
 		infoBox.setOpaque(true);
-		infoBox.setText("INFOBOX");
 
 		mapLabel.setIcon(map);
 
 		add(mapLabel, BorderLayout.WEST);	
 		add(infoBox, BorderLayout.EAST);
+		
+		if(type == MapMode.ECONOMIC){
+			JLabel GDPperCap = new JLabel();
+			JLabel GDPgrowth = new JLabel();
+			JLabel agriculture = new JLabel();
+			JLabel econFreeScore= new JLabel();
+			JLabel lowIncome = new JLabel();
+			JLabel highIncome = new JLabel();
+			JLabel majorIndustries = new JLabel();
+			JLabel unemployment = new JLabel();
+			JLabel econIssue = new JLabel();
+			JLabel difference = new JLabel();
+			
+		}//if Economic mode
 		
 	}
 	
