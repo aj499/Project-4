@@ -21,18 +21,16 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private static final long serialVersionUID = 1l;
 	
 	private DataManager worldData;
+	private QuizRunner quizRunner;
 	
 	//state variables
 	private String currentView;//which continent are we looking at?	
 	private String currentCountry;//what country are we looking at right now?
 	private MapMode currentMapMode;//what mode is the map in?
-	private boolean quizRunning;//is the user in a quiz right now?
+	//private boolean quizRunning;//is the user in a quiz right now?
 	private StudentData currentStudent;//who is the user and what have they seen?
-	private boolean inPreTest;//are they taking the pretest
-	//for use by quiz
-	private String currentQuestion;
-	private String currentCorrectAnswer;
-	private String currentAnswer;
+	//private boolean inPreTest;//are they taking the pretest
+
 	
 	//buttons for the countries
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
@@ -64,9 +62,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			buttons.put(countryButtonList[i], new AppButton(countryButtonList[i]));
 		}
 		
-		//set up basic state
-		inPreTest = true;//we start by trapping the user in the pre-test
-		quizRunning = true;
+		//set up a QuizRunner and basic state
+		String initialQuizTopic = "NULL"; //TODO:= something derived from StudentData
+		
+		quizRunner = new QuizRunner(worldData, initialQuizTopic);
+		quizRunner.startQuiz(initialQuizTopic, currentMapMode);
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
@@ -225,7 +225,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//if the button clicked was the button for a country and we're not in a quiz
 		//change the view to that country
-		if(!quizRunning && buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast works…make all buttons AppButtons to ensure that
+		if(!quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast works…make all buttons AppButtons to ensure that
 			String countryClicked = ((AppButton) e.getSource()).getId();
 			
 			//update appropriately
@@ -236,51 +236,27 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				changeContinent("World");
 			}
 		} else if(e.getSource().equals(quizButton)){//start/stop quiz
-			if(quizRunning){//if they're in a quiz
-				if(inPreTest){//don't let people bail on the pre-test
+			if(quizRunner.getQuizRunning()){//if they're in a quiz
+				if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
 					JOptionPane.showMessageDialog(this, "You must finish the pre-test first!", "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
 				} else {
 					//show a message to the user
 					JOptionPane.showMessageDialog(this, "Thanks for playing!", "Quiz ended", JOptionPane.INFORMATION_MESSAGE);
 					
-					//flip the bool
-					quizRunning = false;
+					//end the quiz
+					quizRunner.endQuiz();
 					
 					//change the label on the button
 					quizButton.setText("Start Quiz");
 				}
-			} else if(!quizRunning){//they're not in a quiz, so let's start one!
-				//flip the bool
-				quizRunning = true;
-				
+			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
 				//change the label on the button
 				quizButton.setText("End Quiz");
 				
 				//start the quiz
-				runQuiz();
+				quizRunner.startQuiz(currentView, currentMapMode);
 			}
 		}
-	}
-	
-	/**
-	 * Presents the user with a series of the questions on the
-	 * currently selected continent based on the current map mode
-	 * (economic or health)
-	 */
-	private void runQuiz(){
-		//if(currentView.equals("World")){//you can't start a quiz from the world view
-		//	JOptionPane.showMessageDialog(this, "You must select a continent to take a quiz!", "Error", JOptionPane.ERROR_MESSAGE);
-		//} else {
-			//Vector<String> subjectCountries = worldData.getDataForContinent(currentView).getCountryList();
-			
-		//get the list of subject countries by bouncing currentView off of StudentData.getCountriesSeen
-		
-			//TODO: do the actual quiz here
-			//TODO: programmatic question generation; elsewhere
-			//present question
-			//check answer
-			//profit/repeat!
-		//}
 	}
 
 	/**
