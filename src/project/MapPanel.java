@@ -34,6 +34,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private MapMode currentMapMode;//what mode is the map in?
 	private boolean quizRunning;//is the user in a quiz right now?
 	private StudentData currentStudent;//who is the user and what have they seen?
+	private boolean inPreTest;//are they taking the pretest
 	
 	//buttons for the countries
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
@@ -55,24 +56,28 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @param newWorldData the DataManager to load data from
 	 */
 	public MapPanel(DataManager newWorldData, StudentData newStudentData){
-		//TODO: do Swing set up here as necessary
-		//ie width, height setting, etc
-		
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
 		
-		//delegate to helper function for rest of setup
+		//set up basic state
+		inPreTest = true;//we start by trapping the user in the pre-test
+		quizRunning = true;
+		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
+		
+		//delegate to helper function for UI setup
 		setUp();
 	}
 	
 	/**
-	 * Sets up a MapPanel.
+	 * Does Swing set up for a MapPanel.
 	 * Helper function for the constructor.
 	 * <p>
 	 * (Assumes that worldData has been set previously.)
 	 */
 	private void setUp(){
+		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
+		
 		setLayout(new BorderLayout());
 		//set default values for what we're looking at
 		currentView = "World";
@@ -151,14 +156,18 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			}
 		} else if(e.getSource().equals(quizButton)){//start/stop quiz
 			if(quizRunning){//if they're in a quiz
-				//show a message to the user
-				JOptionPane.showMessageDialog(this, "Thanks for playing!", "Quiz ended", JOptionPane.INFORMATION_MESSAGE);
-				
-				//flip the bool
-				quizRunning = false;
-				
-				//change the label on the button
-				quizButton.setText("Start Quiz");
+				if(inPreTest){//don't let people bail on the pre-test
+					JOptionPane.showMessageDialog(this, "You must finish the pre-test first!", "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
+				} else {
+					//show a message to the user
+					JOptionPane.showMessageDialog(this, "Thanks for playing!", "Quiz ended", JOptionPane.INFORMATION_MESSAGE);
+					
+					//flip the bool
+					quizRunning = false;
+					
+					//change the label on the button
+					quizButton.setText("Start Quiz");
+				}
 			} else if(!quizRunning && currentView != "World"){//they're in a continent but not in a quiz, so let's start one!
 				//flip the bool
 				quizRunning = true;
