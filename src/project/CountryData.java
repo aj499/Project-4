@@ -1,5 +1,7 @@
 package project;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -27,6 +29,9 @@ public class CountryData {
 	private String majorHealthIssue;
 	private String makeADifferenceHealth;
 	private String photoPathHealth;
+	
+	private int buttonXPosition;
+	private int buttonYPosition;
 	
 	CountryData() {
 		
@@ -141,6 +146,15 @@ public class CountryData {
 	public void setPhotoPathHealth(String newPhotoPathHealth) {
 		photoPathHealth=newPhotoPathHealth;
 	}
+	
+	public void setButtonXPosition(int newButtonXPosition) {
+		buttonXPosition = newButtonXPosition;
+	}
+	
+	public void setButtonYPosition(int newButtonYPosition) {
+		buttonYPosition = newButtonYPosition;
+	}
+	
 	//GETTERS//-------------------------------------
 	public String getCountryName() {
 		return countryName;
@@ -229,7 +243,48 @@ public class CountryData {
 	public String getPhotoPathHealth() {
 		return photoPathHealth;
 	}
+	
+	public int getButtonXPosition(){
+		return buttonXPosition;
+	}
+	
+	public int getButtonYPosition(){
+		return buttonYPosition;
+	}
+	
+	
 
+	public void setAll(BufferedReader bufferedReader){
+		try {
+			setGpdPerCapita(bufferedReader.readLine());
+			setGdpRealGrowthRate(bufferedReader.readLine());
+			setAgriculturePercentageOfGdp(bufferedReader.readLine());
+			setEconomicFreedomScore(bufferedReader.readLine());
+			setLowestTenIncome(bufferedReader.readLine());
+			setHighestTenIncome(bufferedReader.readLine());
+			setMajorIndustries(bufferedReader.readLine());
+			setUnemploymentRate(bufferedReader.readLine());
+			setMajorEconomicIssue(bufferedReader.readLine());
+			setMakeADifferenceEconomic(bufferedReader.readLine());
+			setPhotoPathEconomic(bufferedReader.readLine());
+			
+			setLifeExpectancy(bufferedReader.readLine());
+			setMaternalMortalityRate(bufferedReader.readLine());
+			setInfantMortalityRate(bufferedReader.readLine());
+			setChildrenUnderweightPercentage(bufferedReader.readLine());
+			setPhysicianDensity(bufferedReader.readLine());
+			setRiskOfInfectiousDisease(bufferedReader.readLine());
+			setMostCommonDiseases(bufferedReader.readLine());
+			setMajorHealthIssue(bufferedReader.readLine());
+			setMakeADifferenceHealth(bufferedReader.readLine());
+			setPhotoPathHealth(bufferedReader.readLine());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
 
 public String generateEconQuestion(){
 	
