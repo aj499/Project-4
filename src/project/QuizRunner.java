@@ -1,5 +1,8 @@
 package project;
 
+import java.util.Random;
+import java.util.Vector;
+
 public class QuizRunner {
 	private static final int TOTAL_QUESTIONS_TO_ASK = 20;
 	
@@ -14,6 +17,8 @@ public class QuizRunner {
 	private boolean inPreTest;
 	private boolean quizRunning;
 	
+	private Vector<String> questionsAsked;
+	
 	private DataManager worldData;
 	
 	public QuizRunner(DataManager newWorldData, String newPreTestTopic){
@@ -22,6 +27,8 @@ public class QuizRunner {
 		
 		inPreTest = true;
 		quizRunning = false;
+		
+		questionsAsked = new Vector<String>();
 	}
 	
 	public void startQuiz(String topic, MapMode mode){
@@ -29,6 +36,15 @@ public class QuizRunner {
 		currentMode = mode;
 		
 		currentQuestionNumber = 0;
+	}
+	
+	private void loadQuestion(){
+		String prospectiveQuestion;
+		
+		Vector<String> countriesToAskAbout = worldData.getDataForContinent(currentTopic).getCountryList();
+		Random random = new Random();
+		
+		prospectiveQuestion = worldData.getDataForCountry(countriesToAskAbout.get(random.nextInt(countriesToAskAbout.size()))).generateQuestion();
 	}
 	
 	public void endQuiz(){

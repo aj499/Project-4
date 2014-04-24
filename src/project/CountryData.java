@@ -51,6 +51,10 @@ public class CountryData {
 		photoPathHealth="no photi path health";
 	}
 	
+	public String generateQuestion(){
+		return "";//TODO: remove, dummy implementation
+	}
+	
 	public void setCountryName(String newCountryName) {
 		countryName=newCountryName;
 	}
