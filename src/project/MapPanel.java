@@ -75,6 +75,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private void setUp(MapMode type){
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
 		
+		quizButton = new AppButton();
 		quizButton.setText("End Quiz");
 		
 		setLayout(new BorderLayout());
@@ -100,16 +101,28 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		add(infoBox, BorderLayout.EAST);
 		
 		if(type == MapMode.ECONOMIC){
-			JLabel GDPperCap = new JLabel();
-			JLabel GDPgrowth = new JLabel();
-			JLabel agriculture = new JLabel();
-			JLabel econFreeScore= new JLabel();
-			JLabel lowIncome = new JLabel();
-			JLabel highIncome = new JLabel();
+			JLabel gdpPerCapita = new JLabel();
+			JLabel gdpRealGrowthRate = new JLabel();
+			JLabel agriculturePercentageOfGdp = new JLabel();
+			JLabel economicFreedomScore= new JLabel();
+			JLabel lowestTenIncome = new JLabel();
+			JLabel highestTenIncome = new JLabel();
 			JLabel majorIndustries = new JLabel();
-			JLabel unemployment = new JLabel();
-			JLabel econIssue = new JLabel();
-			JLabel difference = new JLabel();
+			JLabel unemploymentRate = new JLabel();
+			JLabel majorEconomicIssue = new JLabel();
+			JLabel makeADifferenceEconomic = new JLabel();
+			
+			CountryData workingCountry = worldData.getDataForCountry(currentCountry);
+			gdpPerCapita.setText(workingCountry.getGpdPerCapita());
+			gdpRealGrowthRate.setText(workingCountry.getGdpRealGrowthRate());
+			agriculturePercentageOfGdp.setText(workingCountry.getagriculturePercentageOfGdp());
+			economicFreedomScore.setText(workingCountry.getEconomicFreedomScore());
+			lowestTenIncome.setText(workingCountry.getLowestTenIncome());
+			highestTenIncome.setText(workingCountry.getHighestTenIncome());
+			majorIndustries.setText(workingCountry.getMajorIndustries());
+			unemploymentRate.setText(workingCountry.getUnemploymentRate());
+			majorEconomicIssue.setText(workingCountry.getMajorEconomicIssue());
+			makeADifferenceEconomic.setText(workingCountry.getMakeADifferenceEconomic());
 			
 		}//if Economic mode
 		
