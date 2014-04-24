@@ -4,8 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Label;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +18,7 @@ import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 
 public class WelcomeWindow extends JApplet implements ActionListener{
 
@@ -31,6 +34,8 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	
 	//Initial JPanel that will be presented on the applet
 	private JPanel window;
+	//JLabel that displays the map image
+	private JLabel mapLabel;
 	//MapPanel object that is the main JPanel that will be presented on the applet
 	private MapPanel mapPanel;
 	//Button that starts the program
@@ -47,23 +52,30 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	public void init(){
 		
 		window = new JPanel();
+		window.setLayout(new BoxLayout(window, BoxLayout.PAGE_AXIS));
+		
 		startButton = new JButton("Start");
 		startButton.addActionListener(this);
 		startButton.setSize(200, 50);
 		
-		map = new ImageIcon("mapImage2.png"); 
-		referenceMap = new ImageIcon("lifeExpectancyEdit.png"); 
 		username = new TextField(20);
-		setSize(referenceMap.getIconWidth() + 200, referenceMap.getIconHeight());
-		JLabel mapLabel = new JLabel();
-		mapLabel.setSize(referenceMap.getIconWidth() + 200, referenceMap.getIconHeight());
-		mapLabel.setIcon(map);
-		mapLabel.add(startButton);
-		mapLabel.add(username);
-		startButton.setLocation((referenceMap.getIconWidth() + 200)/2 - 200, 300);
-		username.setLocation(200, 100);
 		
+		JLabel mapLabel = new JLabel();
+		
+		ImageIcon map = new ImageIcon("mapImage2.png"); 
+		ImageIcon referenceMap = new ImageIcon("lifeExpectancyEdit.png"); 
+		
+		mapLabel.setIcon(map);
+		
+		JLabel prompt = new JLabel("Please enter your name:");
+		
+		setSize(referenceMap.getIconWidth() + 200, referenceMap.getIconHeight() + 200);
 		window.add(mapLabel);
+		window.add(startButton);
+		window.add(prompt);
+		window.add(username);
+		mapLabel.setAlignmentX(CENTER_ALIGNMENT);
+		mapLabel.setAlignmentY(CENTER_ALIGNMENT);
 		window.setVisible(true);
 		content.add(window);
 		

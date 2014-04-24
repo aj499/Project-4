@@ -29,11 +29,6 @@ public class MapPanel extends JPanel implements ActionListener{
 	
 	private DataManager worldData;
 	
-	//Width of the window
-	private final static int width = 600;
-	//Height of the window
-	private final static int height = 700;
-	
 	//
 	private Continent currentView;//which continent are we looking at?
 	private String currentCountry;//what country are we looking at right now?
@@ -76,7 +71,8 @@ public class MapPanel extends JPanel implements ActionListener{
 	 * (Assumes that worldData has been set previously.)
 	 */
 	private void init(){
-		setLayout(new BorderLayout());
+		//setLayout(new BorderLayout());
+		
 		//set default values for what we're looking at
 		currentView = Continent.WORLD;
 		currentCountry = "none";
@@ -88,19 +84,17 @@ public class MapPanel extends JPanel implements ActionListener{
 		
 		JLabel mapLabel = new JLabel();
 		JLabel infoBox = new JLabel();
-		infoBox.setSize(200,map.getIconHeight());
+		infoBox.setSize(20,map.getIconHeight());
+		infoBox.setLocation(200,200);
 		infoBox.setBackground(Color.RED);
-		infoBox.setVisible(true);
-		
+		infoBox.setOpaque(true);
 		infoBox.setText("INFOBOX");
-		
+
 		mapLabel.setIcon(map);
 
 		add(mapLabel, BorderLayout.WEST);	
 		add(infoBox, BorderLayout.EAST);
-
-		mapLabel.validate();
-		mapLabel.repaint();
+		
 	}
 	
 	/**
