@@ -36,8 +36,6 @@ public class DataManager {
 		fileLocation = newFileLocation;
 	}
 	
-
-	
 	public void parseData(){
 
 		

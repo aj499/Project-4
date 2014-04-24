@@ -17,6 +17,13 @@ public class AppButton extends JButton{
 	private String id = "null";//default value
 	
 	/**
+	 * Default constructor that creates a new AppButton with default parameters.
+	 */
+	public AppButton(){
+		super();//call JButton constructor, since that probably does something important
+	}
+	
+	/**
 	 * Creates a new AppButton with the given id.
 	 * 
 	 * @param newId the id for the new AppButton

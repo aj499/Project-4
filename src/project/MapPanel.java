@@ -2,8 +2,9 @@ package project;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
+import java.awt.Dimension;
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
@@ -51,7 +52,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * 
 	 * @param newWorldData the DataManager to load data from
 	 */
-	public MapPanel(DataManager newWorldData, StudentData newStudentData){
+
+	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode type){
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
@@ -70,7 +72,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
-		setUp();
+		setUp(type);
 	}
 	
 	/**
@@ -79,9 +81,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * <p>
 	 * (Assumes that worldData has been set previously.)
 	 */
-	private void setUp(){
+	private void setUp(MapMode type){
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
 		
+		quizButton = new AppButton();
 		quizButton.setText("End Quiz");
 		
 		setLayout(new BorderLayout());
@@ -95,13 +98,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		setSize(map.getIconWidth(), map.getIconHeight());
 		
 		JLabel mapLabel = new JLabel();
-		JLabel infoBox = new JLabel();
-		infoBox.setSize(200,map.getIconHeight());
+		JPanel infoBox = new JPanel();
+		infoBox.setPreferredSize(new Dimension(100, map.getIconHeight()));
+		infoBox.setLocation(200,200);
 		infoBox.setBackground(Color.RED);
-		infoBox.setVisible(true);
-		
-		infoBox.setText("INFOBOX");
-		
+		infoBox.setOpaque(true);
+
 		mapLabel.setIcon(map);
 
 		add(mapLabel, BorderLayout.WEST);	
@@ -192,6 +194,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//note that we've seen this new country
 		currentStudent.addCountrySeen(currentCountry, currentMapMode);
+		
 	}
 	
 	/**
@@ -206,6 +209,32 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//extract data from the CountryData and format it appropriately
 		//then add it
+		
+		if(currentMapMode == MapMode.ECONOMIC){
+			JLabel gdpPerCapita = new JLabel();
+			JLabel gdpRealGrowthRate = new JLabel();
+			JLabel agriculturePercentageOfGdp = new JLabel();
+			JLabel economicFreedomScore= new JLabel();
+			JLabel lowestTenIncome = new JLabel();
+			JLabel highestTenIncome = new JLabel();
+			JLabel majorIndustries = new JLabel();
+			JLabel unemploymentRate = new JLabel();
+			JLabel majorEconomicIssue = new JLabel();
+			JLabel makeADifferenceEconomic = new JLabel();
+			
+			//CountryData workingCountry = worldData.getDataForCountry(currentCountry);
+			gdpPerCapita.setText(newCountry.getGpdPerCapita());
+			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
+			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
+			economicFreedomScore.setText(newCountry.getEconomicFreedomScore());
+			lowestTenIncome.setText(newCountry.getLowestTenIncome());
+			highestTenIncome.setText(newCountry.getHighestTenIncome());
+			majorIndustries.setText(newCountry.getMajorIndustries());
+			unemploymentRate.setText(newCountry.getUnemploymentRate());
+			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
+			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
+			
+		}//if Economic mode
 		
 		
 	}
