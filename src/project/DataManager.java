@@ -3,7 +3,14 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+<<<<<<< HEAD
 import java.io.FileReader;
+=======
+<<<<<<< HEAD
+import java.io.FileReader;
+=======
+>>>>>>> origin/Min
+>>>>>>> Joe
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,6 +47,11 @@ public class DataManager {
 	}
 	
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Joe
 	
 	public void parseData(){
 		int numContinents = 1;
@@ -91,6 +103,10 @@ public class DataManager {
 		}
 		
 	}
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Min
+>>>>>>> Joe
 	
 
 	
@@ -112,9 +128,23 @@ public class DataManager {
 		return new CountryData();
 	}
 	
+<<<<<<< HEAD
 	public static void main(String args[]){
 		DataManager dm = new DataManager("/Users/michaelmcaneny/Desktop/exampleData.txt");
 		
+=======
+<<<<<<< HEAD
+	public static void main(String args[]){
+=======
+	public ContinentData getDataForContinent(String continentName){
+		//TODO: actually implement this function!
+		return new ContinentData();
+	}
+	
+	/*public static void main(String args[]){
+>>>>>>> origin/Min
+		DataManager dm = new DataManager("hello");
+>>>>>>> Joe
 		dm.parseData();
 		
 		ArrayList<String> countriesInAfrica = new ArrayList<String>();
@@ -138,5 +168,14 @@ public class DataManager {
 		System.out.println("USA: " + usa.getMajorHealthIssue());
 		System.out.println("Africa: " + africa.getContinentName());
 		
+<<<<<<< HEAD
 	}
+=======
+<<<<<<< HEAD
+	}
+=======
+	}*/
+
+>>>>>>> origin/Min
+>>>>>>> Joe
 }
