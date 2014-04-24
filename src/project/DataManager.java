@@ -3,7 +3,9 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+
 import java.io.FileReader;
+
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
@@ -38,8 +40,16 @@ public class DataManager {
 	}
 	
 
+
 	
+<<<<<<< HEAD
 	public void parseData(){		
+=======
+	public void parseData(){
+
+		
+		
+>>>>>>> origin/Lauren
 		try{
 			FileInputStream fileInputStream = new FileInputStream(fileLocation);
 			DataInputStream dataInputStream = new DataInputStream(fileInputStream);
@@ -73,10 +83,18 @@ public class DataManager {
 				currentCountry.setMakeADifferenceHealth(bufferedReader.readLine());
 				currentCountry.setPhotoPathHealth(bufferedReader.readLine());
 				countryData.put(currentCountry.getCountryName(), currentCountry);
+<<<<<<< HEAD
 				bufferedReader.readLine();
 			}
 			bufferedReader.close();
 			dataLoaded = true;
+=======
+				System.out.println("key was " + currentCountry.getCountryName());
+				bufferedReader.readLine();
+			}
+			
+			bufferedReader.close();
+>>>>>>> origin/Lauren
 		}
 		catch(Exception e){
 			System.out.println(e.toString());
@@ -84,6 +102,11 @@ public class DataManager {
 		}
 		
 	}
+
+	
+	
+		
+	
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -93,13 +116,35 @@ public class DataManager {
 		return (String[]) countryData.keySet().toArray();
 	}
 	
+	/**
+	 * Returns a list of all the continents in the countryData hash.
+	 * 
+	 * @return a list of all the continents in the countryData hash
+	 */
+	public String[] getContinentList(){
+		return (String[]) continentData.keySet().toArray();
+	}
+	
 	public CountryData getDataForCountry(String countryName){
 		//TODO: actually implement this function!
 		return new CountryData();
 	}
 	
+<<<<<<< HEAD
 	public static void main(String args[]){
 		DataManager dm = new DataManager("/Users/michaelmcaneny/Desktop/exampleData.txt");
+=======
+
+
+	public ContinentData getDataForContinent(String continentName){
+		//TODO: actually implement this function!
+		return new ContinentData();
+	}
+	}
+	
+	/*public static void main(String args[]){
+		DataManager dm = new DataManager("hello");
+>>>>>>> origin/Lauren
 		dm.parseData();
 		CountryData peru = new CountryData();
 		CountryData mongolia = new CountryData();
@@ -107,11 +152,19 @@ public class DataManager {
 		usa = dm.countryData.get("USA");
 		peru = dm.countryData.get("Peru");
 		mongolia = dm.countryData.get("Mongolia");
+<<<<<<< HEAD
 		usa.getCountryName();
 		
 		System.out.println("Peru: " + peru.getMajorHealthIssue());
 		System.out.println("Mongolia: " + mongolia.getMajorHealthIssue());
 		System.out.println("USA: " + usa.getMajorHealthIssue());
+=======
+		System.out.println("Peru: " + peru.getMajorHealthIssue());
+		System.out.println("Mongolia: " + mongolia.getMajorHealthIssue());
+		System.out.println("USA: " + usa.getMajorHealthIssue());
+		System.out.println(dm.countryData.size());
+>>>>>>> origin/Lauren
 		
-	}
-}
+	}*/
+
+

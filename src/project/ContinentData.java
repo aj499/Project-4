@@ -15,7 +15,7 @@ public class ContinentData extends CountryData{
 	private String continentName;
 	private String gpdPerCapita;
 	private String gdpRealGrowthRate; 
-	private String agriculturePercentageOfGdp;
+	private String agriculturePercentageOfGDP;
 	private String economicFreedomScore;
 	private String lowestTenIncome;
 	private String highestTenIncome;
@@ -34,16 +34,15 @@ public class ContinentData extends CountryData{
 	private String majorHealthIssue;
 	private String makeADifferenceHealth;
 	private String photoPathHealth;
-	private Image healthMapImage;
-	private Image econMapImage;
+	
 	private ArrayList<String> countryList;
 	
 ContinentData() {
 		
-		continentName= "new country";
+		continentName= "new continent";
 		gpdPerCapita= "no money";
 		gdpRealGrowthRate="doesn't grow"; 
-		agriculturePercentageOfGdp="no agriculture percentage";
+		agriculturePercentageOfGDP="no agriculture percentage";
 		economicFreedomScore= "no economic freedom";
 		lowestTenIncome="no lowest ten income";
 		highestTenIncome="no highest ten income";
@@ -55,17 +54,17 @@ ContinentData() {
 		lifeExpectancy="nobody lives";
 		maternalMortalityRate="all mothers live";
 		infantMortalityRate="all infants live";
-		childrenUnderweightPercentage="all children are eating good";
+		childrenUnderweightPercentage="all children are eating well";
 		physicianDensity="no doctors";
 		riskOfInfectiousDisease="disease free";
 		mostCommonDiseases="no common colds"; 
 		majorHealthIssue="everyone's healthy";
 		makeADifferenceHealth="can't make a health difference";
-		photoPathHealth="no photi path health";
+		photoPathHealth="no photo path health";
 	}
 
-public void setCountryName(String newCountryName) {
-	continentName=newCountryName;
+public void setContinentName(String newContinentName) {
+	continentName=newContinentName;
 }
 
 public void setGpdPerCapita(String newGpdPerCapita) {
@@ -76,8 +75,8 @@ public void setGdpRealGrowthRate(String newGdpRealGrowthRate) {
 	gdpRealGrowthRate=newGdpRealGrowthRate;
 }
 
-public void setAgriculturePercentageOfGdp(String newgpdPerCapita) {
-	gpdPerCapita=newgpdPerCapita;
+public void setAgriculturePercentageOfGdp(String newagriculturePercentageOfGdp) {
+	agriculturePercentageOfGDP=newagriculturePercentageOfGdp;
 }
 
 public void setEconomicFreedomScore(String newEconomicFreedomScore) {
@@ -165,7 +164,7 @@ public String getGdpRealGrowthRate() {
 }
 
 public String getagriculturePercentageOfGdp() {
-	return gpdPerCapita;
+	return agriculturePercentageOfGDP;
 }
 
 public String getEconomicFreedomScore() {
