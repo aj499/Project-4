@@ -226,4 +226,12 @@ public class CountryData {
 	public String getPhotoPathHealth() {
 		return photoPathHealth;
 	}
+	
+	public int getButtonXPosition(){
+		return 4;
+	}
+	
+	public int getButtonYPosition(){
+		return 5;
+	}
 }

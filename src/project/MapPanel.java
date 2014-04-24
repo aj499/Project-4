@@ -105,6 +105,88 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 		mapLabel.validate();
 		mapLabel.repaint();
+		
+		//layoutButtons();//set up buttons for the current view
+	}
+	
+	/**
+	 * Helper function that performs all the work (UI, etc.) to change the view
+	 * to a given continent.
+	 * 
+	 * @param continentToChangeTo the new continent to view
+	 */
+	private void changeContinent(String continentToChangeTo){
+		//clear screen of buttons
+		sweepButtons();
+		
+		currentView = continentToChangeTo;
+		
+		//note that we've now seen this new continent
+		currentStudent.addContinentSeen(continentToChangeTo, currentMapMode);
+		
+		//TODO: load new image here as appropriate
+		
+		//set up new buttons
+		layoutButtons();
+	}
+	
+	/**
+	 * Remove all the country buttons currently on the screen.
+	 */
+	private void sweepButtons(){
+		if(currentView != "World"){//if it's in world view, there's no need to sweep buttons
+			//get a list of buttons to cull
+			Vector<String> countriesToSweep = worldData.getDataForContinent(currentView).getCountryList();
+			
+			//remove each one from the panel
+			for(int i = 0; i < countriesToSweep.size(); i++){
+				remove(buttons.get(countriesToSweep.get(i)));	
+			}
+		}
+	}
+	
+	/**
+	 * Lays out the buttons for the currently visible continent's countries.
+	 */
+	private void layoutButtons(){
+		if(currentView != "World"){//if it's in world view, there's no buttons to layout
+			//get a list of buttons to add to the layout
+			Vector<String> countriesToLoad = worldData.getDataForContinent(currentView).getCountryList();
+			
+			CountryData countryToLayOut;
+			
+			//add each one to the panel
+			for(int i = 0; i < countriesToLoad.size(); i++){
+				//get the country data for the country
+				countryToLayOut = worldData.getDataForCountry(countriesToLoad.get(i));
+				
+				//get coordinates of button
+				int xPositionForButton = countryToLayOut.getButtonXPosition();
+				int yPositionForButton = countryToLayOut.getButtonYPosition();
+				
+				//set coordinate of button
+				buttons.get(countriesToLoad.get(i)).setLocation(xPositionForButton, yPositionForButton);
+				
+				//add it to the panel
+				add(buttons.get(countriesToLoad.get(i)));
+			}
+		} 
+	}
+	
+	/**
+	 * Helper function that performs all the work (UI, etc.) to change the view
+	 * to the given county.
+	 * 
+	 * @param countryToChangeTo the new country to view
+	 */
+	private void changeCountry(String countryToChangeTo){
+		currentCountry = countryToChangeTo;
+		
+		//update the info displayed in the info box
+		updateInfoBox(worldData.getDataForCountry(currentCountry));
+		
+		//note that we've seen this new country
+		currentStudent.addCountrySeen(currentCountry, currentMapMode);
 	}
 	
 	/**
@@ -112,7 +194,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * 
 	 * @param newCountry the data to display about the given country
 	 */
-	public void updateInfoBox(CountryData newCountry){
+	private void updateInfoBox(CountryData newCountry){
 		//TODO: implement this once layout is done
 		
 		//clear the infobox
@@ -132,31 +214,21 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e){
 		System.out.println("Event " + e.toString() + " did the thing!");
 		
-		//if the button clicked was the button for a country
-		if(buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast worksÉmake all buttons AppButtons to ensure that
+		//TODO: URGENT work out how to use buttons for selection of answers on the quiz!
+		//have the runQuiz function just ask a question at a time and check answer, jumping back via the button clicks each time?
+		//Éseems like it'll have to be that way, unless we go multithreadÉ
+		
+		//if the button clicked was the button for a country and we're not in a quiz
+		//change the view to that country
+		if(!quizRunning && buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast worksÉmake all buttons AppButtons to ensure that
 			String countryClicked = ((AppButton) e.getSource()).getId();
 			
-			//change currentCountry appropriately
-			currentCountry = countryClicked;
-			
-			//update the StudentData
-			currentStudent.addCountrySeen(currentCountry, currentMapMode);
-			
-			//update the info box
-			updateInfoBox(worldData.getDataForCountry(countryClicked));
+			//update appropriately
+			changeCountry(countryClicked);
 		} else if(e.getSource().equals(backButton)){//back button
 			if(!currentView.equals("World")){//we only need to change things if we're not in world view
-				//go back to World view
-				currentView = "World";
-				
-				//update the display layer appropriately
-				//TODO: implement once the layout is known/how to work with it
-				//something like
-				if(currentMapMode == MapMode.ECONOMIC){
-					//load economic world map
-				} else if(currentMapMode == MapMode.HEALTH){
-					//load health world map
-				}
+				//update appropriately
+				changeContinent("World");
 			}
 		} else if(e.getSource().equals(quizButton)){//start/stop quiz
 			if(quizRunning){//if they're in a quiz
@@ -227,13 +299,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
 					
 					if(continentData.isPointInBounds(mouseX, mouseY)){//if we're inside this continent
-						//note that we've changed continent
-						currentView = continentNames[i];
-						
-						//update StudentData
-						currentStudent.addContinentSeen(currentView, currentMapMode);
-						
-						//TODO: change layout appropriately here
+						//update appropriately
+						changeContinent(continentNames[i]);
 						
 						//stop checking by terminating the for loop
 						break;

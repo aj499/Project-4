@@ -1,7 +1,10 @@
 package project;
 
+import java.util.Vector;
+
 public class ContinentData extends CountryData{
 	private int topBound, bottomBound, rightBound, leftBound;
+	private Vector<String> countryList;
 	
 	/**
 	 * Check if the given point is inside this continent's bounding box.
@@ -18,5 +21,9 @@ public class ContinentData extends CountryData{
 		}
 		
 		return false;
+	}
+	
+	public Vector<String> getCountryList(){
+		return countryList;
 	}
 }
