@@ -63,11 +63,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		worldData = newWorldData;
 		currentStudent = newStudentData;
 		
-<<<<<<< HEAD
 		//set up basic state
 		inPreTest = true;//we start by trapping the user in the pre-test
 		quizRunning = true;
-=======
+
 		//create a button for each country
 		String[] countryButtonList = worldData.getCountryList();
 		for(int i = 0; i < countryButtonList.length; i++){
@@ -136,7 +135,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			JLabel difference = new JLabel();
 			
 		}//if Economic mode
-=======
+
 
 		mapLabel.validate();
 		mapLabel.repaint();
@@ -330,14 +329,14 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					//change the label on the button
 					quizButton.setText("Start Quiz");
 				}
-<<<<<<< HEAD
+
 			} else if(!quizRunning){//they're not in a quiz, so let's start one!
 				//flip the bool
 				quizRunning = true;
 				
-=======
+
 			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
->>>>>>> master
+>
 				//change the label on the button
 				quizButton.setText("End Quiz");
 				
