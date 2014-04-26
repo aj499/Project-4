@@ -1,10 +1,17 @@
 package project;
 
+<<<<<<< HEAD
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+=======
+/**
+ * CountryData class
+ * this class stores a country and the data about the country 
+ */
+>>>>>>> Joe
 public class CountryData {
 
 	private String countryName;
