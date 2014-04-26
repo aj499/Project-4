@@ -1,20 +1,15 @@
 package project;
 
-<<<<<<< HEAD
-=======
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
->>>>>>> Lauren
+
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.TextField;
-<<<<<<< HEAD
 import java.awt.Toolkit;
-=======
->>>>>>> Lauren
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -32,9 +27,7 @@ import javax.swing.JRadioButton;
 public class WelcomeWindow extends JApplet implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
-	
-<<<<<<< HEAD
-=======
+
 	//Width of the window
 	private final static int width = 600;
 	//Height of the window
@@ -43,7 +36,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	//Welcome message
 	private final String WELCOME_MESSAGE = "Welcome to the World Map";
 	
->>>>>>> Lauren
+
 	//Initial JPanel that will be presented on the applet
 	private JPanel window;
 	//MapPanel object that is the main JPanel that will be presented on the applet
@@ -62,13 +55,20 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private ImageIcon referenceMap;
 	//Textfield for user name
 	private TextField username; 
-<<<<<<< HEAD
 	//Initial type of map/quiz
 	private MapMode mapType;
 	//Radio button group
 	private ButtonGroup typeOptions;
 	
 	public void init(){
+		
+		window = new JPanel();
+		/*startButton = new JButton("Start");
+		startButton.addActionListener(this);
+		startButton.setSize(200, 50);*/
+
+		map = new ImageIcon("mapImage2.png"); 
+		referenceMap = new ImageIcon("lifeExpectancyEdit.png");
 		
 		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage2.png"));
 		window.setLayout(new BoxLayout(window, BoxLayout.PAGE_AXIS));
@@ -90,18 +90,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		typeOptions.add(healthButton);
 		
 		username = new TextField(10);
-=======
-	
-	public void init(){
-		
-		window = new JPanel();
-		startButton = new JButton("Start");
-		startButton.addActionListener(this);
-		startButton.setSize(200, 50);
->>>>>>> Lauren
-		
-		map = new ImageIcon("mapImage2.png"); 
-		referenceMap = new ImageIcon("lifeExpectancyEdit.png");
 		
 		JLabel prompt = new JLabel("Please enter your name:");
 		prompt.setPreferredSize(new Dimension(100,20));
@@ -116,11 +104,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		content.add(window);
 		
 	}//init
-	
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/Min
+
 	public class ImagePanel extends JPanel{
 		private static final long serialVersionUID = 1L;
 		private Image image = null;
@@ -142,24 +126,18 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		}
 	}
 	
-<<<<<<< HEAD
 	private void goToMapPanel(MapMode mapType){
 
 		System.out.print("OK");
-<<<<<<< HEAD
 		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"));
 
 		
 		//mapPanel = new MapPanel(null);
 
->>>>>>> Lauren
-=======
+
 		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), mapType);
-=======
-	private void goToMapPanel(MapMode type){
-		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
->>>>>>> Adam
->>>>>>> origin/Min
+
+		//mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
 		mapPanel.setVisible(true);
 		window.setVisible(false);
 		this.setContentPane(mapPanel);

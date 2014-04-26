@@ -36,15 +36,7 @@ public class DataManager {
 	public void setFileLocation(String newFileLocation){
 		fileLocation = newFileLocation;
 	}
-	
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
-	
->>>>>>> Lauren
-=======
->>>>>>> Adam
 	public void parseData(){
 
 		
