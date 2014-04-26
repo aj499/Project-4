@@ -74,7 +74,15 @@ public class CountryData {
 	public void setCountryName(String newCountryName) {
 		countryName=newCountryName;
 	}
+<<<<<<< HEAD
+	
+=======
 
+<<<<<<< HEAD
+>>>>>>> Joe
+	public void setGpdPerCapita(String newGpdPerCapita) {
+		gpdPerCapita=newGpdPerCapita;
+=======
 	/**
 	 * sets gdp per capita
 	 * setGpdPerCapita(String)
@@ -82,6 +90,7 @@ public class CountryData {
 	 */
 	public void setGdpPerCapita(String newGdpPerCapita) {
 		gdpPerCapita=newGdpPerCapita;
+>>>>>>> Joe
 	}
 	
 	/**
@@ -92,6 +101,14 @@ public class CountryData {
 		gdpRealGrowthRate=newGdpRealGrowthRate;
 	}
 	
+<<<<<<< HEAD
+<<<<<<< HEAD
+	public void setagriculturePercentageOfGdp(String newgpdPerCapita) {
+=======
+	public void setAgriculturePercentageOfGdp(String newgpdPerCapita) {
+>>>>>>> Joe
+		gpdPerCapita=newgpdPerCapita;
+=======
 	/**
 	 *sets Agriculture Percentage
 	 * setAgriculturePercentageOfGdp(String)
@@ -99,6 +116,7 @@ public class CountryData {
 	 */
 	public void setAgriculturePercentageOfGdp(String newagriculturePercentageOfGdp) {
 		agriculturePercentageOfGDP=newagriculturePercentageOfGdp;
+>>>>>>> Joe
 	}
 	
 	/**
