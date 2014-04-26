@@ -114,6 +114,10 @@ public class StudentData {
 		}
 	}
 	
+<<<<<<< HEAD
+=======
+
+>>>>>>> Adam
 	/**
 	 * Returns whether or not the student has looked at a given continent in the indicated mode.
 	 * 
@@ -131,4 +135,8 @@ public class StudentData {
 			return false; //backup, unreachable; to make Eclipse happy
 		}
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> Adam
 }

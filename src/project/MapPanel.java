@@ -8,15 +8,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
+<<<<<<< HEAD
 
+=======
+>>>>>>> Adam
 import java.util.Vector;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
+<<<<<<< HEAD
 
 	public enum Continent{
 		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
@@ -25,21 +28,25 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public enum MapMode{
 		ECONOMIC, HEALTH; //TODO: rename later as appropriate to content?
 	}
+=======
+>>>>>>> Adam
 	
 	/* --||-- BEGIN VARIABLES --||-- */
 	
-	//to make Eclipse shut up about the warning
+	//to make Eclipse shut up
 	private static final long serialVersionUID = 1l;
 	
 	private DataManager worldData;
+	private QuizRunner quizRunner;
 	
 	//state variables
 	private String currentView;//which continent are we looking at?	
 	private String currentCountry;//what country are we looking at right now?
 	private MapMode currentMapMode;//what mode is the map in?
-	private boolean quizRunning;//is the user in a quiz right now?
+	//private boolean quizRunning;//is the user in a quiz right now?
 	private StudentData currentStudent;//who is the user and what have they seen?
-	private boolean inPreTest;//are they taking the pretest
+	//private boolean inPreTest;//are they taking the pretest
+
 	
 	//buttons for the countries
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
@@ -66,9 +73,17 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		worldData = newWorldData;
 		currentStudent = newStudentData;
 		
-		//set up basic state
-		inPreTest = true;//we start by trapping the user in the pre-test
-		quizRunning = true;
+		//create a button for each country
+		String[] countryButtonList = worldData.getCountryList();
+		for(int i = 0; i < countryButtonList.length; i++){
+			buttons.put(countryButtonList[i], new AppButton(countryButtonList[i]));
+		}
+		
+		//set up a QuizRunner and basic state
+		String initialQuizTopic = "NULL"; //TODO:= something derived from StudentData
+		
+		quizRunner = new QuizRunner(worldData, initialQuizTopic);
+		quizRunner.startQuiz(initialQuizTopic, currentMapMode);
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
@@ -108,8 +123,109 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 		add(mapLabel, BorderLayout.WEST);	
 		add(infoBox, BorderLayout.EAST);
+
+		mapLabel.validate();
+		mapLabel.repaint();
 		
-		if(type == MapMode.ECONOMIC){
+		//layoutButtons();//set up buttons for the current view
+	}
+	
+	/**
+	 * Helper function that performs all the work (UI, etc.) to change the view
+	 * to a given continent.
+	 * 
+	 * @param continentToChangeTo the new continent to view
+	 */
+	private void changeContinent(String continentToChangeTo){
+		//clear screen of buttons
+		sweepButtons();
+		
+		currentView = continentToChangeTo;
+		
+		//note that we've now seen this new continent
+		currentStudent.addContinentSeen(continentToChangeTo, currentMapMode);
+		
+		//TODO: load new image here as appropriate
+		//TODO: update the InfoBox here as well
+		
+		//set up new buttons
+		layoutButtons();
+	}
+	
+	/**
+	 * Remove all the country buttons currently on the screen.
+	 */
+	private void sweepButtons(){
+		if(currentView != "World"){//if it's in world view, there's no need to sweep buttons
+			//get a list of buttons to cull
+			Vector<String> countriesToSweep = worldData.getDataForContinent(currentView).getCountryList();
+			
+			//remove each one from the panel
+			for(int i = 0; i < countriesToSweep.size(); i++){
+				remove(buttons.get(countriesToSweep.get(i)));	
+			}
+		}
+	}
+	
+	/**
+	 * Lays out the buttons for the currently visible continent's countries.
+	 */
+	private void layoutButtons(){
+		if(currentView != "World"){//if it's in world view, there's no buttons to layout
+			//get a list of buttons to add to the layout
+			Vector<String> countriesToLoad = worldData.getDataForContinent(currentView).getCountryList();
+			
+			CountryData countryToLayOut;
+			
+			//add each one to the panel
+			for(int i = 0; i < countriesToLoad.size(); i++){
+				//get the country data for the country
+				countryToLayOut = worldData.getDataForCountry(countriesToLoad.get(i));
+				
+				//get coordinates of button
+				int xPositionForButton = countryToLayOut.getButtonXPosition();
+				int yPositionForButton = countryToLayOut.getButtonYPosition();
+				
+				//set coordinate of button
+				buttons.get(countriesToLoad.get(i)).setLocation(xPositionForButton, yPositionForButton);
+				
+				//add it to the panel
+				add(buttons.get(countriesToLoad.get(i)));
+			}
+		} 
+	}
+	
+	/**
+	 * Helper function that performs all the work (UI, etc.) to change the view
+	 * to the given county.
+	 * 
+	 * @param countryToChangeTo the new country to view
+	 */
+	private void changeCountry(String countryToChangeTo){
+		currentCountry = countryToChangeTo;
+		
+		//update the info displayed in the info box
+		updateInfoBox(worldData.getDataForCountry(currentCountry));
+		
+		//note that we've seen this new country
+		currentStudent.addCountrySeen(currentCountry, currentMapMode);
+		
+	}
+	
+	/**
+	 * Fill the InfoBox with the given data on a country.
+	 * 
+	 * @param newCountry the data to display about the given country
+	 */
+	private void updateInfoBox(CountryData newCountry){
+		//TODO: implement this once layout is done
+		
+		//clear the infobox
+		
+		//extract data from the CountryData and format it appropriately
+		//then add it
+		
+		if(currentMapMode == MapMode.ECONOMIC){
 			JLabel gdpPerCapita = new JLabel();
 			JLabel gdpRealGrowthRate = new JLabel();
 			JLabel agriculturePercentageOfGdp = new JLabel();
@@ -121,34 +237,19 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			JLabel majorEconomicIssue = new JLabel();
 			JLabel makeADifferenceEconomic = new JLabel();
 			
-			CountryData workingCountry = worldData.getDataForCountry(currentCountry);
-			gdpPerCapita.setText(workingCountry.getGpdPerCapita());
-			gdpRealGrowthRate.setText(workingCountry.getGdpRealGrowthRate());
-			agriculturePercentageOfGdp.setText(workingCountry.getagriculturePercentageOfGdp());
-			economicFreedomScore.setText(workingCountry.getEconomicFreedomScore());
-			lowestTenIncome.setText(workingCountry.getLowestTenIncome());
-			highestTenIncome.setText(workingCountry.getHighestTenIncome());
-			majorIndustries.setText(workingCountry.getMajorIndustries());
-			unemploymentRate.setText(workingCountry.getUnemploymentRate());
-			majorEconomicIssue.setText(workingCountry.getMajorEconomicIssue());
-			makeADifferenceEconomic.setText(workingCountry.getMakeADifferenceEconomic());
+			//CountryData workingCountry = worldData.getDataForCountry(currentCountry);
+			gdpPerCapita.setText(newCountry.getGpdPerCapita());
+			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
+			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
+			economicFreedomScore.setText(newCountry.getEconomicFreedomScore());
+			lowestTenIncome.setText(newCountry.getLowestTenIncome());
+			highestTenIncome.setText(newCountry.getHighestTenIncome());
+			majorIndustries.setText(newCountry.getMajorIndustries());
+			unemploymentRate.setText(newCountry.getUnemploymentRate());
+			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
+			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
 			
 		}//if Economic mode
-		
-	}
-	
-	/**
-	 * Fill the InfoBox with the given data on a country.
-	 * 
-	 * @param newCountry the data to display about the given country
-	 */
-	public void updateInfoBox(CountryData newCountry){
-		//TODO: implement this once layout is done
-		
-		//clear the infobox
-		
-		//extract data from the CountryData and format it appropriately
-		//then add it
 		
 		
 	}
@@ -162,78 +263,44 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e){
 		System.out.println("Event " + e.toString() + " did the thing!");
 		
-		//if the button clicked was the button for a country
-		if(buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast worksÉmake all buttons AppButtons to ensure that
+		//TODO: URGENT work out how to use buttons for selection of answers on the quiz!
+		//have the runQuiz function just ask a question at a time and check answer, jumping back via the button clicks each time?
+		//Éseems like it'll have to be that way, unless we go multithreadÉ
+		
+		//if the button clicked was the button for a country and we're not in a quiz
+		//change the view to that country
+		if(!quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast worksÉmake all buttons AppButtons to ensure that
 			String countryClicked = ((AppButton) e.getSource()).getId();
 			
-			//change currentCountry appropriately
-			currentCountry = countryClicked;
-			
-			//update the StudentData
-			currentStudent.addCountrySeen(currentCountry, currentMapMode);
-			
-			//update the info box
-			updateInfoBox(worldData.getDataForCountry(countryClicked));
+			//update appropriately
+			changeCountry(countryClicked);
 		} else if(e.getSource().equals(backButton)){//back button
 			if(!currentView.equals("World")){//we only need to change things if we're not in world view
-				//go back to World view
-				currentView = "World";
-				
-				//update the display layer appropriately
-				//TODO: implement once the layout is known/how to work with it
-				//something like
-				if(currentMapMode == MapMode.ECONOMIC){
-					//load economic world map
-				} else if(currentMapMode == MapMode.HEALTH){
-					//load health world map
-				}
+				//update appropriately
+				changeContinent("World");
 			}
 		} else if(e.getSource().equals(quizButton)){//start/stop quiz
-			if(quizRunning){//if they're in a quiz
-				if(inPreTest){//don't let people bail on the pre-test
+			if(quizRunner.getQuizRunning()){//if they're in a quiz
+				if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
 					JOptionPane.showMessageDialog(this, "You must finish the pre-test first!", "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
 				} else {
 					//show a message to the user
 					JOptionPane.showMessageDialog(this, "Thanks for playing!", "Quiz ended", JOptionPane.INFORMATION_MESSAGE);
 					
-					//flip the bool
-					quizRunning = false;
+					//end the quiz
+					quizRunner.endQuiz();
 					
 					//change the label on the button
 					quizButton.setText("Start Quiz");
 				}
-			} else if(!quizRunning){//they're not in a quiz, so let's start one!
-				//flip the bool
-				quizRunning = true;
-				
+			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
 				//change the label on the button
 				quizButton.setText("End Quiz");
 				
 				//start the quiz
-				runQuiz();
+				quizRunner.startQuiz(currentView, currentMapMode);
 			}
 		}
-	}
-	
-	/**
-	 * Presents the user with a series of the questions on the
-	 * currently selected continent based on the current map mode
-	 * (economic or health)
-	 */
-	private void runQuiz(){
-		//if(currentView.equals("World")){//you can't start a quiz from the world view
-		//	JOptionPane.showMessageDialog(this, "You must select a continent to take a quiz!", "Error", JOptionPane.ERROR_MESSAGE);
-		//} else {
-			//Vector<String> subjectCountries = worldData.getDataForContinent(currentView).getCountryList();
-			
-		//get the list of subject countries by bouncing currentView off of StudentData.getCountriesSeen
-		
-			//TODO: do the actual quiz here
-			//TODO: programmatic question generation; elsewhere
-			//present question
-			//check answer
-			//profit/repeat!
-		//}
 	}
 
 	/**
@@ -257,13 +324,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
 					
 					if(continentData.isPointInBounds(mouseX, mouseY)){//if we're inside this continent
-						//note that we've changed continent
-						currentView = continentNames[i];
-						
-						//update StudentData
-						currentStudent.addContinentSeen(currentView, currentMapMode);
-						
-						//TODO: change layout appropriately here
+						//update appropriately
+						changeContinent(continentNames[i]);
 						
 						//stop checking by terminating the for loop
 						break;
