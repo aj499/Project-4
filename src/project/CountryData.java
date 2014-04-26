@@ -35,15 +35,15 @@ public class CountryData {
 	private String majorHealthIssue;
 	private String makeADifferenceHealth;
 	private String photoPathHealth;
-<<<<<<< HEAD
+
 	
 	/**
 	 * A constructor that sets default values for all variables in country
 	 * CountryData()
 	 */
-=======
 
->>>>>>> origin/Min
+
+
 	CountryData() {
 
 		countryName= "new country";
@@ -69,28 +69,17 @@ public class CountryData {
 		makeADifferenceHealth="can't make a health difference";
 		photoPathHealth="no photi path health";
 	}
-<<<<<<< HEAD
+
 	
 	/**
 	 * sets country name
 	 * SetCountryName(String)
 	 * @param newCountryName
 	 */
-=======
-
->>>>>>> origin/Min
 	public void setCountryName(String newCountryName) {
 		countryName=newCountryName;
 	}
-<<<<<<< HEAD
-	
-=======
 
-<<<<<<< HEAD
->>>>>>> Joe
-	public void setGpdPerCapita(String newGpdPerCapita) {
-		gpdPerCapita=newGpdPerCapita;
-=======
 	/**
 	 * sets gdp per capita
 	 * setGpdPerCapita(String)
@@ -98,9 +87,9 @@ public class CountryData {
 	 */
 	public void setGdpPerCapita(String newGdpPerCapita) {
 		gdpPerCapita=newGdpPerCapita;
->>>>>>> Joe
+
 	}
-<<<<<<< HEAD
+
 	
 	/**
 	 * setGdpRealGrowthRate(String)
@@ -110,31 +99,18 @@ public class CountryData {
 		gdpRealGrowthRate=newGdpRealGrowthRate;
 	}
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-	public void setagriculturePercentageOfGdp(String newgpdPerCapita) {
-=======
-	public void setAgriculturePercentageOfGdp(String newgpdPerCapita) {
->>>>>>> Joe
-		gpdPerCapita=newgpdPerCapita;
-=======
+
 	/**
 	 *sets Agriculture Percentage
 	 * setAgriculturePercentageOfGdp(String)
 	 * @param newagriculturePercentageOfGdp
 	 */
-=======
 
-	public void setGdpRealGrowthRate(String newGdpRealGrowthRate) {
-		gdpRealGrowthRate=newGdpRealGrowthRate;
-	}
-
->>>>>>> origin/Min
 	public void setAgriculturePercentageOfGdp(String newagriculturePercentageOfGdp) {
 		agriculturePercentageOfGDP=newagriculturePercentageOfGdp;
->>>>>>> Joe
+
 	}
-<<<<<<< HEAD
+
 	
 	/**
 	 * sets Economic Freedom Score
@@ -177,25 +153,6 @@ public class CountryData {
 	 * setUnemploymentRate(String)
 	 * @param newUnemploymentRate
 	 */
-=======
-
-	public void setEconomicFreedomScore(String newEconomicFreedomScore) {
-		economicFreedomScore=newEconomicFreedomScore;
-	}
-
-	public void setLowestTenIncome(String newLowestTenIncome) {
-		lowestTenIncome=newLowestTenIncome;
-	}
-
-	public void setHighestTenIncome(String newHighestTenIncome) {
-		highestTenIncome=newHighestTenIncome;
-	}
-
-	public void setMajorIndustries(String newMajorIndustries) {
-		majorIndustries=newMajorIndustries;
-	}
-
->>>>>>> origin/Min
 	public void setUnemploymentRate(String newUnemploymentRate) {
 		unemploymentRate=newUnemploymentRate;
 	}
@@ -411,9 +368,7 @@ public class CountryData {
 		return econQuestions.get(indexToChooseQuestionRandomly);
 	}
 
-<<<<<<< HEAD
-	
-=======
+
 	public String generateHealthQuestion(){
 
 		int indexToChooseQuestionRandomly;
@@ -434,6 +389,4 @@ public class CountryData {
 
 	}
 
-
->>>>>>> origin/Min
 }
