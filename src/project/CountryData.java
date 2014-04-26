@@ -4,7 +4,7 @@ package project;
  * CountryData class
  * this class stores a country and the data about the country 
  */
-=======
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -43,7 +43,7 @@ public class CountryData {
 	CountryData() {
 		
 		countryName= "new country";
-		gpdPerCapita= "no money";
+		gdpPerCapita= "no money";
 		gdpRealGrowthRate="doesn't grow"; 
 		agriculturePercentageOfGDP="no agriculture percentage";
 		economicFreedomScore= "no economic freedom";
@@ -68,7 +68,7 @@ public class CountryData {
 	
 	/**
 	 * sets country name
-	 * SetCountryName(newCountryName)
+	 * SetCountryName(String)
 	 * @param newCountryName
 	 */
 	public void setCountryName(String newCountryName) {
@@ -77,7 +77,7 @@ public class CountryData {
 
 	/**
 	 * sets gdp per capita
-	 * setGpdPerCapita(newGdpPerCapita)
+	 * setGpdPerCapita(String)
 	 * @param newGdpPerCapita
 	 */
 	public void setGdpPerCapita(String newGdpPerCapita) {
@@ -85,7 +85,7 @@ public class CountryData {
 	}
 	
 	/**
-	 * setGdpRealGrowthRate(newGdpRealGrowthRate)
+	 * setGdpRealGrowthRate(String)
 	 * @param newGdpRealGrowthRate
 	 */
 	public void setGdpRealGrowthRate(String newGdpRealGrowthRate) {
@@ -94,7 +94,7 @@ public class CountryData {
 	
 	/**
 	 *sets Agriculture Percentage
-	 * setAgriculturePercentageOfGdp(newagriculturePercentageOfGdp)
+	 * setAgriculturePercentageOfGdp(String)
 	 * @param newagriculturePercentageOfGdp
 	 */
 	public void setAgriculturePercentageOfGdp(String newagriculturePercentageOfGdp) {
@@ -103,7 +103,7 @@ public class CountryData {
 	
 	/**
 	 * sets Economic Freedom Score
-	 * setEconomicFreedomScore(newEconomicFreedomScore)
+	 * setEconomicFreedomScore(String)
 	 * @param newEconomicFreedomScore
 	 */
 	public void setEconomicFreedomScore(String newEconomicFreedomScore) {
@@ -112,7 +112,7 @@ public class CountryData {
 	
 	/**
 	 * sets Lowest ten Income
-	 * setLowestTenIncome(newLowestTenIncome)
+	 * setLowestTenIncome(String)
 	 * @param newLowestTenIncome
 	 */
 	public void setLowestTenIncome(String newLowestTenIncome) {
@@ -121,7 +121,7 @@ public class CountryData {
 	
 	/**
 	 * sets highest ten income
-	 * setHighestTenIncome(newHighestTenIncome)
+	 * setHighestTenIncome(String)
 	 * @param newHighestTenIncome
 	 */
 	public void setHighestTenIncome(String newHighestTenIncome) {
@@ -130,7 +130,7 @@ public class CountryData {
 	
 	/**
 	 * sets major industries
-	 * setMajorIndustries(newMajorIndustries)
+	 * setMajorIndustries(String)
 	 * @param newMajorIndustries
 	 */
 	public void setMajorIndustries(String newMajorIndustries) {
@@ -139,7 +139,7 @@ public class CountryData {
 	
 	/**
 	 * Sets unemployment rate
-	 * setUnemploymentRate(newUnemploymentRate)
+	 * setUnemploymentRate(String)
 	 * @param newUnemploymentRate
 	 */
 	public void setUnemploymentRate(String newUnemploymentRate) {
@@ -148,7 +148,7 @@ public class CountryData {
 
 	/**
 	 * sets major economic issue
-	 * setMajorEconomicIssue(newMajorEconomicIssue)
+	 * setMajorEconomicIssue(String)
 	 * @param newMajorEconomicIssue
 	 */
 	public void setMajorEconomicIssue(String newMajorEconomicIssue) {
@@ -157,7 +157,7 @@ public class CountryData {
 
 	/**
 	 * sets the string for how one can make a difference economically
-	 * setMakeADifferenceEconomic(newMakeADifferenceEconomic)
+	 * setMakeADifferenceEconomic(String)
 	 * @param newMakeADifferenceEconomic
 	 */
 	public void setMakeADifferenceEconomic(String newMakeADifferenceEconomic) {
@@ -166,7 +166,7 @@ public class CountryData {
 
 	/**
 	 * sets photo path
-	 * setPhotoPathEconomic(newPhotoPathEconomic)
+	 * setPhotoPathEconomic(String)
 	 * @param newPhotoPathEconomic
 	 */
 	public void setPhotoPathEconomic(String newPhotoPathEconomic) {
@@ -175,7 +175,7 @@ public class CountryData {
 
 	/**
 	 * sets life expectancy
-	 * setLifeExpectancy(newLifeExpectancy)
+	 * setLifeExpectancy(String)
 	 * @param newLifeExpectancy
 	 */
 	public void setLifeExpectancy(String newLifeExpectancy) {
@@ -184,7 +184,7 @@ public class CountryData {
 
 	/**
 	 * sets maternal mortality rate
-	 * setMaternalMortalityRate(newMaternalMortalityRate)
+	 * setMaternalMortalityRate(String)
 	 * @param newMaternalMortalityRate
 	 */
 	public void setMaternalMortalityRate(String newMaternalMortalityRate) {
@@ -193,7 +193,7 @@ public class CountryData {
 
 	/**
 	 * sets infant mortality rate
-	 * setInfantMortalityRate(newInfantMortalityRate)
+	 * setInfantMortalityRate(String)
 	 * @param newInfantMortalityRate
 	 */
 	public void setInfantMortalityRate(String newInfantMortalityRate) {
@@ -202,13 +202,18 @@ public class CountryData {
 
 	/**
 	 * sets underweight children percent
-	 * setChildrenUnderweightPercentage(newChildrenUnderweightPercentage)
+	 * setChildrenUnderweightPercentage(String)
 	 * @param newChildrenUnderweightPercentage
 	 */
 	public void setChildrenUnderweightPercentage(String newChildrenUnderweightPercentage) {
 		childrenUnderweightPercentage=newChildrenUnderweightPercentage;
 	}
 
+	/**
+	 * sets physician density
+	 * setPhysicianDensity(String)
+	 * @param newPhysicianDensity
+	 */
 	public void setPhysicianDensity(String newPhysicianDensity) {
 		physicianDensity=newPhysicianDensity;
 	}
@@ -238,7 +243,7 @@ public class CountryData {
 	}
 	
 	public String getGpdPerCapita() {
-		return gpdPerCapita;
+		return gdpPerCapita;
 	}
 	
 	public String getGdpRealGrowthRate() {

@@ -3,16 +3,10 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import java.io.FileReader;
-=======
->>>>>>> origin/Min
-=======
 
 import java.io.FileReader;
 
->>>>>>> Lauren
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
@@ -47,19 +41,13 @@ public class DataManager {
 	}
 	
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> Lauren
 	
 	public void parseData(){
 
 		
 		
 		try{
-			String filename ="/Users/michaelmcaneny/Desktop/exampleData.txt";
+			String filename ="/Users/josephblackwell/Documents/Java/exampleData.txt";
 			FileInputStream fileInputStream = new FileInputStream(filename);
 			DataInputStream dataInputStream = new DataInputStream(fileInputStream);
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
@@ -69,7 +57,7 @@ public class DataManager {
 				CountryData currentCountry = new CountryData();
 				currentCountry.setCountryName(currentLine);
 				
-				currentCountry.setGpdPerCapita(bufferedReader.readLine());
+				currentCountry.setGdpPerCapita(bufferedReader.readLine());
 				currentCountry.setGdpRealGrowthRate(bufferedReader.readLine());
 				currentCountry.setAgriculturePercentageOfGdp(bufferedReader.readLine());
 				currentCountry.setEconomicFreedomScore(bufferedReader.readLine());
@@ -104,12 +92,7 @@ public class DataManager {
 		}
 		
 	}
-<<<<<<< HEAD
->>>>>>> origin/Min
 	
-	public void parseData(){
-=======
->>>>>>> Lauren
 
 	
 	
@@ -138,26 +121,16 @@ public class DataManager {
 		return new CountryData();
 	}
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-	public static void main(String args[]){
-=======
-=======
 
 
->>>>>>> Lauren
 	public ContinentData getDataForContinent(String continentName){
 		//TODO: actually implement this function!
 		return new ContinentData();
 	}
-	}
 	
-	/*public static void main(String args[]){
-<<<<<<< HEAD
->>>>>>> origin/Min
-=======
->>>>>>> Lauren
-		DataManager dm = new DataManager("hello");
+	public static void main(String args[]){
+
+		/*DataManager dm = new DataManager("hello");
 		dm.parseData();
 		CountryData peru = new CountryData();
 		CountryData mongolia = new CountryData();
@@ -168,18 +141,7 @@ public class DataManager {
 		System.out.println("Peru: " + peru.getMajorHealthIssue());
 		System.out.println("Mongolia: " + mongolia.getMajorHealthIssue());
 		System.out.println("USA: " + usa.getMajorHealthIssue());
-		System.out.println(dm.countryData.size());
-		
-<<<<<<< HEAD
-<<<<<<< HEAD
+		System.out.println(dm.countryData.size());*/
 	}
-=======
-	}*/
 
->>>>>>> origin/Min
-}
-=======
-	}*/
-
-
->>>>>>> Lauren
+}//class
