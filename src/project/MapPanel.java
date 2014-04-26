@@ -324,7 +324,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 					//end the quiz
 					quizRunner.endQuiz();
->>>>>>> master
+
 					
 					//change the label on the button
 					quizButton.setText("Start Quiz");
@@ -336,16 +336,14 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				
 
 			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
->
+
 				//change the label on the button
 				quizButton.setText("End Quiz");
 				
 				//start the quiz
-<<<<<<< HEAD
 				runQuiz();
-=======
 				quizRunner.startQuiz(currentView, currentMapMode);
->>>>>>> master
+
 			}
 		}
 	}
