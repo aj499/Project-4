@@ -37,9 +37,6 @@ public class DataManager {
 	}
 
 	public void parseData(){
-
-		
-		
 		try{
 			String filename ="/Users/michaelmcaneny/Desktop/exampleData.txt";
 			int numContinents = 1;
@@ -92,10 +89,7 @@ public class DataManager {
 		
 	}
 
-	
-	
-		
-	
+
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -116,41 +110,16 @@ public class DataManager {
 	
 	public CountryData getDataForCountry(String countryName){
 		//TODO: actually implement this function!
-		return new CountryData();
+		return countryData.get(countryName);
 	}
 
 
 
 	public ContinentData getDataForContinent(String continentName){
-		//TODO: actually implement this function!
-		return new ContinentData();
+		
+		return continentData.get(continentName);
 	}
 	
-	public static void main(String args[]){
-		DataManager dm = new DataManager("/Users/michaelmcaneny/Desktop/exampleData.txt");
-		
-		dm.parseData();
-		
-		Vector<String> countriesInAfrica = new Vector<String>();
-		countriesInAfrica = dm.continentData.get("Africa").getCountryList();
-		System.out.println("Countries in africa:");
-		for (int i=0; i<countriesInAfrica.size();i++){
-			System.out.println(countriesInAfrica.get(i));
-		}
 
-		CountryData peru = new CountryData();
-		ContinentData africa = new ContinentData();
-		CountryData mongolia = new CountryData();
-		CountryData usa = new CountryData();
-		usa = dm.countryData.get("USA");
-		peru = dm.countryData.get("Peru");
-		mongolia = dm.countryData.get("Mongolia");
-		africa = dm.continentData.get("Africa");
-		System.out.println("Peru: " + peru.getMajorHealthIssue());
-		System.out.println("Mongolia: " + mongolia.getMajorHealthIssue());
-		System.out.println("USA: " + usa.getMajorHealthIssue());
-		System.out.println("Africa: " + africa.getCountryName());
-
-	}
 }
 	
