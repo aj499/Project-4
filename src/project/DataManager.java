@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 package project;
 
 import java.io.BufferedReader;
@@ -115,30 +114,12 @@ public class DataManager {
 		//TODO: actually implement this function!
 		return new CountryData();
 	}
-	
+
 
 
 	public ContinentData getDataForContinent(String continentName){
 		//TODO: actually implement this function!
 		return new ContinentData();
 	}
-	}
+}
 	
-	/*public static void main(String args[]){
-		DataManager dm = new DataManager("hello");
-		dm.parseData();
-		CountryData peru = new CountryData();
-		CountryData mongolia = new CountryData();
-		CountryData usa = new CountryData();
-		usa = dm.countryData.get("USA");
-		peru = dm.countryData.get("Peru");
-		mongolia = dm.countryData.get("Mongolia");
-		System.out.println("Peru: " + peru.getMajorHealthIssue());
-		System.out.println("Mongolia: " + mongolia.getMajorHealthIssue());
-		System.out.println("USA: " + usa.getMajorHealthIssue());
-		System.out.println(dm.countryData.size());
-		
-	}*/
-
-
->>>>>>> master

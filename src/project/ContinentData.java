@@ -11,7 +11,6 @@ import java.util.Vector;
 
 public class ContinentData extends CountryData{
 	private int topBound, bottomBound, rightBound, leftBound;
-<<<<<<< HEAD
 	private String continentName;
 	private ArrayList<String> countryList;
 

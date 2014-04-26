@@ -1,17 +1,17 @@
 package project;
 
-<<<<<<< HEAD
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-=======
+
 /**
  * CountryData class
  * this class stores a country and the data about the country 
  */
->>>>>>> Joe
+
 public class CountryData {
 
 	private String countryName;
@@ -36,14 +36,12 @@ public class CountryData {
 	private String majorHealthIssue;
 	private String makeADifferenceHealth;
 	private String photoPathHealth;
-<<<<<<< HEAD
+
 	
 	private int buttonXPosition;
 	private int buttonYPosition;
 	
-=======
 
->>>>>>> master
 	CountryData() {
 
 		countryName= "new country";
@@ -264,8 +262,6 @@ public class CountryData {
 	}
 	
 	
-
-<<<<<<< HEAD
 	public void setAll(BufferedReader bufferedReader){
 		try {
 			setGpdPerCapita(bufferedReader.readLine());
@@ -297,15 +293,6 @@ public class CountryData {
 
 	}
 	
-=======
-	public int getButtonXPosition(){
-		return 4;
-	}
->>>>>>> master
-
-	public int getButtonYPosition(){
-		return 5;
-	}
 
 
 	public String generateEconQuestion(){
@@ -330,9 +317,7 @@ public class CountryData {
 		return econQuestions.get(indexToChooseQuestionRandomly);
 	}
 
-<<<<<<< HEAD
-	
-=======
+
 	public String generateHealthQuestion(){
 
 		int indexToChooseQuestionRandomly;
@@ -353,6 +338,4 @@ public class CountryData {
 
 	}
 
-
->>>>>>> master
 }
