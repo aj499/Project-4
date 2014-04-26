@@ -18,6 +18,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -109,6 +110,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		window.add(econButton);
 		window.add(healthButton);
 		window.add(prompt);
+		window.add(Box.createHorizontalGlue());
 		window.add(username);
 		window.setVisible(true);
 		content.add(window);
@@ -116,6 +118,9 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	}//init
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Min
 	public class ImagePanel extends JPanel{
 		private static final long serialVersionUID = 1L;
 		private Image image = null;
@@ -137,18 +142,24 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		}
 	}
 	
-	private void goToMapPanel(MapMode type){
-		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
-=======
-	private void goToMapPanel(){
+<<<<<<< HEAD
+	private void goToMapPanel(MapMode mapType){
 
 		System.out.print("OK");
+<<<<<<< HEAD
 		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"));
 
 		
 		//mapPanel = new MapPanel(null);
 
 >>>>>>> Lauren
+=======
+		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), mapType);
+=======
+	private void goToMapPanel(MapMode type){
+		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
+>>>>>>> Adam
+>>>>>>> origin/Min
 		mapPanel.setVisible(true);
 		window.setVisible(false);
 		this.setContentPane(mapPanel);
