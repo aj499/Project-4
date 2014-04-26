@@ -69,15 +69,8 @@ public class ContinentData extends CountryData{
 	}
 	
 
-=======
-	private Vector<String> countryList;
-
-	ContinentData() {
-		//constructor	
-	}
 
 
->>>>>>> master
 	/**
 	 * Check if the given point is inside this continent's bounding box.
 	 * 
@@ -94,26 +87,5 @@ public class ContinentData extends CountryData{
 
 		return false;
 	}
-
-<<<<<<< HEAD
-=======
-	public Vector<String> getCountryList(){
-		return countryList;
-	}
->>>>>>> master
-
-
-	public void loadData(){
-		//something here
-
-
-	}
-
-
-<<<<<<< HEAD
-		
 }
-=======
 
-}
->>>>>>> master
