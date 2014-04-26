@@ -1,15 +1,21 @@
 package project;
 
+<<<<<<< HEAD
 /**
  * CountryData class
  * this class stores a country and the data about the country 
  */
+=======
+import java.util.ArrayList;
+import java.util.Random;
+
+>>>>>>> Lauren
 public class CountryData {
 
 	private String countryName;
 	private String gpdPerCapita;
 	private String gdpRealGrowthRate; 
-	private String agriculturePercentageOfGdp;
+	private String agriculturePercentageOfGDP;
 	private String economicFreedomScore;
 	private String lowestTenIncome;
 	private String highestTenIncome;
@@ -34,7 +40,7 @@ public class CountryData {
 		countryName= "new country";
 		gpdPerCapita= "no money";
 		gdpRealGrowthRate="doesn't grow"; 
-		agriculturePercentageOfGdp="no agriculture percentage";
+		agriculturePercentageOfGDP="no agriculture percentage";
 		economicFreedomScore= "no economic freedom";
 		lowestTenIncome="no lowest ten income";
 		highestTenIncome="no highest ten income";
@@ -67,8 +73,8 @@ public class CountryData {
 		gdpRealGrowthRate=newGdpRealGrowthRate;
 	}
 	
-	public void setAgriculturePercentageOfGdp(String newgpdPerCapita) {
-		gpdPerCapita=newgpdPerCapita;
+	public void setAgriculturePercentageOfGdp(String newagriculturePercentageOfGdp) {
+		agriculturePercentageOfGDP=newagriculturePercentageOfGdp;
 	}
 	
 	public void setEconomicFreedomScore(String newEconomicFreedomScore) {
@@ -156,7 +162,7 @@ public class CountryData {
 	}
 	
 	public String getagriculturePercentageOfGdp() {
-		return gpdPerCapita;
+		return agriculturePercentageOfGDP;
 	}
 	
 	public String getEconomicFreedomScore() {
@@ -230,4 +236,50 @@ public class CountryData {
 	public String getPhotoPathHealth() {
 		return photoPathHealth;
 	}
+
+
+public String generateEconQuestion(){
+	
+	int indexToChooseQuestionRandomly;
+	Random generator = new Random();
+	int minimum = 0;
+	int maximum = 6;
+	int range = maximum - minimum + 1;
+	indexToChooseQuestionRandomly =  generator.nextInt(range) + minimum;
+
+	
+	ArrayList<String> econQuestions = new ArrayList<String>();
+	econQuestions.add("Which country has a GDP per capita of " + getGpdPerCapita() + "?");
+	econQuestions.add("Which country has a real GDP growth rate of " + getGdpRealGrowthRate() + "?");
+	econQuestions.add("In which country is agriculture " + getagriculturePercentageOfGdp() + " of GDP?");
+	econQuestions.add("Which country has an economic freedom score of " + getEconomicFreedomScore() + "?");
+	econQuestions.add("In which country is the poorest 10%'s income " + getLowestTenIncome() + " of the country's total income?");
+	econQuestions.add("In which country is the wealthiest 10%'s income " + getHighestTenIncome() + " of the country's total income?");
+	econQuestions.add("Which country has an unemployment rate of " + getUnemploymentRate() + "?");
+	
+	return econQuestions.get(indexToChooseQuestionRandomly);
+
+}
+
+public String generateHealthQuestion(){
+	
+	int indexToChooseQuestionRandomly;
+	Random generator = new Random();
+	int minimum = 0;
+	int maximum = 4;
+	int range = maximum - minimum + 1;
+	indexToChooseQuestionRandomly =  generator.nextInt(range) + minimum;
+	
+	ArrayList<String> healthQuestions = new ArrayList<String>();
+	healthQuestions.add("Which country has an average life expectancy of " + getLifeExpectancy() + "?");
+	healthQuestions.add("Which country has a maternal mortality rate of " + getMaternalMortalityRate() + "?");
+	healthQuestions.add("Which country has a infant mortality rate of " + getInfantMortalityRate() + "?");
+	healthQuestions.add("In which country are " + getChildrenUnderweightPercentage() + " of children underweight?");
+	healthQuestions.add("Which country has a physicians density of " + getPhysicianDensity() + "?");
+	
+	return healthQuestions.get(indexToChooseQuestionRandomly);
+
+}
+
+	
 }

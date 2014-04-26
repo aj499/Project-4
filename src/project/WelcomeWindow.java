@@ -1,11 +1,20 @@
 package project;
 
+<<<<<<< HEAD
+=======
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+>>>>>>> Lauren
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.TextField;
+<<<<<<< HEAD
 import java.awt.Toolkit;
+=======
+>>>>>>> Lauren
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,6 +32,17 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	
+<<<<<<< HEAD
+=======
+	//Width of the window
+	private final static int width = 600;
+	//Height of the window
+	private final static int height = 300;
+	
+	//Welcome message
+	private final String WELCOME_MESSAGE = "Welcome to the World Map";
+	
+>>>>>>> Lauren
 	//Initial JPanel that will be presented on the applet
 	private JPanel window;
 	//MapPanel object that is the main JPanel that will be presented on the applet
@@ -41,6 +61,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private ImageIcon referenceMap;
 	//Textfield for user name
 	private TextField username; 
+<<<<<<< HEAD
 	//Initial type of map/quiz
 	private MapMode mapType;
 	//Radio button group
@@ -68,6 +89,15 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		typeOptions.add(healthButton);
 		
 		username = new TextField(10);
+=======
+	
+	public void init(){
+		
+		window = new JPanel();
+		startButton = new JButton("Start");
+		startButton.addActionListener(this);
+		startButton.setSize(200, 50);
+>>>>>>> Lauren
 		
 		map = new ImageIcon("mapImage2.png"); 
 		referenceMap = new ImageIcon("lifeExpectancyEdit.png");
@@ -85,6 +115,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		
 	}//init
 	
+<<<<<<< HEAD
 	public class ImagePanel extends JPanel{
 		private static final long serialVersionUID = 1L;
 		private Image image = null;
@@ -108,6 +139,16 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	
 	private void goToMapPanel(MapMode type){
 		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
+=======
+	private void goToMapPanel(){
+
+		System.out.print("OK");
+		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"));
+
+		
+		//mapPanel = new MapPanel(null);
+
+>>>>>>> Lauren
 		mapPanel.setVisible(true);
 		window.setVisible(false);
 		this.setContentPane(mapPanel);
