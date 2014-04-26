@@ -15,9 +15,6 @@ public class DataManager {
 	private boolean dataLoaded;
 	private String fileLocation;
 
-	
-	
-
 	/**
 	 * Constructor takes a String that is the filepath
 	 * @param newFileLocation
@@ -38,9 +35,6 @@ public class DataManager {
 	public void setFileLocation(String newFileLocation){
 		fileLocation = newFileLocation;
 	}
-	
-
-
 	
 	public void parseData(){
 

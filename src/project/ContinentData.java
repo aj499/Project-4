@@ -1,7 +1,5 @@
 package project;
 
-
-
 import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -13,15 +11,13 @@ import java.util.Vector;
 
 public class ContinentData extends CountryData{
 	private int topBound, bottomBound, rightBound, leftBound;
-	
-	
 	private Vector<String> countryList;
-	
-ContinentData() {
-	//constructor	
-}
 
-	
+	ContinentData() {
+		//constructor	
+	}
+
+
 	/**
 	 * Check if the given point is inside this continent's bounding box.
 	 * 
@@ -35,18 +31,21 @@ ContinentData() {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
-	
-	
+
+	public Vector<String> getCountryList(){
+		return countryList;
+	}
+
+
 	public void loadData(){
 		//something here
-		
-			
-		}
 
-		
-		
+
 	}
+
+
+
+}
