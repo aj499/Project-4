@@ -31,12 +31,12 @@ public class StudentData {
 	 * in the given mapmode.
 	 * 
 	 * @param country the country the student looked at
-	 * @param modeSeenIn the map mode in which they looked at the country
+	 * @param currentMapMode the map mode in which they looked at the country
 	 */
-	public void addCountrySeen(String country, MapMode modeSeenIn){
-		if(modeSeenIn == MapMode.HEALTH && !countriesSeenHealth.contains(country)){//deduplicate additions
+	public void addCountrySeen(String country, project.MapPanel.MapMode currentMapMode){
+		if(currentMapMode == project.MapMode.HEALTH && !countriesSeenHealth.contains(country)){//deduplicate additions
 			countriesSeenHealth.add(country);
-		} else if(modeSeenIn == MapMode.ECONOMIC && !countriesSeenEconomic.contains(country)){
+		} else if(currentMapMode == project.MapMode.ECONOMIC && !countriesSeenEconomic.contains(country)){
 			countriesSeenEconomic.add(country);
 		}
 	}
@@ -114,7 +114,6 @@ public class StudentData {
 		}
 	}
 	
-<<<<<<< HEAD
 	/**
 	 * Returns whether or not the student has looked at a given continent in the indicated mode.
 	 * 
@@ -122,8 +121,6 @@ public class StudentData {
 	 * @param modeSeenIn the mode we want to know whether or not the student viewed it
 	 * @return whether or not the student looked at the given continent in the given mode
 	 */
-=======
->>>>>>> Lauren
 	public boolean hasContinentBeenSeen(String continentToCheck, MapMode modeSeenIn){
 		switch(modeSeenIn){
 		case HEALTH:
@@ -134,11 +131,4 @@ public class StudentData {
 			return false; //backup, unreachable; to make Eclipse happy
 		}
 	}
-<<<<<<< HEAD
-=======
-	
-	
-	
-	
->>>>>>> Lauren
 }

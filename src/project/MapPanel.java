@@ -10,32 +10,11 @@ import java.awt.event.MouseListener;
 import java.util.HashMap;
 
 import java.util.Vector;
-=======
-<<<<<<< HEAD
-import java.util.Vector;
-
-<<<<<<< HEAD
-=======
->>>>>>> origin/Min
->>>>>>> Lauren
-=======
->>>>>>> Lauren
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-public class MapPanel extends JPanel implements ActionListener, MouseListener{
-=======
-<<<<<<< HEAD
-public class MapPanel extends JPanel implements ActionListener, MouseListener{
-=======
-=======
->>>>>>> Lauren
-
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
@@ -46,12 +25,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public enum MapMode{
 		ECONOMIC, HEALTH; //TODO: rename later as appropriate to content?
 	}
-<<<<<<< HEAD
->>>>>>> origin/Min
->>>>>>> Lauren
-=======
-
->>>>>>> Lauren
 	
 	/* --||-- BEGIN VARIABLES --||-- */
 	
@@ -88,7 +61,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @param newWorldData the DataManager to load data from
 	 */
 
-	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode type){
+	public MapPanel(DataManager newWorldData, StudentData newStudentData, project.MapMode mapType){
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
@@ -99,7 +72,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
-		setUp(type);
+		setUp(mapType);
 	}
 	
 	/**
