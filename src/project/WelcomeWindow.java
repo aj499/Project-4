@@ -9,6 +9,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -79,6 +80,10 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		window.add(econButton);
 		window.add(healthButton);
 		window.add(prompt);
+<<<<<<< HEAD
+=======
+		window.add(Box.createHorizontalGlue());
+>>>>>>> master
 		window.add(username);
 		window.setVisible(true);
 		content.add(window);

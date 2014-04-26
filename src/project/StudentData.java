@@ -1,5 +1,6 @@
 package project;
 
+import java.util.Random;
 import java.util.Vector;
 
 /*
@@ -113,6 +114,10 @@ public class StudentData {
 		}
 	}
 	
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 	/**
 	 * Returns whether or not the student has looked at a given continent in the indicated mode.
 	 * 
@@ -130,4 +135,8 @@ public class StudentData {
 			return false; //backup, unreachable; to make Eclipse happy
 		}
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 }
