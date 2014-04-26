@@ -36,7 +36,7 @@ public class DataManager {
 	public void setFileLocation(String newFileLocation){
 		fileLocation = newFileLocation;
 	}
-	
+
 	public void parseData(){
 
 		
