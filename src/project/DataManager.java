@@ -61,14 +61,11 @@ public class DataManager {
 					currentContinent.setRightBound(Integer.parseInt(bufferedReader.readLine()));
 					currentContinent.setTopBound(Integer.parseInt(bufferedReader.readLine()));
 					currentContinent.setBottomBound(Integer.parseInt(bufferedReader.readLine()));
-
-					
 					currentLine = bufferedReader.readLine();
 					while (currentLine.length() > 0){
 						currentContinent.addToCountryList(currentLine);
 						currentLine = bufferedReader.readLine();
 					}
-					
 					continentData.put(currentContinent.getContinentName(), currentContinent);
 					continentCounter++;
 				}
@@ -89,7 +86,6 @@ public class DataManager {
 			System.out.println(e.toString());
 			e.printStackTrace();
 		}
-		
 	}
 	
 
@@ -113,6 +109,10 @@ public class DataManager {
 	}
 	
 	public static void main(String args[]){
+		
+		
+		
+		//////////TESTS{
 		DataManager dm = new DataManager("/Users/michaelmcaneny/Desktop/exampleData.txt");
 		
 		dm.parseData();
@@ -137,6 +137,6 @@ public class DataManager {
 		System.out.println("Mongolia: " + mongolia.getMajorHealthIssue());
 		System.out.println("USA: " + usa.getMajorHealthIssue());
 		System.out.println("Africa: " + africa.getContinentName());
-		
+		///////////DONE}
 	}
 }
