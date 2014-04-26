@@ -4,12 +4,19 @@ package project;
  * CountryData class
  * this class stores a country and the data about the country 
  */
+
+import java.util.ArrayList;
+import java.util.Random;
+
+/**
+ * This class contains specific data about each country
+ */
 public class CountryData {
 
 	private String countryName;
-	private String gpdPerCapita;
+	private String gdpPerCapita;
 	private String gdpRealGrowthRate; 
-	private String agriculturePercentageOfGdp;
+	private String agriculturePercentageOfGDP;
 	private String economicFreedomScore;
 	private String lowestTenIncome;
 	private String highestTenIncome;
@@ -29,12 +36,16 @@ public class CountryData {
 	private String makeADifferenceHealth;
 	private String photoPathHealth;
 	
+	/**
+	 * A constructor that sets default values for all variables in country
+	 * CountryData()
+	 */
 	CountryData() {
 		
 		countryName= "new country";
-		gpdPerCapita= "no money";
+		gdpPerCapita= "no money";
 		gdpRealGrowthRate="doesn't grow"; 
-		agriculturePercentageOfGdp="no agriculture percentage";
+		agriculturePercentageOfGDP="no agriculture percentage";
 		economicFreedomScore= "no economic freedom";
 		lowestTenIncome="no lowest ten income";
 		highestTenIncome="no highest ten income";
@@ -55,6 +66,11 @@ public class CountryData {
 		photoPathHealth="no photi path health";
 	}
 	
+	/**
+	 * sets country name
+	 * SetCountryName(String)
+	 * @param newCountryName
+	 */
 	public void setCountryName(String newCountryName) {
 		countryName=newCountryName;
 	}
@@ -62,71 +78,160 @@ public class CountryData {
 	
 =======
 
+<<<<<<< HEAD
 >>>>>>> Joe
 	public void setGpdPerCapita(String newGpdPerCapita) {
 		gpdPerCapita=newGpdPerCapita;
+=======
+	/**
+	 * sets gdp per capita
+	 * setGpdPerCapita(String)
+	 * @param newGdpPerCapita
+	 */
+	public void setGdpPerCapita(String newGdpPerCapita) {
+		gdpPerCapita=newGdpPerCapita;
+>>>>>>> Joe
 	}
 	
+	/**
+	 * setGdpRealGrowthRate(String)
+	 * @param newGdpRealGrowthRate
+	 */
 	public void setGdpRealGrowthRate(String newGdpRealGrowthRate) {
 		gdpRealGrowthRate=newGdpRealGrowthRate;
 	}
 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 	public void setagriculturePercentageOfGdp(String newgpdPerCapita) {
 =======
 	public void setAgriculturePercentageOfGdp(String newgpdPerCapita) {
 >>>>>>> Joe
 		gpdPerCapita=newgpdPerCapita;
+=======
+	/**
+	 *sets Agriculture Percentage
+	 * setAgriculturePercentageOfGdp(String)
+	 * @param newagriculturePercentageOfGdp
+	 */
+	public void setAgriculturePercentageOfGdp(String newagriculturePercentageOfGdp) {
+		agriculturePercentageOfGDP=newagriculturePercentageOfGdp;
+>>>>>>> Joe
 	}
 	
+	/**
+	 * sets Economic Freedom Score
+	 * setEconomicFreedomScore(String)
+	 * @param newEconomicFreedomScore
+	 */
 	public void setEconomicFreedomScore(String newEconomicFreedomScore) {
 		economicFreedomScore=newEconomicFreedomScore;
 	}
 	
+	/**
+	 * sets Lowest ten Income
+	 * setLowestTenIncome(String)
+	 * @param newLowestTenIncome
+	 */
 	public void setLowestTenIncome(String newLowestTenIncome) {
 		lowestTenIncome=newLowestTenIncome;
 	}
 	
+	/**
+	 * sets highest ten income
+	 * setHighestTenIncome(String)
+	 * @param newHighestTenIncome
+	 */
 	public void setHighestTenIncome(String newHighestTenIncome) {
 		highestTenIncome=newHighestTenIncome;
 	}
 	
+	/**
+	 * sets major industries
+	 * setMajorIndustries(String)
+	 * @param newMajorIndustries
+	 */
 	public void setMajorIndustries(String newMajorIndustries) {
 		majorIndustries=newMajorIndustries;
 	}
 	
+	/**
+	 * Sets unemployment rate
+	 * setUnemploymentRate(String)
+	 * @param newUnemploymentRate
+	 */
 	public void setUnemploymentRate(String newUnemploymentRate) {
 		unemploymentRate=newUnemploymentRate;
 	}
 
+	/**
+	 * sets major economic issue
+	 * setMajorEconomicIssue(String)
+	 * @param newMajorEconomicIssue
+	 */
 	public void setMajorEconomicIssue(String newMajorEconomicIssue) {
 		majorEconomicIssue=newMajorEconomicIssue;
 	}
 
+	/**
+	 * sets the string for how one can make a difference economically
+	 * setMakeADifferenceEconomic(String)
+	 * @param newMakeADifferenceEconomic
+	 */
 	public void setMakeADifferenceEconomic(String newMakeADifferenceEconomic) {
 		makeADifferenceEconomic=newMakeADifferenceEconomic;
 	}
 
+	/**
+	 * sets photo path
+	 * setPhotoPathEconomic(String)
+	 * @param newPhotoPathEconomic
+	 */
 	public void setPhotoPathEconomic(String newPhotoPathEconomic) {
 		photoPathEconomic=newPhotoPathEconomic;
 	}
 
+	/**
+	 * sets life expectancy
+	 * setLifeExpectancy(String)
+	 * @param newLifeExpectancy
+	 */
 	public void setLifeExpectancy(String newLifeExpectancy) {
 		lifeExpectancy=newLifeExpectancy;
 	}
 
+	/**
+	 * sets maternal mortality rate
+	 * setMaternalMortalityRate(String)
+	 * @param newMaternalMortalityRate
+	 */
 	public void setMaternalMortalityRate(String newMaternalMortalityRate) {
 		maternalMortalityRate=newMaternalMortalityRate;
 	}
 
+	/**
+	 * sets infant mortality rate
+	 * setInfantMortalityRate(String)
+	 * @param newInfantMortalityRate
+	 */
 	public void setInfantMortalityRate(String newInfantMortalityRate) {
 		infantMortalityRate=newInfantMortalityRate;
 	}
 
+	/**
+	 * sets underweight children percent
+	 * setChildrenUnderweightPercentage(String)
+	 * @param newChildrenUnderweightPercentage
+	 */
 	public void setChildrenUnderweightPercentage(String newChildrenUnderweightPercentage) {
 		childrenUnderweightPercentage=newChildrenUnderweightPercentage;
 	}
 
+	/**
+	 * sets physician density
+	 * setPhysicianDensity(String)
+	 * @param newPhysicianDensity
+	 */
 	public void setPhysicianDensity(String newPhysicianDensity) {
 		physicianDensity=newPhysicianDensity;
 	}
@@ -156,7 +261,7 @@ public class CountryData {
 	}
 	
 	public String getGpdPerCapita() {
-		return gpdPerCapita;
+		return gdpPerCapita;
 	}
 	
 	public String getGdpRealGrowthRate() {
@@ -164,7 +269,7 @@ public class CountryData {
 	}
 	
 	public String getagriculturePercentageOfGdp() {
-		return gpdPerCapita;
+		return agriculturePercentageOfGDP;
 	}
 	
 	public String getEconomicFreedomScore() {
@@ -238,4 +343,50 @@ public class CountryData {
 	public String getPhotoPathHealth() {
 		return photoPathHealth;
 	}
+
+
+public String generateEconQuestion(){
+	
+	int indexToChooseQuestionRandomly;
+	Random generator = new Random();
+	int minimum = 0;
+	int maximum = 6;
+	int range = maximum - minimum + 1;
+	indexToChooseQuestionRandomly =  generator.nextInt(range) + minimum;
+
+	
+	ArrayList<String> econQuestions = new ArrayList<String>();
+	econQuestions.add("Which country has a GDP per capita of " + getGpdPerCapita() + "?");
+	econQuestions.add("Which country has a real GDP growth rate of " + getGdpRealGrowthRate() + "?");
+	econQuestions.add("In which country is agriculture " + getagriculturePercentageOfGdp() + " of GDP?");
+	econQuestions.add("Which country has an economic freedom score of " + getEconomicFreedomScore() + "?");
+	econQuestions.add("In which country is the poorest 10%'s income " + getLowestTenIncome() + " of the country's total income?");
+	econQuestions.add("In which country is the wealthiest 10%'s income " + getHighestTenIncome() + " of the country's total income?");
+	econQuestions.add("Which country has an unemployment rate of " + getUnemploymentRate() + "?");
+	
+	return econQuestions.get(indexToChooseQuestionRandomly);
+
+}
+
+public String generateHealthQuestion(){
+	
+	int indexToChooseQuestionRandomly;
+	Random generator = new Random();
+	int minimum = 0;
+	int maximum = 4;
+	int range = maximum - minimum + 1;
+	indexToChooseQuestionRandomly =  generator.nextInt(range) + minimum;
+	
+	ArrayList<String> healthQuestions = new ArrayList<String>();
+	healthQuestions.add("Which country has an average life expectancy of " + getLifeExpectancy() + "?");
+	healthQuestions.add("Which country has a maternal mortality rate of " + getMaternalMortalityRate() + "?");
+	healthQuestions.add("Which country has a infant mortality rate of " + getInfantMortalityRate() + "?");
+	healthQuestions.add("In which country are " + getChildrenUnderweightPercentage() + " of children underweight?");
+	healthQuestions.add("Which country has a physicians density of " + getPhysicianDensity() + "?");
+	
+	return healthQuestions.get(indexToChooseQuestionRandomly);
+
+}
+
+	
 }
