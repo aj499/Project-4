@@ -87,6 +87,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		
 	}//init
 	
+<<<<<<< HEAD
 	public class ImagePanel extends JPanel{
 		private static final long serialVersionUID = 1L;
 		private Image image = null;
@@ -110,6 +111,16 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	
 	private void goToMapPanel(MapMode type){
 		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
+=======
+	private void goToMapPanel(){
+<<<<<<< HEAD
+		System.out.print("OK");
+		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"));
+=======
+		
+		mapPanel = new MapPanel(null);
+>>>>>>> origin/Min
+>>>>>>> Lauren
 		mapPanel.setVisible(true);
 		window.setVisible(false);
 		this.setContentPane(mapPanel);
