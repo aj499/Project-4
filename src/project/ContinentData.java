@@ -11,64 +11,11 @@ import java.util.Vector;
 
 public class ContinentData extends CountryData{
 	private int topBound, bottomBound, rightBound, leftBound;
-	private String continentName;
-	private ArrayList<String> countryList;
+	private Vector<String> countryList;
 
 	ContinentData() {
-		continentName= "new continent";
-		countryList = new ArrayList<String>();
+		//constructor	
 	}
-	
-	public void addToCountryList(String countryName){
-
-		countryList.add(countryName);
-	}
-
-	public void setContinentName(String newContinentName) {
-		continentName=newContinentName;
-	}
-
-	public void setLeftBound(int newLeftBound){
-		leftBound = newLeftBound;
-	}
-	
-	public void setRightBound(int newRightBound){
-		rightBound = newRightBound;
-	}
-
-	public void setTopBound(int newTopBound){
-		topBound = newTopBound;
-	}
-	
-	public void setBottomBound(int newBottomBound){
-		bottomBound = newBottomBound;
-	}
-	
-	public ArrayList<String> getCountryList(){
-		return countryList;
-	}
-	
-	public String getContinentName(){
-		return continentName;
-	}
-	
-	public int getLeftBound(){
-		return leftBound;
-	}
-
-	public int getRightBound(){
-		return rightBound;
-	}
-	
-	public int getTopBound(){
-		return topBound;
-	}
-	
-	public int getBottomBound(){
-		return bottomBound;
-	}
-	
-
 
 
 	/**
@@ -87,5 +34,18 @@ public class ContinentData extends CountryData{
 
 		return false;
 	}
-}
 
+	public Vector<String> getCountryList(){
+		return countryList;
+	}
+
+
+	public void loadData(){
+		//something here
+
+
+	}
+
+
+
+}

@@ -80,9 +80,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		window.add(econButton);
 		window.add(healthButton);
 		window.add(prompt);
-
 		window.add(Box.createHorizontalGlue());
-
 		window.add(username);
 		window.setVisible(true);
 		content.add(window);

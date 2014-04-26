@@ -25,20 +25,15 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private static final long serialVersionUID = 1l;
 	
 	private DataManager worldData;
-
 	private QuizRunner quizRunner;
-
+	
 	//state variables
 	private String currentView;//which continent are we looking at?	
 	private String currentCountry;//what country are we looking at right now?
 	private MapMode currentMapMode;//what mode is the map in?
 	//private boolean quizRunning;//is the user in a quiz right now?
 	private StudentData currentStudent;//who is the user and what have they seen?
-
-	private boolean inPreTest;//are they taking the pretest
-
 	//private boolean inPreTest;//are they taking the pretest
-
 
 	
 	//buttons for the countries
@@ -66,10 +61,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		worldData = newWorldData;
 		currentStudent = newStudentData;
 		
-		//set up basic state
-		inPreTest = true;//we start by trapping the user in the pre-test
-		quizRunning = true;
-
 		//create a button for each country
 		String[] countryButtonList = worldData.getCountryList();
 		for(int i = 0; i < countryButtonList.length; i++){
@@ -81,7 +72,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		quizRunner = new QuizRunner(worldData, initialQuizTopic);
 		quizRunner.startQuiz(initialQuizTopic, currentMapMode);
-
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
@@ -97,9 +87,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private void setUp(MapMode type){
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
 		
-
 		quizButton = new AppButton();
-
 		quizButton.setText("End Quiz");
 		
 		setLayout(new BorderLayout());
@@ -123,22 +111,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 		add(mapLabel, BorderLayout.WEST);	
 		add(infoBox, BorderLayout.EAST);
-
-		
-		if(type == MapMode.ECONOMIC){
-			JLabel GDPperCap = new JLabel();
-			JLabel GDPgrowth = new JLabel();
-			JLabel agriculture = new JLabel();
-			JLabel econFreeScore= new JLabel();
-			JLabel lowIncome = new JLabel();
-			JLabel highIncome = new JLabel();
-			JLabel majorIndustries = new JLabel();
-			JLabel unemployment = new JLabel();
-			JLabel econIssue = new JLabel();
-			JLabel difference = new JLabel();
-			
-		}//if Economic mode
-
 
 		mapLabel.validate();
 		mapLabel.repaint();
@@ -225,11 +197,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//note that we've seen this new country
 		currentStudent.addCountrySeen(currentCountry, currentMapMode);
-<<<<<<< HEAD
-
-		
-=======
->>>>>>> origin/Min
 	}
 	
 	/**
@@ -245,7 +212,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//extract data from the CountryData and format it appropriately
 		//then add it
 		
-
 		if(currentMapMode == MapMode.ECONOMIC){
 			JLabel gdpPerCapita = new JLabel();
 			JLabel gdpRealGrowthRate = new JLabel();
@@ -272,7 +238,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			
 		}//if Economic mode
 		
-
 		
 	}
 	
@@ -293,63 +258,34 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//change the view to that country
 		if(!quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast works…make all buttons AppButtons to ensure that
 			String countryClicked = ((AppButton) e.getSource()).getId();
-
-			//change currentCountry appropriately
-			currentCountry = countryClicked;
 			
-			//update the StudentData
-			currentStudent.addCountrySeen(currentCountry, currentMapMode);
-			
-			//update the info box
-			updateInfoBox(worldData.getDataForCountry(countryClicked));
-
 			//update appropriately
 			changeCountry(countryClicked);
-
 		} else if(e.getSource().equals(backButton)){//back button
 			if(!currentView.equals("World")){//we only need to change things if we're not in world view
 				//update appropriately
 				changeContinent("World");
 			}
 		} else if(e.getSource().equals(quizButton)){//start/stop quiz
-
-			if(quizRunning){//if they're in a quiz
-				if(inPreTest){//don't let people bail on the pre-test
-
 			if(quizRunner.getQuizRunning()){//if they're in a quiz
 				if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
-
 					JOptionPane.showMessageDialog(this, "You must finish the pre-test first!", "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
 				} else {
 					//show a message to the user
 					JOptionPane.showMessageDialog(this, "Thanks for playing!", "Quiz ended", JOptionPane.INFORMATION_MESSAGE);
 					
-
-					//flip the bool
-					quizRunning = false;
-
 					//end the quiz
 					quizRunner.endQuiz();
-
 					
 					//change the label on the button
 					quizButton.setText("Start Quiz");
 				}
-
-			} else if(!quizRunning){//they're not in a quiz, so let's start one!
-				//flip the bool
-				quizRunning = true;
-				
-
 			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
-
 				//change the label on the button
 				quizButton.setText("End Quiz");
 				
 				//start the quiz
-				runQuiz();
 				quizRunner.startQuiz(currentView, currentMapMode);
-
 			}
 		}
 	}
