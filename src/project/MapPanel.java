@@ -8,14 +8,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
-<<<<<<< HEAD
+
 import java.util.Vector;
 =======
 <<<<<<< HEAD
 import java.util.Vector;
 
+<<<<<<< HEAD
 =======
 >>>>>>> origin/Min
+>>>>>>> Lauren
+=======
 >>>>>>> Lauren
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,13 +27,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
 =======
 <<<<<<< HEAD
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
 =======
+=======
+>>>>>>> Lauren
 
-public class MapPanel extends JPanel implements ActionListener{
+
+public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 	public enum Continent{
 		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
@@ -39,7 +46,11 @@ public class MapPanel extends JPanel implements ActionListener{
 	public enum MapMode{
 		ECONOMIC, HEALTH; //TODO: rename later as appropriate to content?
 	}
+<<<<<<< HEAD
 >>>>>>> origin/Min
+>>>>>>> Lauren
+=======
+
 >>>>>>> Lauren
 	
 	/* --||-- BEGIN VARIABLES --||-- */
