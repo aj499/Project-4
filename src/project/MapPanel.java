@@ -8,10 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
-<<<<<<< HEAD
-
-=======
->>>>>>> Adam
 import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -19,18 +15,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
-<<<<<<< HEAD
-
+	
 	public enum Continent{
 		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
 	}
-	
-	public enum MapMode{
-		ECONOMIC, HEALTH; //TODO: rename later as appropriate to content?
-	}
-=======
->>>>>>> Adam
-	
 	/* --||-- BEGIN VARIABLES --||-- */
 	
 	//to make Eclipse shut up
@@ -209,7 +197,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//note that we've seen this new country
 		currentStudent.addCountrySeen(currentCountry, currentMapMode);
-		
 	}
 	
 	/**
