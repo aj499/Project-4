@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
+<<<<<<< HEAD
 
 
 	public enum Continent{
@@ -28,6 +29,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		ECONOMIC, HEALTH; //TODO: rename later as appropriate to content?
 	}
 	
+=======
+	
+	public enum Continent{
+		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
+	}
+>>>>>>> Min
 	/* --||-- BEGIN VARIABLES --||-- */
 	
 	//to make Eclipse shut up
@@ -248,12 +255,15 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//note that we've seen this new country
 		currentStudent.addCountrySeen(currentCountry, currentMapMode);
+<<<<<<< HEAD
 		
 
 
 		mapLabel.validate();
 		mapLabel.repaint();
 
+=======
+>>>>>>> Min
 	}
 	
 	/**

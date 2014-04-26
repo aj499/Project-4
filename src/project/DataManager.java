@@ -3,10 +3,12 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+<<<<<<< HEAD
 import java.io.FileReader;
 
+=======
+>>>>>>> Min
 import java.io.FileReader;
-
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
@@ -87,11 +89,14 @@ public class DataManager {
 		}
 		
 	}
+<<<<<<< HEAD
 	
 
 	
 	
 		
+=======
+>>>>>>> Min
 	
 	/**
 	 * Returns a list of all the countries in the countryData hash.

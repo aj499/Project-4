@@ -71,7 +71,8 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		referenceMap = new ImageIcon("lifeExpectancyEdit.png");
 		
 		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage2.png"));
-		window.setLayout(new BoxLayout(window, BoxLayout.PAGE_AXIS));
+		//window.setLayout(new BoxLayout(window, BoxLayout.PAGE_AXIS));
+		window.setLayout(null);
 		
 		startButton = new JButton("Start");
 		startButton.addActionListener(new startAction());
@@ -91,14 +92,23 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		
 		username = new TextField(10);
 		
-		JLabel prompt = new JLabel("Please enter your name:");
-		prompt.setPreferredSize(new Dimension(100,20));
+<<<<<<< HEAD
+=======
+		map = new ImageIcon("mapImage2.png"); 
+		referenceMap = new ImageIcon("lifeExpectancyEdit.png");
 		setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
+		
+>>>>>>> Min
+		JLabel prompt = new JLabel("Please enter your name:");
+		startButton.setBounds(referenceMap.getIconWidth()/2 - 125, 350, 75, 50);
+		econButton.setBounds(referenceMap.getIconWidth()/2 - 50, 350, 125, 50);
+		healthButton.setBounds(referenceMap.getIconWidth()/2 + 50, 350, 75, 50);
+		prompt.setBounds((referenceMap.getIconWidth()/2) - 125, 400, 150, 20);
+		username.setBounds(referenceMap.getIconWidth()/2 + 25, 400, 100, 20);
 		window.add(startButton);
 		window.add(econButton);
 		window.add(healthButton);
 		window.add(prompt);
-		window.add(Box.createHorizontalGlue());
 		window.add(username);
 		window.setVisible(true);
 		content.add(window);
@@ -126,6 +136,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		}
 	}
 	
+<<<<<<< HEAD
 	private void goToMapPanel(MapMode mapType){
 
 		System.out.print("OK");
@@ -138,6 +149,11 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), mapType);
 
 		//mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
+=======
+	private void goToMapPanel(MapMode type){
+		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
+
+>>>>>>> Min
 		mapPanel.setVisible(true);
 		window.setVisible(false);
 		this.setContentPane(mapPanel);

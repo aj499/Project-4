@@ -33,7 +33,7 @@ public class StudentData {
 	 * @param country the country the student looked at
 	 * @param currentMapMode the map mode in which they looked at the country
 	 */
-	public void addCountrySeen(String country, project.MapPanel.MapMode currentMapMode){
+	public void addCountrySeen(String country, MapMode currentMapMode){
 		if(currentMapMode == project.MapMode.HEALTH && !countriesSeenHealth.contains(country)){//deduplicate additions
 			countriesSeenHealth.add(country);
 		} else if(currentMapMode == project.MapMode.ECONOMIC && !countriesSeenEconomic.contains(country)){
@@ -113,6 +113,10 @@ public class StudentData {
 			return false; //backup, unreachable; to make Eclipse happy
 		}
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> Min
 	/**
 	 * Returns whether or not the student has looked at a given continent in the indicated mode.
 	 * 
