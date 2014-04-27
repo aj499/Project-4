@@ -283,8 +283,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public void createToggleButton() {
 
 		
-		toggleButtonLabel=new JLabel("State: off");
-		toggleButton = new JToggleButton ("On/Off", false);
+		toggleButtonLabel=new JLabel("Mode");
+		toggleButton = new JToggleButton ("Change Mode", false);
 		toggleButton.addItemListener(new ItemListener () {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
