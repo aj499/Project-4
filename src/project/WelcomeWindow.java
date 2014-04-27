@@ -91,14 +91,10 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		typeOptions.add(healthButton);
 		
 		username = new TextField(10);
-		
-<<<<<<< HEAD
-=======
 		map = new ImageIcon("mapImage2.png"); 
 		referenceMap = new ImageIcon("lifeExpectancyEdit.png");
 		setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
 		
->>>>>>> Min
 		JLabel prompt = new JLabel("Please enter your name:");
 		startButton.setBounds(referenceMap.getIconWidth()/2 - 125, 350, 75, 50);
 		econButton.setBounds(referenceMap.getIconWidth()/2 - 50, 350, 125, 50);
@@ -136,7 +132,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		}
 	}
 	
-<<<<<<< HEAD
+
 	private void goToMapPanel(MapMode mapType){
 
 		System.out.print("OK");
@@ -147,13 +143,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 
 
 		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), mapType);
-
-		//mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
-=======
-	private void goToMapPanel(MapMode type){
-		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
-
->>>>>>> Min
 		mapPanel.setVisible(true);
 		window.setVisible(false);
 		this.setContentPane(mapPanel);
