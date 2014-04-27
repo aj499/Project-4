@@ -67,7 +67,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//set up a QuizRunner and basic state
 		String initialQuizTopic = "NULL"; //TODO:= something derived from StudentData
 		
-		quizRunner = new QuizRunner(worldData, initialQuizTopic);
+		quizRunner = new QuizRunner(this, worldData, initialQuizTopic);
 		quizRunner.startQuiz(initialQuizTopic, currentMapMode);
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
@@ -121,7 +121,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * 
 	 * @param continentToChangeTo the new continent to view
 	 */
-	private void changeContinent(String continentToChangeTo){
+	public void changeContinent(String continentToChangeTo){
 		//clear screen of buttons
 		sweepButtons();
 		
@@ -363,5 +363,14 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//Auto-generated method stub
 		//Does nothing; required by interface
 	}
+	
+	/*
+	 * TODO: quizButton calls startQuiz(), then getQuestion
+
+getQuestion checks questionNumber, then if quiz not over calls loadQuestion, then displays it via getQuestion; if quiz over calls endQuiz
+
+button handler calls checkAnswer, if retVal is true calls getQuestion again
+	 * 
+	 */
 	
 }//class MapPanel
