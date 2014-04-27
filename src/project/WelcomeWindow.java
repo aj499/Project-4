@@ -150,6 +150,10 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		this.setContentPane(mapPanel);
 	}//goToMapPanel
 	
+	public String getStudentName() {
+		return studentName;
+	}
+	
 	public class startAction implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
