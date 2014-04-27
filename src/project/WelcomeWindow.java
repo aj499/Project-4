@@ -59,6 +59,8 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private MapMode mapType;
 	//Radio button group
 	private ButtonGroup typeOptions;
+	//String to hold name
+	private String studentName;
 	
 	public void init(){
 		
@@ -152,6 +154,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(mapType != null){
+				studentName=username.getText();
 				goToMapPanel(mapType);
 			}//if an option was pressed
 			else{
@@ -179,5 +182,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 	}//general actionPerformed
+	
 	
 }//class WelcomeWindow
