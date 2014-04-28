@@ -97,7 +97,8 @@ public class DataManager {
 	 * @return a list of all the countries in the countryData hash
 	 */
 	public String[] getCountryList(){
-		return (String[]) countryData.keySet().toArray();
+		//pass String Array to get correct return type (see API doc for Set<T>::toArray(T[] a))
+		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
 	}
 	
 	/**
@@ -106,7 +107,8 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
-		return (String[]) continentData.keySet().toArray();
+		//pass String Array to get correct return type (see API doc for Set<T>::toArray(T[] a))
+		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
 	}
 	
 	public CountryData getDataForCountry(String countryName){
