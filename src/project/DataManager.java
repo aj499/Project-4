@@ -39,7 +39,7 @@ public class DataManager {
 	public void parseData(){
 		try{
 			String filename = fileLocation;
-			int numContinents = 1;
+			int numContinents = 6;
 			int continentCounter = 1;
 			FileInputStream fileInputStream = new FileInputStream(filename);
 			DataInputStream dataInputStream = new DataInputStream(fileInputStream);
@@ -59,42 +59,42 @@ public class DataManager {
 					currentContinent.setTopBound(Integer.parseInt(bufferedReader.readLine()));
 					currentContinent.setBottomBound(Integer.parseInt(bufferedReader.readLine()));
 
-					
 					currentLine = bufferedReader.readLine();
-					while ((currentLine = bufferedReader.readLine()).length() > 0)
+					while ((currentLine = bufferedReader.readLine()).length() > 0){
 						currentContinent.addToCountryList(currentLine);
-
+					}
 					
 					continentData.put(currentContinent.getCountryName(), currentContinent);
 					continentCounter++;	
 				}
 				else{
-
-					currentCountry = new CountryData();
-					currentCountry.setCountryName(currentLine);
 					
+					currentCountry = new CountryData();
+					
+					currentCountry.setCountryName(currentLine);
 					currentCountry.setAll(bufferedReader);
 					currentCountry.setButtonXPosition(Integer.parseInt(bufferedReader.readLine()));
 					currentCountry.setButtonYPosition(Integer.parseInt(bufferedReader.readLine()));
 					countryData.put(currentCountry.getCountryName(), currentCountry);
+					
 					bufferedReader.readLine();
 				}
 			}
 			
 			bufferedReader.close();
 			dataLoaded = true;
+			
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 		
+		
 	}
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> origin/Min
+
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -122,7 +122,9 @@ public class DataManager {
 		
 		return continentData.get(continentName);
 	}
+		
 	
+
 
 }
 	
