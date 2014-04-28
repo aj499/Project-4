@@ -10,16 +10,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Vector;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import project.WelcomeWindow.ImagePanel;
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
@@ -42,8 +41,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private StudentData currentStudent;//who is the user and what have they seen?
 	//private boolean inPreTest;//are they taking the pretest
 
-	private Image map;
-
+	private ImageIcon map;
 	//buttons for the countries
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
 	
@@ -90,10 +88,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * Creates a new MapPanel based on data from the given DataManager.
 	 * 
 	 * @param newWorldData the DataManager to load data from
-	 * @throws IOException 
 	 */
 
-	public MapPanel(DataManager newWorldData, StudentData newStudentData, project.MapMode mapType) throws IOException{
+	public MapPanel(DataManager newWorldData, StudentData newStudentData, project.MapMode mapType){
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
@@ -120,18 +117,14 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * Helper function for the constructor.
 	 * <p>
 	 * (Assumes that worldData has been set previously.)
-	 * @throws IOException 
 	 */
-	private void setUp(MapMode type) throws IOException{
-		
+	private void setUp(MapMode type){
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
 		if(type == MapMode.ECONOMIC){
-			map = ImageIO.read(new File("EconMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-			repaint();
+			map = new ImageIcon("EconMap.png"); 
 		}//if MapMode type is economic
 		else{
-			map = ImageIO.read(new File("HealthMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-			repaint();
+			map = new ImageIcon("HealthMap.png"); 
 		}//else
 		quizButton = new AppButton();
 		quizButton.setText("End Quiz");
@@ -143,14 +136,16 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		currentMapMode = MapMode.ECONOMIC;
 		
 		setBackground(Color.black);
-		//setSize(map.getIconWidth(), map.getIconHeight());
+		setSize(map.getIconWidth(), map.getIconHeight());
 		
 		mapLabel = new JLabel();
 		infoBox = new JPanel();
-		//infoBox.setPreferredSize(new Dimension(100, map.getIconHeight()));
+		infoBox.setPreferredSize(new Dimension(100, map.getIconHeight()));
 		infoBox.setLocation(200,200);
 		infoBox.setBackground(Color.RED);
 		infoBox.setOpaque(true);
+
+		mapLabel.setIcon(map);
 
 		add(mapLabel, BorderLayout.WEST);	
 		add(infoBox, BorderLayout.EAST);
@@ -167,22 +162,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * to a given continent.
 	 * 
 	 * @param continentToChangeTo the new continent to view
-	 * @throws IOException 
 	 */
-<<<<<<< HEAD
-<<<<<<< HEAD
-	public void changeContinent(String continentToChangeTo){
-=======
+
 	private void changeContinent(String continentToChangeTo){
-		System.out.print("Called");
->>>>>>> origin/Min
-=======
-	private void changeContinent(String continentToChangeTo) throws IOException{
-		System.out.print("Called");
-=======
-	public void changeContinent(String continentToChangeTo){
->>>>>>> Mike
->>>>>>> origin/Min
+
 		//clear screen of buttons
 		sweepButtons();
 		
@@ -194,54 +177,42 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//TODO: load new image here as appropriate
 		if(currentMapMode == MapMode.ECONOMIC){
 			if(continentToChangeTo == "Africa"){
-				map = ImageIO.read(new File("EconAfrica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+				map = new ImageIcon("EconAfrica.png"); 
 			}//if EconAfrica
 			if(continentToChangeTo == "Asia"){
-				map = ImageIO.read(new File("EconAsia.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+				map = new ImageIcon("EconAsia.png"); 
 			}//if EconAsia
 			if(continentToChangeTo == "Europe"){
-				map = ImageIO.read(new File("EconEurope.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+				map = new ImageIcon("EconEurope.png"); 
 			}//if EconEurope
 			if(continentToChangeTo == "North America"){
-				map = ImageIO.read(new File("EconNorthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+				map = new ImageIcon("EconNorthAmerica.png"); 
 			}//if EconNorthAmerica
 			if(continentToChangeTo == "Oceania"){
-				map = ImageIO.read(new File("EconOceania.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+				map = new ImageIcon("EconOceania.png"); 
 			}//if EconAsia
 			if(continentToChangeTo == "South America"){
-				map = ImageIO.read(new File("EconSouthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+				map = new ImageIcon("EconSouthAmerica.png"); 
 			}//if EconSouthAmerica
 		}//if MapMode is economic
 		else{
 			if(continentToChangeTo == "Africa"){
-				map = ImageIO.read(new File("HealthAfrica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+				map = new ImageIcon("HealthAfrica.png"); 
 			}//if HealthAfrica
 			if(continentToChangeTo == "Asia"){
-				map = ImageIO.read(new File("HealthAsia.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+				map = new ImageIcon("HealthAsia.png"); 
 			}//if HealthAsia
-			if(continentToChangeTo == "Europe"){ 
-				map = ImageIO.read(new File("HealthEurope.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+			if(continentToChangeTo == "Europe"){
+				map = new ImageIcon("HealthEurope.png"); 
 			}//if HealthEurope
 			if(continentToChangeTo == "North America"){
-				map = ImageIO.read(new File("HealthNorthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+				map = new ImageIcon("HealthNorthAmerica.png"); 
 			}//if HealthNorthAmerica
 			if(continentToChangeTo == "Oceania"){
-				map = ImageIO.read(new File("HealthOceania.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+				map = new ImageIcon("HealthOceania.png"); 
 			}//if HealthAsia
 			if(continentToChangeTo == "South America"){
-				map = ImageIO.read(new File("HealthSouthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
+				map = new ImageIcon("HealthSouthAmerica.png"); 
 			}//if HealthSouthAmerica
 		}//if MapMode is Health
 		//TODO: update the InfoBox here as well
@@ -249,15 +220,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//set up new buttons
 		layoutButtons();
 	}
-	
-	public void paintComponent(Graphics g){
-		super.paintComponent(g);
-		if (map != null){
-			int x = 0;
-			int y = 0;
-			g.drawImage(map,x,y,this);
-		}//if image not null
-	}//paint
 	
 	/**
 	 * Remove all the country buttons currently on the screen.
@@ -356,35 +318,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			
 		}//if Economic mode
 		
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-		if(currentMapMode == MapMode.HEALTH){
-			lifeExpectancy = new JLabel();
-			maternalMortalityRate = new JLabel();
-			infantMortalityRate = new JLabel();
-			childrenUnderweightPercentage = new JLabel();
-			physicianDensity = new JLabel();
-			riskOfInfectiousDisease = new JLabel();
-			mostCommonDiseases = new JLabel();
-			majorHealthIssue = new JLabel();
-			makeADifferenceHealth = new JLabel();
 
-			lifeExpectancy.setText(newCountry.getLifeExpectancy());
-			maternalMortalityRate.setText(newCountry.getMaternalMortalityRate());
-			infantMortalityRate.setText(newCountry.getInfantMortalityRate());
-			childrenUnderweightPercentage.setText(newCountry.getChildrenUnderweightPercentage());
-			physicianDensity.setText(newCountry.getPhysicianDensity());
-			riskOfInfectiousDisease.setText(newCountry.getRiskOfInfectiousDisease());
-			mostCommonDiseases.setText(newCountry.getMostCommonDiseases());
-			majorHealthIssue.setText(newCountry.getMajorHealthIssue());
-			makeADifferenceHealth.setText(newCountry.getMakeADifferenceEconomic());
-			
-		}//if Health mode
-	}//updateInfoBox
-
-=======
->>>>>>> origin/Min
 		
 	}
 	
@@ -414,8 +348,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		changeContinent(currentView);
 	}
 	
-<<<<<<< HEAD
-=======
+
 		if(currentMapMode == MapMode.HEALTH){
 			lifeExpectancy = new JLabel();
 			maternalMortalityRate = new JLabel();
@@ -440,10 +373,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		}//if Health mode
 	}//updateInfoBox
 
->>>>>>> origin/Min
-=======
->>>>>>> Mike
->>>>>>> origin/Min
+
 	/**
 	 * Respond to misc. events generated by the UI.
 	 * 
@@ -485,12 +415,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		} else if(e.getSource().equals(backButton)){//back button
 			if(!currentView.equals("World")){//we only need to change things if we're not in world view
 				//update appropriately
-				try {
-					changeContinent("World");
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				changeContinent("World");
 			}
 		} else if(e.getSource().equals(quizButton)){//start/stop quiz
 			if(quizRunner.getQuizRunning()){//if they're in a quiz
@@ -538,12 +463,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					if(continentData.isPointInBounds(mouseX, mouseY)){//if we're inside this continent
 						//update appropriately
 						System.out.print("Clicked5");
-						try {
-							changeContinent(continentNames[i]);
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
+						changeContinent(continentNames[i]);
 						
 						//stop checking by terminating the for loop
 						break;

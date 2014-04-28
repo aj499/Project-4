@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,37 +22,16 @@ public class DataManager {
 	DataManager(String newFileLocation){
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
+		
 		dataLoaded=false;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-		setFileLocation(newFileLocation);
-	}//constructor
-	
-	/**
-	 * sets the filepath
-	 * @param newFileLocation
-	 */
-	public void setFileLocation(String newFileLocation){
-		fileLocation = newFileLocation;
-	}//setFileLocation
-
-	public void parseData(){
-=======
->>>>>>> origin/Min
 		fileLocation = newFileLocation;
 		parseData();
-	}
+	}//constructor
 	
 
 
-	
 	private void parseData(){
-<<<<<<< HEAD
 
-=======
->>>>>>> Mike
->>>>>>> origin/Min
 		try{
 			String filename = fileLocation;
 			int numContinents = 6;
@@ -100,31 +78,16 @@ public class DataManager {
 			
 			bufferedReader.close();
 			dataLoaded = true;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 			
 		}//try
 		catch(Exception e){
 			e.printStackTrace();
 		}//catch
-	}//parseData
-=======
->>>>>>> origin/Min
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
 	}
 
 
 
-<<<<<<< HEAD
-=======
->>>>>>> Mike
 
-
->>>>>>> origin/Min
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -140,38 +103,18 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
-<<<<<<< HEAD
+
 		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
 	}
 
-=======
-<<<<<<< HEAD
-		System.out.print("In get continent list: " + continentData.keySet().size());
-		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
-	}//getContinentList
-=======
-		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
-	}
->>>>>>> Mike
->>>>>>> origin/Min
-	
+
 	public CountryData getDataForCountry(String countryName){
 		return countryData.get(countryName);
-<<<<<<< HEAD
 	}//getDataForCountry
 
-=======
-<<<<<<< HEAD
-	}//getDataForCountry
 
-=======
-	}
-	
->>>>>>> Mike
->>>>>>> origin/Min
 
 	public ContinentData getDataForContinent(String continentName){
-		//TODO: actually implement this function!
 		return continentData.get(continentName);
 	}
 	
@@ -184,14 +127,6 @@ public class DataManager {
 		econVariableList.add("economicFreedomScore");
 		econVariableList.add("majorIndustries");
 		econVariableList.add("unemploymentRate");
-<<<<<<< HEAD
-=======
-		
-<<<<<<< HEAD
-		return continentData.get(continentName);
-	}//getDataForContinent
->>>>>>> origin/Min
-
 		
 		Random generator = new Random();
 		int minimum = 0;
@@ -201,39 +136,4 @@ public class DataManager {
 		return econVariableList.get(indexToChooseVariableToAskAbout);
 	}
 		
-	
-	/*public String[] generateEconSuperlativeQuestion(String continentName, String dataVariable){
-		//continentName= getCurrentView();
-			switch (dataVariable){	
-				case "gpdPerCapita":
-					return new String[] {"Which is the poorest country in " + continentName + " ?",
-							//gdpPerCapitaSortedAfrica.get(0).getCountryName()};
-					}
-					
-		}
-			
-		}
-		
-	}
-	
-	
-	public static void main(String args[]){
-
-		DataManager dm = new DataManager("/Users/michaelmcaneny/Desktop/CountryData.txt");
-		ContinentData cd = new ContinentData();
-
-		String[] continents = new String[6];
-		continents = dm.getCountryList();
-		for (int i = 0; i<continents.length;i++){
-			System.out.println(continents[i]);
-		}
-	}
-	*/
-
-
-<<<<<<< HEAD
-}//class DataManager
-	
-=======
->>>>>>> Mike
->>>>>>> origin/Min
+}
