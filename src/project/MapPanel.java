@@ -13,6 +13,9 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.util.Vector;
+import java.util.Vector;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -193,7 +196,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//update the info displayed in the info box
 		updateInfoBox(worldData.getDataForCountry(currentCountry));
-		
+
 		//note that we've seen this new country
 		currentStudent.addCountrySeen(currentCountry, currentMapMode);
 

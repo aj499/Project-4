@@ -1,5 +1,4 @@
 package project;
-
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -49,17 +48,12 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private MapMode mapType;
 	//Radio button group
 	private ButtonGroup typeOptions;
->>>>>>> FETCH_HEAD
-	
+
 	public void init(){
 		
-<<<<<<< HEAD
-		window = new JPanel();
-=======
 		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage2.png"));
 		window.setLayout(new BoxLayout(window, BoxLayout.PAGE_AXIS));
 		
->>>>>>> FETCH_HEAD
 		startButton = new JButton("Start");
 		startButton.addActionListener(new startAction());
 		startButton.setPreferredSize(new Dimension(100, 50));
@@ -72,30 +66,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		healthButton.addActionListener(new healthAction());
 		healthButton.setPreferredSize(new Dimension(200, 20));
 		
-<<<<<<< HEAD
-		ImageIcon map = new ImageIcon("mapImage2.png"); 
-		JLabel mapLabel = new JLabel();
-		//mapLabel.setLayout(new GridLayout(1, 1));
-		mapLabel.setIcon(map);
-		mapLabel.add(startButton);
-		//startButton.setLocation(200, 200);
-		
-		c.setBackground(Color.red);
-		//window.add(startButton);
-		window.add(mapLabel);
-		window.setVisible(true);
-		c.add(window);
-	}//init
-	
-	private void goToMapPanel(){
-		
-		DataManager loadingManager = new DataManager();
-		loadingManager.loadData();
-		mapPanel = new MapPanel(loadingManager);
-		mapPanel.setVisible(true);
-		c.add(mapPanel);
-		
-=======
 		typeOptions = new ButtonGroup();
 		typeOptions.add(econButton);
 		typeOptions.add(healthButton);
@@ -145,7 +115,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		mapPanel.setVisible(true);
 		window.setVisible(false);
 		this.setContentPane(mapPanel);
->>>>>>> FETCH_HEAD
 	}//goToMapPanel
 	
 	public class startAction implements ActionListener{
