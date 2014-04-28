@@ -275,7 +275,6 @@ public class CountryData {
 			setMajorEconomicIssue(bufferedReader.readLine());
 			setMakeADifferenceEconomic(bufferedReader.readLine());
 			setPhotoPathEconomic(bufferedReader.readLine());
-			
 			setLifeExpectancy(bufferedReader.readLine());
 			setMaternalMortalityRate(bufferedReader.readLine());
 			setInfantMortalityRate(bufferedReader.readLine());
