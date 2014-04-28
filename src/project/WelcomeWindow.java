@@ -1,10 +1,6 @@
 package project;
-<<<<<<< HEAD
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.GridLayout;
-=======
->>>>>>> Min
+
+//begin summoning the forces of evil, aka the Java graphics libraries
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -13,16 +9,10 @@ import java.awt.TextField;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-<<<<<<< HEAD
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-=======
->>>>>>> Min
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
