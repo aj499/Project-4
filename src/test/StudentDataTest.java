@@ -49,9 +49,9 @@ public class StudentDataTest {
 		
 		assertEquals(sd.getContinentsSeenEconomic().size(), 0);
 		
-		sd.addCountrySeen("Australia", MapMode.HEALTH);
+		sd.addContinentSeen("Australia", MapMode.ECONOMIC);
 		
-		assertTrue(sd.getContinentsSeenEconomic().contains("Ghana"));
+		assertTrue(sd.getContinentsSeenEconomic().contains("Australia"));
 	}
 	
 	/**
@@ -77,7 +77,7 @@ public class StudentDataTest {
 		
 		assertEquals(sd.getCountriesSeenHealth().size(), 0);
 		
-		assertTrue(sd.hasCountryBeenSeen("Ghana", MapMode.HEALTH));
+		assertFalse(sd.hasCountryBeenSeen("Ghana", MapMode.HEALTH));
 	}
 	
 	/**
@@ -89,9 +89,9 @@ public class StudentDataTest {
 		
 		assertEquals(sd.getContinentsSeenHealth().size(), 0);
 		
-		sd.addCountrySeen("Ghana", MapMode.HEALTH);
+		sd.addContinentSeen("Australia", MapMode.HEALTH);
 		
-		assertTrue(sd.hasContinentBeenSeen("Ghana", MapMode.HEALTH));
+		assertTrue(sd.hasContinentBeenSeen("Australia", MapMode.HEALTH));
 	}
 	
 	/**
@@ -103,6 +103,6 @@ public class StudentDataTest {
 		
 		assertEquals(sd.getContinentsSeenHealth().size(), 0);
 		
-		assertTrue(sd.hasContinentBeenSeen("Ghana", MapMode.HEALTH));
+		assertFalse(sd.hasContinentBeenSeen("Australia", MapMode.HEALTH));
 	}
 }
