@@ -24,6 +24,13 @@ public class QuizRunner {
 	private DataManager worldData;
 	private MapPanel parent;//so we can change the continent shown when quizing across continents
 	
+	/**
+	 * Creates a new QuizRunner.
+	 * 
+	 * @param newParent the parent of the new QuizRunner, who will handle UI for it
+	 * @param newWorldData the source of data to draw upon in generating questions
+	 * @param newPreTestTopic the topic for the pre-test
+	 */
 	public QuizRunner(MapPanel newParent, DataManager newWorldData, String newPreTestTopic){
 		worldData = newWorldData;
 		preTestTopic = newPreTestTopic;
@@ -35,6 +42,12 @@ public class QuizRunner {
 		questionsAsked = new Vector<String>();
 	}
 	
+	/**
+	 * Starts a new quiz on the given topic (ie area of the world)
+	 * in the given mode (economic or health)
+	 * @param topic the area of the world the quiz should be on
+	 * @param mode whether the quiz should cover economic or health issues
+	 */
 	public void startQuiz(String topic, MapMode mode){
 		currentTopic = topic;
 		currentMode = mode;
@@ -43,6 +56,10 @@ public class QuizRunner {
 		questionsAnsweredCorrectly = 0;
 	}
 	
+	/**
+	 * Gets a new question for the current quiz according to the
+	 * quiz's topic and mode.
+	 */
 	public void loadQuestion(){
 		String prospectiveQuestion;
 		
@@ -86,6 +103,12 @@ public class QuizRunner {
 		
 	}
 	
+	/**
+	 * Checks whether the given answer is the correct answer to the current question.
+	 * 
+	 * @param potentialAnswer the answer to be checked for correctness
+	 * @return whether or not the given answer was correct
+	 */
 	public boolean checkAnswer(String potentialAnswer){
 		currentQuestionAttempts++;
 		
@@ -98,32 +121,59 @@ public class QuizRunner {
 		return answerWasCorrect;
 	}
 	
+	/**
+	 * Ends the current quiz.
+	 */
 	public void endQuiz(){
 		//set flags
 		quizRunning = false;
 		inPreTest =  false;
 	}
 	
+	/**
+	 * Returns whether or not a pre-test is being run.
+	 * @return whether or not a pre-test is being run
+	 */
 	public boolean getInPreTest(){
 		return inPreTest;
 	}
 	
+	/**
+	 * Returns whether or not a quiz is being run.
+	 * @return whether or not a quiz is being run
+	 */
 	public boolean getQuizRunning(){
 		return quizRunning;
 	}
 	
+	/**
+	 * Returns the current question being asked by the quiz.
+	 * @return the current question being asked by the quiz
+	 */
 	public String getQuestion(){
 		return currentQuestion;
 	}
 	
+	/**
+	 * Returns whether or not there are questions left to ask in the current quiz.
+	 * @return whether or not there are questions left to ask in the current quiz
+	 */
 	public boolean questionsRemainToAsk(){
 		return currentQuestionNumber < TOTAL_QUESTIONS_TO_ASK;
 	}
 	
+	/**
+	 * Returns whether or not the user may make further attempts at answering the current question.
+	 * @return whether or not the user may make further attempts at answering the current question
+	 */
 	public boolean hasRemainingAttempts(){
 		return currentQuestionAttempts < MAX_ATTEMPTS_PER_QUESTION;
 	}
 	
+	/**
+	 * Returns a report of the user's performance on the most recently taken quiz.
+	 * @return a report of the user's performance on the most recently taken quiz
+	 */
 	public String getQuizEndReport(){
 		String report = "You answered " + questionsAnsweredCorrectly + " out of " + TOTAL_QUESTIONS_TO_ASK + " correctly";
 		report += "\nand scored " + (int) ((((float) questionsAnsweredCorrectly) / ((float) TOTAL_QUESTIONS_TO_ASK)) * 100) + " percent.";

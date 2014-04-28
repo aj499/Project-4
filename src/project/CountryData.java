@@ -238,7 +238,6 @@ public class CountryData {
 		return 5;
 	}
 
-
 	public String generateEconQuestion(){
 
 		int indexToChooseQuestionRandomly;
