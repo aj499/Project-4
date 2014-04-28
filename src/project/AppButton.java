@@ -21,7 +21,10 @@ public class AppButton extends JButton{
 	 */
 	public AppButton(){
 		super();//call JButton constructor, since that probably does something important
+		
 		id = "null";
+		
+		setText(id);
 	}
 	
 	/**
@@ -33,6 +36,8 @@ public class AppButton extends JButton{
 		super();//call JButton constructor, since that probably does something important
 		
 		id = newId;
+		
+		setText(id);
 	}
 	
 	/**
@@ -46,6 +51,8 @@ public class AppButton extends JButton{
 	public void setId(String newId){
 		
 		id = newId;
+		
+		setText(id);
 		
 	}//setId
 	

@@ -112,7 +112,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		mapLabel.validate();
 		mapLabel.repaint();
 		
-		//layoutButtons();//set up buttons for the current view
+		changeContinent("World");//set up buttons for the current view
 	}
 	
 	/**
@@ -176,6 +176,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				
 				//add it to the panel
 				add(buttons.get(countriesToLoad.get(i)));
+				
+				//make it visible
+				buttons.get(countriesToLoad.get(i)).setVisible(true);
 			}
 		} 
 	}
