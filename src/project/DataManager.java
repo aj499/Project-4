@@ -38,7 +38,7 @@ public class DataManager {
 
 	public void parseData(){
 		try{
-			String filename ="/Users/michaelmcaneny/Desktop/exampleData.txt";
+			String filename = fileLocation;
 			int numContinents = 1;
 			int continentCounter = 1;
 			FileInputStream fileInputStream = new FileInputStream(filename);
@@ -82,18 +82,16 @@ public class DataManager {
 			}
 			
 			bufferedReader.close();
+			dataLoaded = true;
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 		
 	}
-<<<<<<< HEAD
 
 
-=======
-	
->>>>>>> origin/Min
+
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -113,10 +111,8 @@ public class DataManager {
 	}
 	
 	public CountryData getDataForCountry(String countryName){
-		//TODO: actually implement this function!
 		return countryData.get(countryName);
 	}
-
 
 
 	public ContinentData getDataForContinent(String continentName){
