@@ -23,18 +23,12 @@ public class DataManager {
 		continentData = new HashMap<String, ContinentData>();
 		
 		dataLoaded=false;
-		setFileLocation(newFileLocation);
-	}
-	
-	/**
-	 * Sets the filepath from which data will be loaded.
-	 * @param newFileLocation the location of the file from which data will be loaded
-	 */
-	public void setFileLocation(String newFileLocation){
 		fileLocation = newFileLocation;
+		
+		parseData();
 	}
 	
-	public void parseData(){
+	private void parseData(){
 		try{
 			String filename = fileLocation;
 			int numContinents = 6;
@@ -121,10 +115,9 @@ public class DataManager {
 		return continentData.get(continentName);
 	}
 	
-	public String randomlyChooseVariableForSuperlativeQuestion(){
+	public String getRandomlyChosenVariableForSuperlativeQuestion(){
 		ArrayList<String> econVariableList = new ArrayList<String>();
 		econVariableList.add("gpdPerCapita");
-		econVariableList.add("gdpRealGrowthRate");
 		econVariableList.add("gdpRealGrowthRate");
 		econVariableList.add("agriculturePercentageOfGDP");
 		econVariableList.add("economicFreedomScore");
@@ -133,11 +126,11 @@ public class DataManager {
 		
 		
 		Random generator = new Random();
-		int minimum = 0;
+		/*int minimum = 0;
 		int maximum = econVariableList.size()-1;
 		int range = maximum - minimum + 1;
-		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;
-		return econVariableList.get(indexToChooseVariableToAskAbout);
+		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;*/
+		return econVariableList.get(generator.nextInt(econVariableList.size()));
 	}
 
 }

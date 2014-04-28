@@ -9,10 +9,10 @@ import project.MapPanel;
 import project.StudentData;
 
 public class MapPanelTest {
+	final String DATA_FILE_LOCATION = null;//TODO: fill in actual value later!
 	MapPanel mp;
 	DataManager dm;
 	StudentData sd;
-	final String DATA_FILE_LOCATION = null;//TODO: fill in actual value later!
 	
 	
 	/**

@@ -13,7 +13,6 @@ public class QuizRunner {
 	
 	private int currentQuestionNumber;
 	private int questionsAnsweredCorrectly;
-	private String preTestTopic;
 	private String currentTopic;
 	private MapMode currentMode;
 	private boolean inPreTest;
@@ -33,7 +32,6 @@ public class QuizRunner {
 	 */
 	public QuizRunner(MapPanel newParent, DataManager newWorldData, String newPreTestTopic){
 		worldData = newWorldData;
-		preTestTopic = newPreTestTopic;
 		parent = newParent;
 		
 		inPreTest = true;
