@@ -51,10 +51,9 @@ public class DataManager {
 					dataInputStream));
 			String currentLine;
 			while ((currentLine = bufferedReader.readLine())!=null){
-				CountryData currentCountry = new CountryData();
-				ContinentData currentContinent = new ContinentData();
 
 				if (continentCounter <= numContinents){
+					ContinentData currentContinent = new ContinentData();
 					currentContinent = new ContinentData();
 					currentContinent.setCountryName(currentLine);
 					currentContinent.setAll(bufferedReader);
@@ -72,7 +71,7 @@ public class DataManager {
 					continentCounter++;	
 				}
 				else{
-					
+					CountryData currentCountry = new CountryData();
 					currentCountry = new CountryData();
 					
 					currentCountry.setCountryName(currentLine);
@@ -112,7 +111,7 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
-		return (String[]) continentData.keySet().toArray(new String[countryData.keySet().size()]);
+		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
 	}
 	
 	public CountryData getDataForCountry(String countryName){
@@ -159,9 +158,19 @@ public class DataManager {
 		}
 		
 	}
-	*/
 	
-
+	
+	public static void main(String args[]){
+		DataManager dm = new DataManager("/Users/michaelmcaneny/Desktop/CountryData.txt");
+		ContinentData cd = new ContinentData();
+		dm.parseData();
+		String[] continents = new String[6];
+		continents = dm.getContinentList();
+		for (int i = 0; i<continents.length;i++){
+			System.out.println(continents[i]);
+		}
+	}
+	*/
 
 }
 
