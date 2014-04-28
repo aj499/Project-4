@@ -3,16 +3,22 @@ package project;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.Vector;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import project.WelcomeWindow.ImagePanel;
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
@@ -47,6 +53,34 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private AppButton mapModeChangeButton;
 	private AppButton quizButton;
 	private AppButton backButton;//go back to world view from continentView
+	
+	//JLabels for the infoBox
+	//Economic topics
+	private JLabel gdpPerCapita;
+	private JLabel gdpRealGrowthRate;
+	private JLabel agriculturePercentageOfGdp;
+	private JLabel economicFreedomScore;
+	private JLabel lowestTenIncome;
+	private JLabel highestTenIncome;
+	private JLabel majorIndustries;
+	private JLabel unemploymentRate;
+	private JLabel majorEconomicIssue;
+	private JLabel makeADifferenceEconomic;
+	//Health Topics
+	private JLabel lifeExpectancy;
+	private JLabel maternalMortalityRate;
+	private JLabel infantMortalityRate;
+	private JLabel childrenUnderweightPercentage;
+	private JLabel physicianDensity;
+	private JLabel riskOfInfectiousDisease;
+	private JLabel mostCommonDiseases;
+	private JLabel majorHealthIssue;
+	private JLabel makeADifferenceHealth;
+	
+	//JLabel holding map images
+	JLabel mapLabel;
+	//JPanel holding all of the country information
+	JPanel infoBox;
 	
 	/* --||-- END VARIABLES --||-- */
 	
@@ -104,8 +138,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		setBackground(Color.black);
 		setSize(map.getIconWidth(), map.getIconHeight());
 		
-		JLabel mapLabel = new JLabel();
-		JPanel infoBox = new JPanel();
+		mapLabel = new JLabel();
+		infoBox = new JPanel();
 		infoBox.setPreferredSize(new Dimension(100, map.getIconHeight()));
 		infoBox.setLocation(200,200);
 		infoBox.setBackground(Color.RED);
@@ -115,6 +149,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 		add(mapLabel, BorderLayout.WEST);	
 		add(infoBox, BorderLayout.EAST);
+		addMouseListener(this);
 
 		mapLabel.validate();
 		mapLabel.repaint();
@@ -129,6 +164,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @param continentToChangeTo the new continent to view
 	 */
 	private void changeContinent(String continentToChangeTo){
+		System.out.print("Called");
 		//clear screen of buttons
 		sweepButtons();
 		
@@ -138,6 +174,46 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		currentStudent.addContinentSeen(continentToChangeTo, currentMapMode);
 		
 		//TODO: load new image here as appropriate
+		if(currentMapMode == MapMode.ECONOMIC){
+			if(continentToChangeTo == "Africa"){
+				map = new ImageIcon("EconAfrica.png"); 
+			}//if EconAfrica
+			if(continentToChangeTo == "Asia"){
+				map = new ImageIcon("EconAsia.png"); 
+			}//if EconAsia
+			if(continentToChangeTo == "Europe"){
+				map = new ImageIcon("EconEurope.png"); 
+			}//if EconEurope
+			if(continentToChangeTo == "North America"){
+				map = new ImageIcon("EconNorthAmerica.png"); 
+			}//if EconNorthAmerica
+			if(continentToChangeTo == "Oceania"){
+				map = new ImageIcon("EconOceania.png"); 
+			}//if EconAsia
+			if(continentToChangeTo == "South America"){
+				map = new ImageIcon("EconSouthAmerica.png"); 
+			}//if EconSouthAmerica
+		}//if MapMode is economic
+		else{
+			if(continentToChangeTo == "Africa"){
+				map = new ImageIcon("HealthAfrica.png"); 
+			}//if HealthAfrica
+			if(continentToChangeTo == "Asia"){
+				map = new ImageIcon("HealthAsia.png"); 
+			}//if HealthAsia
+			if(continentToChangeTo == "Europe"){
+				map = new ImageIcon("HealthEurope.png"); 
+			}//if HealthEurope
+			if(continentToChangeTo == "North America"){
+				map = new ImageIcon("HealthNorthAmerica.png"); 
+			}//if HealthNorthAmerica
+			if(continentToChangeTo == "Oceania"){
+				map = new ImageIcon("HealthOceania.png"); 
+			}//if HealthAsia
+			if(continentToChangeTo == "South America"){
+				map = new ImageIcon("HealthSouthAmerica.png"); 
+			}//if HealthSouthAmerica
+		}//if MapMode is Health
 		//TODO: update the InfoBox here as well
 		
 		//set up new buttons
@@ -217,18 +293,17 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//then add it
 		
 		if(currentMapMode == MapMode.ECONOMIC){
-			JLabel gdpPerCapita = new JLabel();
-			JLabel gdpRealGrowthRate = new JLabel();
-			JLabel agriculturePercentageOfGdp = new JLabel();
-			JLabel economicFreedomScore= new JLabel();
-			JLabel lowestTenIncome = new JLabel();
-			JLabel highestTenIncome = new JLabel();
-			JLabel majorIndustries = new JLabel();
-			JLabel unemploymentRate = new JLabel();
-			JLabel majorEconomicIssue = new JLabel();
-			JLabel makeADifferenceEconomic = new JLabel();
+			gdpPerCapita = new JLabel();
+			gdpRealGrowthRate = new JLabel();
+			agriculturePercentageOfGdp = new JLabel();
+			economicFreedomScore= new JLabel();
+			lowestTenIncome = new JLabel();
+			highestTenIncome = new JLabel();
+			majorIndustries = new JLabel();
+			unemploymentRate = new JLabel();
+			majorEconomicIssue = new JLabel();
+			makeADifferenceEconomic = new JLabel();
 			
-			//CountryData workingCountry = worldData.getDataForCountry(currentCountry);
 			gdpPerCapita.setText(newCountry.getGpdPerCapita());
 			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
 			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
@@ -242,9 +317,30 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			
 		}//if Economic mode
 		
-		
-	}
-	
+		if(currentMapMode == MapMode.HEALTH){
+			lifeExpectancy = new JLabel();
+			maternalMortalityRate = new JLabel();
+			infantMortalityRate = new JLabel();
+			childrenUnderweightPercentage = new JLabel();
+			physicianDensity = new JLabel();
+			riskOfInfectiousDisease = new JLabel();
+			mostCommonDiseases = new JLabel();
+			majorHealthIssue = new JLabel();
+			makeADifferenceHealth = new JLabel();
+
+			lifeExpectancy.setText(newCountry.getLifeExpectancy());
+			maternalMortalityRate.setText(newCountry.getMaternalMortalityRate());
+			infantMortalityRate.setText(newCountry.getInfantMortalityRate());
+			childrenUnderweightPercentage.setText(newCountry.getChildrenUnderweightPercentage());
+			physicianDensity.setText(newCountry.getPhysicianDensity());
+			riskOfInfectiousDisease.setText(newCountry.getRiskOfInfectiousDisease());
+			mostCommonDiseases.setText(newCountry.getMostCommonDiseases());
+			majorHealthIssue.setText(newCountry.getMajorHealthIssue());
+			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
+			
+		}//if Health mode
+	}//updateInfoBox
+
 	/**
 	 * Respond to misc. events generated by the UI.
 	 * 
@@ -302,20 +398,24 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e){
 		//only check for clicks on continents if we're looking at the whole world
+		System.out.print("Clicked");
 		if(currentView.equals("World")){
 			//get the locations of the click
 			int mouseX = e.getX();
 			int mouseY = e.getY();
-			
+			System.out.print("Clicked2");
 			//check it against the bounding box of each country
 			String continentNames[] = worldData.getContinentList();
 			for(int i = 0; i < continentNames.length; i++){
+				System.out.print("Clicked3");
 				if(!continentNames[i].equals("World")){//don't check against the world's bounding box
 					//get data on the continent
+					System.out.print("Clicked4");
 					ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
 					
 					if(continentData.isPointInBounds(mouseX, mouseY)){//if we're inside this continent
 						//update appropriately
+						System.out.print("Clicked5");
 						changeContinent(continentNames[i]);
 						
 						//stop checking by terminating the for loop

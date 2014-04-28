@@ -25,20 +25,16 @@ public class DataManager {
 		
 		dataLoaded=false;
 		setFileLocation(newFileLocation);
-	}
+	}//constructor
 	
-
 	/**
 	 * sets the filepath
 	 * @param newFileLocation
 	 */
 	public void setFileLocation(String newFileLocation){
 		fileLocation = newFileLocation;
-	}
+	}//setFileLocation
 
-	
-	
-	
 	public void parseData(){
 		try{
 			String filename = fileLocation;
@@ -65,11 +61,11 @@ public class DataManager {
 					currentLine = bufferedReader.readLine();
 					while ((currentLine = bufferedReader.readLine()).length() > 0){
 						currentContinent.addToCountryList(currentLine);
-					}
+					}//while
 					
 					continentData.put(currentContinent.getCountryName(), currentContinent);
 					continentCounter++;	
-				}
+				}//if
 				else{
 					
 					currentCountry = new CountryData();
@@ -81,22 +77,17 @@ public class DataManager {
 					countryData.put(currentCountry.getCountryName(), currentCountry);
 					
 					bufferedReader.readLine();
-				}
-			}
+				}//else
+			}//while
 			
 			bufferedReader.close();
 			dataLoaded = true;
 			
-		}
+		}//try
 		catch(Exception e){
 			e.printStackTrace();
-		}
-		
-		
-	}
-
-
-
+		}//catch
+	}//parseData
 
 	/**
 	 * Returns a list of all the countries in the countryData hash.
@@ -105,7 +96,7 @@ public class DataManager {
 	 */
 	public String[] getCountryList(){
 		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
-	}
+	}//getCountryList
 	
 	/**
 	 * Returns a list of all the continents in the countryData hash.
@@ -113,21 +104,19 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
-		return (String[]) continentData.keySet().toArray(new String[countryData.keySet().size()]);
-	}
+		System.out.print("In get continent list: " + continentData.keySet().size());
+		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
+	}//getContinentList
 	
 	public CountryData getDataForCountry(String countryName){
 		return countryData.get(countryName);
-	}
+	}//getDataForCountry
 
 
 	public ContinentData getDataForContinent(String continentName){
 		
 		return continentData.get(continentName);
-	}
-		
-	
+	}//getDataForContinent
 
-
-}
+}//class DataManager
 	
