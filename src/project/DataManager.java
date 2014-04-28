@@ -35,25 +35,16 @@ public class DataManager {
 	public void setFileLocation(String newFileLocation){
 		fileLocation = newFileLocation;
 	}
-<<<<<<< HEAD
 
-	
-	
-=======
->>>>>>> origin/Lauren
+
+
 	
 	public void parseData(){
-
-		
-		
 		try{
-<<<<<<< HEAD
 			String filename = fileLocation;
 			int numContinents = 6;
 			int continentCounter = 1;
-=======
-			String filename ="/Users/michaelmcaneny/Desktop/exampleData.txt";
->>>>>>> origin/Lauren
+
 			FileInputStream fileInputStream = new FileInputStream(filename);
 			DataInputStream dataInputStream = new DataInputStream(fileInputStream);
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
@@ -61,11 +52,8 @@ public class DataManager {
 			String currentLine;
 			while ((currentLine = bufferedReader.readLine())!=null){
 				CountryData currentCountry = new CountryData();
-				currentCountry.setCountryName(currentLine);
-				
-<<<<<<< HEAD
-				CountryData currentCountry;
-				ContinentData currentContinent;
+				ContinentData currentContinent = new ContinentData();
+
 				if (continentCounter <= numContinents){
 					currentContinent = new ContinentData();
 					currentContinent.setCountryName(currentLine);
@@ -95,57 +83,20 @@ public class DataManager {
 					
 					bufferedReader.readLine();
 				}
-=======
-				currentCountry.setGpdPerCapita(bufferedReader.readLine());
-				currentCountry.setGdpRealGrowthRate(bufferedReader.readLine());
-				currentCountry.setAgriculturePercentageOfGdp(bufferedReader.readLine());
-				currentCountry.setEconomicFreedomScore(bufferedReader.readLine());
-				currentCountry.setLowestTenIncome(bufferedReader.readLine());
-				currentCountry.setHighestTenIncome(bufferedReader.readLine());
-				currentCountry.setMajorIndustries(bufferedReader.readLine());
-				currentCountry.setUnemploymentRate(bufferedReader.readLine());
-				currentCountry.setMajorEconomicIssue(bufferedReader.readLine());
-				currentCountry.setMakeADifferenceEconomic(bufferedReader.readLine());
-				currentCountry.setPhotoPathEconomic(bufferedReader.readLine());
-				
-				currentCountry.setLifeExpectancy(bufferedReader.readLine());
-				currentCountry.setMaternalMortalityRate(bufferedReader.readLine());
-				currentCountry.setInfantMortalityRate(bufferedReader.readLine());
-				currentCountry.setChildrenUnderweightPercentage(bufferedReader.readLine());
-				currentCountry.setPhysicianDensity(bufferedReader.readLine());
-				currentCountry.setRiskOfInfectiousDisease(bufferedReader.readLine());
-				currentCountry.setMostCommonDiseases(bufferedReader.readLine());
-				currentCountry.setMajorHealthIssue(bufferedReader.readLine());
-				currentCountry.setMakeADifferenceHealth(bufferedReader.readLine());
-				currentCountry.setPhotoPathHealth(bufferedReader.readLine());
-				
-				countryData.put(currentCountry.getCountryName(), currentCountry);
-				System.out.println("key was " + currentCountry.getCountryName());
-				bufferedReader.readLine();
->>>>>>> origin/Lauren
 			}
 			
 			bufferedReader.close();
 			dataLoaded = true;
-			
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		
-		
 	}
 
-<<<<<<< HEAD
 
 
 
-=======
-	
-	
-		
-	
->>>>>>> origin/Lauren
+
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -165,12 +116,8 @@ public class DataManager {
 	}
 	
 	public CountryData getDataForCountry(String countryName){
-<<<<<<< HEAD
+
 		return countryData.get(countryName);
-=======
-		//TODO: actually implement this function!
-		return new CountryData();
->>>>>>> origin/Lauren
 	}
 	
 
@@ -199,11 +146,6 @@ public class DataManager {
 	}
 		
 	
-<<<<<<< HEAD
-
-
-}
-=======
 	/*public String[] generateEconSuperlativeQuestion(String continentName, String dataVariable){
 		//continentName= getCurrentView();
 			switch (dataVariable){	
@@ -218,24 +160,8 @@ public class DataManager {
 		
 	}
 	*/
-	}
->>>>>>> origin/Lauren
 	
-	
-	/*public static void main(String args[]){
-		DataManager dm = new DataManager("hello");
-		dm.parseData();
-		CountryData peru = new CountryData();
-		CountryData mongolia = new CountryData();
-		CountryData usa = new CountryData();
-		usa = dm.countryData.get("USA");
-		peru = dm.countryData.get("Peru");
-		mongolia = dm.countryData.get("Mongolia");
-		System.out.println("Peru: " + peru.getMajorHealthIssue());
-		System.out.println("Mongolia: " + mongolia.getMajorHealthIssue());
-		System.out.println("USA: " + usa.getMajorHealthIssue());
-		System.out.println(dm.countryData.size());
-		
-	}*/
 
+
+}
 
