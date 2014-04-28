@@ -16,6 +16,9 @@ import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
+	public enum Continent{
+		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
+	}
 	/* --||-- BEGIN VARIABLES --||-- */
 	
 	//to make Eclipse shut up
@@ -53,7 +56,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @param newWorldData the DataManager to load data from
 	 */
 
-	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode type){
+	public MapPanel(DataManager newWorldData, StudentData newStudentData, project.MapMode mapType){
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
@@ -72,7 +75,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
-		setUp(type);
+		setUp(mapType);
 	}
 	
 	/**
@@ -194,7 +197,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//note that we've seen this new country
 		currentStudent.addCountrySeen(currentCountry, currentMapMode);
-		
 	}
 	
 	/**

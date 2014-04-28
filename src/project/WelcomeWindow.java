@@ -50,7 +50,8 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	public void init(){
 		
 		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage2.png"));
-		window.setLayout(new BoxLayout(window, BoxLayout.PAGE_AXIS));
+		//window.setLayout(new BoxLayout(window, BoxLayout.PAGE_AXIS));
+		window.setLayout(null);
 		
 		startButton = new JButton("Start");
 		startButton.addActionListener(new startAction());
@@ -72,15 +73,18 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		
 		map = new ImageIcon("mapImage2.png"); 
 		referenceMap = new ImageIcon("lifeExpectancyEdit.png");
+		setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
 		
 		JLabel prompt = new JLabel("Please enter your name:");
-		prompt.setPreferredSize(new Dimension(100,20));
-		setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
+		startButton.setBounds(referenceMap.getIconWidth()/2 - 125, 350, 75, 50);
+		econButton.setBounds(referenceMap.getIconWidth()/2 - 50, 350, 125, 50);
+		healthButton.setBounds(referenceMap.getIconWidth()/2 + 50, 350, 75, 50);
+		prompt.setBounds((referenceMap.getIconWidth()/2) - 125, 400, 150, 20);
+		username.setBounds(referenceMap.getIconWidth()/2 + 25, 400, 100, 20);
 		window.add(startButton);
 		window.add(econButton);
 		window.add(healthButton);
 		window.add(prompt);
-		window.add(Box.createHorizontalGlue());
 		window.add(username);
 		window.setVisible(true);
 		content.add(window);
@@ -110,6 +114,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	
 	private void goToMapPanel(MapMode type){
 		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
+
 		mapPanel.setVisible(true);
 		window.setVisible(false);
 		this.setContentPane(mapPanel);
