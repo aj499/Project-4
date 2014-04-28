@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,24 +23,15 @@ public class DataManager {
 	DataManager(String newFileLocation){
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
-		
 		dataLoaded=false;
-		setFileLocation(newFileLocation);
-	}
-	
-
-	/**
-	 * sets the filepath
-	 * @param newFileLocation
-	 */
-	public void setFileLocation(String newFileLocation){
 		fileLocation = newFileLocation;
+		parseData();
 	}
-
+	
 
 
 	
-	public void parseData(){
+	private void parseData(){
 		try{
 			String filename = fileLocation;
 			int numContinents = 6;
@@ -161,11 +153,12 @@ public class DataManager {
 	
 	
 	public static void main(String args[]){
+
 		DataManager dm = new DataManager("/Users/michaelmcaneny/Desktop/CountryData.txt");
 		ContinentData cd = new ContinentData();
-		dm.parseData();
+
 		String[] continents = new String[6];
-		continents = dm.getContinentList();
+		continents = dm.getCountryList();
 		for (int i = 0; i<continents.length;i++){
 			System.out.println(continents[i]);
 		}

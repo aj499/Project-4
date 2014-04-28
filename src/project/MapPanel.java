@@ -167,7 +167,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			//get a list of buttons to add to the layout
 			Vector<String> countriesToLoad = worldData.getDataForContinent(currentView).getCountryList();
 			
-			CountryData countryToLayOut;
+			CountryData countryToLayOut = new CountryData();
 			
 			//add each one to the panel
 			for(int i = 0; i < countriesToLoad.size(); i++){
