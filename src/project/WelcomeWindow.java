@@ -45,8 +45,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	
 	public void init(){
 		
-		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage2.png"));
-		//window.setLayout(new BoxLayout(window, BoxLayout.PAGE_AXIS));
+		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage.png"));
 		window.setLayout(null);
 		
 		startButton = new JButton("Start");
@@ -67,8 +66,8 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		
 		username = new TextField(10);
 		
-		map = new ImageIcon("mapImage2.png"); 
-		referenceMap = new ImageIcon("lifeExpectancyEdit.png");
+		map = new ImageIcon("mapImage.png"); 
+		referenceMap = new ImageIcon("HealthMap.png");
 		setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
 		
 		JLabel prompt = new JLabel("Please enter your name:");

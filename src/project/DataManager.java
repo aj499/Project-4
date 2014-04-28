@@ -88,12 +88,7 @@ public class DataManager {
 		}
 		
 	}
-<<<<<<< HEAD
 
-
-=======
-	
->>>>>>> origin/Min
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
