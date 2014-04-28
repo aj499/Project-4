@@ -45,7 +45,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	
 	public void init(){
 		
-		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage.png"));
+		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("EconMap.png"));
 		window.setLayout(null);
 		
 		startButton = new JButton("Start");
