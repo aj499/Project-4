@@ -7,6 +7,8 @@ import java.awt.TextField;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
@@ -30,7 +32,9 @@ import javax.swing.JRadioButton;
 public class WelcomeWindow extends JApplet implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
-	
+	//width and height of applet
+	private int width;
+	private int height;
 	//Initial JPanel that will be presented on the applet
 	private JPanel window;
 	//MapPanel object that is the main JPanel that will be presented on the applet
@@ -54,14 +58,18 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	
 	public void init(){
 		
+		//Sets the width and height
+		width = 1600;
+		height = 500;
 		//Sets the background of the window
-		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage.png"));
+		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage.png").getScaledInstance(1200, 500, Image.SCALE_SMOOTH));
 		//Sets the layout to null so that we can use coordinates
 		window.setLayout(null);
 		//Takes one of the maps we'll use later as a reference to size the applet
 		referenceMap = new ImageIcon("HealthMap.png");
 		//Sets the size of the applet to the reference map size
-		setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
+		//setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
+		setSize(width, height);
 		
 		//Creates the start button
 		startButton = new JButton("Start");
@@ -152,8 +160,9 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	 * functionality.
 	 * 
 	 * @param mapType
+	 * @throws IOException 
 	 */
-	private void goToMapPanel(MapMode mapType){
+	private void goToMapPanel(MapMode mapType) throws IOException{
 		//Creates a new MapPanel
 		mapPanel = new MapPanel(new DataManager("CountryData.txt"), new StudentData("Dummy Student!"), mapType);
 		//Switches the visibility of the existing JPanles
@@ -170,7 +179,12 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(mapType != null){
-				goToMapPanel(mapType);
+				try {
+					goToMapPanel(mapType);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}//if an option was pressed
 			else{
 				JLabel warning = new JLabel("Please choose a subject");
