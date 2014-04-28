@@ -1,5 +1,4 @@
 package project;
-
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -8,9 +7,6 @@ import java.awt.TextField;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
@@ -49,8 +45,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	
 	public void init(){
 		
-		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage2.png"));
-		//window.setLayout(new BoxLayout(window, BoxLayout.PAGE_AXIS));
+		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("EconMap.png"));
 		window.setLayout(null);
 		
 		startButton = new JButton("Start");
@@ -71,8 +66,8 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		
 		username = new TextField(10);
 		
-		map = new ImageIcon("mapImage2.png"); 
-		referenceMap = new ImageIcon("lifeExpectancyEdit.png");
+		map = new ImageIcon("mapImage.png"); 
+		referenceMap = new ImageIcon("HealthMap.png");
 		setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
 		
 		JLabel prompt = new JLabel("Please enter your name:");
@@ -112,8 +107,8 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		}
 	}
 	
-	private void goToMapPanel(MapMode type){
-		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
+	private void goToMapPanel(MapMode mapType){
+		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), mapType);
 
 		mapPanel.setVisible(true);
 		window.setVisible(false);
