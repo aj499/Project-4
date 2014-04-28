@@ -99,7 +99,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		
 		//Organizes the assorted components
 		startButton.setBounds(referenceMap.getIconWidth()/2 - 210, 350, 75, 50);
-		econButton.setBounds(referenceMap.getIconWidth()/2 - 130, 350, 100, 50);
+		econButton.setBounds(referenceMap.getIconWidth()/2 - 130, 350, 125, 50);
 		healthButton.setBounds(referenceMap.getIconWidth()/2 - 25, 350, 75, 50);
 		prompt.setBounds((referenceMap.getIconWidth()/2) - 210, 400, 150, 20);
 		username.setBounds(referenceMap.getIconWidth()/2 - 60, 400, 100, 20);
