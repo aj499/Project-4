@@ -5,11 +5,14 @@ import java.util.Vector;
 
 public class QuizRunner {
 	private static final int TOTAL_QUESTIONS_TO_ASK = 20;
+	private static final int MAX_ATTEMPTS_PER_QUESTION = 3;
 	
 	private String currentQuestion;
 	private String currentCorrectAnswer;
+	private int currentQuestionAttempts;
 	
 	private int currentQuestionNumber;
+	private int questionsAnsweredCorrectly;
 	private String preTestTopic;
 	private String currentTopic;
 	private MapMode currentMode;
@@ -37,6 +40,7 @@ public class QuizRunner {
 		currentMode = mode;
 		
 		currentQuestionNumber = 0;
+		questionsAnsweredCorrectly = 0;
 	}
 	
 	public void loadQuestion(){
@@ -59,6 +63,8 @@ public class QuizRunner {
 					currentCorrectAnswer = country.getCountryName();
 					
 					//TODO: increment cuurentQuestionNumber here?
+					currentQuestionNumber++;
+					currentQuestionAttempts = 0;
 					
 					break;
 				}
@@ -81,11 +87,21 @@ public class QuizRunner {
 	}
 	
 	public boolean checkAnswer(String potentialAnswer){
-		return potentialAnswer.equals(currentCorrectAnswer);
+		currentQuestionAttempts++;
+		
+		boolean answerWasCorrect = potentialAnswer.equals(currentCorrectAnswer);
+		
+		if(answerWasCorrect){
+			questionsAnsweredCorrectly++;
+		}
+		
+		return answerWasCorrect;
 	}
 	
 	public void endQuiz(){
-		//TODO: write this function
+		//set flags
+		quizRunning = false;
+		inPreTest =  false;
 	}
 	
 	public boolean getInPreTest(){
@@ -100,7 +116,18 @@ public class QuizRunner {
 		return currentQuestion;
 	}
 	
-	public int getCurrentQuestionNumber(){
-		return currentQuestionNumber;
+	public boolean questionsRemainToAsk(){
+		return currentQuestionNumber < TOTAL_QUESTIONS_TO_ASK;
+	}
+	
+	public boolean hasRemainingAttempts(){
+		return currentQuestionAttempts < MAX_ATTEMPTS_PER_QUESTION;
+	}
+	
+	public String getQuizEndReport(){
+		String report = "You answered " + questionsAnsweredCorrectly + " out of " + TOTAL_QUESTIONS_TO_ASK + " correctly";
+		report += "\nand scored " + (int) ((((float) questionsAnsweredCorrectly) / ((float) TOTAL_QUESTIONS_TO_ASK)) * 100) + " percent.";
+		
+		return report;
 	}
 }
