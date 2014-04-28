@@ -35,7 +35,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private StudentData currentStudent;//who is the user and what have they seen?
 	//private boolean inPreTest;//are they taking the pretest
 
-	
+	private ImageIcon map;
 	//buttons for the countries
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
 	
@@ -86,7 +86,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 */
 	private void setUp(MapMode type){
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
-		
+		if(type == MapMode.ECONOMIC){
+			map = new ImageIcon("EconMap.png"); 
+		}//if MapMode type is economic
+		else{
+			map = new ImageIcon("HealthMap.png"); 
+		}//else
 		quizButton = new AppButton();
 		quizButton.setText("End Quiz");
 		
@@ -97,7 +102,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		currentMapMode = MapMode.ECONOMIC;
 		
 		setBackground(Color.black);
-		ImageIcon map = new ImageIcon("lifeExpectancyEdit.png"); 
 		setSize(map.getIconWidth(), map.getIconHeight());
 		
 		JLabel mapLabel = new JLabel();
