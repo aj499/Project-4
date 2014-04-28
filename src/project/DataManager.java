@@ -113,7 +113,6 @@ public class DataManager {
 	}
 
 
-
 	public ContinentData getDataForContinent(String continentName){
 		
 		return continentData.get(continentName);
