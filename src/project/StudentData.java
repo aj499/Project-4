@@ -43,7 +43,7 @@ public class StudentData {
 	 * in the given mapmode.
 	 * 
 	 * @param country the country the student looked at
-	 * @param modeSeenIn the map mode in which they looked at the country
+	 * @param currentMapMode the map mode in which they looked at the country
 	 */
 	public void addCountrySeen(String country, String continentContainingCountry, MapMode modeSeenIn){
 		if(modeSeenIn == MapMode.HEALTH && !countriesSeenHealth.contains(country)){//deduplicate additions
@@ -130,7 +130,6 @@ public class StudentData {
 		}
 	}
 	
-
 	/**
 	 * Returns whether or not the student has looked at a given continent in the indicated mode.
 	 * 

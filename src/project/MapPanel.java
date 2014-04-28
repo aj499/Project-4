@@ -1,5 +1,6 @@
 package project;
 
+import java.awt.Graphics;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,6 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import java.util.Vector;
 import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -16,6 +21,9 @@ import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
+	public enum Continent{
+		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
+	}
 	/* --||-- BEGIN VARIABLES --||-- */
 	
 	//to make Eclipse shut up
@@ -53,7 +61,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @param newWorldData the DataManager to load data from
 	 */
 
-	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode type){
+	public MapPanel(DataManager newWorldData, StudentData newStudentData, project.MapMode mapType){
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
@@ -72,7 +80,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
-		setUp(type);
+		setUp(mapType);
 	}
 	
 	/**
@@ -94,7 +102,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		currentMapMode = MapMode.ECONOMIC;
 		
 		setBackground(Color.black);
-		ImageIcon map = new ImageIcon("lifeExpectancyEdit.png"); 
+		ImageIcon map = new ImageIcon("HealthMap.png"); 
 		setSize(map.getIconWidth(), map.getIconHeight());
 		
 		JLabel mapLabel = new JLabel();
@@ -196,10 +204,15 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//update the info displayed in the info box
 		updateInfoBox(worldData.getDataForCountry(currentCountry));
-		
+
 		//note that we've seen this new country
 		currentStudent.addCountrySeen(currentCountry, currentView, currentMapMode);
-		
+
+		//TODO: load all the map images here
+		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+		ImageIcon map = new ImageIcon("mapImage2.png"); 
+		JLabel mapLabel = new JLabel();
+		mapLabel.setIcon(map);
 	}
 	
 	/**
