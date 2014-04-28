@@ -60,6 +60,7 @@ public class QuizRunner {
 	 * Gets a new question for the current quiz according to the
 	 * quiz's topic and mode.
 	 */
+	//TODO: MAKE SURE TO CHECK WHAT THEY'VE SEEN ESP. ON WORLD! 
 	public void loadQuestion(){
 		String prospectiveQuestion;
 		
@@ -69,7 +70,17 @@ public class QuizRunner {
 			countriesToAskAbout = worldData.getDataForContinent(currentTopic).getCountryList();
 			Random random = new Random();
 			
-			CountryData country = worldData.getDataForCountry(countriesToAskAbout.get(random.nextInt(countriesToAskAbout.size())));
+			CountryData country;
+			
+			//keep picking countries randomly until we get one the user has actually looked at
+			while(true){
+				String countryToLoad = countriesToAskAbout.get(random.nextInt(countriesToAskAbout.size()));
+				country = worldData.getDataForCountry(countryToLoad);
+				if(parent.getCurrentStudent().hasCountryBeenSeen(countryToLoad, currentMode)){
+					break;
+				}
+			}
+			
 			
 			while(true){
 				prospectiveQuestion = ((currentMode == MapMode.HEALTH) ? country.generateHealthQuestion() : country.generateEconQuestion());

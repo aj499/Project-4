@@ -404,4 +404,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//Does nothing; required by interface
 	}
 	
+	/**
+	 * Returns the data for the current user of the program.
+	 * @return the data for the current user of the program
+	 */
+	public StudentData getCurrentStudent(){
+		return currentStudent;
+	}
+	
 }//class MapPanel
