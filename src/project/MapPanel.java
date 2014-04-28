@@ -97,7 +97,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		currentMapMode = MapMode.ECONOMIC;
 		
 		setBackground(Color.black);
-		ImageIcon map = new ImageIcon("lifeExpectancyEdit.png"); 
+		ImageIcon map = new ImageIcon("HealthMap.png"); 
 		setSize(map.getIconWidth(), map.getIconHeight());
 		
 		JLabel mapLabel = new JLabel();

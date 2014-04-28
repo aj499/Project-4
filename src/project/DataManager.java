@@ -27,7 +27,6 @@ public class DataManager {
 		setFileLocation(newFileLocation);
 	}
 	
-
 	/**
 	 * sets the filepath
 	 * @param newFileLocation
@@ -36,9 +35,6 @@ public class DataManager {
 		fileLocation = newFileLocation;
 	}
 
-	
-	
-	
 	public void parseData(){
 		try{
 			String filename = fileLocation;
@@ -95,9 +91,6 @@ public class DataManager {
 		
 	}
 
-
-
-
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -125,9 +118,6 @@ public class DataManager {
 		
 		return continentData.get(continentName);
 	}
-		
 	
-
-
 }
 	
