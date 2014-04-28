@@ -32,6 +32,7 @@ public class DataManager {
 
 	
 	private void parseData(){
+
 		try{
 			String filename = fileLocation;
 			int numContinents = 6;
@@ -57,11 +58,11 @@ public class DataManager {
 					currentLine = bufferedReader.readLine();
 					while ((currentLine = bufferedReader.readLine()).length() > 0){
 						currentContinent.addToCountryList(currentLine);
-					}
+					}//while
 					
 					continentData.put(currentContinent.getCountryName(), currentContinent);
 					continentCounter++;	
-				}
+				}//if
 				else{
 					CountryData currentCountry = new CountryData();
 					currentCountry = new CountryData();
@@ -73,8 +74,8 @@ public class DataManager {
 					countryData.put(currentCountry.getCountryName(), currentCountry);
 					
 					bufferedReader.readLine();
-				}
-			}
+				}//else
+			}//while
 			
 			bufferedReader.close();
 			dataLoaded = true;
@@ -86,8 +87,6 @@ public class DataManager {
 
 
 
-
-
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -95,7 +94,7 @@ public class DataManager {
 	 */
 	public String[] getCountryList(){
 		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
-	}
+	}//getCountryList
 	
 	/**
 	 * Returns a list of all the continents in the countryData hash.
@@ -105,16 +104,16 @@ public class DataManager {
 	public String[] getContinentList(){
 		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
 	}
+
 	
 	public CountryData getDataForCountry(String countryName){
-
 		return countryData.get(countryName);
-	}
-	
+	}//getDataForCountry
+
 
 	public ContinentData getDataForContinent(String continentName){
 		//TODO: actually implement this function!
-		return new ContinentData();
+		return continentData.get(continentName);
 	}
 	
 	public String randomlyChooseVariableForSuperlativeQuestion(){
@@ -126,7 +125,7 @@ public class DataManager {
 		econVariableList.add("economicFreedomScore");
 		econVariableList.add("majorIndustries");
 		econVariableList.add("unemploymentRate");
-		
+
 		
 		Random generator = new Random();
 		int minimum = 0;
@@ -165,5 +164,6 @@ public class DataManager {
 	}
 	*/
 
-}
 
+}//class DataManager
+	
