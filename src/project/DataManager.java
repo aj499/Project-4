@@ -36,6 +36,9 @@ public class DataManager {
 		fileLocation = newFileLocation;
 	}
 
+	
+	
+	
 	public void parseData(){
 		try{
 			String filename = fileLocation;
@@ -101,7 +104,7 @@ public class DataManager {
 	 * @return a list of all the countries in the countryData hash
 	 */
 	public String[] getCountryList(){
-		return (String[]) countryData.keySet().toArray();
+		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
 	}
 	
 	/**
@@ -110,7 +113,7 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
-		return (String[]) continentData.keySet().toArray();
+		return (String[]) continentData.keySet().toArray(new String[countryData.keySet().size()]);
 	}
 	
 	public CountryData getDataForCountry(String countryName){
