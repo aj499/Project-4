@@ -35,7 +35,7 @@ public class StudentDataTest {
 		
 		assertEquals(sd.getCountriesSeenHealth().size(), 0);
 		
-		sd.addCountrySeen("Ghana", MapMode.HEALTH);
+		sd.addCountrySeen("Ghana", "Africa", MapMode.HEALTH);
 		
 		assertTrue(sd.getCountriesSeenHealth().contains("Ghana"));
 	}
@@ -63,7 +63,7 @@ public class StudentDataTest {
 		
 		assertEquals(sd.getCountriesSeenHealth().size(), 0);
 		
-		sd.addCountrySeen("Ghana", MapMode.HEALTH);
+		sd.addCountrySeen("Ghana", "Africa", MapMode.HEALTH);
 		
 		assertTrue(sd.hasCountryBeenSeen("Ghana", MapMode.HEALTH));
 	}
@@ -104,5 +104,33 @@ public class StudentDataTest {
 		assertEquals(sd.getContinentsSeenHealth().size(), 0);
 		
 		assertFalse(sd.hasContinentBeenSeen("Australia", MapMode.HEALTH));
+	}
+	
+	/**
+	 * Make sure that we can check whether or not the user has seen any countries in a continent
+	 * when the user has seen a country in that continent.
+	 */
+	@Test
+	public void testHasSeenCountriesInContinentWithCountriesSeen(){
+		sd = new StudentData(STUDENT_NAME);
+		
+		assertEquals(sd.getCountriesSeenEconomic().size(), 0);
+		
+		sd.addCountrySeen("Ghana", "Africa", MapMode.ECONOMIC);
+		
+		assertTrue(sd.hasSeenCountriesInContinent("Africa", MapMode.ECONOMIC));
+	}
+	
+	/**
+	 * Make sure that we can check whether or not the user has seen any countries in a continent
+	 * when the user has not seen any countries in that continent.
+	 */
+	@Test
+	public void testHasSeenCountriesInContinentWithNoCountriesSeen(){
+		sd = new StudentData(STUDENT_NAME);
+		
+		assertEquals(sd.getCountriesSeenEconomic().size(), 0);
+		
+		assertFalse(sd.hasSeenCountriesInContinent("Africa", MapMode.ECONOMIC));
 	}
 }

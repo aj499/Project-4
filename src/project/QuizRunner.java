@@ -60,7 +60,7 @@ public class QuizRunner {
 	 * Gets a new question for the current quiz according to the
 	 * quiz's topic and mode.
 	 */
-	//TODO: MAKE SURE TO CHECK WHAT THEY'VE SEEN ESP. ON WORLD! 
+	//TODO: MAKE SURE TO CHECK WHAT THEY'VE SEEN ESP. ON WORLD, BEFORE PICKING QUESTIONS! 
 	public void loadQuestion(){
 		String prospectiveQuestion;
 		

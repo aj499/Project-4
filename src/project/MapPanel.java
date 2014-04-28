@@ -112,6 +112,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		mapLabel.validate();
 		mapLabel.repaint();
 		
+		addMouseListener(this);
+		
 		changeContinent("World");//set up buttons for the current view
 	}
 	
@@ -196,7 +198,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		updateInfoBox(worldData.getDataForCountry(currentCountry));
 		
 		//note that we've seen this new country
-		currentStudent.addCountrySeen(currentCountry, currentMapMode);
+		currentStudent.addCountrySeen(currentCountry, currentView, currentMapMode);
 		
 	}
 	
@@ -319,14 +321,21 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					endQuiz("Thanks for playing!");
 				}
 			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
-				//change the label on the button
-				quizButton.setText("End Quiz");
-				
-				//start the quiz
-				quizRunner.startQuiz(currentView, currentMapMode);
-				
-				//load the first question
-				setUpNextQuestion();
+				//first check to make sure they've actually looked at countries, so we have something to test them on
+				if(currentView != "World" && !currentStudent.hasSeenCountriesInContinent(currentView, currentMapMode)){
+					JOptionPane.showMessageDialog(this, "You haven't studied any countries in " + currentView + ",\nso you can't take a quiz on it yet!", "Warning!", JOptionPane.WARNING_MESSAGE);
+				} else if(currentView == "World" && !currentStudent.hasSeenCountriesInContinent("World", currentMapMode)){
+					JOptionPane.showMessageDialog(this, "You haven't studied any countries,\nso you can't take a quizyet!", "Warning!", JOptionPane.WARNING_MESSAGE);
+				} else {
+					//change the label on the button
+					quizButton.setText("End Quiz");
+					
+					//start the quiz
+					quizRunner.startQuiz(currentView, currentMapMode);
+					
+					//load the first question
+					setUpNextQuestion();
+				}
 			}
 		}
 	}
