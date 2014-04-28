@@ -18,7 +18,7 @@ public class DataManager {
 	 * Constructor takes a String that is the filepath
 	 * @param newFileLocation
 	 */
-	DataManager(String newFileLocation){
+	public DataManager(String newFileLocation){
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
 		
