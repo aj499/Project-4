@@ -145,16 +145,17 @@ public class DataManager {
 			switch (dataVariable){	
 				case "gpdPerCapita":
 					return new String[] {"Which is the poorest country in " + continentName + " ?",
-							//gdpPerCapitaSortedAfrica.get(0).getCountryName()};
+							gdpPerCapitaSortedAfrica.get(0).getCountryName()};
 					}
 					
 		}
 			
 		}
+*/
 		
 	}
-	*/
-	}
+	
+	//}
 	
 	
 	/*public static void main(String args[]){

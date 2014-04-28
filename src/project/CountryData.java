@@ -42,7 +42,7 @@ public class CountryData {
 	private int buttonYPosition;
 	
 
-	CountryData() {
+	public CountryData() {
 
 		countryName= "new country";
 		gpdPerCapita= "no money";
