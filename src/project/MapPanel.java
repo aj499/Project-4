@@ -21,6 +21,9 @@ import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
+	public enum Continent{
+		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
+	}
 	/* --||-- BEGIN VARIABLES --||-- */
 	
 	//to make Eclipse shut up
@@ -58,7 +61,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @param newWorldData the DataManager to load data from
 	 */
 
-	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode type){
+	public MapPanel(DataManager newWorldData, StudentData newStudentData, project.MapMode mapType){
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
@@ -77,7 +80,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
-		setUp(type);
+		setUp(mapType);
 	}
 	
 	/**
@@ -99,7 +102,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		currentMapMode = MapMode.ECONOMIC;
 		
 		setBackground(Color.black);
-		ImageIcon map = new ImageIcon("lifeExpectancyEdit.png"); 
+		ImageIcon map = new ImageIcon("HealthMap.png"); 
 		setSize(map.getIconWidth(), map.getIconHeight());
 		
 		JLabel mapLabel = new JLabel();
@@ -199,12 +202,15 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 		//note that we've seen this new country
 		currentStudent.addCountrySeen(currentCountry, currentMapMode);
+<<<<<<< HEAD
 
 		//TODO: load all the map images here
 		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		ImageIcon map = new ImageIcon("mapImage2.png"); 
 		JLabel mapLabel = new JLabel();
 		mapLabel.setIcon(map);
+=======
+>>>>>>> Min
 	}
 	
 	/**

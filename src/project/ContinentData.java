@@ -14,9 +14,46 @@ public class ContinentData extends CountryData{
 	private Vector<String> countryList;
 
 	ContinentData() {
-		//constructor	
+		countryList = new Vector<String>();
 	}
-
+	
+	public void addToCountryList(String countryName){
+		countryList.add(countryName);
+	}
+	
+	
+	public void setLeftBound(int newLeftBound){
+		leftBound = newLeftBound;
+	}
+	
+	public void setTopBound(int newTopBound){
+		topBound = newTopBound;
+	}
+	
+	public void setRightBound(int newRightBound){
+		rightBound = newRightBound;
+	}
+	
+	public void setBottomBound(int newBottomBound){
+		bottomBound = newBottomBound;
+	}
+	
+	public int getLeftBound(){
+		return leftBound;
+	}
+	
+	public int getTopBound(){
+		return topBound;
+	}
+	
+	public int getRightBound(){
+		return bottomBound;
+	}
+	
+	public int getBottomBound(){
+		return bottomBound;
+	}
+	
 
 	/**
 	 * Check if the given point is inside this continent's bounding box.
