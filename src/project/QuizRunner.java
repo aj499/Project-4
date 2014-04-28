@@ -60,15 +60,16 @@ public class QuizRunner {
 	 * Gets a new question for the current quiz according to the
 	 * quiz's topic and mode.
 	 */
-	//TODO: MAKE SURE TO CHECK WHAT THEY'VE SEEN ESP. ON WORLD, BEFORE PICKING QUESTIONS! 
+	//TODO: MAKE SURE TO CHECK WHAT THEY'VE SEEN ESP. ON WORLD, BEFORE PICKING QUESTIONS!
+	//Done; refine?
 	public void loadQuestion(){
 		String prospectiveQuestion;
 		
 		Vector<String> countriesToAskAbout;
+		Random random = new Random();
 		
 		if(!currentTopic.equals("World")){//only one continent, so things is easy
 			countriesToAskAbout = worldData.getDataForContinent(currentTopic).getCountryList();
-			Random random = new Random();
 			
 			CountryData country;
 			
@@ -85,12 +86,14 @@ public class QuizRunner {
 			while(true){
 				prospectiveQuestion = ((currentMode == MapMode.HEALTH) ? country.generateHealthQuestion() : country.generateEconQuestion());
 				
-				if(!questionsAsked.contains(prospectiveQuestion)){
+				//only keep the question if it hasn't been asked before
+				//and the user has looked at the country it asks about
+				if(!questionsAsked.contains(prospectiveQuestion) && parent.getCurrentStudent().hasCountryBeenSeen(country.getCountryName(), currentMode)){
 					questionsAsked.add(prospectiveQuestion);
 					currentQuestion = prospectiveQuestion;
 					currentCorrectAnswer = country.getCountryName();
 					
-					//TODO: increment cuurentQuestionNumber here?
+					//increment counters
 					currentQuestionNumber++;
 					currentQuestionAttempts = 0;
 					
@@ -100,13 +103,20 @@ public class QuizRunner {
 		} else {
 			//run through each continent in turn
 			//this is stupid hacky bullshit but who cares
-			String[] continents = {"North America", "South America", "Europe", "Asia", "Africa"};
+			String[] continents = {"North America", "South America", "Europe", "Asia", "Africa", "Oceania"};
 			
-			currentTopic = continents[(int) Math.floor(((float) currentQuestionNumber) / 2.0)];
+			//currentTopic = continents[(int) Math.floor(((float) currentQuestionNumber) / 2.0)];
+			//pick a continent to ask about randomly until we get one where the user has actually looked at a country within it
+			while(true){
+				currentTopic = continents[random.nextInt(continents.length)];
+				if(parent.getCurrentStudent().hasSeenCountriesInContinent(currentTopic, currentMode)){
+					break;
+				}
+			}
 			
 			parent.changeContinent(currentTopic);//make it so the user can see what's what
 			
-			loadQuestion();
+			loadQuestion();//get a question
 			
 			currentTopic = "World";
 		}
