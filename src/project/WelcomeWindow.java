@@ -163,8 +163,10 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	 * @throws IOException 
 	 */
 	private void goToMapPanel(MapMode mapType) throws IOException{
+		//get the name entered by the student
+		String studentName = username.getText();
 		//Creates a new MapPanel
-		mapPanel = new MapPanel(new DataManager("/Users/Lee/Desktop/CountryData.txt"), new StudentData("Dummy Student!"), mapType);
+		mapPanel = new MapPanel(new DataManager("/Users/Lee/Desktop/CountryData.txt"), new StudentData(studentName), mapType);
 		//Switches the visibility of the existing JPanels
 		mapPanel.setVisible(true);
 		window.setVisible(false);
