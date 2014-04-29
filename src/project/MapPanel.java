@@ -154,7 +154,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//infoBox.add(test);
 		infoBox.setBounds(1200, 0, 400, 500);
 		infoBox.setBackground(Color.CYAN);
-		infoBox.setOpaque(true);
+		infoBox.setOpaque(false);
 		repaint();
 	}//setUp
 	
