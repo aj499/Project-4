@@ -527,7 +527,6 @@ public class CountryData {
 			setMakeADifferenceHealth(bufferedReader.readLine());
 			setPhotoPathHealth(bufferedReader.readLine());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}//catch
 	}//setAll
@@ -557,6 +556,9 @@ public class CountryData {
 		econQuestions.add("In which country is the poorest 10%'s income " + getLowestTenIncome() + " of the country's total income?");
 		econQuestions.add("In which country is the wealthiest 10%'s income " + getHighestTenIncome() + " of the country's total income?");
 		econQuestions.add("Which country has an unemployment rate of " + getUnemploymentRate() + "?");
+		econQuestions.add("In which country is the average income of its citizens " + getGdpPerCapita() +"?");
+		econQuestions.add("In which country are " + getUnemploymentRate() +" of citizens unemployed?");
+		econQuestions.add("Which country's overall income grew at a rate of " + getGdpRealGrowthRate() + " last year?");
 
 		return econQuestions.get(indexToChooseQuestionRandomly);
 	}//generateEconQuestion
@@ -584,6 +586,11 @@ public class CountryData {
 		healthQuestions.add("Which country has a infant mortality rate of " + getInfantMortalityRate() + "?");
 		healthQuestions.add("In which country are " + getChildrenUnderweightPercentage() + " of children underweight?");
 		healthQuestions.add("Which country has a physicians density of " + getPhysicianDensity() + "?");
+		healthQuestions.add("In which country are there " + getMaternalMortalityRate() + " among mothers during childbirth?");
+		healthQuestions.add("In which country are there " + getInfantMortalityRate() + " among children during the first year of life?");
+		healthQuestions.add("In which country are " + getChildrenUnderweightPercentage() + " of children clinically malnourished?");
+		healthQuestions.add("In which country are there " + getPhysicianDensity() + "?");
+		healthQuestions.add("In which country are citizens born this year expected to live " + getLifeExpectancy() + "?");
 
 		return healthQuestions.get(indexToChooseQuestionRandomly);
 	}//generateHealthQuestion

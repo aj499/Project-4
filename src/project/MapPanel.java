@@ -394,7 +394,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	    textArea.setOpaque(false);
 	    textArea.setVisible(true);
 	    JScrollPane scrollPane = new JScrollPane(textArea);
-	    scrollPane.setPreferredSize(new Dimension(700, 225));
+	    scrollPane.setPreferredSize(new Dimension(700, 145));
 	    scrollPane.setOpaque(false);
 	    scrollPane.getViewport().setOpaque(false);
 	    scrollPane.setBorder(BorderFactory.createEmptyBorder());

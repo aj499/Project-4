@@ -513,7 +513,7 @@ public class CountryDataTest {
 	public void getphotoPathHealthTest(){
 		CountryData data= new CountryData();
 		String result;
-		String expectedResult = "no photi path health";
+		String expectedResult = "no photo path health";
 		
 		result= data.getPhotoPathHealth();
 		

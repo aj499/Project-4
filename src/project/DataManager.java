@@ -20,10 +20,19 @@ public class DataManager {
 	//HashMaps of countries and continents that pair up with their respective data
 	private HashMap<String, CountryData> countryData;
 	private HashMap<String, ContinentData> continentData;
-	//boolean that records if the data has been successfully loaded
-	private boolean dataLoaded;
 	//private string that holds the file location
 	private String fileLocation;
+	
+	private static final int NUMBER_QUESTIONS_PER_CONTINENT_ECON = 7;
+	private static final int NUMBER_QUESTIONS_PER_CONTINENT_HEALTH = 5;
+	private String quizEconFileLocation;
+	private String quizHealthFileLocation;
+	private ArrayList<String> econQuizQuestions;
+	private ArrayList<String> healthQuizQuestions;
+	private HashMap<String, ArrayList<String> > continentQuestionsEcon;
+	private HashMap<String, ArrayList<String> > continentQuestionsHealth;
+	private HashMap<String, String> questionAnswerEcon;
+	private HashMap<String, String> questionAnswerHealth;
 
 	/**
 	 * DataManager
@@ -34,7 +43,6 @@ public class DataManager {
 	public DataManager(String newFileLocation){
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
-		dataLoaded=false;
 		
 		fileLocation = newFileLocation;
 		parseData();
@@ -94,7 +102,6 @@ public class DataManager {
 			}//while
 			
 			bufferedReader.close();
-			dataLoaded = true;
 
 		}
 		catch(Exception e){
@@ -144,6 +151,67 @@ public class DataManager {
 		return continentData.get(continentName);
 	}//getDataForContinent
 	
+	private void parseEconQuizData(){
+		try{
+			String filename = quizEconFileLocation;
+
+			FileInputStream fileInputStream = new FileInputStream(filename);
+			DataInputStream dataInputStream = new DataInputStream(fileInputStream);
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataInputStream));
+			String currentLine;
+			while ((currentLine = bufferedReader.readLine())!=null){
+				String continentName="";
+
+				for(int i=0; i<=NUMBER_QUESTIONS_PER_CONTINENT_ECON; i++){
+					if(i==0){ 
+						continentName=currentLine;
+					} else {
+						String[] processFileString = currentLine.split("?");
+						String question= processFileString[0];
+						String answer= processFileString[1];
+						questionAnswerEcon.put(question, answer);
+						econQuizQuestions.add(question);
+					}
+				}
+				continentQuestionsEcon.put(continentName, econQuizQuestions);
+			}
+			bufferedReader.close();
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	private void parseHealthQuizData(){
+		try{
+			String filename = quizHealthFileLocation;
+
+			FileInputStream fileInputStream = new FileInputStream(filename);
+			DataInputStream dataInputStream = new DataInputStream(fileInputStream);
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataInputStream));
+			String currentLine;
+			while ((currentLine = bufferedReader.readLine())!=null){
+				String continentName="";
+
+				for(int i=0; i<=NUMBER_QUESTIONS_PER_CONTINENT_HEALTH; i++){
+					if(i==0){ 
+						continentName=currentLine;
+					} else {
+						String[] processFileString = currentLine.split("?");
+						String question= processFileString[0];
+						String answer= processFileString[1];
+						questionAnswerHealth.put(question, answer);
+						healthQuizQuestions.add(question);
+
+					}
+				}
+				continentQuestionsHealth.put(continentName, healthQuizQuestions);
+			}
+			bufferedReader.close();
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * getRandomlyChosenVariableForSuperlativeQuestion
 	 * 
@@ -163,5 +231,26 @@ public class DataManager {
 		Random generator = new Random();
 		return econVariableList.get(generator.nextInt(econVariableList.size()));
 	}//getRandomlyChosenVariableForSuperlativeQuestion	
+	
+	public String[] generateEconSuperlativeQuestion(String currentContinent){
+		Random generator = new Random();
+		String continentName= currentContinent;
+		ArrayList<String> econSuperlativeQuestions = continentQuestionsEcon.get(continentName);
+		String econQuestion= econSuperlativeQuestions.get(generator.nextInt(econSuperlativeQuestions.size()));
+		String econAnswer= questionAnswerEcon.get(econQuestion);
+		
+		return new String[]{econQuestion, econAnswer};
+	}
+	
+	
+	public String[] generateHealthSuperlativeQuestion(String currentContinent){
+		Random generator = new Random();
+		String continentName= currentContinent;
+		ArrayList<String> healthSuperlativeQuestions = continentQuestionsHealth.get(continentName);
+		String healthQuestion= healthSuperlativeQuestions.get(generator.nextInt(healthSuperlativeQuestions.size()));
+		String healthAnswer= questionAnswerHealth.get(healthQuestion);
+		
+		return new String[]{healthQuestion, healthAnswer};
+	}
 
 }//DataManager class
