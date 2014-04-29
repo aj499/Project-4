@@ -125,7 +125,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	 * This class is a JPanel that draws a graphic onto the back of a JPanel
 	 *
 	 */
-	public class ImagePanel extends JPanel{
+	private class ImagePanel extends JPanel{
 		private static final long serialVersionUID = 1L;
 		private Image image = null;
 		//private int width;

@@ -62,6 +62,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		worldData = newWorldData;
 		currentStudent = newStudentData;
 		
+		//make a HashMap for the buttons
+		buttons = new HashMap<String, AppButton>();
+		
 		//create a button for each country
 		String[] countryButtonList = worldData.getCountryList();
 		for(int i = 0; i < countryButtonList.length; i++){
