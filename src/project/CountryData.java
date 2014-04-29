@@ -41,9 +41,8 @@ public class CountryData {
 	private int buttonXPosition;
 	private int buttonYPosition;
 	
-
+	
 	CountryData() {
-
 		countryName= "new country";
 		gpdPerCapita= "no money";
 		gdpRealGrowthRate="doesn't grow"; 
@@ -65,9 +64,14 @@ public class CountryData {
 		mostCommonDiseases="no common colds"; 
 		majorHealthIssue="everyone's healthy";
 		makeADifferenceHealth="can't make a health difference";
-		photoPathHealth="no photi path health";
+		photoPathHealth="no photo path health";
 	}
 
+	
+	
+	/**
+	 * sets
+	 */
 	public void setCountryName(String newCountryName) {
 		countryName=newCountryName;
 	}
@@ -164,7 +168,40 @@ public class CountryData {
 		buttonYPosition = newButtonYPosition;
 	}
 	
-	//GETTERS//-------------------------------------
+	public void setAll(BufferedReader bufferedReader){
+		try {
+			setGpdPerCapita(bufferedReader.readLine());
+			setGdpRealGrowthRate(bufferedReader.readLine());
+			setAgriculturePercentageOfGdp(bufferedReader.readLine());
+			setEconomicFreedomScore(bufferedReader.readLine());
+			setLowestTenIncome(bufferedReader.readLine());
+			setHighestTenIncome(bufferedReader.readLine());
+			setMajorIndustries(bufferedReader.readLine());
+			setUnemploymentRate(bufferedReader.readLine());
+			setMajorEconomicIssue(bufferedReader.readLine());
+			setMakeADifferenceEconomic(bufferedReader.readLine());
+			setPhotoPathEconomic(bufferedReader.readLine());
+			setLifeExpectancy(bufferedReader.readLine());
+			setMaternalMortalityRate(bufferedReader.readLine());
+			setInfantMortalityRate(bufferedReader.readLine());
+			setChildrenUnderweightPercentage(bufferedReader.readLine());
+			setPhysicianDensity(bufferedReader.readLine());
+			setRiskOfInfectiousDisease(bufferedReader.readLine());
+			setMostCommonDiseases(bufferedReader.readLine());
+			setMajorHealthIssue(bufferedReader.readLine());
+			setMakeADifferenceHealth(bufferedReader.readLine());
+			setPhotoPathHealth(bufferedReader.readLine());
+		} catch (IOException e){
+			e.printStackTrace();
+		}
+	}
+	
+	
+
+	
+	/**
+	 * gets
+	 */
 	public String getCountryName() {
 		return countryName;
 	}
@@ -261,39 +298,8 @@ public class CountryData {
 		return buttonYPosition;
 	}
 	
+
 	
-	public void setAll(BufferedReader bufferedReader){
-		try {
-			setGpdPerCapita(bufferedReader.readLine());
-			setGdpRealGrowthRate(bufferedReader.readLine());
-			setAgriculturePercentageOfGdp(bufferedReader.readLine());
-			setEconomicFreedomScore(bufferedReader.readLine());
-			setLowestTenIncome(bufferedReader.readLine());
-			setHighestTenIncome(bufferedReader.readLine());
-			setMajorIndustries(bufferedReader.readLine());
-			setUnemploymentRate(bufferedReader.readLine());
-			setMajorEconomicIssue(bufferedReader.readLine());
-			setMakeADifferenceEconomic(bufferedReader.readLine());
-			setPhotoPathEconomic(bufferedReader.readLine());
-			setLifeExpectancy(bufferedReader.readLine());
-			setMaternalMortalityRate(bufferedReader.readLine());
-			setInfantMortalityRate(bufferedReader.readLine());
-			setChildrenUnderweightPercentage(bufferedReader.readLine());
-			setPhysicianDensity(bufferedReader.readLine());
-			setRiskOfInfectiousDisease(bufferedReader.readLine());
-			setMostCommonDiseases(bufferedReader.readLine());
-			setMajorHealthIssue(bufferedReader.readLine());
-			setMakeADifferenceHealth(bufferedReader.readLine());
-			setPhotoPathHealth(bufferedReader.readLine());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-	
-
-
 	public String generateEconQuestion(){
 
 		int indexToChooseQuestionRandomly;
@@ -334,7 +340,6 @@ public class CountryData {
 		healthQuestions.add("Which country has a physicians density of " + getPhysicianDensity() + "?");
 
 		return healthQuestions.get(indexToChooseQuestionRandomly);
-
 	}
-
+	
 }
