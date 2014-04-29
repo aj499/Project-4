@@ -180,7 +180,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(mapType != null){
 				try {
-					setSize(width, height);
+					setSize(width - 175, height);
 					if(mapType == mapType.HEALTH){
 						System.out.println("YAY");
 					}
@@ -215,7 +215,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			mapType = MapMode.HEALTH;
-			System.out.print("changed to health");
 		}//actionPerformed
 	}//class startAction
 
