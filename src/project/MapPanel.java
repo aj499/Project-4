@@ -135,6 +135,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			repaint();
 		}//else
 		quizButton = new AppButton();
+		quizButton.addActionListener(this);
 		quizButton.setText("End Quiz");
 		
 		setLayout(null);
@@ -149,7 +150,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		infoBox = new JPanel();
 		add(infoBox);
-		infoBox.setBounds(1200, 0, 400, 500);
+		infoBox.setBounds(0, 500, 1200, 300);
 		infoBox.setBackground(Color.CYAN);
 		infoBox.setOpaque(true);
 		repaint();
@@ -256,7 +257,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			
 			//remove each one from the panel
 			for(int i = 0; i < countriesToSweep.size(); i++){
-				remove(buttons.get(countriesToSweep.get(i)));	
+				remove(buttons.get(countriesToSweep.get(i)));
 			}
 		}
 	}
@@ -545,7 +546,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e){
 		//only check for clicks on continents if we're looking at the whole world
-		System.out.print("Clicked");
 		if(currentView.equals("World")){
 			//get the locations of the click
 			int mouseX = e.getX();
@@ -554,29 +554,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			String continentNames[] = worldData.getContinentList();
 			
 			for(int i = 0; i < continentNames.length; i++){
-				System.out.print("ContinentNames: " + continentNames[i]);
 				if(!continentNames[i].equals("World")){//don't check against the world's bounding box
 					//get data on the continent
-					//ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
 					ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
-					System.out.println("Continent name: " + continentNames[i]);
-					System.out.println("Continent name (econFree): " + continentData.getEconomicFreedomScore());
-					System.out.println("X-Coord: " + mouseX + " Y-Coord: " + mouseY);
-					System.out.println("TopBound: " + worldData.getDataForContinent(continentNames[i]).getTopBound());
-					System.out.println("BottomBound: " + worldData.getDataForContinent(continentNames[i]).getBottomBound());
-					System.out.println("LeftBound: " + worldData.getDataForContinent(continentNames[i]).getLeftBound());
-					System.out.println("RightBound: " + worldData.getDataForContinent(continentNames[i]).getRightBound());
 					
 					if(continentData.isPointInBounds(mouseX, mouseY)){//if we're inside this continent
-						//note that we've changed continent
-						currentView = continentNames[i];
-						
-						//update StudentData
-						currentStudent.addContinentSeen(currentView, currentMapMode);
-						
-						//TODO: change layout appropriately here
-
-						//update appropriately
 						try {
 							changeContinent(continentNames[i]);
 						} catch (IOException e1) {

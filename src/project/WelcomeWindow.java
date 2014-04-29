@@ -180,6 +180,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		if(e.getSource().equals(startButton)){//Start button
 			if(mapType != null){//if an option was selected, go on to the main map
 				try{
+					setSize(width, height+300);
 					goToMapPanel(mapType);	
 				} catch(IOException exceptionThrown){
 					//TODO: something here!
