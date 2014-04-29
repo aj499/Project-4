@@ -14,7 +14,8 @@ import project.QuizRunner;
 import project.StudentData;
 
 public class QuizRunnerTest {
-	DataManager dm = null;//TODO: load an actual dummy data manager here!
+	final String DATA_FILE_LOCATION = "src/CountryData.txt";//see note in DataManagerTest
+	DataManager dm = new DataManager(DATA_FILE_LOCATION);
 	MapPanel mp;
 	StudentData sd = new StudentData("Dave", "Oceania");
 	
@@ -22,11 +23,18 @@ public class QuizRunnerTest {
 	
 	@Before
 	public void setUpMapPanel(){
-		try{
-			mp = new MapPanel(dm, new StudentData("TEST", "Asia"), MapMode.HEALTH);
-		} catch(IOException e){
-			fail("IOException thrown on constructing MapPanel: " + e.getMessage());
-		}
+		//try{
+			mp = new MapPanel(dm, sd, MapMode.HEALTH);
+			
+			sd.addContinentSeen("Africa", MapMode.HEALTH);
+			sd.addContinentSeen("Africa", MapMode.ECONOMIC);
+			sd.addCountrySeen("Chad", "Africa", MapMode.HEALTH);
+			sd.addCountrySeen("Chad", "Africa", MapMode.ECONOMIC);
+			sd.addCountrySeen("Yemen", "Africa", MapMode.HEALTH);
+			sd.addCountrySeen("Yemen", "Africa", MapMode.ECONOMIC);
+		//} catch(IOException e){
+			//fail("IOException thrown on constructing MapPanel: " + e.getMessage());
+		//}
 	}
 	
 	/**
@@ -98,7 +106,7 @@ public class QuizRunnerTest {
 	 */
 	@Test
 	public void testGetQuizEndReport(){
-		String expectedReport = "You answered 0 out of 10 questions correctly\nand scored 0 percent.";
+		String expectedReport = "You answered 0 out of 10 questions correctly and scored 0%.";
 		qr = new QuizRunner(mp, dm, sd);
 		qr.startQuiz("World", MapMode.HEALTH);
 		qr.endQuiz();

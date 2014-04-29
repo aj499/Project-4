@@ -102,7 +102,6 @@ public class DataManager {
 	}//getContinentList
 	
 	public CountryData getDataForCountry(String countryName){
-
 		return countryData.get(countryName);
 	}//getDataForCountry
 
@@ -113,8 +112,7 @@ public class DataManager {
 	
 	public String getRandomlyChosenVariableForSuperlativeQuestion(){
 		ArrayList<String> econVariableList = new ArrayList<String>();
-		econVariableList.add("gpdPerCapita");
-		econVariableList.add("gdpRealGrowthRate");
+		econVariableList.add("gdpPerCapita");
 		econVariableList.add("gdpRealGrowthRate");
 		econVariableList.add("agriculturePercentageOfGDP");
 		econVariableList.add("economicFreedomScore");

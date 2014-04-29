@@ -114,16 +114,7 @@ public class QuizRunner {
 				}
 			}
 		} else {
-			/*
-			//run through each continent in turn
-			//this is stupid hacky bullshit but who cares
-			String[] continents = {"North America", "South America", "Europe", "Asia", "Africa", "Oceania"};
-			
-			
-			
-			//currentTopic = continents[(int) Math.floor(((float) currentQuestionNumber) * ((float) continents.length) / TOTAL_QUESTIONS_TO_ASK)];
-			*/
-			
+			//get the continent that this question is going to be about
 			currentTopic = continentsToAskAboutByQuestion.get(currentQuestionNumber);
 			
 			try{

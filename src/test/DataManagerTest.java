@@ -6,7 +6,9 @@ import org.junit.Test;
 import project.DataManager;
 
 public class DataManagerTest {
-	final String DATA_FILE_LOCATION = "dummy";//TODO: put the actual value here!
+	//NB: this filepath works for us, but if it fails for you you may
+	//need to play around with it a bit
+	final String DATA_FILE_LOCATION = "src/CountryData.txt";
 	DataManager dm;
 	
 	/**

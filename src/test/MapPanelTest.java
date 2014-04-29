@@ -12,7 +12,7 @@ import project.MapPanel;
 import project.StudentData;
 
 public class MapPanelTest {
-	final String DATA_FILE_LOCATION = null;//TODO: fill in actual value later!
+	final String DATA_FILE_LOCATION = "src/CountryData.txt";//see note on filepath in DataManagerTest
 	MapPanel mp;
 	DataManager dm;
 	StudentData sd;
@@ -26,11 +26,11 @@ public class MapPanelTest {
 		dm = new DataManager(DATA_FILE_LOCATION);
 		sd = new StudentData("Tasha", "South America");
 		
-		try{
+		//try{
 			mp = new MapPanel(dm, sd, MapMode.ECONOMIC);	
-		} catch(IOException e){
-			fail("IOException thrown: " + e.getMessage());
-		}
+		//} catch(IOException e){
+			//fail("IOException thrown: " + e.getMessage());
+		//}
 		
 		
 		assertNotNull(mp);

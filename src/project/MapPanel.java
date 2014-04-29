@@ -77,7 +77,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @throws IOException 
 	 */
 
-	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode mapType) throws IOException{
+	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode mapType){
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
@@ -86,7 +86,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//make a HashMap for the buttons
 		buttons = new HashMap<String, AppButton>();
 		
-		//set up for images
+		//set up variables for images
 		imageIcon = new ImageIcon();
 		imageLabel = new JLabel();
 		
@@ -101,12 +101,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//set up a QuizRunner and basic state
 		//String initialQuizTopic = "North America"; //TODO:= something derived from StudentData
-		
 		quizRunner = new QuizRunner(this, worldData, currentStudent);
 		//quizRunner.startQuiz(initialQuizTopic, currentMapMode);
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
-		//delegate to helper function for UI setup
+		//delegate to helper function for the heavy-duty UI setup
 		setUp(currentMapMode);
 	}
 	
@@ -117,15 +116,20 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * (Assumes that worldData has been set previously.)
 	 * @throws IOException 
 	 */
-	private void setUp(MapMode mapMode) throws IOException{
+	private void setUp(MapMode mapMode){
 		
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
-		if(mapMode == MapMode.ECONOMIC){
-			map = ImageIO.read(new File("EconMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-		}//if MapMode type is economic
-		else{
-			map = ImageIO.read(new File("HealthMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-		}//else
+		try{
+			if(mapMode == MapMode.ECONOMIC){
+				map = ImageIO.read(new File("EconMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if MapMode type is economic
+			else{
+				map = ImageIO.read(new File("HealthMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//else
+		} catch(IOException e){
+			System.out.println("Loading map failed! Sorry.");
+		}
+		
 		repaint();
 		
 		quizButton = new AppButton();
