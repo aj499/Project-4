@@ -194,7 +194,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(mapType != null){
 				try {
-					setSize(width - 175, height);
+					setSize(width, height);
 					if(mapType == mapType.HEALTH){
 						System.out.println("YAY");
 					}
@@ -220,8 +220,12 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 			mapType = MapMode.ECONOMIC;
 		} else if(e.getSource().equals(healthButton)){//Health radio button
 			mapType = MapMode.HEALTH;
+<<<<<<< HEAD
 		}
 
+=======
+			System.out.print("changed to health");
+>>>>>>> parent of 4d38426... Changed starting size
 		}//actionPerformed
 	}//class startAction
 
