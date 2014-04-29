@@ -58,8 +58,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private AppButton quizButton;
 	private AppButton backButton;//go back to world view from continentView
 	
-	
-	
 	//private image that holds the image of a photo of the country to be transferred to the image icon
 	private Image photoImage;
 	//private imageicon that holds the imageicon of a photo of the country
@@ -155,6 +153,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 		add(infoBox);
 		add(photoBox);
+		add(quizButton);
+		add(backButton);
 
 		infoBox.setBackground(Color.WHITE);
 		infoBox.setOpaque(true);

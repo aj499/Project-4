@@ -51,7 +51,6 @@ public class DataManager {
 					currentContinent.setTopBound(Integer.parseInt(bufferedReader.readLine()));
 					currentContinent.setBottomBound(Integer.parseInt(bufferedReader.readLine()));
 
-					currentLine = bufferedReader.readLine();
 					while ((currentLine = bufferedReader.readLine()).length() > 0){
 						currentContinent.addToCountryList(currentLine);
 					}//while
