@@ -24,7 +24,7 @@ public class MapPanelTest {
 	@Test
 	public void testConstructor() {
 		dm = new DataManager(DATA_FILE_LOCATION);
-		sd = new StudentData("Tasha");
+		sd = new StudentData("Tasha", "South America");
 		
 		try{
 			mp = new MapPanel(dm, sd, MapMode.ECONOMIC);	

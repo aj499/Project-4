@@ -162,7 +162,8 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		//get the name entered by the student
 		String studentName = username.getText();
 		//Creates a new MapPanel
-		mapPanel = new MapPanel(new DataManager("CountryData.txt"), new StudentData(studentName), mapType);
+		//TODO: CHANGE THIS 'North America' TO SOMETHING MEANINGFUL
+		mapPanel = new MapPanel(new DataManager("CountryData.txt"), new StudentData(studentName, "North America"), mapType);
 		//Switches the visibility of the existing JPanels
 		mapPanel.setVisible(true);
 		window.setVisible(false);

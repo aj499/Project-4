@@ -160,7 +160,7 @@ Russia
 Pakistan
 India
 Indonesia
-Phillipines
+Philippines
 
 Oceania
 $39,025
@@ -890,28 +890,28 @@ Indonesia photo path help
 815
 475
 
-Phillipines
-Phillipines GDP per capita
-Phillipines GDP real growth rate
-Phillipines agriculture percentage of GDP
-Phillipines economic freedom score
-Phillipines lowest ten income
-Phillipines highest ten income
-Phillipines major industries
-Phillipines unemployment rate
-Phillipines major economic issue
-Phillipines make a difference economic
-Phillipines photo path economic
-Phillipines life expectancy
-Phillipines maternal mortality rate
-Phillipines infant mortality rate
-Phillipines children underweight percentage
-Phillipines physician density
-Phillipines risk of infectious disease
-Phillipines most common diseases
-Phillipines major health issue
-Phillipines make a difference health
-Phillipines photo path help
+Philippines
+Philippines GDP per capita
+Philippines GDP real growth rate
+Philippines agriculture percentage of GDP
+Philippines economic freedom score
+Philippines lowest ten income
+Philippines highest ten income
+Philippines major industries
+Philippines unemployment rate
+Philippines major economic issue
+Philippines make a difference economic
+Philippines photo path economic
+Philippines life expectancy
+Philippines maternal mortality rate
+Philippines infant mortality rate
+Philippines children underweight percentage
+Philippines physician density
+Philippines risk of infectious disease
+Philippines most common diseases
+Philippines major health issue
+Philippines make a difference health
+Philippines photo path help
 860
 440
 

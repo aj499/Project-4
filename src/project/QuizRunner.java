@@ -24,13 +24,18 @@ public class QuizRunner {
 	
 	private DataManager worldData;
 	private MapPanel parent;//so we can change the continent shown when quizing across continents
+	private StudentData student;
 	
-	public QuizRunner(MapPanel newParent, DataManager newWorldData, String newPreTestTopic){
+	public QuizRunner(MapPanel newParent, DataManager newWorldData, StudentData newStudent){
 		worldData = newWorldData;
-		preTestTopic = newPreTestTopic;
 		parent = newParent;
+		student = newStudent;
 		
-		inPreTest = true;
+		preTestTopic = student.getPreTestTopic();
+		
+		//inPreTest = true;
+		//TODO: fix this later!
+		inPreTest = false;
 		quizRunning = false;
 		
 		questionsAsked = new Vector<String>();
@@ -39,6 +44,8 @@ public class QuizRunner {
 	public void startQuiz(String topic, MapMode mode){
 		currentTopic = topic;
 		currentMode = mode;
+		
+		quizRunning = true;
 		
 		currentQuestionNumber = 0;
 		questionsAnsweredCorrectly = 0;
@@ -53,17 +60,26 @@ public class QuizRunner {
 			countriesToAskAbout = worldData.getDataForContinent(currentTopic).getCountryList();
 			Random random = new Random();
 			
-			CountryData country = worldData.getDataForCountry(countriesToAskAbout.get(random.nextInt(countriesToAskAbout.size())));
+			CountryData country;
+			
+			while(true){
+				country = worldData.getDataForCountry(countriesToAskAbout.get(random.nextInt(countriesToAskAbout.size())));
+				
+				//spin until we get a country they've seen
+				if(student.hasCountryBeenSeen(country.getCountryName(), currentMode)){
+					break;
+				}
+			}
 			
 			while(true){
 				prospectiveQuestion = ((currentMode == MapMode.HEALTH) ? country.generateHealthQuestion() : country.generateEconQuestion());
 				
+				//spin until we get a question we haven't asked yet
 				if(!questionsAsked.contains(prospectiveQuestion)){
 					questionsAsked.add(prospectiveQuestion);
 					currentQuestion = prospectiveQuestion;
 					currentCorrectAnswer = country.getCountryName();
 					
-					//TODO: increment cuurentQuestionNumber here?
 					currentQuestionNumber++;
 					currentQuestionAttempts = 0;
 					
@@ -118,6 +134,10 @@ public class QuizRunner {
 	}
 	
 	public String getQuestion(){
+		//load a question
+		loadQuestion();
+		
+		//give it back to the user
 		return currentQuestion;
 	}
 	
@@ -130,7 +150,7 @@ public class QuizRunner {
 	}
 	
 	public String getQuizEndReport(){
-		String report = "You answered " + questionsAnsweredCorrectly + " out of " + TOTAL_QUESTIONS_TO_ASK + " correctly";
+		String report = "You answered " + questionsAnsweredCorrectly + " out of " + TOTAL_QUESTIONS_TO_ASK + " questions correctly";
 		report += "\nand scored " + (int) ((((float) questionsAnsweredCorrectly) / ((float) TOTAL_QUESTIONS_TO_ASK)) * 100) + " percent.";
 		
 		return report;

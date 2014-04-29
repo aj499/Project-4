@@ -16,12 +16,14 @@ import project.StudentData;
 public class QuizRunnerTest {
 	DataManager dm = null;//TODO: load an actual dummy data manager here!
 	MapPanel mp;
+	StudentData sd = new StudentData("Dave", "Oceania");
+	
 	QuizRunner qr;
 	
 	@Before
 	public void setUpMapPanel(){
 		try{
-			mp = new MapPanel(dm, new StudentData("TEST"), MapMode.HEALTH);
+			mp = new MapPanel(dm, new StudentData("TEST", "Asia"), MapMode.HEALTH);
 		} catch(IOException e){
 			fail("IOException thrown on constructing MapPanel: " + e.getMessage());
 		}
@@ -32,7 +34,7 @@ public class QuizRunnerTest {
 	 */
 	@Test
 	public void testConstructor() {
-		qr = new QuizRunner(mp, dm, "World");
+		qr = new QuizRunner(mp, dm, sd);
 		assertNotNull(qr);
 	}
 	
@@ -41,7 +43,7 @@ public class QuizRunnerTest {
 	 */
 	@Test
 	public void testStartQuiz(){
-		qr = new QuizRunner(mp, null, "World");
+		qr = new QuizRunner(mp, null, sd);
 		qr.startQuiz("World", MapMode.HEALTH);
 		
 		assertTrue(qr.getQuizRunning());
@@ -53,7 +55,7 @@ public class QuizRunnerTest {
 	 */
 	@Test
 	public void testLoadQuestion(){
-		qr = new QuizRunner(mp, dm, "World");
+		qr = new QuizRunner(mp, dm, sd);
 		qr.startQuiz("World", MapMode.HEALTH);
 		qr.loadQuestion();
 		
@@ -66,7 +68,7 @@ public class QuizRunnerTest {
 	@Test
 	public void testCheckAnswerWithIncorrectAnswer(){
 		String incorrectAnswer = "Soviet Russia";
-		qr = new QuizRunner(mp, dm, "World");
+		qr = new QuizRunner(mp, dm, sd);
 		qr.startQuiz("World", MapMode.HEALTH);
 		qr.loadQuestion();
 		
@@ -83,7 +85,7 @@ public class QuizRunnerTest {
 	 */
 	@Test
 	public void testEndQuiz(){
-		qr = new QuizRunner(mp, dm, "World");
+		qr = new QuizRunner(mp, dm, sd);
 		qr.startQuiz("World", MapMode.HEALTH);
 		qr.endQuiz();
 		
@@ -97,7 +99,7 @@ public class QuizRunnerTest {
 	@Test
 	public void testGetQuizEndReport(){
 		String expectedReport = "You answered 0 out of 10 questions correctly\nand scored 0 percent.";
-		qr = new QuizRunner(mp, dm, "World");
+		qr = new QuizRunner(mp, dm, sd);
 		qr.startQuiz("World", MapMode.HEALTH);
 		qr.endQuiz();
 		

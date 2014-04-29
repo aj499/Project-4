@@ -14,14 +14,17 @@ public class StudentData {
 	private HashMap<String, Boolean> countriesSeenInContinentHealth;
 	private HashMap<String, Boolean> countriesSeenInContinentEconomic;
 	private String name;
+	private String preTestTopic;
 
 	/**
 	 * Create a new StudentData object for a student of the given name.
 	 * 
 	 * @param newName the name of the student whose data is stored in this object 
+	 * @param newPreTestTopic the topic for the pre-test for the student whose data is stored in this object 
 	 */
-	public StudentData(String newName){
+	public StudentData(String newName, String newPreTestTopic){
 		name = newName;
+		preTestTopic = newPreTestTopic;
 		countriesSeenHealth = new Vector<String>();
 		countriesSeenEconomic = new Vector<String>();
 		continentsSeenHealth = new Vector<String>();
@@ -164,6 +167,10 @@ public class StudentData {
 		default:
 			return false; //backup, unreachable; to make Eclipse happy
 		}
+	}
+	
+	public String getPreTestTopic(){
+		return preTestTopic;
 	}
 
 }
