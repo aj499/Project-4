@@ -66,6 +66,7 @@ public class DataManager {
 					currentCountry.setCountryName(currentLine);
 					currentCountry.setAll(bufferedReader);
 					currentCountry.setButtonXPosition(Integer.parseInt(bufferedReader.readLine()));
+					//System.out.println("Loading: " + currentCountry.getCountryName());
 					currentCountry.setButtonYPosition(Integer.parseInt(bufferedReader.readLine()));
 					countryData.put(currentCountry.getCountryName(), currentCountry);
 					

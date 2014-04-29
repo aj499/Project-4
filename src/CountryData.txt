@@ -834,7 +834,8 @@ pakistanecon.jpg
 0.81 physicians/1,000 population (2009)
 high
 bacterial diarrhea, hepatitis A and E, and typhoid fever, dengue fever and malaria, rabies
-Malaria is a problem faced by the lower-class people in Pakistan. The unsanitary conditions and stagnant water bodies in the rural areas and city slums provide excellent breeding grounds for mosquitoes. Use of nets and mosquito repellents is becoming more common.  The non-profit, Malaria No More works to distribute mosquito nets and rapid diagnostic tests in countries with a high prevalence of malaria.  They also engage in health education to raise awareness about the disease.  Donations help fund programs, ranging from mobilizing interventions to providing health education to supporting our life-saving work for at-risk families.
+Malaria is a problem faced by the lower-class people in Pakistan. The unsanitary conditions and stagnant water bodies in the rural areas and city slums provide excellent breeding grounds for mosquitoes. Use of nets and mosquito repellents is becoming more common.
+The non-profit, Malaria No More works to distribute mosquito nets and rapid diagnostic tests in countries with a high prevalence of malaria.  They also engage in health education to raise awareness about the disease.  Donations help fund programs, ranging from mobilizing interventions to providing health education to supporting our life-saving work for at-risk families.
 pakistanhealth.jpg
 505
 340
@@ -933,7 +934,7 @@ sierraleoneecon.jpg
 0.02 physicians/1,000 population (2010)
 very high
 bacterial and protozoal diarrhea, hepatitis A, and typhoid fever, malaria, dengue fever, and yellow fever, schistosomiasis, rabies, lassa fever
-Major health related issue facing this country:  Sierra Leone’s maternal mortality rate is almost 2 times the African average of 500 deaths/100,000 live births.  They are in desperate need of resources for mothers.  One in eight women risk dying during pregnancy or childbirth. This is one of the highest maternal death rates in the world.  Thousands of women bleed to death after giving birth. Most die in their homes. Some die on the way to hospital, in taxis, on motorbikes, or on foot. In Sierra Leone, less than half of deliveries are attended by a skilled birth attendant and less than one in five are carried out in health facilities.
+Sierra Leone's maternal mortality rate is almost 2 times the African average of 500 deaths/100,000 live births.  They are in desperate need of resources for mothers.  One in eight women risk dying during pregnancy or childbirth. This is one of the highest maternal death rates in the world.  Thousands of women bleed to death after giving birth. Most die in their homes. Some die on the way to hospital, in taxis, on motorbikes, or on foot. In Sierra Leone, less than half of deliveries are attended by a skilled birth attendant and less than one in five are carried out in health facilities.
 Political will from the government of Sierra Leone is there to ensure the free health care policy is in place, but there are several issues that still need to be addressed in order for the quality of care to be improved and rates of maternal deaths significantly reduced.  Amnesty International suggests that you read the cases of specific women and write to the government of Sierra Leone, acknowledging their efforts but also calling for wider systematic changes in order to significantly improve the lives of pregnant women in Sierra Leone.
 sierraleonehealth.jpg
 381
@@ -947,7 +948,7 @@ $1,500 (2013 est.)
 2.1%
 43.2% (2011 est.)
 cement, agricultural products, small-scale beverages, soap, furniture, shoes, plastic goods, textiles, cigarettes
- Not available
+Not available
 The Rwandan Government is seeking to become regional leader in information and communication technologies. In 2010, Rwanda neared completion of the first modern Special Economic Zone (SEZ) in Kigali. The SEZ seeks to attract investment in all sectors, but specifically in agribusiness, information and communications technologies, trade and logistics, mining, and construction.  Although they have made these advancements, there is still a need to get rid of poverty.  
 Opportunity International has a bank in Rwanda that practices microfinance.  In Rwanda, women currently outnumber men and are playing a major role in the growing economy. Opportunity Rwanda has long championed the empowerment of women, who comprise more than 93 percent of our clients and 55 percent of their staff.  They offer business loans, education finance, agricultural finance, savings, insurance, and cell phone banking.  To get involved, you can donate, start fundraisers, or go on an insight trip.
 rwandaecon.jpg
