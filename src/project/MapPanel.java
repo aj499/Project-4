@@ -327,6 +327,22 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		revalidate();
 	}
 	
+	public void showPicture(String stringPath){
+		try {
+			photoImage = ImageIO.read(new File(stringPath)).getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		imageIcon = new ImageIcon(photoImage);
+		imageLabel.setIcon(imageIcon);
+		imageLabel.setVisible(true);
+		imageLabel.setBounds(900, 550, 250, 250);
+		
+		photoBox.setBounds(800,500,400,300);
+		photoBox.add(imageLabel);
+	}
+	
 	/**
 	 * Fill the InfoBox with the given data on a country.
 	 * 
@@ -350,20 +366,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					"\n\nMajor Economic Issue:  " + newCountry.getMajorEconomicIssue() + 
 					"\n\nHow you can make a difference:  "+ newCountry.getMakeADifferenceEconomic();
 			writeInfoOnBottom(stringToDisplay);
-			try {
-				photoImage = ImageIO.read(new File(newCountry.getPhotoPathEconomic())).getScaledInstance(250, 250, Image.SCALE_SMOOTH);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			imageIcon = new ImageIcon(photoImage);
-			imageLabel.setIcon(imageIcon);
-			imageLabel.setVisible(true);
-			imageLabel.setBounds(900, 550, 250, 250);
-			
-			photoBox.setBounds(800,500,400,300);
-			photoBox.add(imageLabel);
-			
+			showPicture(newCountry.getPhotoPathEconomic());
 		
 		}//if Economic mode
 		
@@ -379,6 +382,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					"\n\nMost Common Diseases:  " + newCountry.getMajorHealthIssue() + 
 					"\n\nHow you can make a difference:  " + newCountry.getMakeADifferenceHealth();
 			writeInfoOnBottom(stringToDisplay);
+			showPicture(newCountry.getPhotoPathHealth());
 			
 		}//if Health mode
 	}//updateInfoBox
@@ -387,10 +391,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		if(quizRunner.questionsRemainToAsk()){//if there are more questions to ask
 			String question = quizRunner.getQuestion();
 			infoBox.removeAll();
-			questionLabel = new JLabel();
-			questionLabel.setText(question);
-			infoBox.setSize(1200,0);
-			infoBox.add(questionLabel);
+			photoBox.removeAll();
+			writeInfoOnBottom(question);
 			repaint();
 		} else {//the quiz is over
 			endQuiz("You have successfully completed the quiz!");
