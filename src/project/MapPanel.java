@@ -488,10 +488,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				}
 			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
 				//first check to make sure they've actually looked at countries, so we have something to test them on
-				if(currentView != "World" && !currentStudent.hasSeenCountriesInContinent(currentView, currentMapMode)){
+				if(currentView != "World" && !currentStudent.hasSeenCountriesInContinent(currentView, currentMapMode)){//if they're looking at a continent
 					String outputMessage = "You haven't studied any countries in " + currentView + ",\nso you can't take a quiz on it yet!";
 					JOptionPane.showMessageDialog(this, outputMessage, "Warning!", JOptionPane.WARNING_MESSAGE);
-				} else if(currentView == "World" && !currentStudent.hasSeenCountriesInContinent("World", currentMapMode)){
+				} else if(currentView == "World" && !currentStudent.hasSeenCountriesInContinent("World", currentMapMode)){//if they're looking at the world
 					String outputMessage = "You haven't studied any countries,\nso you can't take a quiz yet!";
 					JOptionPane.showMessageDialog(this, outputMessage, "Warning!", JOptionPane.WARNING_MESSAGE);
 				} else {//they've looked at countries so we can start a quix
