@@ -500,11 +500,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			String continentNames[] = worldData.getContinentList();
 			
 			for(int i = 0; i < continentNames.length; i++){
-				System.out.print("Clicked3");
 				System.out.print("ContinentNames: " + continentNames[i]);
 				if(!continentNames[i].equals("World")){//don't check against the world's bounding box
 					//get data on the continent
-					System.out.println("Clicked4");
 					//ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
 					ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
 					System.out.println("Continent name: " + continentNames[i]);
@@ -517,7 +515,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					
 					if(continentData.isPointInBounds(mouseX, mouseY)){//if we're inside this continent
 						//update appropriately
-						System.out.print("Clicked5!");
 						try {
 							changeContinent(continentNames[i]);
 						} catch (IOException e1) {

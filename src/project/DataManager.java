@@ -26,7 +26,7 @@ public class DataManager {
 		continentData = new HashMap<String, ContinentData>();
 		dataLoaded=false;
 		
-		fileLocation = newFileLocation;
+		fileLocation = "src/" + newFileLocation;
 		parseData();
 	}//constructor
 		
@@ -130,5 +130,12 @@ public class DataManager {
 		return econVariableList.get(indexToChooseVariableToAskAbout);
 	}
 		
+	public static void main(String args[]){
+		DataManager dm = new DataManager("CountryData.txt");
+		ContinentData cd = new ContinentData();
+		cd = dm.getDataForContinent("Asia");
+		System.out.println(cd.getCountryName());
+		
+	}
 	
 }
