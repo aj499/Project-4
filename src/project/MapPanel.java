@@ -47,9 +47,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private String currentView;//which continent are we looking at?	
 	private String currentCountry;//what country are we looking at right now?
 	private MapMode currentMapMode;//what mode is the map in?
-	//private boolean quizRunning;//is the user in a quiz right now?
 	private StudentData currentStudent;//who is the user and what have they seen?
-	//private boolean inPreTest;//are they taking the pretest
 	
 	//the image for the main world map
 	private Image map;
@@ -57,28 +55,21 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	//buttons for the countries
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
 	
-	//images for the Maps
-	//and so on for each continent
-	
 	//buttons for the UI
 	//NB: these must be AppButtons or actionPerformed will break!
 	private AppButton mapModeChangeButton;
 	private AppButton quizButton;//start/end a quiz
 	private AppButton backButton;//go back to world view from continentView
 	
-	//JLabels for the infoBox
 	//JPanel holding all of the country information
 	private JPanel infoBox;
 	private JPanel infoBox2;
 	private JPanel photoBox;
 
-	//image
+	//images
 	private JLabel imageLabel;
 	private Image photoImage;
 	private ImageIcon imageIcon;
-
-	//JLabel that holds the quiz question
-	private JLabel questionLabel;
 	
 	/* --||-- END VARIABLES --||-- */
 	
@@ -86,7 +77,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * Creates a new MapPanel based on data from the given DataManager.
 	 * 
 	 * @param newWorldData the DataManager to load data from
-	 * @throws IOException 
 	 */
 	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode mapType){
 		//handle passed-in data
@@ -96,10 +86,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//make a HashMap for the buttons
 		buttons = new HashMap<String, AppButton>();
-		
-		//set up variables for images
-		imageIcon = new ImageIcon();
-		imageLabel = new JLabel();
 		
 		//create a button for each country
 		String[] countryButtonList = worldData.getCountryList();
@@ -111,12 +97,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		}//for
 		
 		//set up a QuizRunner and basic state
-		//String initialQuizTopic = "North America"; //TODO:= something derived from StudentData
 		quizRunner = new QuizRunner(this, worldData, currentStudent);
-		//quizRunner.startQuiz(initialQuizTopic, currentMapMode);
-		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
-		//delegate to helper function for the heavy-duty UI setup
+		//call helper function for the heavy-duty UI setup
 		setUp(currentMapMode);
 	}//mapPanel
 	
@@ -125,10 +108,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * Helper function for the constructor.
 	 * <p>
 	 * (Assumes that worldData has been set previously.)
-	 * @throws IOException 
 	 */
 	private void setUp(MapMode mapMode){
-		
+		//set up variables for images
+		imageIcon = new ImageIcon();
+		imageLabel = new JLabel();
+	
 		//Checks to see which mode the user selected to choose which map image to display
 		try{
 			if(mapMode == MapMode.ECONOMIC){
@@ -218,12 +203,14 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public void changeContinent(String continentToChangeTo) throws IOException{
 		//clear screen of buttons
 		sweepButtons();
+		
+		//set currentView
 		currentView = continentToChangeTo;
 		
 		//note that we've now seen this new continent
 		currentStudent.addContinentSeen(continentToChangeTo, currentMapMode);
 		
-		//grab the correct file
+		//grab the correct file - apologies for ugly
 		if(currentMapMode == MapMode.ECONOMIC){
 			if(continentToChangeTo.equals("World")){
 				map = ImageIO.read(new File("EconMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
@@ -270,9 +257,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				map = ImageIO.read(new File("HealthSouthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 			}//if HealthSouthAmerica
 		}//if MapMode is Health
-		//TODO: update the InfoBox here as well
-		//updateInfoBox(worldData.getDataForContinent(currentView));
 		
+		//clear the info box at the bottom
+		writeInfoOnBottom("");
+		
+		//repaint
 		repaint();
 		
 		//set up new buttons
@@ -280,8 +269,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	}
 	
 	/**
-	 * paint
+	 * Draws this panel.
 	 */
+	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		if (map != null){
@@ -331,9 +321,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				
 				//add it to the panel
 				add(buttons.get(countriesToLoad.get(i)));
+				//make it visible
 				buttons.get(countriesToLoad.get(i)).setVisible(true);
-				repaint();
 			}//for
+			//force repaint, so as to display the buttons
+			repaint();
 		}//if
 	}//layoutButtons
 	
@@ -570,9 +562,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			}//if
 		} else if(e.getSource().equals(quizButton)){
 			if(quizRunner.getQuizRunning()){//if they're in a quiz
-				if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
+				/*if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
 					JOptionPane.showMessageDialog(this, "You must finish the pre-test first!", "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
-				} else {
+				} else*/ {
 					try {
 						endQuiz("Thanks for playing!");
 					} catch (IOException e1) {
