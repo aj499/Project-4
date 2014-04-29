@@ -59,7 +59,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	public void init(){
 		
 		//Sets the width and height
-		width = 1600;
+		width = 1200;
 		height = 500;
 		//Sets the background of the window
 		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage.png").getScaledInstance(1200, 500, Image.SCALE_SMOOTH));
@@ -69,7 +69,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		referenceMap = new ImageIcon("HealthMap.png");
 		//Sets the size of the applet to the reference map size
 		//setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
-		setSize(width - 400, height);
+		setSize(width, height);
 		
 		//Creates the start button
 		startButton = new JButton("Start");
@@ -173,13 +173,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		this.setContentPane(mapPanel);
 	}//goToMapPanel
 
-	/**
-	 * Respond to button events created by the user clicking on the buttons
-	 * on the screen (the Economic/Health radio buttons and the Start button).
-	 * 
-	 * @param e the event caused by the click on the button clicked
-	 */
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(startButton)){//Start button
@@ -188,21 +181,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 					goToMapPanel(mapType);	
 				} catch(IOException exceptionThrown){
 					//TODO: something here!
-
-	public class startAction implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(mapType != null){
-				try {
-					setSize(width, height);
-					if(mapType == mapType.HEALTH){
-						System.out.println("YAY");
-					}
-					goToMapPanel(mapType);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-
 				}
 				
 			} else {//if no option was selected, alert the user
@@ -220,19 +198,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 			mapType = MapMode.ECONOMIC;
 		} else if(e.getSource().equals(healthButton)){//Health radio button
 			mapType = MapMode.HEALTH;
-<<<<<<< HEAD
 		}
-
-=======
-			System.out.print("changed to health");
->>>>>>> parent of 4d38426... Changed starting size
-		}//actionPerformed
-	}//class startAction
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		
 	}//general actionPerformed
-	
-	
-}//class WelcomeWindow
+}

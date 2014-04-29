@@ -86,7 +86,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	//JLabel holding map images
 	JLabel mapLabel;
 	//JPanel holding all of the country information
-	JPanel infoBox;
+	private JPanel infoBox;
+	
+	//JLabel that holds the quiz question
+	private JLabel questionLabel;
 	
 	/* --||-- END VARIABLES --||-- */
 	
@@ -112,12 +115,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		for(int i = 0; i < countryButtonList.length; i++){
 			//create a button
 			buttons.put(countryButtonList[i], new AppButton(countryButtonList[i]));
-<<<<<<< HEAD
+
 			//add the ActionListener to the button
 
 			buttons.get(countryButtonList[i]).addActionListener(this);
-=======
->>>>>>> parent of 4d38426... Changed starting size
+
 		}
 		
 		//set up a QuizRunner and basic state
@@ -165,8 +167,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		/*JLabel test = new JLabel("HI");
 		test.setSize(400, 10);*/
 		add(infoBox);
-		//infoBox.add(test);
-		infoBox.setBounds(1200, 0, 400, 500);
+
 		infoBox.setBackground(Color.CYAN);
 		infoBox.setOpaque(false);
 		repaint();
@@ -347,6 +348,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			unemploymentRate = new JLabel();
 			majorEconomicIssue = new JLabel();
 			makeADifferenceEconomic = new JLabel();
+
 			
 			gdpPerCapita.setSize(400,50);
 			gdpPerCapita.setText("HI");
@@ -359,6 +361,36 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			majorIndustries.setText(newCountry.getMajorIndustries());
 			unemploymentRate.setText(newCountry.getUnemploymentRate());
 			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
+
+			/*JLabel infoText = new JLabel();
+			String superstring = newCountry.getGpdPerCapita() + "<br>" + newCountry.getGdpRealGrowthRate() + "<br>" 
+								+ newCountry.getagriculturePercentageOfGdp() + '\n' + newCountry.getEconomicFreedomScore()
+								+ '\n' + newCountry.getLowestTenIncome() + '\n' + newCountry.getHighestTenIncome() 
+								+ '\n' + newCountry.getMajorIndustries() + '\n' + newCountry.getUnemploymentRate()
+								+ '\n' + newCountry.getMajorEconomicIssue() + '\n' +  newCountry.getMakeADifferenceEconomic();
+			infoText.setText("<html><p>" + superstring + "</p></html>");
+			infoText.setSize(200,400);*/
+			gdpPerCapita.setSize(1200,0);
+			gdpPerCapita.setText(newCountry.getGpdPerCapita());
+			gdpRealGrowthRate.setSize(1200, 50);
+			gdpRealGrowthRate.setBackground(Color.RED);
+			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
+			agriculturePercentageOfGdp.setSize(1200,100);
+			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
+			economicFreedomScore.setSize(1200,150);
+			economicFreedomScore.setText(newCountry.getEconomicFreedomScore());
+			lowestTenIncome.setSize(1200,200);;
+			lowestTenIncome.setText(newCountry.getLowestTenIncome());
+			highestTenIncome.setSize(1200,250);
+			highestTenIncome.setText(newCountry.getHighestTenIncome());
+			majorIndustries.setSize(1200,300);
+			majorIndustries.setText(newCountry.getMajorIndustries());
+			unemploymentRate.setSize(1200,350);
+			unemploymentRate.setText(newCountry.getUnemploymentRate());
+			majorEconomicIssue.setSize(1200,400);
+			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
+			makeADifferenceEconomic.setSize(1200,450);
+
 			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
 			
 			infoBox.add(gdpPerCapita);
@@ -398,7 +430,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private void setUpNextQuestion() throws IOException{
 		if(quizRunner.questionsRemainToAsk()){//if there are more questions to ask
 			String question = quizRunner.getQuestion();
-			//TODO: display the question in the UI
+			infoBox.removeAll();
+			questionLabel = new JLabel();
+			questionLabel.setText(question);
+			infoBox.setSize(1200,0);
+			infoBox.add(questionLabel);
+			repaint();
 		} else {//the quiz is over
 			endQuiz("You have successfully completed the quiz!");
 		}
