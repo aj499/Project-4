@@ -40,11 +40,17 @@ public class CountryData {
 	private int buttonXPosition;
 	private int buttonYPosition;
 	
+<<<<<<< HEAD
 	/**
 	 * A constructor that sets default values for all variables in country
 	 * CountryData()
 	 */
 	public CountryData() {
+=======
+
+	CountryData() {
+
+>>>>>>> Mike
 		countryName= "new country";
 		gdpPerCapita= "no money";
 		gdpRealGrowthRate="doesn't grow"; 
@@ -384,6 +390,7 @@ public class CountryData {
 
 	}
 	
+
 
 	public String generateEconQuestion(){
 

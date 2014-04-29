@@ -3,11 +3,11 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+
 
 public class DataManager {
 	private HashMap<String, CountryData> countryData;
@@ -19,16 +19,15 @@ public class DataManager {
 	 * Constructor takes a String that is the filepath
 	 * @param newFileLocation
 	 */
-	public DataManager(String newFileLocation){
+	DataManager(String newFileLocation){
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
-		
 		dataLoaded=false;
-		fileLocation = newFileLocation;
 		
+		fileLocation = "src/" + newFileLocation;
 		parseData();
-	}
-	
+	}//constructor
+		
 	private void parseData(){
 		try{
 			String filename = fileLocation;
@@ -41,9 +40,9 @@ public class DataManager {
 					dataInputStream));
 			String currentLine;
 			while ((currentLine = bufferedReader.readLine())!=null){
-				CountryData currentCountry;
-				ContinentData currentContinent;
+
 				if (continentCounter <= numContinents){
+					ContinentData currentContinent = new ContinentData();
 					currentContinent = new ContinentData();
 					currentContinent.setCountryName(currentLine);
 					currentContinent.setAll(bufferedReader);
@@ -55,13 +54,13 @@ public class DataManager {
 					currentLine = bufferedReader.readLine();
 					while ((currentLine = bufferedReader.readLine()).length() > 0){
 						currentContinent.addToCountryList(currentLine);
-					}
+					}//while
 					
 					continentData.put(currentContinent.getCountryName(), currentContinent);
 					continentCounter++;	
-				}
+				}//if
 				else{
-					
+					CountryData currentCountry = new CountryData();
 					currentCountry = new CountryData();
 					
 					currentCountry.setCountryName(currentLine);
@@ -71,18 +70,16 @@ public class DataManager {
 					countryData.put(currentCountry.getCountryName(), currentCountry);
 					
 					bufferedReader.readLine();
-				}
-			}
+				}//else
+			}//while
 			
 			bufferedReader.close();
 			dataLoaded = true;
-			
+
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		
-		
 	}
 
 	/**
@@ -91,9 +88,8 @@ public class DataManager {
 	 * @return a list of all the countries in the countryData hash
 	 */
 	public String[] getCountryList(){
-		//pass String Array to get correct return type (see API doc for Set<T>::toArray(T[] a))
 		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
-	}
+	}//getCountryList
 	
 	/**
 	 * Returns a list of all the continents in the countryData hash.
@@ -101,36 +97,36 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
-		//pass String Array to get correct return type (see API doc for Set<T>::toArray(T[] a))
 		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
-	}
+	}//getContinentList
 	
 	public CountryData getDataForCountry(String countryName){
+
 		return countryData.get(countryName);
-	}
-	
+	}//getDataForCountry
+
 
 	public ContinentData getDataForContinent(String continentName){
-		//TODO: implement error checking here!
 		return continentData.get(continentName);
-	}
+	}//getDataForContinent
 	
-	public String getRandomlyChosenVariableForSuperlativeQuestion(){
+	public String randomlyChooseVariableForSuperlativeQuestion(){
 		ArrayList<String> econVariableList = new ArrayList<String>();
 		econVariableList.add("gpdPerCapita");
+		econVariableList.add("gdpRealGrowthRate");
 		econVariableList.add("gdpRealGrowthRate");
 		econVariableList.add("agriculturePercentageOfGDP");
 		econVariableList.add("economicFreedomScore");
 		econVariableList.add("majorIndustries");
 		econVariableList.add("unemploymentRate");
 		
-		
 		Random generator = new Random();
-		/*int minimum = 0;
+		int minimum = 0;
 		int maximum = econVariableList.size()-1;
 		int range = maximum - minimum + 1;
-		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;*/
-		return econVariableList.get(generator.nextInt(econVariableList.size()));
+		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;
+		return econVariableList.get(indexToChooseVariableToAskAbout);
 	}
+		
 
 }//class
