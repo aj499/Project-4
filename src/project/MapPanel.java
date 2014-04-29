@@ -195,6 +195,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		infoBox2.setBounds(0, 700, 1200, 50);
 		
 		currentModeLabel = new JLabel("EXPLORE MODE");
+		currentModeLabel.setForeground(Color.RED);
 		currentModeLabel.setFont(getFont().deriveFont(24f));//set font size
 		currentModeLabel.setBounds(10, 10, 250, 30);
 		add(currentModeLabel);
