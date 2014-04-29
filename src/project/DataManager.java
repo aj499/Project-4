@@ -23,12 +23,7 @@ public class DataManager {
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
 		dataLoaded=false;
-<<<<<<< HEAD
 
-
-		fileLocation = newFileLocation;
-=======
->>>>>>> origin/Adam
 		
 		fileLocation = newFileLocation;
 		parseData();
@@ -49,11 +44,7 @@ public class DataManager {
 			String currentLine;
 			while ((currentLine = bufferedReader.readLine())!=null){
 
-<<<<<<< HEAD
-				CountryData currentCountry;
-				ContinentData currentContinent;
-=======
->>>>>>> origin/Adam
+
 				if (continentCounter <= numContinents){
 					ContinentData currentContinent = new ContinentData();
 					currentContinent = new ContinentData();
@@ -84,51 +75,33 @@ public class DataManager {
 					countryData.put(currentCountry.getCountryName(), currentCountry);
 					
 					bufferedReader.readLine();
-<<<<<<< HEAD
-				}
 
-			}
-			
-			bufferedReader.close();
-=======
+
 				}//else
 			}//while
 			
 			bufferedReader.close();
 			dataLoaded = true;
 
->>>>>>> origin/Adam
+
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
-<<<<<<< HEAD
-		
+
 	}
 
 
-
-
-=======
-	}
-
->>>>>>> origin/Adam
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
 	 * @return a list of all the countries in the countryData hash
 	 */
 	public String[] getCountryList(){
-<<<<<<< HEAD
 
-		//pass String Array to get correct return type (see API doc for Set<T>::toArray(T[] a))
-		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
-
-	}
-=======
 		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
 	}//getCountryList
->>>>>>> origin/Adam
+
 	
 	/**
 	 * Returns a list of all the continents in the countryData hash.
@@ -136,25 +109,20 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
-<<<<<<< HEAD
+
 
 		//pass String Array to get correct return type (see API doc for Set<T>::toArray(T[] a))
-=======
->>>>>>> origin/Adam
+
 		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
 	}//getContinentList
 	
 	public CountryData getDataForCountry(String countryName){
 
 		return countryData.get(countryName);
-<<<<<<< HEAD
 
-	}
-	
-=======
 	}//getDataForCountry
 
->>>>>>> origin/Adam
+
 
 
 	public ContinentData getDataForContinent(String continentName){
@@ -176,7 +144,7 @@ public class DataManager {
 	}
 		
 
-<<<<<<< HEAD
+
 	
 	/*public String[] generateEconSuperlativeQuestion(String continentName, String dataVariable){
 		//continentName= getCurrentView();
@@ -192,8 +160,6 @@ public class DataManager {
 */
 		
 
-}
 
-=======
 }//class
->>>>>>> origin/Adam
+

@@ -11,21 +11,14 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-<<<<<<< HEAD
 
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import java.util.Vector;
-
-=======
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
->>>>>>> origin/Adam
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -153,27 +146,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		currentCountry = "none";
 		
 		setBackground(Color.black);
-<<<<<<< HEAD
-		ImageIcon map = new ImageIcon("lifeExpectancyEdit.png"); 
-		setSize(map.getIconWidth(), map.getIconHeight());
-		
-		JLabel mapLabel = new JLabel();
-		JPanel infoBox = new JPanel();
-		infoBox.setPreferredSize(new Dimension(100, map.getIconHeight()));
-		infoBox.setLocation(200,200);
-		infoBox.setBackground(Color.RED);
-		infoBox.setOpaque(true);
 
-		mapLabel.setIcon(map);
-
-		add(mapLabel, BorderLayout.WEST);	
-		add(infoBox, BorderLayout.EAST);
-
-		mapLabel.validate();
-		mapLabel.repaint();
-=======
 		setSize(1600, 500);
->>>>>>> origin/Adam
+
 		
 		addMouseListener(this);
 		
@@ -331,15 +306,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//note that we've seen this new country
 
 		currentStudent.addCountrySeen(currentCountry, currentView, currentMapMode);
-<<<<<<< HEAD
 
-		//TODO: load all the map images here
-		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-		ImageIcon map = new ImageIcon("mapImage2.png"); 
-		JLabel mapLabel = new JLabel();
-		mapLabel.setIcon(map);
-
-=======
 	}
 	
 	public void writeInfoOnBottom(String stringToDisplay){
@@ -379,7 +346,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		photoBox.setBounds(800,500,400,300);
 		photoBox.add(imageLabel);
->>>>>>> origin/Adam
+
 	}
 	
 	/**
@@ -634,18 +601,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//Does nothing; required by interface
 	}
 	
-<<<<<<< HEAD
-
-	/**
-	 * Returns the data for the current user of the program.
-	 * @return the data for the current user of the program
-	 */
-	public StudentData getCurrentStudent(){
-		return currentStudent;
-	}
-	
 
 }//class MapPanel
-=======
-}//class MapPanel
->>>>>>> origin/Adam
+

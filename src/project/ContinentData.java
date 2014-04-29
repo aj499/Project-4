@@ -37,8 +37,8 @@ public class ContinentData extends CountryData{
 		bottomBound = newBottomBound;
 	}
 	
-<<<<<<< HEAD
-=======
+
+
 	public int getLeftBound(){
 		return leftBound;
 	}
@@ -55,7 +55,7 @@ public class ContinentData extends CountryData{
 		return bottomBound;
 	}
 	
->>>>>>> origin/Adam
+
 
 	/**
 	 * Check if the given point is inside this continent's bounding box.
