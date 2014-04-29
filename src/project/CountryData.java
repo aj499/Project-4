@@ -1,6 +1,5 @@
 package project;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,11 +10,10 @@ import java.util.Random;
  * CountryData class
  * this class stores a country and the data about the country 
  */
-
 public class CountryData {
 
 	private String countryName;
-	private String gpdPerCapita;
+	private String gdpPerCapita;
 	private String gdpRealGrowthRate; 
 	private String agriculturePercentageOfGDP;
 	private String economicFreedomScore;
@@ -38,14 +36,17 @@ public class CountryData {
 	private String photoPathHealth;
 
 	
+	
 	private int buttonXPosition;
 	private int buttonYPosition;
 	
-
-	CountryData() {
-
+	/**
+	 * A constructor that sets default values for all variables in country
+	 * CountryData()
+	 */
+	public CountryData() {
 		countryName= "new country";
-		gpdPerCapita= "no money";
+		gdpPerCapita= "no money";
 		gdpRealGrowthRate="doesn't grow"; 
 		agriculturePercentageOfGDP="no agriculture percentage";
 		economicFreedomScore= "no economic freedom";
@@ -68,70 +69,161 @@ public class CountryData {
 		photoPathHealth="no photi path health";
 	}
 
+	
+	/**
+	 * sets country name
+	 * SetCountryName(String)
+	 * @param newCountryName
+	 */
 	public void setCountryName(String newCountryName) {
 		countryName=newCountryName;
 	}
 
-	public void setGpdPerCapita(String newGpdPerCapita) {
-		gpdPerCapita=newGpdPerCapita;
+	/**
+	 * sets gdp per capita
+	 * setGpdPerCapita(String)
+	 * @param newGdpPerCapita
+	 */
+	public void setGdpPerCapita(String newGdpPerCapita) {
+		gdpPerCapita=newGdpPerCapita;
+
 	}
 
+	
+	/**
+	 * setGdpRealGrowthRate(String)
+	 * @param newGdpRealGrowthRate
+	 */
 	public void setGdpRealGrowthRate(String newGdpRealGrowthRate) {
 		gdpRealGrowthRate=newGdpRealGrowthRate;
 	}
+	
+
+	/**
+	 *sets Agriculture Percentage
+	 * setAgriculturePercentageOfGdp(String)
+	 * @param newagriculturePercentageOfGdp
+	 */
 
 	public void setAgriculturePercentageOfGdp(String newagriculturePercentageOfGdp) {
 		agriculturePercentageOfGDP=newagriculturePercentageOfGdp;
+
 	}
 
+	
+	/**
+	 * sets Economic Freedom Score
+	 * setEconomicFreedomScore(String)
+	 * @param newEconomicFreedomScore
+	 */
 	public void setEconomicFreedomScore(String newEconomicFreedomScore) {
 		economicFreedomScore=newEconomicFreedomScore;
 	}
-
+	
+	/**
+	 * sets Lowest ten Income
+	 * setLowestTenIncome(String)
+	 * @param newLowestTenIncome
+	 */
 	public void setLowestTenIncome(String newLowestTenIncome) {
 		lowestTenIncome=newLowestTenIncome;
 	}
-
+	
+	/**
+	 * sets highest ten income
+	 * setHighestTenIncome(String)
+	 * @param newHighestTenIncome
+	 */
 	public void setHighestTenIncome(String newHighestTenIncome) {
 		highestTenIncome=newHighestTenIncome;
 	}
-
+	
+	/**
+	 * sets major industries
+	 * setMajorIndustries(String)
+	 * @param newMajorIndustries
+	 */
 	public void setMajorIndustries(String newMajorIndustries) {
 		majorIndustries=newMajorIndustries;
 	}
-
+	
+	/**
+	 * Sets unemployment rate
+	 * setUnemploymentRate(String)
+	 * @param newUnemploymentRate
+	 */
 	public void setUnemploymentRate(String newUnemploymentRate) {
 		unemploymentRate=newUnemploymentRate;
 	}
 
+	/**
+	 * sets major economic issue
+	 * setMajorEconomicIssue(String)
+	 * @param newMajorEconomicIssue
+	 */
 	public void setMajorEconomicIssue(String newMajorEconomicIssue) {
 		majorEconomicIssue=newMajorEconomicIssue;
 	}
 
+	/**
+	 * sets the string for how one can make a difference economically
+	 * setMakeADifferenceEconomic(String)
+	 * @param newMakeADifferenceEconomic
+	 */
 	public void setMakeADifferenceEconomic(String newMakeADifferenceEconomic) {
 		makeADifferenceEconomic=newMakeADifferenceEconomic;
 	}
 
+	/**
+	 * sets photo path
+	 * setPhotoPathEconomic(String)
+	 * @param newPhotoPathEconomic
+	 */
 	public void setPhotoPathEconomic(String newPhotoPathEconomic) {
 		photoPathEconomic=newPhotoPathEconomic;
 	}
 
+	/**
+	 * sets life expectancy
+	 * setLifeExpectancy(String)
+	 * @param newLifeExpectancy
+	 */
 	public void setLifeExpectancy(String newLifeExpectancy) {
 		lifeExpectancy=newLifeExpectancy;
 	}
 
+	/**
+	 * sets maternal mortality rate
+	 * setMaternalMortalityRate(String)
+	 * @param newMaternalMortalityRate
+	 */
 	public void setMaternalMortalityRate(String newMaternalMortalityRate) {
 		maternalMortalityRate=newMaternalMortalityRate;
 	}
 
+	/**
+	 * sets infant mortality rate
+	 * setInfantMortalityRate(String)
+	 * @param newInfantMortalityRate
+	 */
 	public void setInfantMortalityRate(String newInfantMortalityRate) {
 		infantMortalityRate=newInfantMortalityRate;
 	}
 
+	/**
+	 * sets underweight children percent
+	 * setChildrenUnderweightPercentage(String)
+	 * @param newChildrenUnderweightPercentage
+	 */
 	public void setChildrenUnderweightPercentage(String newChildrenUnderweightPercentage) {
 		childrenUnderweightPercentage=newChildrenUnderweightPercentage;
 	}
 
+	/**
+	 * sets physician density
+	 * setPhysicianDensity(String)
+	 * @param newPhysicianDensity
+	 */
 	public void setPhysicianDensity(String newPhysicianDensity) {
 		physicianDensity=newPhysicianDensity;
 	}
@@ -170,7 +262,7 @@ public class CountryData {
 	}
 
 	public String getGpdPerCapita() {
-		return gpdPerCapita;
+		return gdpPerCapita;
 	}
 
 	public String getGdpRealGrowthRate() {
@@ -264,7 +356,7 @@ public class CountryData {
 	
 	public void setAll(BufferedReader bufferedReader){
 		try {
-			setGpdPerCapita(bufferedReader.readLine());
+			setGdpPerCapita(bufferedReader.readLine());
 			setGdpRealGrowthRate(bufferedReader.readLine());
 			setAgriculturePercentageOfGdp(bufferedReader.readLine());
 			setEconomicFreedomScore(bufferedReader.readLine());

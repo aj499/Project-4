@@ -44,7 +44,7 @@ public class QuizRunner {
 		questionsAnsweredCorrectly = 0;
 	}
 	
-	public void loadQuestion() throws IOException{
+	public void loadQuestion(){// throws IOException{
 		String prospectiveQuestion;
 		
 		Vector<String> countriesToAskAbout;
@@ -77,7 +77,11 @@ public class QuizRunner {
 			
 			currentTopic = continents[(int) Math.floor(((float) currentQuestionNumber) / 2.0)];
 			
-			parent.changeContinent(currentTopic);//make it so the user can see what's what
+			try{
+				parent.changeContinent(currentTopic);//make it so the user can see what's what
+			} catch(IOException e){
+				System.out.println("IOException in QuizRunner::loadQuestion(): " + e.getMessage());
+			}
 			
 			loadQuestion();
 			

@@ -3,12 +3,11 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+
 
 public class DataManager {
 	private HashMap<String, CountryData> countryData;
@@ -20,12 +19,12 @@ public class DataManager {
 	 * Constructor takes a String that is the filepath
 	 * @param newFileLocation
 	 */
-	DataManager(String newFileLocation){
+	public DataManager(String newFileLocation){
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
 		dataLoaded=false;
 		
-		fileLocation = newFileLocation;
+		fileLocation =  newFileLocation;
 		parseData();
 	}//constructor
 		
@@ -111,7 +110,7 @@ public class DataManager {
 		return continentData.get(continentName);
 	}//getDataForContinent
 	
-	public String randomlyChooseVariableForSuperlativeQuestion(){
+	public String getRandomlyChosenVariableForSuperlativeQuestion(){
 		ArrayList<String> econVariableList = new ArrayList<String>();
 		econVariableList.add("gpdPerCapita");
 		econVariableList.add("gdpRealGrowthRate");
@@ -122,38 +121,8 @@ public class DataManager {
 		econVariableList.add("unemploymentRate");
 		
 		Random generator = new Random();
-		int minimum = 0;
-		int maximum = econVariableList.size()-1;
-		int range = maximum - minimum + 1;
-		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;
-		return econVariableList.get(indexToChooseVariableToAskAbout);
+		return econVariableList.get(generator.nextInt(econVariableList.size()));
 	}
 		
-	
-	/*public String[] generateEconSuperlativeQuestion(String continentName, String dataVariable){
-		//continentName= getCurrentView();
-			switch (dataVariable){	
-				case "gpdPerCapita":
-					return new String[] {"Which is the poorest country in " + continentName + " ?",
-							//gdpPerCapitaSortedAfrica.get(0).getCountryName()};
-					}
-					
-		}
-			
-		}
-		
-	}
-	
-	public static void main(String args[]){
 
-		DataManager dm = new DataManager("project/CountryData.txt");
-		ContinentData cd = new ContinentData();
-
-		String[] continents = new String[6];
-		continents = dm.getCountryList();
-		for (int i = 0; i<continents.length;i++){
-			System.out.println(continents[i]);
-		}
-	}*/
-
-}
+}//class

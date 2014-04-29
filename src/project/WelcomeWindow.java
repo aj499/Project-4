@@ -164,7 +164,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	 */
 	private void goToMapPanel(MapMode mapType) throws IOException{
 		//Creates a new MapPanel
-		mapPanel = new MapPanel(new DataManager("/Users/Lee/Desktop/CountryData.txt"), new StudentData("Dummy Student!"), mapType);
+		mapPanel = new MapPanel(new DataManager("CountryData.txt"), new StudentData("Dummy Student!"), mapType);
 		//Switches the visibility of the existing JPanels
 		mapPanel.setVisible(true);
 		window.setVisible(false);

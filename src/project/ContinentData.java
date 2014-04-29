@@ -13,14 +13,13 @@ public class ContinentData extends CountryData{
 	private int topBound, bottomBound, rightBound, leftBound;
 	private Vector<String> countryList;
 
-	ContinentData() {
+	public ContinentData() {
 		countryList = new Vector<String>();
 	}
 	
 	public void addToCountryList(String countryName){
 		countryList.add(countryName);
 	}
-	
 	
 	public void setLeftBound(int newLeftBound){
 		leftBound = newLeftBound;
@@ -47,7 +46,7 @@ public class ContinentData extends CountryData{
 	}
 	
 	public int getRightBound(){
-		return rightBound;
+		return bottomBound;
 	}
 	
 	public int getBottomBound(){
