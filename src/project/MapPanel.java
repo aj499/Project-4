@@ -11,10 +11,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
+<<<<<<< HEAD
 import java.util.Vector;
 
+=======
+import javax.swing.BoxLayout;
+>>>>>>> Adam
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -154,7 +159,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		mapLabel.validate();
 		mapLabel.repaint();
 		
-		//layoutButtons();//set up buttons for the current view
+		addMouseListener(this);
+		
+		changeContinent("World");//set up buttons for the current view
 	}
 	
 	/**
@@ -260,6 +267,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				
 				//add it to the panel
 				add(buttons.get(countriesToLoad.get(i)));
+				
+				//make it visible
+				buttons.get(countriesToLoad.get(i)).setVisible(true);
 			}
 		} 
 	}
@@ -275,9 +285,15 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//update the info displayed in the info box
 		updateInfoBox(worldData.getDataForCountry(currentCountry));
-		
+
 		//note that we've seen this new country
-		currentStudent.addCountrySeen(currentCountry, currentMapMode);
+		currentStudent.addCountrySeen(currentCountry, currentView, currentMapMode);
+
+		//TODO: load all the map images here
+		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+		ImageIcon map = new ImageIcon("mapImage2.png"); 
+		JLabel mapLabel = new JLabel();
+		mapLabel.setIcon(map);
 	}
 	
 	/**
@@ -406,7 +422,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				
 				if(!quizRunner.hasRemainingAttempts()){//if they've run out of attempts on this question
 					//alert the user
-					JOptionPane.showMessageDialog(this, "You've run out of attempts to answer this question.\nThe quiz will now move onto the next question.", "No more attempts", JOptionPane.INFORMATION_MESSAGE);
+					String outputMessage = "You've run out of attempts to answer this question.\nThe quiz will now move onto the next question.";
+					JOptionPane.showMessageDialog(this, outputMessage, "No more attempts", JOptionPane.INFORMATION_MESSAGE);
 					
 					//move onto the next question
 					setUpNextQuestion();
@@ -420,19 +437,29 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		} else if(e.getSource().equals(quizButton)){//start/stop quiz
 			if(quizRunner.getQuizRunning()){//if they're in a quiz
 				if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
-					JOptionPane.showMessageDialog(this, "You must finish the pre-test first!", "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
+					String outputMessage = "You must finish the pre-test first!";
+					JOptionPane.showMessageDialog(this, outputMessage, "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
 				} else {
 					endQuiz("Thanks for playing!");
 				}
 			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
-				//change the label on the button
-				quizButton.setText("End Quiz");
-				
-				//start the quiz
-				quizRunner.startQuiz(currentView, currentMapMode);
-				
-				//load the first question
-				setUpNextQuestion();
+				//first check to make sure they've actually looked at countries, so we have something to test them on
+				if(currentView != "World" && !currentStudent.hasSeenCountriesInContinent(currentView, currentMapMode)){
+					String outputMessage = "You haven't studied any countries in " + currentView + ",\nso you can't take a quiz on it yet!";
+					JOptionPane.showMessageDialog(this, outputMessage, "Warning!", JOptionPane.WARNING_MESSAGE);
+				} else if(currentView == "World" && !currentStudent.hasSeenCountriesInContinent("World", currentMapMode)){
+					String outputMessage = "You haven't studied any countries,\nso you can't take a quiz yet!";
+					JOptionPane.showMessageDialog(this, outputMessage, "Warning!", JOptionPane.WARNING_MESSAGE);
+				} else {
+					//change the label on the button
+					quizButton.setText("End Quiz");
+					
+					//start the quiz
+					quizRunner.startQuiz(currentView, currentMapMode);
+					
+					//load the first question
+					setUpNextQuestion();
+				}
 			}
 		}
 	}
@@ -515,6 +542,14 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public void mouseReleased(MouseEvent e){
 		//Auto-generated method stub
 		//Does nothing; required by interface
+	}
+	
+	/**
+	 * Returns the data for the current user of the program.
+	 * @return the data for the current user of the program
+	 */
+	public StudentData getCurrentStudent(){
+		return currentStudent;
 	}
 	
 }//class MapPanel
