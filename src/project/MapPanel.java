@@ -3,7 +3,6 @@ package project;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -119,7 +118,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		String initialQuizTopic = "NULL"; //TODO:= something derived from StudentData
 		
 		quizRunner = new QuizRunner(this, worldData, initialQuizTopic);
-		quizRunner.startQuiz(initialQuizTopic, currentMapMode);
+		//quizRunner.startQuiz(initialQuizTopic, currentMapMode);
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
@@ -144,8 +143,16 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			map = ImageIO.read(new File("HealthMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 			repaint();
 		}//else
+		
 		quizButton = new AppButton();
-		quizButton.setText("End Quiz");
+		quizButton.setText("Start Quiz");
+		quizButton.setBounds(800, 25, 100, 50);
+		quizButton.addActionListener(this);
+		
+		backButton = new AppButton();
+		backButton.setText("Back");
+		backButton.setBounds(350, 25, 100, 50);
+		backButton.addActionListener(this);
 		
 		setLayout(null);
 		//set default values for what we're looking at
@@ -158,6 +165,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		addMouseListener(this);
 		infoBox = new JPanel();
 		add(infoBox);
+		add(quizButton);
+		add(backButton);
 		infoBox.setBounds(0, 500, 1200, 300);
 		infoBox.setBackground(Color.CYAN);
 		infoBox.setOpaque(true);
@@ -174,6 +183,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 */
 	public void changeContinent(String continentToChangeTo) throws IOException{
 		//clear screen of buttons
+		System.out.println("changeContinent: " +  continentToChangeTo);
 		sweepButtons();
 		currentView = continentToChangeTo;
 		
@@ -266,9 +276,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			//remove each one from the panel
 			for(int i = 0; i < countriesToSweep.size(); i++){
 				remove(buttons.get(countriesToSweep.get(i)));	
-			}
-		}
-	}
+			}//for
+		}//if
+	}//sweepButtons
 	
 	/**
 	 * Lays out the buttons for the currently visible continent's countries.
@@ -517,15 +527,27 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				}
 			}
 		} else if(e.getSource().equals(backButton)){//back button
-			if(!currentView.equals("World")){//we only need to change things if we're not in world view
-				//update appropriately
-				try {
-					changeContinent("World");
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
+			if(!quizRunner.getQuizRunning()){
+				if(!currentView.equals("World")){//we only need to change things if we're not in world view
+					//update appropriately
+					try {
+						changeContinent("World");
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}//catch
+				}//if inner
+			}//if outer
+			else{
+				System.out.println("H");
+				JLabel warning = new JLabel("You cannot quit in the middle of a quiz!");
+				warning.setBounds(525, 425, 150, 20);
+				warning.setVisible(true);
+				add(warning);
+				setVisible(true);
+				requestFocus();
+				repaint();
+			}//else
 		} else if(e.getSource().equals(quizButton)){//start/stop quiz
 			if(quizRunner.getQuizRunning()){//if they're in a quiz
 				if(quizRunner.getInPreTest()){//don't let people bail on the pre-test

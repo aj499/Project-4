@@ -181,9 +181,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 			if(mapType != null){
 				try {
 					setSize(width, height + 300);
-					if(mapType == mapType.HEALTH){
-						System.out.println("YAY");
-					}
 					goToMapPanel(mapType);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
