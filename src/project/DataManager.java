@@ -4,12 +4,16 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Min
 public class DataManager {
 	private HashMap<String, CountryData> countryData;
 	private HashMap<String, ContinentData> continentData;
@@ -21,16 +25,14 @@ public class DataManager {
 	 * @param newFileLocation
 	 */
 	DataManager(String newFileLocation){
-
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
 		dataLoaded=false;
+		
 		fileLocation = newFileLocation;
 		parseData();
 	}//constructor
-	
-
-
+		
 	private void parseData(){
 		try{
 			String filename = fileLocation;
@@ -53,35 +55,37 @@ public class DataManager {
 					currentContinent.setRightBound(Integer.parseInt(bufferedReader.readLine()));
 					currentContinent.setTopBound(Integer.parseInt(bufferedReader.readLine()));
 					currentContinent.setBottomBound(Integer.parseInt(bufferedReader.readLine()));
+
 					currentLine = bufferedReader.readLine();
 					while ((currentLine = bufferedReader.readLine()).length() > 0){
 						currentContinent.addToCountryList(currentLine);
-					}
+					}//while
 					
 					continentData.put(currentContinent.getCountryName(), currentContinent);
 					continentCounter++;	
-				}
+				}//if
 				else{
 					CountryData currentCountry = new CountryData();
 					currentCountry = new CountryData();
+					
 					currentCountry.setCountryName(currentLine);
 					currentCountry.setAll(bufferedReader);
 					currentCountry.setButtonXPosition(Integer.parseInt(bufferedReader.readLine()));
 					currentCountry.setButtonYPosition(Integer.parseInt(bufferedReader.readLine()));
 					countryData.put(currentCountry.getCountryName(), currentCountry);
+					
 					bufferedReader.readLine();
-				}
-			}
+				}//else
+			}//while
 			
 			bufferedReader.close();
 			dataLoaded = true;
-			
-		}//try
+
+		}
 		catch(Exception e){
 			e.printStackTrace();
-		}//catch
+		}
 	}
-
 
 	/**
 	 * Returns a list of all the countries in the countryData hash.
@@ -90,7 +94,7 @@ public class DataManager {
 	 */
 	public String[] getCountryList(){
 		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
-	}
+	}//getCountryList
 	
 	/**
 	 * Returns a list of all the continents in the countryData hash.
@@ -99,19 +103,17 @@ public class DataManager {
 	 */
 	public String[] getContinentList(){
 		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
-	}
-
-
-
-	public CountryData getDataForCountry(String countryName){
-		return countryData.get(countryName);
-	}
+	}//getContinentList
 	
+	public CountryData getDataForCountry(String countryName){
+
+		return countryData.get(countryName);
+	}//getDataForCountry
 
 
 	public ContinentData getDataForContinent(String continentName){
 		return continentData.get(continentName);
-	}
+	}//getDataForContinent
 	
 	public String randomlyChooseVariableForSuperlativeQuestion(){
 		ArrayList<String> econVariableList = new ArrayList<String>();
@@ -122,6 +124,7 @@ public class DataManager {
 		econVariableList.add("economicFreedomScore");
 		econVariableList.add("majorIndustries");
 		econVariableList.add("unemploymentRate");
+		
 		Random generator = new Random();
 		int minimum = 0;
 		int maximum = econVariableList.size()-1;
@@ -129,7 +132,37 @@ public class DataManager {
 		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;
 		return econVariableList.get(indexToChooseVariableToAskAbout);
 	}
+		
 	
+<<<<<<< HEAD
 
 	
+=======
+	/*public String[] generateEconSuperlativeQuestion(String continentName, String dataVariable){
+		//continentName= getCurrentView();
+			switch (dataVariable){	
+				case "gpdPerCapita":
+					return new String[] {"Which is the poorest country in " + continentName + " ?",
+							//gdpPerCapitaSortedAfrica.get(0).getCountryName()};
+					}
+					
+		}
+			
+		}
+		
+	}
+	
+	public static void main(String args[]){
+
+		DataManager dm = new DataManager("project/CountryData.txt");
+		ContinentData cd = new ContinentData();
+
+		String[] continents = new String[6];
+		continents = dm.getCountryList();
+		for (int i = 0; i<continents.length;i++){
+			System.out.println(continents[i]);
+		}
+	}*/
+
+>>>>>>> origin/Min
 }
