@@ -55,11 +55,11 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private MapMode mapType;
 	//Radio button group
 	private ButtonGroup typeOptions;
-	
+
 	public void init(){
-		
+
 		//Sets the width and height
-		width = 1600;
+		width = 1200;
 		height = 500;
 		//Sets the background of the window
 		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage.png").getScaledInstance(1200, 500, Image.SCALE_SMOOTH));
@@ -69,42 +69,42 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		referenceMap = new ImageIcon("HealthMap.png");
 		//Sets the size of the applet to the reference map size
 		//setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
-		setSize(width - 400, height);
-		
+		setSize(width, height);
+
 		//Creates the start button
 		startButton = new JButton("Start");
 		//Adds an action listener to the start button
 		startButton.addActionListener(this);
 		//Sets the start button's size
 		startButton.setPreferredSize(new Dimension(100, 50));
-		
+
 		//Creates one of the two radio buttons for the economics option
 		econButton = new JRadioButton("Economics");
 		//Adds an action listener to the econ button
 		econButton.addActionListener(this);
 		//Sets the econ button's size
 		econButton.setPreferredSize(new Dimension(200, 20));
-		
+
 		//Creates the other of the two radio buttons for the health option
 		healthButton = new JRadioButton("Health");
 		//Adds an action listener to the health button
 		healthButton.addActionListener(this);
 		//Sets the health button's size
 		healthButton.setPreferredSize(new Dimension(200, 20));
-		
+
 		//Creates a button group for the radio buttons
 		typeOptions = new ButtonGroup();
 		//Adds the two radio buttons to the group
 		typeOptions.add(econButton);
 		typeOptions.add(healthButton);
-		
+
 		//Creates a JLabel that displays the prompt for the student name
 		JLabel prompt = new JLabel("Please enter your name:");
 		//Creates a new text field for the student to enter their name
 		username = new TextField(10);
 		//Create a JLabel that displays the instructions on the screen
 		JLabel instructions = new JLabel("Please select either economics or health before pressing the start button.");
-		
+
 		//Organizes the assorted components
 		startButton.setBounds(475, 350, 75, 50);
 		econButton.setBounds(550, 350, 100, 50);
@@ -112,7 +112,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		prompt.setBounds(475, 400, 150, 20);
 		username.setBounds(625, 400, 100, 20);
 		instructions.setBounds(350, 450, 500, 20);
-		
+
 		//Adds the components to the JPanel before adding those to the content pane
 		window.add(startButton);
 		window.add(econButton);
@@ -122,7 +122,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		window.add(instructions);
 		window.setVisible(true);
 		content.add(window);
-		
+
 	}//init
 
 	/**
@@ -134,13 +134,9 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private class ImagePanel extends JPanel{
 		private static final long serialVersionUID = 1L;
 		private Image image = null;
-		private int width;
-		private int height;
 
 		public ImagePanel(Image image){
 			this.image = image;
-			this.width = image.getWidth(this);
-			this.height = image.getHeight(this);
 		}//constructor
 		public void paintComponent(Graphics g){
 			super.paintComponent(g);
@@ -151,7 +147,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 			}//if image not null
 		}//paint
 	}//ImagePanel
-	
+
 	/**
 	 * goToMapPanel
 	 * 
@@ -166,7 +162,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		//get the name entered by the student
 		String studentName = username.getText();
 		//Creates a new MapPanel
-		mapPanel = new MapPanel(new DataManager("/Users/Lee/Desktop/CountryData.txt"), new StudentData(studentName), mapType);
+		mapPanel = new MapPanel(new DataManager("CountryData.txt"), new StudentData(studentName), mapType);
 		//Switches the visibility of the existing JPanels
 		mapPanel.setVisible(true);
 		window.setVisible(false);
@@ -188,7 +184,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 				} catch(IOException exceptionThrown){
 					//TODO: something here!
 				}
-				
+
 			} else {//if no option was selected, alert the user
 				JLabel warning = new JLabel("Please choose a subject");
 				warning.setBounds(referenceMap.getIconWidth()/2 + 25, 500, 100, 20);
@@ -206,6 +202,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 			mapType = MapMode.HEALTH;
 		}
 	}//general actionPerformed
-	
-	
+
+
 }//class WelcomeWindow
