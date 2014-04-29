@@ -372,7 +372,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	    textArea.setOpaque(false);
 	    textArea.setVisible(true);
 	    JScrollPane scrollPane = new JScrollPane(textArea);
-	    scrollPane.setPreferredSize(new Dimension(700, 200));
+	    scrollPane.setPreferredSize(new Dimension(700, 195));
 	    scrollPane.setOpaque(false);
 	    scrollPane.getViewport().setOpaque(false);
 	    scrollPane.setBorder(BorderFactory.createEmptyBorder());
@@ -395,11 +395,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	    textArea.setOpaque(false);
 	    textArea.setVisible(true);
 	    JScrollPane scrollPane = new JScrollPane(textArea);
-	    scrollPane.setPreferredSize(new Dimension(700, 145));
+	    scrollPane.setPreferredSize(new Dimension(700, 95));
 	    scrollPane.setOpaque(false);
 	    scrollPane.getViewport().setOpaque(false);
 	    scrollPane.setBorder(BorderFactory.createEmptyBorder());
-	    infoBox2.setBounds(0, 700, 800, 50);
+	    infoBox2.setBounds(0, 700, 800, 100);
 	    infoBox2.add(scrollPane);
 	    scrollPane.setVisible(true);
 		revalidate();
@@ -466,12 +466,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 		if(currentMapMode == MapMode.ECONOMIC){
 
-			String stringToDisplay = "\n\nHow you can make a difference:  "+ newCountry.getMakeADifferenceEconomic();
+			String stringToDisplay = "How you can make a difference:  "+ newCountry.getMakeADifferenceEconomic();
 			writeInfo2OnBottom(stringToDisplay);
 
 		} else if(currentMapMode == MapMode.HEALTH){
 
-			String stringToDisplay = "\n\nHow you can make a difference:  " + newCountry.getMakeADifferenceHealth();
+			String stringToDisplay = "How you can make a difference:  " + newCountry.getMakeADifferenceHealth();
 			writeInfo2OnBottom(stringToDisplay);
 
 		}//if Health mode

@@ -1,3 +1,18 @@
+// 
+// Project 4 
+// Name: Lauren Ianolo, Adam Jacobson, Min Lee, Mike McAneny, Joeseph Williams-Blackwell 
+// E-mail: {lmi22, aj499, ml1237, mtm78, jvw8}@georgetown.edu 
+// Instructor: Singh 
+// COSC 150 
+// 
+// In accordance with the class policies and Georgetown's Honor Code, 
+// I certify that, with the exceptions of the lecture notes and those 
+// items noted below, I have neither given nor received any assistance 
+// on this project. 
+// 
+// Description: 
+// 
+
 package project;
 
 import java.awt.Container;
