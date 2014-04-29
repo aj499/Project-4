@@ -130,12 +130,6 @@ public class DataManager {
 		return econVariableList.get(indexToChooseVariableToAskAbout);
 	}
 		
-	public static void main(String args[]){
-		DataManager dm = new DataManager("CountryData.txt");
-		ContinentData cd = new ContinentData();
-		cd = dm.getDataForContinent("Asia");
-		System.out.println(cd.getCountryName());
-		
-	}
+
 	
 }
