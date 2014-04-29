@@ -116,10 +116,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			//create a button
 			buttons.put(countryButtonList[i], new AppButton(countryButtonList[i]));
 
-			//add the ActionListener to the button
-
-			buttons.get(countryButtonList[i]).addActionListener(this);
-
 		}
 		
 		//set up a QuizRunner and basic state
@@ -168,6 +164,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		test.setSize(400, 10);*/
 		add(infoBox);
 
+		//infoBox.add(test);
+		infoBox.setBounds(1200, 0, 400, 500);
 		infoBox.setBackground(Color.CYAN);
 		infoBox.setOpaque(false);
 		repaint();
@@ -353,6 +351,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			gdpPerCapita.setSize(400,50);
 			gdpPerCapita.setText("HI");
 			//gdpPerCapita.setText(newCountry.getGpdPerCapita());
+
 			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
 			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
 			economicFreedomScore.setText(newCountry.getEconomicFreedomScore());
@@ -390,6 +389,15 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			majorEconomicIssue.setSize(1200,400);
 			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
 			makeADifferenceEconomic.setSize(1200,450);
+
+			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
+			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
+			economicFreedomScore.setText(newCountry.getEconomicFreedomScore());
+			lowestTenIncome.setText(newCountry.getLowestTenIncome());
+			highestTenIncome.setText(newCountry.getHighestTenIncome());
+			majorIndustries.setText(newCountry.getMajorIndustries());
+			unemploymentRate.setText(newCountry.getUnemploymentRate());
+			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
 
 			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
 			
