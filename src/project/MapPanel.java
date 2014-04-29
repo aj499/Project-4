@@ -68,10 +68,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private AppButton quizButton;
 	private AppButton backButton;//go back to world view from continentView
 	
-	//Toggle Button for moving between explore mode and quiz mode
-	JLabel toggleButtonLabel;
-	JToggleButton toggleButton;
-	
 	/* --||-- END VARIABLES --||-- */
 	
 	/**
@@ -92,7 +88,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//create a button for each country
 		String[] countryButtonList = worldData.getCountryList();
 		for(int i = 0; i < countryButtonList.length; i++){
+			//create a button
 			buttons.put(countryButtonList[i], new AppButton(countryButtonList[i]));
+			//add the ActionListener to the button
+			buttons.get(countryButtonList[i]).addActionListener(this);
 		}
 		
 		//set up a QuizRunner and basic state
@@ -330,18 +329,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//change the view to that country
 		if(!quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast worksÉmake all buttons AppButtons to ensure that
 			String countryClicked = ((AppButton) e.getSource()).getId();
-			
 
-			//change currentCountry appropriately
-			currentCountry = countryClicked;
-			
-			//update the StudentData
-			currentStudent.addCountrySeen(currentCountry, currentView, currentMapMode);
-			
-			//update the info box
-			//updateInfoBox(worldData.getDataForCountry(countryClicked));
-
-			//update appropriately
+			//update things appropriately
 			changeCountry(countryClicked);
 		} else if(quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//country button clicked during a quiz
 			//check the answer
