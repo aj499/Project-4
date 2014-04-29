@@ -48,7 +48,7 @@ public class CountryDataTest {
 		String result;
 		String expectedResult = "40";
 		
-		result= data.getGpdPerCapita();
+		result= data.getGdpPerCapita();
 		
 		assertTrue(expectedResult.equals(result));
 	}
@@ -59,7 +59,7 @@ public class CountryDataTest {
 		String result;
 		String expectedResult = "no money";
 		
-		result= data.getGpdPerCapita();
+		result= data.getGdpPerCapita();
 		
 		assertTrue(expectedResult.equals(result));
 	}
@@ -96,7 +96,7 @@ public class CountryDataTest {
 		String result;
 		String expectedResult = "4";
 		
-		result= data.getagriculturePercentageOfGdp();
+		result= data.getAgriculturePercentageOfGdp();
 		
 		assertTrue(expectedResult.equals(result));
 	}
@@ -107,7 +107,7 @@ public class CountryDataTest {
 		String result;
 		String expectedResult = "no agriculture percentage";
 		
-		result= data.getagriculturePercentageOfGdp();
+		result= data.getAgriculturePercentageOfGdp();
 		
 		assertTrue(expectedResult.equals(result));
 	}

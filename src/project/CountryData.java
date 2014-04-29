@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-
 /**
  * CountryData class
  * this class stores a country and the data about the country 
@@ -34,8 +33,6 @@ public class CountryData {
 	private String majorHealthIssue;
 	private String makeADifferenceHealth;
 	private String photoPathHealth;
-
-	
 	
 	private int buttonXPosition;
 	private int buttonYPosition;
@@ -67,9 +64,9 @@ public class CountryData {
 		majorHealthIssue="everyone's healthy";
 		makeADifferenceHealth="can't make a health difference";
 		photoPathHealth="no photi path health";
-	}
+	}//constructor
 
-	
+	//SETTERS//----------------------------------------
 	/**
 	 * sets country name
 	 * SetCountryName(String)
@@ -77,7 +74,7 @@ public class CountryData {
 	 */
 	public void setCountryName(String newCountryName) {
 		countryName=newCountryName;
-	}
+	}//setCountryName
 
 	/**
 	 * sets gdp per capita
@@ -86,9 +83,7 @@ public class CountryData {
 	 */
 	public void setGdpPerCapita(String newGdpPerCapita) {
 		gdpPerCapita=newGdpPerCapita;
-
-	}
-
+	}//setGdpPerCapita
 	
 	/**
 	 * setGdpRealGrowthRate(String)
@@ -96,20 +91,16 @@ public class CountryData {
 	 */
 	public void setGdpRealGrowthRate(String newGdpRealGrowthRate) {
 		gdpRealGrowthRate=newGdpRealGrowthRate;
-	}
-	
+	}//setGdpRealGrowthRate
 
 	/**
 	 *sets Agriculture Percentage
 	 * setAgriculturePercentageOfGdp(String)
 	 * @param newagriculturePercentageOfGdp
 	 */
-
 	public void setAgriculturePercentageOfGdp(String newagriculturePercentageOfGdp) {
 		agriculturePercentageOfGDP=newagriculturePercentageOfGdp;
-
-	}
-
+	}//setAgriculturePercentageOfGdp
 	
 	/**
 	 * sets Economic Freedom Score
@@ -118,7 +109,7 @@ public class CountryData {
 	 */
 	public void setEconomicFreedomScore(String newEconomicFreedomScore) {
 		economicFreedomScore=newEconomicFreedomScore;
-	}
+	}//setEconomicFreedomScore
 	
 	/**
 	 * sets Lowest ten Income
@@ -127,7 +118,7 @@ public class CountryData {
 	 */
 	public void setLowestTenIncome(String newLowestTenIncome) {
 		lowestTenIncome=newLowestTenIncome;
-	}
+	}//setLowestTenIncome
 	
 	/**
 	 * sets highest ten income
@@ -136,7 +127,7 @@ public class CountryData {
 	 */
 	public void setHighestTenIncome(String newHighestTenIncome) {
 		highestTenIncome=newHighestTenIncome;
-	}
+	}//setHighestTenIncome
 	
 	/**
 	 * sets major industries
@@ -145,7 +136,7 @@ public class CountryData {
 	 */
 	public void setMajorIndustries(String newMajorIndustries) {
 		majorIndustries=newMajorIndustries;
-	}
+	}//setMajorIndustries
 	
 	/**
 	 * Sets unemployment rate
@@ -154,7 +145,7 @@ public class CountryData {
 	 */
 	public void setUnemploymentRate(String newUnemploymentRate) {
 		unemploymentRate=newUnemploymentRate;
-	}
+	}//setUnemploymentRate
 
 	/**
 	 * sets major economic issue
@@ -163,7 +154,7 @@ public class CountryData {
 	 */
 	public void setMajorEconomicIssue(String newMajorEconomicIssue) {
 		majorEconomicIssue=newMajorEconomicIssue;
-	}
+	}//setMajorEconomicIssue
 
 	/**
 	 * sets the string for how one can make a difference economically
@@ -172,7 +163,7 @@ public class CountryData {
 	 */
 	public void setMakeADifferenceEconomic(String newMakeADifferenceEconomic) {
 		makeADifferenceEconomic=newMakeADifferenceEconomic;
-	}
+	}//setMakeADifferenceEconomic
 
 	/**
 	 * sets photo path
@@ -181,7 +172,7 @@ public class CountryData {
 	 */
 	public void setPhotoPathEconomic(String newPhotoPathEconomic) {
 		photoPathEconomic=newPhotoPathEconomic;
-	}
+	}//setPhotoPathEconomic
 
 	/**
 	 * sets life expectancy
@@ -190,7 +181,7 @@ public class CountryData {
 	 */
 	public void setLifeExpectancy(String newLifeExpectancy) {
 		lifeExpectancy=newLifeExpectancy;
-	}
+	}//setLifeExpectancy
 
 	/**
 	 * sets maternal mortality rate
@@ -199,7 +190,7 @@ public class CountryData {
 	 */
 	public void setMaternalMortalityRate(String newMaternalMortalityRate) {
 		maternalMortalityRate=newMaternalMortalityRate;
-	}
+	}//setMaternalMortalityRate
 
 	/**
 	 * sets infant mortality rate
@@ -208,7 +199,7 @@ public class CountryData {
 	 */
 	public void setInfantMortalityRate(String newInfantMortalityRate) {
 		infantMortalityRate=newInfantMortalityRate;
-	}
+	}//setInfantMortalityRate
 
 	/**
 	 * sets underweight children percent
@@ -217,7 +208,7 @@ public class CountryData {
 	 */
 	public void setChildrenUnderweightPercentage(String newChildrenUnderweightPercentage) {
 		childrenUnderweightPercentage=newChildrenUnderweightPercentage;
-	}
+	}//setChildrenUnderweightPercentage
 
 	/**
 	 * sets physician density
@@ -226,134 +217,292 @@ public class CountryData {
 	 */
 	public void setPhysicianDensity(String newPhysicianDensity) {
 		physicianDensity=newPhysicianDensity;
-	}
+	}//setPhysicianDensity
 
+	/**
+	 * sets risk of infectious disease
+	 * setRiskOfInfectiousDisease(String)
+	 * @param newRiskOfInfectiousDisease
+	 */
 	public void setRiskOfInfectiousDisease(String newRiskOfInfectiousDisease) {
 		riskOfInfectiousDisease=newRiskOfInfectiousDisease;
-	}
+	}//setRiskOfInfectiousDisease
 
+	/**
+	 * sets most common disease
+	 * setMostCommonDiseases(String)
+	 * @param newMostCommonDiseases
+	 */
 	public void setMostCommonDiseases(String newMostCommonDiseases) {
 		mostCommonDiseases=newMostCommonDiseases;
-	}
+	}//setMostCommonDiseases
 
+	/**
+	 * sets major health issue
+	 * setMajorHealthIssue(String)
+	 * @param newMajorHealthIssue
+	 */
 	public void setMajorHealthIssue(String newMajorHealthIssue) {
 		majorHealthIssue=newMajorHealthIssue;
-	}
+	}//setMajorHealthIssue
 
+	/**
+	 * sets make a difference health
+	 * setMakeADifferenceHealth(String)
+	 * @param newMakeADifferenceHealth
+	 */
 	public void setMakeADifferenceHealth(String newMakeADifferenceHealth) {
 		makeADifferenceHealth=newMakeADifferenceHealth;
-	}
+	}//setMakeADifferenceHealth
 
+	/**
+	 * sets photo path for health
+	 * setPhotoPathHealth(String)
+	 * @param newPhotoPathHealth
+	 */
 	public void setPhotoPathHealth(String newPhotoPathHealth) {
 		photoPathHealth=newPhotoPathHealth;
-	}
+	}//setPhotoPathHealth
 	
+	/**
+	 * sets X coordinate of button
+	 * setButtonXPosition(String)
+	 * @param newButtonXPosition
+	 */
 	public void setButtonXPosition(int newButtonXPosition) {
 		buttonXPosition = newButtonXPosition;
-	}
+	}//setButtonXPosition
 	
+	/**
+	 * sets Y coordinate of button
+	 * setButtonYPosition(String)
+	 * @param newButtonYPosition
+	 */
 	public void setButtonYPosition(int newButtonYPosition) {
 		buttonYPosition = newButtonYPosition;
-	}
+	}//setButtonYPosition
 	
 	//GETTERS//-------------------------------------
+	/**
+	 * gets country name
+	 * getCountryName
+	 * @return countryName
+	 */
 	public String getCountryName() {
 		return countryName;
-	}
+	}//getCountryName
 
-	public String getGpdPerCapita() {
+	/**
+	 * gets GDP per capita
+	 * getGdpPerCapita
+	 * @return gdpPerCapita
+	 */
+	public String getGdpPerCapita() {
 		return gdpPerCapita;
-	}
+	}//getGdpPerCapita
 
+	/**
+	 * gets GDP real growth rate
+	 * getGdpRealGrowthRate
+	 * @return gdpRealGrowthRate
+	 */
 	public String getGdpRealGrowthRate() {
 		return gdpRealGrowthRate;
-	}
+	}//getGdpRealGrowthRate
 
-	public String getagriculturePercentageOfGdp() {
+	/**
+	 * gets agricultural percentage of gdp
+	 * getAgriculturePercentageOfGdp
+	 * @return agriculturePercentageOfGdp
+	 */
+	public String getAgriculturePercentageOfGdp() {
 		return agriculturePercentageOfGDP;
-	}
+	}//getAgriculturePercentageOfGdp
 
+	/**
+	 * gets economic freedom score
+	 * getEconomicFreedomScore
+	 * @return economicFreedomScore
+	 */
 	public String getEconomicFreedomScore() {
 		return economicFreedomScore;
-	}
+	}//getEconomicFreedomScore
 
+	/**
+	 * gets the lowest ten percent income
+	 * getLowestTenIncome
+	 * @return lowestTenIncome
+	 */
 	public String getLowestTenIncome() {
 		return lowestTenIncome;
-	}
+	}//getLowestTenIncome
 
+	/**
+	 * gets the highest ten percent income
+	 * getHighestTenIncome
+	 * @return highestTenIncome
+	 */
 	public String getHighestTenIncome() {
 		return highestTenIncome;
-	}
+	}//getHighestTenIncome
 
+	/**
+	 * gets the country's major industries
+	 * getMajorIndustries
+	 * @return majorIndustries
+	 */
 	public String getMajorIndustries() {
 		return majorIndustries;
-	}
+	}//getMajorIndustries
 
+	/**
+	 * gets the country's unemployment rate
+	 * getUnemploymentRate
+	 * @return unemploymentRate
+	 */
 	public String getUnemploymentRate() {
 		return unemploymentRate;
-	}
+	}//getUnemploymentRate
 
+	/**
+	 * gets the country's major economic issue
+	 * getMajorEconomicIssue
+	 * @return majorEconomicIssue
+	 */
 	public String getMajorEconomicIssue() {
 		return majorEconomicIssue;
-	}
+	}//getMajorEconomicIssue
 
+	/**
+	 * gets how you can make a difference economically
+	 * getMakeADifferenceEconomic
+	 * @return makeADifferenceEconomic
+	 */
 	public String getMakeADifferenceEconomic() {
 		return makeADifferenceEconomic;
-	}
+	}//getMakeADifferenceEconomic
 
+	/**
+	 * gets the photo path of the economic photo
+	 * getPhotoPathEconomic
+	 * @return photoPathEconomic
+	 */
 	public String getPhotoPathEconomic() {
 		return photoPathEconomic;
-	}
+	}//getPhotoPathEconomic
 
+	/**
+	 * gets the life expectancy
+	 * getLifeExpectancy
+	 * @return lifeExpectancy
+	 */
 	public String getLifeExpectancy() {
 		return lifeExpectancy;
-	}
+	}//getLifeExpectancy
 
+	/**
+	 * gets the maternal mortality rate
+	 * getMaternalMortalityRate
+	 * @return maternalMortalityRate
+	 */
 	public String getMaternalMortalityRate() {
 		return maternalMortalityRate;
-	}
+	}//getMaternalMortalityRate
 
+	/**
+	 * gets the infant mortality rate
+	 * getInfantMortalityRate
+	 * @return infantMortalityRate
+	 */
 	public String getInfantMortalityRate() {
 		return infantMortalityRate;
-	}
+	}//getInfantMortalityRate
 
+	/**
+	 * gets the percentage of children underweight
+	 * getChildrenUnderweightPercentage
+	 * @return childrenUnderweightPercentage
+	 */
 	public String getChildrenUnderweightPercentage() {
 		return childrenUnderweightPercentage;
-	}
+	}//getChildrenUnderweightPercentage
 
+	/**
+	 * gets the physician density
+	 * getPhysicianDensity
+	 * @return physicianDensity
+	 */
 	public String getPhysicianDensity() {
 		return physicianDensity;
-	}
+	}//getPhysicianDensity
 
+	/**
+	 * gets the risk of infectious disease
+	 * getRiskOfInfectiousDisease
+	 * @return riskOfInfectiousDisease
+	 */
 	public String getRiskOfInfectiousDisease() {
 		return riskOfInfectiousDisease;
-	}
+	}//getRiskOfInfectiousDisease
 
+	/**
+	 * gets the most common diseases
+	 * getMostCommonDiseases
+	 * @return mostCommonDiseases
+	 */
 	public String getMostCommonDiseases() {
 		return mostCommonDiseases;
-	}
+	}//getMostCommonDiseases
 
+	/**
+	 * gets the major health issue
+	 * getMajorHealthIssue
+	 * @return majorHealthIssue
+	 */
 	public String getMajorHealthIssue() {
 		return majorHealthIssue;
-	}
+	}//getMajorHealthIssue
 
+	/**
+	 * gets how you can make a difference in health
+	 * getMakeADifferenceHealth
+	 * @return makeADifferenceHealth
+	 */
 	public String getMakeADifferenceHealth() {
 		return makeADifferenceHealth;
-	}
+	}//getMakeADifferenceHealth
 
+	/**
+	 * gets the photo path for the health photo
+	 * getPhotoPathHealth
+	 * @return photoPathHealth
+	 */
 	public String getPhotoPathHealth() {
 		return photoPathHealth;
-	}
+	}//getPhotoPathHealth
 	
+	/**
+	 * gets the x coordinate of the button
+	 * getButtonXPosition
+	 * @return buttonXPosition
+	 */
 	public int getButtonXPosition(){
 		return buttonXPosition;
-	}
+	}//getButtonXPosition
 	
+	/**
+	 * gets the y coordinate of the button
+	 * getButtonYPosition
+	 * @return buttonYPosition
+	 */
 	public int getButtonYPosition(){
 		return buttonYPosition;
-	}
+	}//getButtonYPosition
 	
-	
+	/**
+	 * sets all of the variables from the buffered reader
+	 * setAll
+	 */
 	public void setAll(BufferedReader bufferedReader){
 		try {
 			setGdpPerCapita(bufferedReader.readLine());
@@ -380,12 +529,17 @@ public class CountryData {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-
-	}
+		}//catch
+	}//setAll
 	
-
-
+	/**
+	 * generateEconQuestion
+	 * 
+	 * randomly generates a question to quiz the user on 
+	 * economic facts.
+	 * 
+	 * @return a randomly generated economic question
+	 */
 	public String generateEconQuestion(){
 
 		int indexToChooseQuestionRandomly;
@@ -395,20 +549,26 @@ public class CountryData {
 		int range = maximum - minimum + 1;
 		indexToChooseQuestionRandomly =  generator.nextInt(range) + minimum;
 
-
 		ArrayList<String> econQuestions = new ArrayList<String>();
-		econQuestions.add("Which country has a GDP per capita of " + getGpdPerCapita() + "?");
+		econQuestions.add("Which country has a GDP per capita of " + getGdpPerCapita() + "?");
 		econQuestions.add("Which country has a real GDP growth rate of " + getGdpRealGrowthRate() + "?");
-		econQuestions.add("In which country is agriculture " + getagriculturePercentageOfGdp() + " of GDP?");
+		econQuestions.add("In which country is agriculture " + getAgriculturePercentageOfGdp() + " of GDP?");
 		econQuestions.add("Which country has an economic freedom score of " + getEconomicFreedomScore() + "?");
 		econQuestions.add("In which country is the poorest 10%'s income " + getLowestTenIncome() + " of the country's total income?");
 		econQuestions.add("In which country is the wealthiest 10%'s income " + getHighestTenIncome() + " of the country's total income?");
 		econQuestions.add("Which country has an unemployment rate of " + getUnemploymentRate() + "?");
 
 		return econQuestions.get(indexToChooseQuestionRandomly);
-	}
+	}//generateEconQuestion
 
-
+	/**
+	 * generateHealthQuestion
+	 * 
+	 * randomly generates a question to quiz the user on 
+	 * health facts.
+	 * 
+	 * @return a randomly generated health question
+	 */
 	public String generateHealthQuestion(){
 
 		int indexToChooseQuestionRandomly;
@@ -426,7 +586,6 @@ public class CountryData {
 		healthQuestions.add("Which country has a physicians density of " + getPhysicianDensity() + "?");
 
 		return healthQuestions.get(indexToChooseQuestionRandomly);
+	}//generateHealthQuestion
 
-	}
-
-}
+}//CountryData class

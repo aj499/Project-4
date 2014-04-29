@@ -8,14 +8,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-
+/**
+ * DataManager Class
+ * 
+ * This class parses through the data file that we provide and passes the necessary
+ * data accordingly. DataManager holds HashMaps of countryData and continentData, which
+ * are objects, like their names imply, that hold data from respective continents and countries.
+ *
+ */
 public class DataManager {
+	//HashMaps of countries and continents that pair up with their respective data
 	private HashMap<String, CountryData> countryData;
 	private HashMap<String, ContinentData> continentData;
+	//boolean that records if the data has been successfully loaded
 	private boolean dataLoaded;
+	//private string that holds the file location
 	private String fileLocation;
 
 	/**
+	 * DataManager
+	 * 
 	 * Constructor takes a String that is the filepath
 	 * @param newFileLocation
 	 */
@@ -28,6 +40,14 @@ public class DataManager {
 		parseData();
 	}//constructor
 		
+	/**
+	 * parseData
+	 * 
+	 * This is the powerhouse function of the DataManager class. It reads in a file
+	 * and then afterwards, reads the data stored in that file. It then sets the data
+	 * into the respective Hashmaps.
+	 * 
+	 */
 	private void parseData(){
 		try{
 			String filename = fileLocation;
@@ -66,7 +86,6 @@ public class DataManager {
 					currentCountry.setCountryName(currentLine);
 					currentCountry.setAll(bufferedReader);
 					currentCountry.setButtonXPosition(Integer.parseInt(bufferedReader.readLine()));
-					//System.out.println("Loading: " + currentCountry.getCountryName());
 					currentCountry.setButtonYPosition(Integer.parseInt(bufferedReader.readLine()));
 					countryData.put(currentCountry.getCountryName(), currentCountry);
 					
@@ -84,8 +103,9 @@ public class DataManager {
 	}
 
 	/**
-	 * Returns a list of all the countries in the countryData hash.
+	 * getCountryList
 	 * 
+	 * Returns a list of all the countries in the countryData hash.
 	 * @return a list of all the countries in the countryData hash
 	 */
 	public String[] getCountryList(){
@@ -93,23 +113,44 @@ public class DataManager {
 	}//getCountryList
 	
 	/**
-	 * Returns a list of all the continents in the countryData hash.
+	 * getContinentList
 	 * 
+	 * Returns a list of all the continents in the countryData hash.
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
 		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
 	}//getContinentList
 	
+	/**
+	 * getDataForCountry
+	 * 
+	 * Returns a CountryData object for a specific country.
+	 * @param countryName
+	 * @return a list of all the continents in the countryData hash
+	 */
 	public CountryData getDataForCountry(String countryName){
 		return countryData.get(countryName);
 	}//getDataForCountry
 
-
+	/**
+	 * getDataForContinent
+	 * 
+	 * Returns a ContinentData object for a specific continent
+	 * @param continentName
+	 * @return a list of all the continents in the countryData hash
+	 */
 	public ContinentData getDataForContinent(String continentName){
 		return continentData.get(continentName);
 	}//getDataForContinent
 	
+	/**
+	 * getRandomlyChosenVariableForSuperlativeQuestion
+	 * 
+	 * Creates a random question that programmatically takes variables given
+	 * the map type (i.e. Economic or Health). 
+	 * @return a random generated question
+	 */
 	public String getRandomlyChosenVariableForSuperlativeQuestion(){
 		ArrayList<String> econVariableList = new ArrayList<String>();
 		econVariableList.add("gdpPerCapita");
@@ -121,7 +162,6 @@ public class DataManager {
 		
 		Random generator = new Random();
 		return econVariableList.get(generator.nextInt(econVariableList.size()));
-	}
-		
+	}//getRandomlyChosenVariableForSuperlativeQuestion	
 
-}//class
+}//DataManager class

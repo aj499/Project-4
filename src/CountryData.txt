@@ -3,10 +3,10 @@ $1,416
 4.3%
 16.21%
 N/A
-Not available
-Not available
+N/A
+N/A
 various types of agriculture, commodities, industry
-Not available
+N/A
 In March 2013, Africa was identified as the world's poorest inhabited continent; however, the World Bank expects that most African countries will reach "middle income" status (defined as at least US $1,000 per person a year) by 2025 if current growth rates continue. In 2013, Africa was the world’s fastest-growing continent at 5.6% a year, and GDP is expected to rise by an average of over 6% a year between 2013 and 2023. Growth has been present throughout the continent, with over one-third of Sub-Saharan African countries posting 6% or higher growth rates, and another 40% growing between 4% to 6% per year.
 N/A
 africaecon.jpg
@@ -295,8 +295,8 @@ $8,800 (2013 est.)
 2.5% (2013 est.)
 13%
 56.7 (115th)
-Not available
-Not available
+N/A
+N/A
 garment production, food processing, tourism, construction, oil, marine products, citrus, cane sugar, bananas
 15.5% (2013)
 Although Belize has the second highest per capita income in Central America, the average income figure masks a huge income disparity between rich and poor.
@@ -345,8 +345,8 @@ $16,400 (2013 est.)
 3.9% (2013 est.)
 1.9%
 72.0 (27th)
-Not available
-Not available
+N/A
+N/A
 diamonds, copper, nickel, salt, soda ash, potash, coal, iron ore, silver; livestock processing; textiles
 17.8% (2009 est.)
 Botswana is considered Africa’s success story.  Two major investment services rank Botswana as the best credit risk in Africa. Diamond mining has fueled much of the expansion and currently accounts for more than one-third of GDP, 70-80% of export earnings, and about one-third of the government's revenues.  An expected leveling off in diamond production within the next two decades overshadows long-term prospects.
@@ -382,8 +382,8 @@ brazilecon.png
 19.21 deaths/1,000 live births
 2.2% (2007)
 1.76 physicians/1,000 population (2008)
-Not available
-Not available
+N/A
+N/A
 The slums of Rio de Janeiro are known as Favelas.  Favelas have no roads, no sewers, limited access to water and electricity and a social order that is imposed by drug lords.  
 Planeterra is a organization that looks to provide assistance to the underprivileged in areas that tourists love to visit.  It is a way to give back to tourist attractions.  They have a center that provides assistance to those living in favelas.  The Rio de Janeiro center is run by a group of local women who are working to improve the quality of life in the favela and keep children off the streets where there is strong pressure to join gangs involved in drug trafficking.  Travelers to Brazil can go through a company called G Adventures which allows you to book a tour of the area the funds you donate to Planeterra are going to. 
 brazilhealth.jpg
@@ -455,10 +455,10 @@ canadaecon.jpg
 81.67 years
 12 deaths/100,000 live births (2010)
 4.71 deaths/1,000 live births
-Not available
+N/A
 2.07 physicians/1,000 population (2010)
-Not available
-Not available
+N/A
+N/A
 Canada's health care system is a group of socialized health insurance plans that provides coverage to all Canadian citizens. It is publicly funded and administered on a provincial or territorial basis, within guidelines set by the federal government.  With a few exceptions, all citizens qualify for health coverage regardless of medical history, personal income, or standard of living.  There are political tensions over the system and some want to privatize it.
 N/A
 canadahealth.jpg
@@ -498,7 +498,7 @@ $2,500 (2013 est.)
 2.6%
 30.8% (2003)
 oil, cotton textiles, meatpacking, brewing, natron (sodium carbonate), soap, cigarettes, construction materials
-Not available
+N/A
 At least 80% of Chad's population relies for its livelihood on subsistence farming and livestock raising and oil provides the bulk of export revenues. Chad's investment climate remains challenging due to limited infrastructure, a lack of trained workers, extensive government bureaucracy, and corruption.
 One of the things the ONE Foundation, started by U2 musician, Bono, does is that it works to help pass legislation in the US and EU to require better transparency in the oil, gas and mining industries to fight corruption and ensure resources benefit the poorest.  ONE has a program where you can bring fund raising to your campus.  They have a campus leaderboard with the most involved schools and give you resources to start fundraising.
 chadecon.jpg
@@ -548,7 +548,7 @@ $400 (2013 est.) The lowest in Africa and the world.
 2.3%
 34.7% (2006)
 mining (copper, cobalt, gold, diamonds, coltan, zinc, tin, tungsten), mineral processing, consumer products (textiles, plastics, footwear, cigarettes), metal products, processed foods and beverages, timber, cement, commercial ship repair
-Not available
+N/A
 Pervasive sexual violence due to frequent wars has left many women no longer welcome at home and ostracized by their communities.  They have very few resources and are in dire need of help.
 Women for Women International has programs in DR Congo that include business and vocational skills, rights awareness and health education classes, and emotional support. Their one-year program was developed for DR Congo's special challenges and demands, and includes vocational training that helps women earn an income and support themselves, through ceramics and bread making.  Monthly donations of $30 sponsor a “sister” through the year-long training program designed to give her skills to support her family.
 democraticrepubcongoecon.jpg
@@ -582,8 +582,8 @@ usaecon.jpg
 6.17 deaths/1,000 live births
 1.3% (2004)
 2.42 physicians/1,000 population (2009)
-Not available
-Not available
+N/A
+N/A
 Health care in the United States is provided by many distinct organizations.  Health care facilities are largely owned and operated by private sector businesses. 62% of the hospitals are non-profit, 20% are government owned, 18% are for-profit.  60–65% of healthcare provision and spending comes from programs such as Medicare, Medicaid, TRICARE, the Children's Health Insurance Program, and the Veterans Health Administration. Most of the population under 67 is insured by their or a family member's employer, some buy health insurance on their own, and the remainder are uninsured.  On March 23, 2010, the Patient Protection and Affordable Care Act (PPACA) became law, providing for major changes in health insurance.
 Organizations like the Red Cross work with those in need of medical attention and disaster relief in the United States and abroad.
 usahealth.png
@@ -680,10 +680,10 @@ britainecon.jpg
 80.42 years
 12 deaths/100,000 live births (2010)
 4.44 deaths/1,000 live births
-Not available
+N/A
 2.77 physicians/1,000 population (2011)
-Not available
-Not available
+N/A
+N/A
 Each country provides public healthcare to all UK permanent residents that is free at the point of need, being paid for from general taxation. In addition, each also has a private healthcare sector which is considerably smaller than its public equivalent, with provision of private healthcare acquired by means of private health insurance, funded as part of an employer funded healthcare scheme or paid directly by the customer, though provision can be restricted for those with conditions such as AIDS/HIV.
 N/A
 britainhealth.jpg
@@ -705,10 +705,10 @@ spainecon.jpg
 81.47 years
 6 deaths/100,000 live births (2010)
 3.33 deaths/1,000 live births
-Not available
+N/A
 3.96 physicians/1,000 population (2011)
-Not available
-Not available
+N/A
+N/A
 Spain's single-payer health care system is ranked seventh best in the world by the World Health Organization. The system offers universal coverage as a constitutionally-guaranteed right and no out-of-pocket expenses — aside from prescription drugs. Patients do complain, however, about the long wait to see specialists and undergo certain procedures.  Many health workers were unhappy with and protested the privatization that occurred through austerity measures aimed to boost the economy.
 N/A
 spainhealth.jpg
@@ -730,10 +730,10 @@ denmarkecon.jpg
 79.09 years
 12 deaths/100,000 live births (2010)
 4.1 deaths/1,000 live births
-Not available
+N/A
 3.42 physicians/1,000 population (2007)
-Not available
-Not available
+N/A
+N/A
 Denmark provides "free" health care to all residents, funded through taxes. There is an optional private health care sector, but it is tiny compared with the vastly larger public system that is used by most of the population. Users pay for a few procedures, such as fertility treatments (from the third attempt onwards) and non-essential cosmetic surgery, as well as most of their own dental care and a portion of prescription medication.  Apothecaries are privately owned, but doctors’ visits and hospitalization, including tests, treatment, follow-up care, and some medication, are fully covered.  100% of Danish citizens are covered.
 N/A
 denmarkhealth.jpg
@@ -755,10 +755,10 @@ greeceecon.jpg
 80.3 years
 3 deaths/100,000 live births (2010)
 4.78 deaths/1,000 live births
-Not available
+N/A
 6.04 physicians/1,000 population (2008)
-Not available
-Not available
+N/A
+N/A
 Health care in Greece is provided through national health insurance, although private health care is also an option.  However, since July 2011, with the recent austerity measures, unemployed Greeks receive benefits for a maximum of a year, and after that period, health care is no longer universal and patients must pay for their own treatment.  Austerity measures have also resulted in citizens being forced to contribute more towards the cost of their medications.
 N/A
 greecehealth.jpg
@@ -780,7 +780,7 @@ russiaecon.jpg
 70.16 years
 34 deaths/100,000 live births (2010)
 7.08 deaths/1,000 live births
-Not available
+N/A
 4.31 physicians/1,000 population (2006)
 intermediate
 bacterial diarrhea, tickborne encephalitis
@@ -923,7 +923,7 @@ $1,400 (2013 est.)
 Lowest 10% Income as a percentage of Country Income: 2.6%
 33.6%
 diamond mining; iron ore, rutile and bauxite mining; small-scale manufacturing (beverages, textiles, cigarettes, footwear); petroleum refining, small commercial ship repair
-Not available
+N/A
 In recent years economic growth has been driven by mining - particularly of iron ore and oil exploration. The country exports rutile, diamonds, and bauxite, and is vulnerable to fluctuations in international commodity prices.  Its conditions in and fighting over its diamond mines are a point of strong contention.  For example, the movie “Blood Diamond” was inspired by the conflicts in Sierra Leone.
 Amnesty International is working on promoting changes that require that diamonds be certified “conflict free”.  The retail sector in particular fails to provide sufficient assurance to consumers that the diamonds they sell are conflict-free. They want your help to find out how policies are being communicated at the shop level, and what actions, if any, are being taken to ensure that policies are more than just rhetoric. To help, you can write letters to strengthen enforcement of the Clean Diamond Trade Act, survey jewelers in your area and help to educate consumers.
 sierraleoneecon.jpg
@@ -948,7 +948,7 @@ $1,500 (2013 est.)
 2.1%
 43.2% (2011 est.)
 cement, agricultural products, small-scale beverages, soap, furniture, shoes, plastic goods, textiles, cigarettes
-Not available
+N/A
 The Rwandan Government is seeking to become regional leader in information and communication technologies. In 2010, Rwanda neared completion of the first modern Special Economic Zone (SEZ) in Kigali. The SEZ seeks to attract investment in all sectors, but specifically in agribusiness, information and communications technologies, trade and logistics, mining, and construction.  Although they have made these advancements, there is still a need to get rid of poverty.  
 Opportunity International has a bank in Rwanda that practices microfinance.  In Rwanda, women currently outnumber men and are playing a major role in the growing economy. Opportunity Rwanda has long championed the empowerment of women, who comprise more than 93 percent of our clients and 55 percent of their staff.  They offer business loans, education finance, agricultural finance, savings, insurance, and cell phone banking.  To get involved, you can donate, start fundraisers, or go on an insight trip.
 rwandaecon.jpg

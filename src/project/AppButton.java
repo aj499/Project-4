@@ -1,7 +1,5 @@
 /**
  * AppButton
- * @author Min Lee
- * @version 1.0
  * 
  * The AppButton class implements a JButton that
  * allows the program to get the IDs of certain 

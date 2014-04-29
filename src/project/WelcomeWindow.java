@@ -1,4 +1,5 @@
 package project;
+
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -8,7 +9,6 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
@@ -56,6 +56,12 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	//Radio button group
 	private ButtonGroup typeOptions;
 
+	/**
+	 * init
+	 * 
+	 * initializes the applet window and loads the initial images as well as adding
+	 * the initial buttons.
+	 */
 	public void init(){
 
 		//Sets the width and height
@@ -204,6 +210,5 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 			mapType = MapMode.HEALTH;
 		}
 	}//general actionPerformed
-
 
 }//class WelcomeWindow

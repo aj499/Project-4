@@ -22,10 +22,21 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+/**
+ * MapPanel
+ * 
+ * The MapPanel class holds all of the main program functionality. It loads images
+ * based on what continent you want to view, or simply shows the world from an
+ * economic or health-based view. It also generates buttons so that the user can
+ * click on a country within a continent view. There is also an information box 
+ * at the bottom that displays relevant information to whatever the user is looking 
+ * at the time.
+ *
+ */
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
 	/* --||-- BEGIN VARIABLES --||-- */
-	
+
 	//to make Eclipse shut up
 	private static final long serialVersionUID = 1l;
 	
@@ -76,7 +87,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @param newWorldData the DataManager to load data from
 	 * @throws IOException 
 	 */
-
 	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode mapType){
 		//handle passed-in data
 		worldData = newWorldData;
@@ -158,6 +168,26 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		add(photoBox);
 		add(quizButton);
 		add(backButton);
+		
+		String instructionString = "Welcome to the World Map Explorer! Please press a continent to view its data and countries. If you wish to be quizzed on the information you have learned, press start quiz while looking at a specific continent. Once you have finished the quiz, feel free to explore other countries and take new quizzes.";
+		JTextArea instructions = new JTextArea();
+		instructions.setText(instructionString);
+	    instructions.setEditable(false);
+	    instructions.setWrapStyleWord(true);
+	    instructions.setLineWrap(true);
+	    instructions.setForeground(new Color(0,0,0));
+	    instructions.setOpaque(false);
+	    instructions.setVisible(true);
+	    instructions.setFont(instructions.getFont().deriveFont(23f));
+	    JScrollPane scrollPane = new JScrollPane(instructions);
+	    scrollPane.setPreferredSize(new Dimension(700, 225));
+	    scrollPane.setOpaque(false);
+	    scrollPane.getViewport().setOpaque(false);
+	    scrollPane.setBorder(BorderFactory.createEmptyBorder());
+	    infoBox.setBounds(0, 500, 800, 300);
+	    infoBox.add(scrollPane);
+	    scrollPane.setVisible(true);
+		revalidate();
 		
 		infoBox.setBounds(0, 500, 1200, 300);
 		infoBox.setBackground(Color.WHITE);
@@ -358,9 +388,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		if(currentMapMode == MapMode.ECONOMIC){
 
 			String stringToDisplay = newCountry.getCountryName() + "\n\nGDP Per Capita:  " +
-					newCountry.getGpdPerCapita() + "\n\nGDP Real Growth Rate:  " + 
+					newCountry.getGdpPerCapita() + "\n\nGDP Real Growth Rate:  " + 
 					newCountry.getGdpRealGrowthRate() + "\n\nAgriculture as a percentage of GDP:  " + 
-					newCountry.getagriculturePercentageOfGdp() + "\n\nEconomic Freedom Score:  " +
+					newCountry.getAgriculturePercentageOfGdp() + "\n\nEconomic Freedom Score:  " +
 					newCountry.getEconomicFreedomScore() + "\n\nLowest Ten Percent's Income as Percentage of National Income:  " +
 					newCountry.getLowestTenIncome() + "\n\nHighest Ten Percent's Income as Percentage of National Income:  " + 
 					newCountry.getHighestTenIncome() + "\n\nMajor Industries:  " + newCountry.getMajorIndustries() + 
