@@ -142,14 +142,13 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		addMouseListener(this);
 		infoBox = new JPanel();
 		photoBox = new JPanel();
-		//infoBox.setLayout(new GridLayout(5,1));
-		//infoBox.setLayout(new BoxLayout(infoBox, BoxLayout.LINE_AXIS));
-		//infoBox.setLayout(new SpringLayout());
+
 		add(infoBox);
-		//infoBox.setBounds(0, 500, 1200, 300);
+		add(photoBox);
+
 		infoBox.setBackground(Color.WHITE);
 		infoBox.setOpaque(true);
-		//photoBox.setBounds(1200,500,200,300);
+
 		
 		repaint();
 	}//setUp
@@ -362,7 +361,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			imageLabel.setVisible(true);
 			imageLabel.setBounds(900, 550, 250, 250);
 			
-			photoBox.setBounds(800,500,300,300);
+			photoBox.setBounds(800,500,400,300);
 			photoBox.add(imageLabel);
 			
 		
