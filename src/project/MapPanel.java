@@ -191,9 +191,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		infoBox.setBackground(Color.WHITE);
 		infoBox.setOpaque(true);
 		
-		currentModeLabel = new JLabel("EXPLORE");
-		currentModeLabel.setFont(getFont().deriveFont(24f));
-		currentModeLabel.setBounds(10, 10, 150, 30);
+		currentModeLabel = new JLabel("EXPLORE MODE");
+		currentModeLabel.setFont(getFont().deriveFont(24f));//set font size
+		currentModeLabel.setBounds(10, 10, 250, 30);
 		add(currentModeLabel);
 		
 		infoBox2.setBounds(0, 650, 1200, 150);
@@ -270,6 +270,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//clear the info box at the bottom
 		writeInfoOnBottom("");
+		writeInfo2OnBottom("");
 		
 		//repaint
 		repaint();
@@ -450,9 +451,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					"\n\nInfant Mortality Rate:  " + newCountry.getInfantMortalityRate() +
 					"\n\nPercentage of Children Underweight:  " + newCountry.getChildrenUnderweightPercentage() +
 					"\n\nPhysician Density:  " + newCountry.getPhysicianDensity() +
-					"\n\nRisk of Infectious Disease " + newCountry.getRiskOfInfectiousDisease() +
-					"\n\nMost Common Diseases:  " + newCountry.getMajorHealthIssue() + 
-					"\n\nHow you can make a difference:  " + newCountry.getMakeADifferenceHealth();
+					"\n\nRisk of Infectious Disease: " + newCountry.getRiskOfInfectiousDisease() +
+					"\n\nMost Common Diseases:  " + newCountry.getMajorHealthIssue();
 			writeInfoOnBottom(stringToDisplay);
 			showPicture(newCountry.getPhotoPathHealth());
 
@@ -468,9 +468,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			String stringToDisplay = "\n\nHow you can make a difference:  "+ newCountry.getMakeADifferenceEconomic();
 			writeInfo2OnBottom(stringToDisplay);
 
-		}//if Economic mode
-
-		if(currentMapMode == MapMode.HEALTH){
+		} else if(currentMapMode == MapMode.HEALTH){
 
 			String stringToDisplay = "\n\nHow you can make a difference:  " + newCountry.getMakeADifferenceHealth();
 			writeInfo2OnBottom(stringToDisplay);
@@ -478,11 +476,22 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		}//if Health mode
 	}//updateInfoBox
 	
+	/**
+	 * Sets up the UI for the next question in the quiz.
+	 * 
+	 * @throws IOException
+	 */
 	private void setUpNextQuestion() throws IOException{
 		if(quizRunner.questionsRemainToAsk()){//if there are more questions to ask
+			//get the question to display
 			String question = quizRunner.getQuestion();
+			
+			//clear the UI
 			infoBox.removeAll();
+			infoBox2.removeAll();
 			photoBox.removeAll();
+			
+			//display the question
 			writeInfoOnBottom(question);
 			repaint();
 		} else {//the quiz is over
@@ -490,6 +499,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		}//else
 	}//setUpNextQuestion
 	
+	/**
+	 * Ends the currently running quiz and shows the given message to the user.
+	 * 
+	 * @param quizEndMessage the message to show to the user.
+	 * @throws IOException
+	 */
 	private void endQuiz(String quizEndMessage) throws IOException{
 		//show a message to the user
 		JOptionPane.showMessageDialog(this, quizEndMessage, "Quiz ended", JOptionPane.INFORMATION_MESSAGE);
@@ -505,7 +520,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//reset the UI and put it back in explore mode
 		changeContinent(currentView);
-		currentModeLabel.setText("EXPLORE");
+		currentModeLabel.setText("EXPLORE MODE");
 		writeInfoOnBottom("Your results on the quiz:\n" + quizRunner.getQuizEndReport());
 	}//endQuiz
 	
@@ -591,7 +606,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					quizButton.setText("End Quiz");
 					
 					//set the mode label in the top corner of the string
-					currentModeLabel.setText("QUIZ");
+					currentModeLabel.setText("QUIZ MODE");
 
 					//start the quiz
 					quizRunner.startQuiz(currentView, currentMapMode);
