@@ -62,7 +62,6 @@ Argentina
 Brazil
 Bolivia
 Colombia
-Venezuela
 
 North America
 $51,700
@@ -213,8 +212,8 @@ bacterial diarrhea, hepatitis A, and typhoid fever, malaria
 The tragedy of the health emergency is that the most pervasive problems in Afghanistan have largely been controlled in other countries: chronic malnutrition and preventable diseases like diarrhea, respiratory infections, and measles. On top of these basic health threats Afghanistan is also saddled with an extensive network of landmines that kill or maim more civilians than in any other country.
 HALO is an apolitical non-profit organization that works to clear the countryside in Afghanistan of mines and large caliber ammunition.  HALO’s humanitarian mine clearance project in Afghanistan is the oldest and largest in the world and has destroyed over 766,908 mines. Public donations allow them to purchase equipment and fund their program.  A donation of as little as $50 allows them to purchase necessary equipment to destroy a landmine and save a life.
 afghanistanhealth.png
-950
-350
+485
+300
 
 Argentina
 Argentina GDP per capita
@@ -238,8 +237,8 @@ Argentina most common diseases
 Argentina major health issue
 Argentina make a difference health
 Argentina photo path help
-600
-400
+525
+325
 
 Australia
 43,000% (2013 est.)
@@ -263,8 +262,8 @@ N/A
 Health care in Australia is provided by both private and government institutions. Medicare is the publicly funded universal health care scheme in Australia and was instituted in 1984. It coexists with a private health system. Life expectancy in Australia is among the highest in the world.  However, poor health of indigenous people and people in remote/rural areas still persists.  
 Australian Indigenous HealthInfoNet is a website that has compiled many organizations that aim to help the aboriginal people.  It also lists specific funding opportunities aimed at specific causes like cancer screening projects grants that can be helpful for those interested in starting projects aimed at helping the indigenous people.
 australiahealth.jpg
-1300
-600
+580
+200
 
 Bangladesh
 $2,100 (2013 est.)
@@ -288,8 +287,8 @@ bacterial and protozoal diarrhea, hepatitis A and E, and typhoid fever, dengue f
 Bangladesh is the most densely populated large country in the world, with 150 million people living in a land area roughly the size of Iowa. As a result, poverty, lack of access to agricultural land, and poor eating habits contribute to one of the highest undernutrition rates in the world. Forty percent of the population currently lives below the poverty line and the country has one of the highest rates of child stunting in the world.
 Organizations like Save the Children focus on improving the well being of communities that need help through donations and child sponsorship.  Child sponsorship allows you to make a lasting impact on a child’s life for less than $1 a day.  For $28 per month, you can provide for a child and their family in Bangladesh.  Save the Children wants donors to form a friendship with their child and will send you letters and pictures from your child that allow you to learn about their world.
 bangladeshecon.jpg
-1200
-320
+645
+365
 
 Belize
 $8,800 (2013 est.)
@@ -313,8 +312,8 @@ bacterial diarrhea, hepatitis A, and typhoid fever, dengue fever and malaria (20
 Belize is a coastal nation and thus is vulnerable to severe weather like hurricanes.  Disaster preparedness is not very strong and leaves citizens and food supplies vulnerable to the weather.  
 The American Red Cross is helps Red Cross partners in Belize train staff, volunteers and community members in first aid, basic search and rescue, psychological first aid, response coordination and shelter management, and is undertaking disaster mitigation projects such as digging drainage ditches or installing straps that help secure roofs from the high winds of hurricanes.  Their programs are expected to benefit over 55,000 people in Belize.  The Red Cross takes donations and volunteers.  They are particularly effective with the capital they raise and an average of 91 cents of every dollar they spend is invested in humanitarian services and programs.
 belizehealth.jpg
-400
-360
+525
+440
 
 Bolivia
 $5,500 (2013 est.) The lowest in South America
@@ -338,8 +337,8 @@ bacterial diarrhea and hepatitis A, dengue fever, malaria, and yellow fever (201
 Access to clean water and sanitation is lacking in the rural and indigenous parts of the country.  88% of people in Bolivia have access to improved water sources and 46% have improved sanitation facilities. However, in rural areas, access to safe drinking water is as low as 71% and sanitation coverage is as low as 10%.
 Water for People is an organization that develops programs to address sanitation and water needs.  It works with local government, communities, schools, and private and civil society organizations to reach high levels of water and sanitation coverage.  Water for People has impact tours in which donors of at least $1000 can travel to the areas they are helping for one week to see exactly what is being done for the situation.  They also work closely with local private businesses to ensure ongoing service, which creates local jobs.
 boliviahealth.jpg
-600
-500
+515
+215
 
 Botswana
 $16,400 (2013 est.)
@@ -363,8 +362,8 @@ bacterial diarrhea, hepatitis A, and typhoid fever, malaria
 The prevalence of HIV/AIDS is second highest in the world and threatens Botswana's impressive economic gains. 23% (2012 est.) of adults test positive for HIV.
 The RED Foundation works to stop HIV/AIDS from spreading.  It works with major brands, which agree to donate up to 50% of the proceeds from a particular product to the foundation.  By simply looking for products marked with the RED logo, you can help contribute to the fight against HIV/AIDS.
 botswanahealth.png
-1000
-550
+580
+375
 
 Brazil
 $12,100 (2013 est.)
@@ -388,8 +387,8 @@ Not available
 The slums of Rio de Janeiro are known as Favelas.  Favelas have no roads, no sewers, limited access to water and electricity and a social order that is imposed by drug lords.  
 Planeterra is a organization that looks to provide assistance to the underprivileged in areas that tourists love to visit.  It is a way to give back to tourist attractions.  They have a center that provides assistance to those living in favelas.  The Rio de Janeiro center is run by a group of local women who are working to improve the quality of life in the favela and keep children off the streets where there is strong pressure to join gangs involved in drug trafficking.  Travelers to Brazil can go through a company called G Adventures which allows you to book a tour of the area the funds you donate to Planeterra are going to. 
 brazilhealth.jpg
-700
-400
+600
+175
 
 Nigeria
 $2,800 (2013 est.)
@@ -413,8 +412,8 @@ Lassa fever, bacterial and protozoal diarrhea, hepatitis A and E, typhoid fever,
 It’s Africa’s most populous country, so while it might not have the highest prevalence of HIV (3.2%), it has one of the largest amounts of death attributed to the disease.  
 The RED Foundation works to stop HIV/AIDS from spreading.  It works with major brands, which agree to donate up to 50% of the proceeds from a particular product to the foundation.  By simply looking for products marked with the RED logo, you can help contribute to the fight against HIV/AIDS.
 nigeriahealth.png
-800
-360
+490
+190
 
 Cambodia
 $2,600 (2013 est.)
@@ -438,8 +437,8 @@ bacterial diarrhea, hepatitis A, typhoid fever, dengue fever, Japanese encephali
 Maternal and child care is very poor and in need of attention.  Micronutrient deficiencies remain widespread. Anaemia is common among children under five, with a prevalence of more than 80% among children under two. It also affects a significant percentage of pregnant women.   Deficiencies can cause blindness and brain damage.
 UNICEF works with the Ministry of Health in Cambodia to support improvements in antenatal, delivery and postpartum care, emphasizing the need for skilled birth attendance linked through referral systems to emergency obstetric and newborn care.  UNICEF has unique donation gift packages that tell you exactly where your money is going.  For example, for $30.30 you can send 900 micronutrient packets to enrich the diet of four children for seven and a half months.
 cambodiahealth.png
-1300
-340
+750
+440
 
 Canada
 $43,100 (2013 est.)
@@ -464,7 +463,7 @@ Canada's health care system is a group of socialized health insurance plans that
 N/A
 canadahealth.jpg
 500
-200
+150
 
 China
 $9,800 (2013 est.)
@@ -488,7 +487,7 @@ bacterial diarrhea, hepatitis A, and typhoid fever, Japanese encephalitis, hanta
 One consequence of population control policy is that China is now one of the most rapidly aging countries in the world. Deterioration in the environment - notably air pollution, soil erosion, and the steady fall of the water table, especially in the North - is another long-term problem.
 Respiratory and heart diseases related to air pollution are the leading cause of death in China. While some progress has been achieved in improving energy efficiency and carbon dioxide emissions reduction, 75% of energy production is still dependent on coal.  The WWF aims to reduce air and water pollution in China.   Through donations, the problem of pollution can be addressed and positive health effects will follow.
 chinahealth.jpg
-1300
+690
 300
 
 Chad
@@ -513,8 +512,8 @@ bacterial and protozoal diarrhea, hepatitis A and E, and typhoid fever, malaria 
 In eastern Chad, the recruitment of children into armed groups remained a critical problem. According to UNICEF database, between 2007 and 2010, 976 children formally associated with armed forces and groups were released and now benefit from prevention, release and reintegration efforts. A number of children remain in armed groups, due to the lack of a formal disarmament demobilization program.
 Child Soldiers International works to end the military recruitment of under-18s globally and to prevent their use in armed conflict wherever it occurs. They do this through global monitoring, in-depth work on selected countries, and research and analysis on key issues relating to child soldiers.  A $33 donation pays for a local child rights activist to attend one day of a workshop in Chad or the DR Congo, thereby helping them to better protect children’s rights in armed conflict.
 chadhealth.jpg
-800
-360
+550
+160
 
 Colombia
 $11,100 (2013 est.)
@@ -538,8 +537,8 @@ bacterial diarrhea, dengue fever, malaria, and yellow fever (2013)
 Paramilitary groups in Colombia have members that number in the thousands, and operate in vast areas of Colombia and are responsible for massacres, killings, forced displacement, rape, and extortion, as well as drug trafficking.
 Human Rights Watch is working to expose the continued existence of these groups and diminish their influence.  Human Rights Watch's previous reporting and advocacy have contributed to the establishment of human rights conditions on US military aid to Colombia, helped prevent the passage of laws that would have undermined accountability for paramilitaries' accomplices, and led to reforms in the paramilitary demobilization process.  Human Rights Watch depends on donations from average citizens to move forward with their initiatives.
 colombiahealth.jpg
-500
-400
+460
+70
 
 Democratic Republic of the Congo
 $400 (2013 est.) The lowest in Africa and the world.
@@ -563,8 +562,8 @@ bacterial and protozoal diarrhea, hepatitis A, and typhoid fever, malaria, dengu
 As of December 2013, conflict had driven nearly three million people from their homes in the DRC, according to United Nations estimates.  Many go into hiding in forest or scrublands, struggling to obtain food and drinking water well beyond the reach of humanitarian organizations and medical care. People wounded by fighting go untreated, and outbreaks of diseases such as malaria, cholera, and measles occur year after year.
 Doctors Without Borders projects have reached hundreds of thousands of people who would not have otherwise received medical care.  Often times the displaced are forgotten and do not receive aid.  Doctors Without Borders seeks to give meaningful assistance to the forgotten.  Doctors Without Borders accepts donations and many donors hold fundraisers in order to raise the money they wish to donate.
 democraticrepubcongohealth.png
-800
-400
+580
+252
 
 USA
 $52,800 (2013 est.)
@@ -588,8 +587,8 @@ Not available
 Health care in the United States is provided by many distinct organizations.  Health care facilities are largely owned and operated by private sector businesses. 62% of the hospitals are non-profit, 20% are government owned, 18% are for-profit.  60–65% of healthcare provision and spending comes from programs such as Medicare, Medicaid, TRICARE, the Children's Health Insurance Program, and the Veterans Health Administration. Most of the population under 67 is insured by their or a family member's employer, some buy health insurance on their own, and the remainder are uninsured.  On March 23, 2010, the Patient Protection and Affordable Care Act (PPACA) became law, providing for major changes in health insurance.
 Organizations like the Red Cross work with those in need of medical attention and disaster relief in the United States and abroad.
 usahealth.png
-400
-250
+475
+275
 
 Haiti
 $1,300 (2013 est.) The lowest in the western hemisphere
@@ -613,8 +612,8 @@ bacterial and protozoal diarrhea, hepatitis A and E, and typhoid fever, dengue f
 In Haiti, malnutrition is a major threat to child health. As many as 300,000 Haitian children suffer from chronic malnutrition, and up to half of child deaths in the country are caused by malnutrition.
 Organizations like Save the Children focus on improving the well being of communities that need help through donations and child sponsorship.  Child sponsorship allows you to make a lasting impact on a child’s life for less than $1 a day.  For $28 per month, you can provide for a child and their family in Haiti.  Save the Children wants donors to form a friendship with their child and will send you letters and pictures from your child that allow you to learn about their world.
 haitihealth.jpg
-600
-360
+620
+400
 
 Guatemala
 $5,300 (2013 est.)
@@ -638,8 +637,8 @@ bacterial diarrhea, hepatitis A, and typhoid fever, dengue fever and malaria
 Guatemala is a predominantly poor country that struggles in several areas of health and development, including infant, child, and maternal mortality, malnutrition, literacy, and contraceptive awareness and use. The large indigenous population is disproportionately affected.
 GlobeMed is an organization that allows over 1,500 students at over 50 universities to partner with local health clinics in countries that need assistance.  They pair each university-based GlobeMed chapter with a unique organization already improving the health of its community. Year after year, these students and grassroots leaders collaborate on projects that deepen and expand the organization's impact.  For example, at Georgetown University, students work with a rural health clinic called Primeros Pasos in Guatemala that works with health promotion.  If you are passionate about the issue of health equity look into founding a GlobeMed chapter at your campus.
 guatemalahealth.JPG
-600
-360
+500
+430
 
 Argentina
 $18,600 (2013 est.)
@@ -666,31 +665,6 @@ argentinahealth.jpg
 600
 600
 
-Venezuela
-Venezuela GDP per capita
-Venezuela GDP real growth rate
-Venezuela agriculture percentage of GDP
-Venezuela economic freedom score
-Venezuela lowest ten income
-Venezuela highest ten income
-Venezuela major industries
-Venezuela unemployment rate
-Venezuela major economic issue
-Venezuela make a difference economic
-Venezuela photo path economic
-Venezuela life expectancy
-Venezuela maternal mortality rate
-Venezuela infant mortality rate
-Venezuela children underweight percentage
-Venezuela physician density
-Venezuela risk of infectious disease
-Venezuela most common diseases
-Venezuela major health issue
-Venezuela make a difference health
-Venezuela photo path help
-600
-400
-
 UK
 $37,300 (2013 est.)
 1.4% (2013 est.)
@@ -702,7 +676,7 @@ services, machine tools, electric power equipment, automation equipment, railroa
 7.7% (2013 est.)
 Falling home prices, high consumer debt, and the global economic slowdown compounded Britain's economic problems, pushing the economy into recession in the latter half of 2008 and prompting the government to implement a number of measures to stimulate the economy and stabilize the financial markets.  In 2012, weak consumer spending and subdued business investment weighed on the economy, however, in 2013 GDP grew 1.4%, accelerating unexpectedly in the second half of the year because of greater consumer spending and a recovering housing market. The budget deficit is falling but remains high at nearly 7% and public debt has continued to increase.
 N/A
-UK photo path economic
+britainecon.jpg
 80.42 years
 12 deaths/100,000 live births (2010)
 4.44 deaths/1,000 live births
@@ -712,9 +686,9 @@ Not available
 Not available
 Each country provides public healthcare to all UK permanent residents that is free at the point of need, being paid for from general taxation. In addition, each also has a private healthcare sector which is considerably smaller than its public equivalent, with provision of private healthcare acquired by means of private health insurance, funded as part of an employer funded healthcare scheme or paid directly by the customer, though provision can be restricted for those with conditions such as AIDS/HIV.
 N/A
-UK photo path help
-800
-200
+britainhealth.jpg
+465
+230
 
 Spain
 $30,100 (2013 est.)
@@ -738,8 +712,8 @@ Not available
 Spain's single-payer health care system is ranked seventh best in the world by the World Health Organization. The system offers universal coverage as a constitutionally-guaranteed right and no out-of-pocket expenses — aside from prescription drugs. Patients do complain, however, about the long wait to see specialists and undergo certain procedures.  Many health workers were unhappy with and protested the privatization that occurred through austerity measures aimed to boost the economy.
 N/A
 spainhealth.jpg
-800
-300
+445
+345
 
 Denmark
 $37,800 (2013 est.)
@@ -763,8 +737,8 @@ Not available
 Denmark provides "free" health care to all residents, funded through taxes. There is an optional private health care sector, but it is tiny compared with the vastly larger public system that is used by most of the population. Users pay for a few procedures, such as fertility treatments (from the third attempt onwards) and non-essential cosmetic surgery, as well as most of their own dental care and a portion of prescription medication.  Apothecaries are privately owned, but doctors’ visits and hospitalization, including tests, treatment, follow-up care, and some medication, are fully covered.  100% of Danish citizens are covered.
 N/A
 denmarkhealth.jpg
-900
-300
+560
+200
 
 Greece
 $23,600 (2013 est.)
@@ -788,8 +762,8 @@ Not available
 Health care in Greece is provided through national health insurance, although private health care is also an option.  However, since July 2011, with the recent austerity measures, unemployed Greeks receive benefits for a maximum of a year, and after that period, health care is no longer universal and patients must pay for their own treatment.  Austerity measures have also resulted in citizens being forced to contribute more towards the cost of their medications.
 N/A
 greecehealth.jpg
-950
-250
+660
+360
 
 Russia
 $18,100 (2013 est.)
@@ -813,8 +787,8 @@ bacterial diarrhea, tickborne encephalitis
 In Russia and the former Soviet Union, Tuberculosis has been an acute problem.  Today, the official estimate of the incidence of TB is about 82 to 83 per 100,000 population.  Tuberculosis strains in Russia carry mutations that not only make them resistant to antibiotics but also help them to spread more effectively.
 Partners In Health works with the Russian Ministry of Health to combat one of the world’s worst epidemics of multidrug-resistant tuberculosis.  Key components of their clinical efforts include improving diagnostics in order to detect cases earlier, increasing adherence rates, improving infection control in hospitals and clinics, and decreasing transmission of TB to HIV-positive patients.  The organization takes donations of as little as $25 and guarantees that 93% of the funds go directly to life saving programs.
 russiahealth.jpg
-1200
-150
+575
+125
 
 Yemen
 $2,500 (2013 est.)
@@ -838,8 +812,8 @@ bacterial diarrhea, hepatitis A, and typhoid fever, dengue fever and malaria, sc
 Violence and instability in Yemen both prevent access to health care.  There is a lack of trained physicians in areas of conflict.  
 Doctors Without Borders staff working at Al-Salam hospital in Khamir expanded, opening a new nursery, a pediatric ward, and an intensive care unit, while also broadening maternity services.  The organization puts much needed doctors in the country to help with disease and maternal and child health.  The organization needs fundraising and support to continue its great work.
 yemenhealth.png
-900
-360
+750
+150
 
 Pakistan
 Pakistan GDP per capita
@@ -863,8 +837,8 @@ Pakistan most common diseases
 Pakistan major health issue
 Pakistan make a difference health
 Pakistan photo path help
-1200
-360
+505
+340
 
 India
 $4,000 (2013 est.)
@@ -888,8 +862,8 @@ bacterial diarrhea, hepatitis A and E, and typhoid fever, dengue fever, Japanese
 The rural poor have very little access to health care and are subject to diseases and malnutrition.  
  CARE India has worked in close collaboration with State and Central Government to secure better maternal and child health in the marginalized communities. They worked towards identifying the root causes of health problems and helped provide health care services to marginalized population.  90% of donations to CARE go directly to their programs.
 indiahealth.jpg
-1100
-360
+575
+375
 
 Indonesia
 Indonesia GDP per capita
@@ -913,10 +887,10 @@ Indonesia most common diseases
 Indonesia major health issue
 Indonesia make a difference health
 Indonesia photo path help
-1300
-400
+815
+475
 
-Philippines
+Phillipines
 Phillipines GDP per capita
 Phillipines GDP real growth rate
 Phillipines agriculture percentage of GDP
@@ -938,8 +912,8 @@ Phillipines most common diseases
 Phillipines major health issue
 Phillipines make a difference health
 Phillipines photo path help
-1300
-450
+860
+440
 
 Sierra Leone
 Sierra Leone GDP per capita
@@ -963,8 +937,8 @@ Sierra Leone most common diseases
 Sierra Leone major health issue
 Sierra Leone make a difference health
 Sierra Leone photo path help
-750
-360
+381
+187
 
 Rwanda
 Rwanda GDP per capita
@@ -988,5 +962,5 @@ Rwanda most common diseases
 Rwanda major health issue
 Rwanda make a difference health
 Rwanda photo path help
-900
-360
+615
+252

@@ -74,6 +74,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
 	//JPanel holding all of the country information
 	private JPanel infoBox;
+	private JPanel photoBox;
 	
 	//JLabel that holds the quiz question
 	private JLabel questionLabel;
@@ -109,7 +110,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		String initialQuizTopic = "NULL"; //TODO:= something derived from StudentData
 		
 		quizRunner = new QuizRunner(this, worldData, initialQuizTopic);
-		quizRunner.startQuiz(initialQuizTopic, currentMapMode);
+		//quizRunner.startQuiz(initialQuizTopic, currentMapMode);
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
@@ -128,15 +129,21 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
 		if(mapMode == MapMode.ECONOMIC){
 			map = ImageIO.read(new File("EconMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-			repaint();
 		}//if MapMode type is economic
 		else{
 			map = ImageIO.read(new File("HealthMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-			repaint();
 		}//else
+		repaint();
+		
 		quizButton = new AppButton();
+		quizButton.setText("Start Quiz");
+		quizButton.setBounds(800, 25, 100, 50);
 		quizButton.addActionListener(this);
-		quizButton.setText("End Quiz");
+
+		backButton = new AppButton();
+		backButton.setText("Back");
+		backButton.setBounds(350, 25, 100, 50);
+		backButton.addActionListener(this);
 		
 		setLayout(null);
 		//set default values for what we're looking at
@@ -149,7 +156,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		addMouseListener(this);
 		
 		infoBox = new JPanel();
+		photoBox = new JPanel();
 		add(infoBox);
+		add(photoBox);
+		add(quizButton);
+		add(backButton);
+		
 		infoBox.setBounds(0, 500, 1200, 300);
 		infoBox.setBackground(Color.CYAN);
 		infoBox.setOpaque(true);
