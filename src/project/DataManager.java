@@ -24,7 +24,11 @@ public class DataManager {
 		continentData = new HashMap<String, ContinentData>();
 		dataLoaded=false;
 		
+<<<<<<< HEAD
 		fileLocation = newFileLocation;
+=======
+		fileLocation =  newFileLocation;
+>>>>>>> Mike
 		parseData();
 	}//constructor
 		
