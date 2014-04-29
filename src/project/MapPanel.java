@@ -80,7 +80,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private JLabel makeADifferenceHealth;
 	
 	//JPanel holding all of the country information
-	JPanel infoBox;
+	private JPanel infoBox;
+	
+	//JLabel that holds the quiz question
+	private JLabel questionLabel;
 	
 	/* --||-- END VARIABLES --||-- */
 	
@@ -145,14 +148,13 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		setBackground(Color.black);
 		setSize(1600, 500);
 		
-		
 		addMouseListener(this);
 		infoBox = new JPanel();
 		//infoBox.setLayout(new GridLayout(5,1));
 		//infoBox.setLayout(new BoxLayout(infoBox, BoxLayout.LINE_AXIS));
 		//infoBox.setLayout(new SpringLayout());
 		add(infoBox);
-		infoBox.setBounds(1200, 0, 400, 500);
+		infoBox.setBounds(0, 500, 1200, 300);
 		infoBox.setBackground(Color.CYAN);
 		infoBox.setOpaque(true);
 		repaint();
@@ -338,26 +340,26 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 								+ '\n' + newCountry.getMajorEconomicIssue() + '\n' +  newCountry.getMakeADifferenceEconomic();
 			infoText.setText("<html><p>" + superstring + "</p></html>");
 			infoText.setSize(200,400);*/
-			gdpPerCapita.setSize(200,300);
-			gdpPerCapita.setText("<html><p>" + newCountry.getGpdPerCapita() + "</p></html>");
-			gdpRealGrowthRate.setSize(50, 75);
+			gdpPerCapita.setSize(1200,0);
+			gdpPerCapita.setText(newCountry.getGpdPerCapita());
+			gdpRealGrowthRate.setSize(1200, 50);
 			gdpRealGrowthRate.setBackground(Color.RED);
 			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
-			agriculturePercentageOfGdp.setSize(200,150);
+			agriculturePercentageOfGdp.setSize(1200,100);
 			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
-			economicFreedomScore.setSize(200,225);
+			economicFreedomScore.setSize(1200,150);
 			economicFreedomScore.setText(newCountry.getEconomicFreedomScore());
-			lowestTenIncome.setSize(200,300);;
+			lowestTenIncome.setSize(1200,200);;
 			lowestTenIncome.setText(newCountry.getLowestTenIncome());
-			highestTenIncome.setSize(200,375);
+			highestTenIncome.setSize(1200,250);
 			highestTenIncome.setText(newCountry.getHighestTenIncome());
-			majorIndustries.setSize(200,450);
+			majorIndustries.setSize(1200,300);
 			majorIndustries.setText(newCountry.getMajorIndustries());
-			unemploymentRate.setSize(200,525);
+			unemploymentRate.setSize(1200,350);
 			unemploymentRate.setText(newCountry.getUnemploymentRate());
-			majorEconomicIssue.setSize(200,600);
+			majorEconomicIssue.setSize(1200,400);
 			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
-			makeADifferenceEconomic.setSize(200,675);
+			makeADifferenceEconomic.setSize(1200,450);
 			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
 
 			infoBox.add(gdpRealGrowthRate);
@@ -412,7 +414,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private void setUpNextQuestion() throws IOException{
 		if(quizRunner.questionsRemainToAsk()){//if there are more questions to ask
 			String question = quizRunner.getQuestion();
-			//TODO: display the question in the UI
+			infoBox.removeAll();
+			questionLabel = new JLabel();
+			questionLabel.setText(question);
+			infoBox.setSize(1200,0);
+			infoBox.add(questionLabel);
+			repaint();
 		} else {//the quiz is over
 			endQuiz("You have successfully completed the quiz!");
 		}

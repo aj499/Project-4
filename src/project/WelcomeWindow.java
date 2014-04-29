@@ -59,7 +59,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	public void init(){
 		
 		//Sets the width and height
-		width = 1600;
+		width = 1200;
 		height = 500;
 		//Sets the background of the window
 		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage.png").getScaledInstance(1200, 500, Image.SCALE_SMOOTH));
@@ -69,7 +69,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		referenceMap = new ImageIcon("HealthMap.png");
 		//Sets the size of the applet to the reference map size
 		//setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
-		setSize(width - 400, height);
+		setSize(width, height);
 		
 		//Creates the start button
 		startButton = new JButton("Start");
@@ -180,7 +180,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(mapType != null){
 				try {
-					setSize(width - 175, height);
+					setSize(width, height + 300);
 					if(mapType == mapType.HEALTH){
 						System.out.println("YAY");
 					}
