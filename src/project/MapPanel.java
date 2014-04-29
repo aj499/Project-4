@@ -416,8 +416,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			photoLabel.setIcon(photo);
 			photoLabel.setVisible(true);
 			photoLabel.setSize(250,250);
-			photoLabel.setLocation(null);
-			//photoLabel.setBounds(900, 550, 250, 250);
+			//photoLabel.setLocation(null);
+			photoLabel.setBounds(900, 550, 250, 250);
 			
 			infoBox.add(lifeExpectancy);
 			infoBox.add(maternalMortalityRate);
