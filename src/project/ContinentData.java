@@ -38,22 +38,6 @@ public class ContinentData extends CountryData{
 		bottomBound = newBottomBound;
 	}
 	
-	public int getLeftBound(){
-		return leftBound;
-	}
-	
-	public int getTopBound(){
-		return topBound;
-	}
-	
-	public int getRightBound(){
-		return bottomBound;
-	}
-	
-	public int getBottomBound(){
-		return bottomBound;
-	}
-	
 
 	/**
 	 * Check if the given point is inside this continent's bounding box.

@@ -1,6 +1,5 @@
 package project;
 
-import java.awt.Graphics;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,10 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import java.util.Vector;
 import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -102,7 +97,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		currentMapMode = MapMode.ECONOMIC;
 		
 		setBackground(Color.black);
-		ImageIcon map = new ImageIcon("HealthMap.png"); 
+		ImageIcon map = new ImageIcon("lifeExpectancyEdit.png"); 
 		setSize(map.getIconWidth(), map.getIconHeight());
 		
 		JLabel mapLabel = new JLabel();
@@ -199,18 +194,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//update the info displayed in the info box
 		updateInfoBox(worldData.getDataForCountry(currentCountry));
-
+		
 		//note that we've seen this new country
 		currentStudent.addCountrySeen(currentCountry, currentMapMode);
-<<<<<<< HEAD
-
-		//TODO: load all the map images here
-		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-		ImageIcon map = new ImageIcon("mapImage2.png"); 
-		JLabel mapLabel = new JLabel();
-		mapLabel.setIcon(map);
-=======
->>>>>>> Min
 	}
 	
 	/**
@@ -419,9 +405,5 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//Auto-generated method stub
 		//Does nothing; required by interface
 	}
-	
-	public void paint(Graphics g){
-		
-	}//paint
 	
 }//class MapPanel

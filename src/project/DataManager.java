@@ -27,6 +27,7 @@ public class DataManager {
 		setFileLocation(newFileLocation);
 	}
 	
+
 	/**
 	 * sets the filepath
 	 * @param newFileLocation
@@ -40,13 +41,7 @@ public class DataManager {
 		
 		
 		try{
-<<<<<<< HEAD
 			String filename ="/Users/michaelmcaneny/Desktop/exampleData.txt";
-=======
-			String filename = fileLocation;
-			int numContinents = 6;
-			int continentCounter = 1;
->>>>>>> master
 			FileInputStream fileInputStream = new FileInputStream(filename);
 			DataInputStream dataInputStream = new DataInputStream(fileInputStream);
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
@@ -56,7 +51,6 @@ public class DataManager {
 				CountryData currentCountry = new CountryData();
 				currentCountry.setCountryName(currentLine);
 				
-<<<<<<< HEAD
 				currentCountry.setGpdPerCapita(bufferedReader.readLine());
 				currentCountry.setGdpRealGrowthRate(bufferedReader.readLine());
 				currentCountry.setAgriculturePercentageOfGdp(bufferedReader.readLine());
@@ -83,73 +77,27 @@ public class DataManager {
 				countryData.put(currentCountry.getCountryName(), currentCountry);
 				System.out.println("key was " + currentCountry.getCountryName());
 				bufferedReader.readLine();
-=======
-				CountryData currentCountry;
-				ContinentData currentContinent;
-				if (continentCounter <= numContinents){
-					currentContinent = new ContinentData();
-					currentContinent.setCountryName(currentLine);
-					currentContinent.setAll(bufferedReader);
-					currentContinent.setLeftBound(Integer.parseInt(bufferedReader.readLine()));
-					currentContinent.setRightBound(Integer.parseInt(bufferedReader.readLine()));
-					currentContinent.setTopBound(Integer.parseInt(bufferedReader.readLine()));
-					currentContinent.setBottomBound(Integer.parseInt(bufferedReader.readLine()));
-
-					currentLine = bufferedReader.readLine();
-					while ((currentLine = bufferedReader.readLine()).length() > 0){
-						currentContinent.addToCountryList(currentLine);
-					}
-					
-					continentData.put(currentContinent.getCountryName(), currentContinent);
-					continentCounter++;	
-				}
-				else{
-					
-					currentCountry = new CountryData();
-					
-					currentCountry.setCountryName(currentLine);
-					currentCountry.setAll(bufferedReader);
-					currentCountry.setButtonXPosition(Integer.parseInt(bufferedReader.readLine()));
-					currentCountry.setButtonYPosition(Integer.parseInt(bufferedReader.readLine()));
-					countryData.put(currentCountry.getCountryName(), currentCountry);
-					
-					bufferedReader.readLine();
-				}
->>>>>>> master
 			}
 			
 			bufferedReader.close();
-			dataLoaded = true;
-			
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 		
-		
 	}
 
-<<<<<<< HEAD
 	
 	
 		
 	
-=======
->>>>>>> master
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
 	 * @return a list of all the countries in the countryData hash
 	 */
 	public String[] getCountryList(){
-<<<<<<< HEAD
-		//return (String[]) countryData.keySet().toArray();
-		String[] test = new String[4];
-		return test;
-		
-=======
-		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
->>>>>>> Min
+		return (String[]) countryData.keySet().toArray();
 	}
 	
 	/**
@@ -158,18 +106,15 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
-		return (String[]) continentData.keySet().toArray(new String[countryData.keySet().size()]);
+		return (String[]) continentData.keySet().toArray();
 	}
 	
 	public CountryData getDataForCountry(String countryName){
-<<<<<<< HEAD
 		//TODO: actually implement this function!
 		return new CountryData();
-=======
-		return countryData.get(countryName);
->>>>>>> master
 	}
 	
+
 
 	public ContinentData getDataForContinent(String continentName){
 		//TODO: actually implement this function!
@@ -195,7 +140,6 @@ public class DataManager {
 		return econVariableList.get(indexToChooseVariableToAskAbout);
 	}
 	
-<<<<<<< HEAD
 	/*public String[] generateEconSuperlativeQuestion(String continentName, String dataVariable){
 		//continentName= getCurrentView();
 			switch (dataVariable){	
@@ -212,9 +156,6 @@ public class DataManager {
 	}
 	
 	//}
-=======
-}
->>>>>>> master
 	
 	
 	/*public static void main(String args[]){
