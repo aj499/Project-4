@@ -3,6 +3,7 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,13 +19,12 @@ public class DataManager {
 	 * Constructor takes a String that is the filepath
 	 * @param newFileLocation
 	 */
-	public DataManager(String newFileLocation){
+	DataManager(String newFileLocation){
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
 		
 		dataLoaded=false;
 		fileLocation = newFileLocation;
-<<<<<<< HEAD
 		parseData();
 	}//constructor
 	
@@ -32,13 +32,6 @@ public class DataManager {
 
 	private void parseData(){
 
-=======
-		
-		parseData();
-	}
-	
-	private void parseData(){
->>>>>>> Adam
 		try{
 			String filename = fileLocation;
 			int numContinents = 6;
@@ -50,12 +43,7 @@ public class DataManager {
 					dataInputStream));
 			String currentLine;
 			while ((currentLine = bufferedReader.readLine())!=null){
-<<<<<<< HEAD
 
-=======
-				CountryData currentCountry;
-				ContinentData currentContinent;
->>>>>>> Adam
 				if (continentCounter <= numContinents){
 					ContinentData currentContinent = new ContinentData();
 					currentContinent = new ContinentData();
@@ -85,13 +73,8 @@ public class DataManager {
 					countryData.put(currentCountry.getCountryName(), currentCountry);
 					
 					bufferedReader.readLine();
-<<<<<<< HEAD
 				}//else
 			}//while
-=======
-				}
-			}
->>>>>>> Adam
 			
 			bufferedReader.close();
 			dataLoaded = true;
@@ -103,18 +86,14 @@ public class DataManager {
 	}
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> Adam
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
 	 * @return a list of all the countries in the countryData hash
 	 */
 	public String[] getCountryList(){
-		//pass String Array to get correct return type (see API doc for Set<T>::toArray(T[] a))
 		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
 	}//getCountryList
 	
@@ -124,36 +103,25 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
-<<<<<<< HEAD
 
-=======
-		//pass String Array to get correct return type (see API doc for Set<T>::toArray(T[] a))
->>>>>>> Adam
 		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
 	}
 
 
 	public CountryData getDataForCountry(String countryName){
 		return countryData.get(countryName);
-<<<<<<< HEAD
 	}//getDataForCountry
 
 
 
 	public ContinentData getDataForContinent(String continentName){
-=======
-	}
-	
-
-	public ContinentData getDataForContinent(String continentName){
-		//TODO: implement error checking here!
->>>>>>> Adam
 		return continentData.get(continentName);
 	}
 	
-	public String getRandomlyChosenVariableForSuperlativeQuestion(){
+	public String randomlyChooseVariableForSuperlativeQuestion(){
 		ArrayList<String> econVariableList = new ArrayList<String>();
 		econVariableList.add("gpdPerCapita");
+		econVariableList.add("gdpRealGrowthRate");
 		econVariableList.add("gdpRealGrowthRate");
 		econVariableList.add("agriculturePercentageOfGDP");
 		econVariableList.add("economicFreedomScore");
@@ -161,17 +129,11 @@ public class DataManager {
 		econVariableList.add("unemploymentRate");
 		
 		Random generator = new Random();
-		/*int minimum = 0;
+		int minimum = 0;
 		int maximum = econVariableList.size()-1;
 		int range = maximum - minimum + 1;
-		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;*/
-		return econVariableList.get(generator.nextInt(econVariableList.size()));
+		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;
+		return econVariableList.get(indexToChooseVariableToAskAbout);
 	}
-<<<<<<< HEAD
 		
 }
-=======
-
-}
-
->>>>>>> Adam

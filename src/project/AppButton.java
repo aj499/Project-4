@@ -13,18 +13,14 @@ import javax.swing.JButton;
 
 public class AppButton extends JButton{
 
-	private static final long serialVersionUID = 1L;//to make Eclipse shut up
-	private String id;//default value
+	private static final long serialVersionUID = 1L;
+	private String id = "null";//default value
 	
 	/**
 	 * Default constructor that creates a new AppButton with default parameters.
 	 */
 	public AppButton(){
 		super();//call JButton constructor, since that probably does something important
-		
-		id = "null";
-		
-		setText(id);
 	}
 	
 	/**
@@ -36,8 +32,6 @@ public class AppButton extends JButton{
 		super();//call JButton constructor, since that probably does something important
 		
 		id = newId;
-		
-		setText(id);
 	}
 	
 	/**
@@ -51,8 +45,6 @@ public class AppButton extends JButton{
 	public void setId(String newId){
 		
 		id = newId;
-		
-		setText(id);
 		
 	}//setId
 	

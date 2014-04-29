@@ -1,6 +1,4 @@
 package project;
-
-//begin summoning the forces of evil, aka the Java graphics libraries
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -57,7 +55,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private MapMode mapType;
 	//Radio button group
 	private ButtonGroup typeOptions;
-
+	
 	public void init(){
 		
 		//Sets the width and height
@@ -136,13 +134,13 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	public class ImagePanel extends JPanel{
 		private static final long serialVersionUID = 1L;
 		private Image image = null;
-		//private int width;
-		//private int height;
+		private int width;
+		private int height;
 
 		public ImagePanel(Image image){
 			this.image = image;
-			//this.width = image.getWidth(this);
-			//this.height = image.getHeight(this);
+			this.width = image.getWidth(this);
+			this.height = image.getHeight(this);
 		}//constructor
 		public void paintComponent(Graphics g){
 			super.paintComponent(g);

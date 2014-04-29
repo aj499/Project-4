@@ -1,6 +1,6 @@
 package project;
 
-import java.util.HashMap;
+import java.util.Random;
 import java.util.Vector;
 
 /*
@@ -11,8 +11,6 @@ public class StudentData {
 	private Vector<String> countriesSeenEconomic;
 	private Vector<String> continentsSeenHealth;
 	private Vector<String> continentsSeenEconomic;
-	private HashMap<String, Boolean> countriesSeenInContinentHealth;
-	private HashMap<String, Boolean> countriesSeenInContinentEconomic;
 	private String name;
 	
 	/**
@@ -26,15 +24,6 @@ public class StudentData {
 		countriesSeenEconomic = new Vector<String>();
 		continentsSeenHealth = new Vector<String>();
 		continentsSeenEconomic = new Vector<String>();
-		countriesSeenInContinentHealth = new HashMap<String, Boolean>();
-		countriesSeenInContinentEconomic = new HashMap<String, Boolean>();
-		
-		String[] continents = {"World", "North America", "South America", "Europe", "Asia", "Africa", "Oceania"};
-		
-		for(int i = 0; i < continents.length; i++){
-			countriesSeenInContinentHealth.put(continents[i], false);
-			countriesSeenInContinentEconomic.put(continents[i], false);
-		}
 	}
 	
 	/**
@@ -44,15 +33,11 @@ public class StudentData {
 	 * @param country the country the student looked at
 	 * @param currentMapMode the map mode in which they looked at the country
 	 */
-	public void addCountrySeen(String country, String continentContainingCountry, MapMode modeSeenIn){
-		if(modeSeenIn == MapMode.HEALTH && !countriesSeenHealth.contains(country)){//deduplicate additions
+	public void addCountrySeen(String country, MapMode currentMapMode){
+		if(currentMapMode == project.MapMode.HEALTH && !countriesSeenHealth.contains(country)){//deduplicate additions
 			countriesSeenHealth.add(country);
-			countriesSeenInContinentHealth.put(continentContainingCountry, true);
-			countriesSeenInContinentHealth.put("World", true);
-		} else if(modeSeenIn == MapMode.ECONOMIC && !countriesSeenEconomic.contains(country)){
+		} else if(currentMapMode == project.MapMode.ECONOMIC && !countriesSeenEconomic.contains(country)){
 			countriesSeenEconomic.add(country);
-			countriesSeenInContinentEconomic.put(continentContainingCountry, true);
-			countriesSeenInContinentEconomic.put("World", true);
 		}
 	}
 	
@@ -146,23 +131,4 @@ public class StudentData {
 			return false; //backup, unreachable; to make Eclipse happy
 		}
 	}
-
-	/**
-	 * Returns whether or not the student has seen any countries in the given continent in the indicated mode.
-	 * 
-	 * @param continentToCheck the continent we want to know whether the student has seen any countries in
-	 * @param modeSeenIn the mode we want to know whether or not the student viewed countries
-	 * @return whether or not the student has seen any countries in the given continent in the indicated mode
-	 */
-	public boolean hasSeenCountriesInContinent(String continentToCheck, MapMode modeSeenIn){
-		switch(modeSeenIn){
-		case HEALTH:
-			return countriesSeenInContinentHealth.get(continentToCheck);
-		case ECONOMIC:
-			return countriesSeenInContinentEconomic.get(continentToCheck);
-		default:
-			return false; //backup, unreachable; to make Eclipse happy
-		}
-	}
-	
 }
