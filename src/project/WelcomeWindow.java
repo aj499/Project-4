@@ -1,8 +1,11 @@
 package project;
+<<<<<<< HEAD
 
 
 //begin summoning the forces of evil, aka the Java graphics libraries
 
+=======
+>>>>>>> origin/Adam
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -11,6 +14,8 @@ import java.awt.TextField;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
@@ -23,7 +28,9 @@ import javax.swing.JRadioButton;
 public class WelcomeWindow extends JApplet implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
-	
+	//width and height of applet
+	private int width;
+	private int height;
 	//Initial JPanel that will be presented on the applet
 	private JPanel window;
 	//MapPanel object that is the main JPanel that will be presented on the applet
@@ -48,11 +55,29 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private ButtonGroup typeOptions;
 	
 	public void init(){
+<<<<<<< HEAD
 		
 		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage2.png"));
 		//window.setLayout(new BoxLayout(window, BoxLayout.PAGE_AXIS));
 		window.setLayout(null);
 		
+=======
+
+		//Sets the width and height
+		width = 1200;
+		height = 500;
+		//Sets the background of the window
+		window = new ImagePanel(Toolkit.getDefaultToolkit().getImage("mapImage.png").getScaledInstance(1200, 500, Image.SCALE_SMOOTH));
+		//Sets the layout to null so that we can use coordinates
+		window.setLayout(null);
+		//Takes one of the maps we'll use later as a reference to size the applet
+		referenceMap = new ImageIcon("HealthMap.png");
+		//Sets the size of the applet to the reference map size
+		//setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
+		setSize(width, height);
+
+		//Creates the start button
+>>>>>>> origin/Adam
 		startButton = new JButton("Start");
 
 		//Adds an action listener to the start button
@@ -60,7 +85,12 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		//Sets the start button's size
 
 		startButton.setPreferredSize(new Dimension(100, 50));
+<<<<<<< HEAD
 		
+=======
+
+		//Creates one of the two radio buttons for the economics option
+>>>>>>> origin/Adam
 		econButton = new JRadioButton("Economics");
 
 		//Adds an action listener to the econ button
@@ -68,17 +98,28 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		//Sets the econ button's size
 
 		econButton.setPreferredSize(new Dimension(200, 20));
+<<<<<<< HEAD
 		
+=======
+
+		//Creates the other of the two radio buttons for the health option
+>>>>>>> origin/Adam
 		healthButton = new JRadioButton("Health");
 
 		//Adds an action listener to the health button
 		healthButton.addActionListener(this);
 		//Sets the health button's size
 		healthButton.setPreferredSize(new Dimension(200, 20));
+<<<<<<< HEAD
 		
+=======
+
+		//Creates a button group for the radio buttons
+>>>>>>> origin/Adam
 		typeOptions = new ButtonGroup();
 		typeOptions.add(econButton);
 		typeOptions.add(healthButton);
+<<<<<<< HEAD
 		
 		username = new TextField(10);
 		
@@ -92,6 +133,25 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		healthButton.setBounds(referenceMap.getIconWidth()/2 + 50, 350, 75, 50);
 		prompt.setBounds((referenceMap.getIconWidth()/2) - 125, 400, 150, 20);
 		username.setBounds(referenceMap.getIconWidth()/2 + 25, 400, 100, 20);
+=======
+
+		//Creates a JLabel that displays the prompt for the student name
+		JLabel prompt = new JLabel("Please enter your name:");
+		//Creates a new text field for the student to enter their name
+		username = new TextField(10);
+		//Create a JLabel that displays the instructions on the screen
+		JLabel instructions = new JLabel("Please select either economics or health before pressing the start button.");
+
+		//Organizes the assorted components
+		startButton.setBounds(475, 350, 75, 50);
+		econButton.setBounds(550, 350, 100, 50);
+		healthButton.setBounds(650, 350, 75, 50);
+		prompt.setBounds(475, 400, 150, 20);
+		username.setBounds(625, 400, 100, 20);
+		instructions.setBounds(350, 450, 500, 20);
+
+		//Adds the components to the JPanel before adding those to the content pane
+>>>>>>> origin/Adam
 		window.add(startButton);
 		window.add(econButton);
 		window.add(healthButton);
@@ -99,9 +159,12 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		window.add(username);
 		window.setVisible(true);
 		content.add(window);
-		
+
 	}//init
+<<<<<<< HEAD
 	
+=======
+>>>>>>> origin/Adam
 
 	/**
 	 * ImagePanel class
@@ -113,14 +176,15 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 
 		private static final long serialVersionUID = 1L;
 		private Image image = null;
-		//private int width;
-		//private int height;
 
 		public ImagePanel(Image image){
 			this.image = image;
+<<<<<<< HEAD
 
 			//this.width = image.getWidth(this);
 			//this.height = image.getHeight(this);
+=======
+>>>>>>> origin/Adam
 		}//constructor
 
 		public void paintComponent(Graphics g){
@@ -129,6 +193,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 				int x = 0;
 				int y = 0;
 				g.drawImage(image,x,y,this);
+<<<<<<< HEAD
 			}
 		}
 	}
@@ -136,6 +201,29 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	private void goToMapPanel(MapMode type){
 		mapPanel = new MapPanel(null, new StudentData("Dummy Student!"), type);
 
+=======
+			}//if image not null
+		}//paint
+	}//ImagePanel
+
+	/**
+	 * goToMapPanel
+	 * 
+	 * goToMapPanel switches the visibility of the window, which is currently 
+	 * the prominent window, to the mapPanel, which holds the main program
+	 * functionality.
+	 * 
+	 * @param mapType
+	 * @throws IOException 
+	 */
+	private void goToMapPanel(MapMode mapType) throws IOException{
+		//get the name entered by the student
+		String studentName = username.getText();
+		//Creates a new MapPanel
+		//TODO: CHANGE THIS 'North America' TO SOMETHING MEANINGFUL
+		mapPanel = new MapPanel(new DataManager("CountryData.txt"), new StudentData(studentName, "North America"), mapType);
+		//Switches the visibility of the existing JPanels
+>>>>>>> origin/Adam
 		mapPanel.setVisible(true);
 		window.setVisible(false);
 		this.setContentPane(mapPanel);
@@ -152,7 +240,13 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(startButton)){//Start button
 			if(mapType != null){//if an option was selected, go on to the main map
-				goToMapPanel(mapType);
+				try{
+					setSize(width, height+300);
+					goToMapPanel(mapType);	
+				} catch(IOException exceptionThrown){
+					//TODO: something here!
+				}
+
 			} else {//if no option was selected, alert the user
 				JLabel warning = new JLabel("Please choose a subject");
 				warning.setBounds(referenceMap.getIconWidth()/2 + 25, 500, 100, 20);
@@ -170,7 +264,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		} else if(e.getSource().equals(healthButton)){//Health radio button
 			mapType = MapMode.HEALTH;
 		}
-		
 	}//general actionPerformed
-	
+
+
 }//class WelcomeWindow

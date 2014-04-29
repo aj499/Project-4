@@ -1,19 +1,25 @@
 package project;
 
+import java.awt.Image;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class ContinentData extends CountryData{
 	private int topBound, bottomBound, rightBound, leftBound;
 	private Vector<String> countryList;
 
-	ContinentData() {
+	public ContinentData() {
 		countryList = new Vector<String>();
 	}
 	
 	public void addToCountryList(String countryName){
 		countryList.add(countryName);
 	}
-	
 	
 	public void setLeftBound(int newLeftBound){
 		leftBound = newLeftBound;
@@ -31,6 +37,25 @@ public class ContinentData extends CountryData{
 		bottomBound = newBottomBound;
 	}
 	
+<<<<<<< HEAD
+=======
+	public int getLeftBound(){
+		return leftBound;
+	}
+	
+	public int getTopBound(){
+		return topBound;
+	}
+	
+	public int getRightBound(){
+		return rightBound;
+	}
+	
+	public int getBottomBound(){
+		return bottomBound;
+	}
+	
+>>>>>>> origin/Adam
 
 	/**
 	 * Check if the given point is inside this continent's bounding box.
@@ -45,7 +70,6 @@ public class ContinentData extends CountryData{
 				return true;
 			}
 		}
-
 		return false;
 	}
 

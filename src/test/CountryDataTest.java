@@ -42,9 +42,9 @@ public class CountryDataTest {
 	}
 	
 	@Test
-	public void setGpdPerCapitaTest(){
+	public void setGdpPerCapitaTest(){
 		CountryData data= new CountryData();
-		data.setGpdPerCapita("40");
+		data.setGdpPerCapita("40");
 		
 		String result;
 		String expectedResult = "40";

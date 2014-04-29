@@ -14,29 +14,32 @@ public class StudentData {
 	private HashMap<String, Boolean> countriesSeenInContinentHealth;
 	private HashMap<String, Boolean> countriesSeenInContinentEconomic;
 	private String name;
-	
+	private String preTestTopic;
+
 	/**
 	 * Create a new StudentData object for a student of the given name.
 	 * 
 	 * @param newName the name of the student whose data is stored in this object 
+	 * @param newPreTestTopic the topic for the pre-test for the student whose data is stored in this object 
 	 */
-	public StudentData(String newName){
+	public StudentData(String newName, String newPreTestTopic){
 		name = newName;
+		preTestTopic = newPreTestTopic;
 		countriesSeenHealth = new Vector<String>();
 		countriesSeenEconomic = new Vector<String>();
 		continentsSeenHealth = new Vector<String>();
 		continentsSeenEconomic = new Vector<String>();
 		countriesSeenInContinentHealth = new HashMap<String, Boolean>();
 		countriesSeenInContinentEconomic = new HashMap<String, Boolean>();
-		
+
 		String[] continents = {"World", "North America", "South America", "Europe", "Asia", "Africa", "Oceania"};
-		
+
 		for(int i = 0; i < continents.length; i++){
 			countriesSeenInContinentHealth.put(continents[i], false);
 			countriesSeenInContinentEconomic.put(continents[i], false);
 		}
 	}
-	
+
 	/**
 	 * Indicate that the student has looked at the info for the given country
 	 * in the given mapmode.
@@ -55,7 +58,7 @@ public class StudentData {
 			countriesSeenInContinentEconomic.put("World", true);
 		}
 	}
-	
+
 	/**
 	 * Indicate that the student has looked at the info for the given continent
 	 * in the given mapmode.
@@ -70,7 +73,7 @@ public class StudentData {
 			continentsSeenEconomic.add(continent);
 		}
 	}
-	
+
 	/**
 	 * Returns the name of the student.
 	 * @return the name of the student
@@ -78,7 +81,7 @@ public class StudentData {
 	public String getName(){
 		return name;
 	}
-	
+
 	/**
 	 * Returns a list of the countries seen by the student in health mode.
 	 * @return a list of the countries seen by the student in health mode
@@ -86,7 +89,7 @@ public class StudentData {
 	public Vector<String> getCountriesSeenHealth(){
 		return countriesSeenHealth;
 	}
-	
+
 	/**
 	 * Returns a list of the countries seen by the student in economic mode.
 	 * @return a list of the countries seen by the student in economic mode
@@ -94,7 +97,7 @@ public class StudentData {
 	public Vector<String> getCountriesSeenEconomic(){
 		return countriesSeenEconomic;
 	}
-	
+
 	/**
 	 * Returns a list of the continents seen by the student in health mode.
 	 * @return a list of the continents seen by the student in health mode
@@ -102,7 +105,7 @@ public class StudentData {
 	public Vector<String> getContinentsSeenHealth(){
 		return continentsSeenHealth;
 	}
-	
+
 	/**
 	 * Returns a list of the continents seen by the student in economic mode.
 	 * @return a list of the continents seen by the student in economic mode
@@ -110,7 +113,7 @@ public class StudentData {
 	public Vector<String> getContinentsSeenEconomic(){
 		return continentsSeenEconomic;
 	}
-	
+
 	/**
 	 * Returns whether or not the student has looked at a given country in the indicated mode.
 	 * 
@@ -128,7 +131,7 @@ public class StudentData {
 			return false; //backup, unreachable; to make Eclipse happy
 		}
 	}
-	
+
 	/**
 	 * Returns whether or not the student has looked at a given continent in the indicated mode.
 	 * 
@@ -136,6 +139,7 @@ public class StudentData {
 	 * @param modeSeenIn the mode we want to know whether or not the student viewed it
 	 * @return whether or not the student looked at the given continent in the given mode
 	 */
+
 	public boolean hasContinentBeenSeen(String continentToCheck, MapMode modeSeenIn){
 		switch(modeSeenIn){
 		case HEALTH:
@@ -165,4 +169,8 @@ public class StudentData {
 		}
 	}
 	
+	public String getPreTestTopic(){
+		return preTestTopic;
+	}
+
 }

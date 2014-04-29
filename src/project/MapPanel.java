@@ -1,27 +1,38 @@
 package project;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
+<<<<<<< HEAD
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.util.Vector;
 
+=======
+import java.util.Vector;
+
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+>>>>>>> origin/Adam
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
-	public enum Continent{
-		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
-	}
 	/* --||-- BEGIN VARIABLES --||-- */
 	
 	//to make Eclipse shut up
@@ -29,7 +40,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
 	private DataManager worldData;
 	private QuizRunner quizRunner;
-	
+
 	//state variables
 	private String currentView;//which continent are we looking at?	
 	private String currentCountry;//what country are we looking at right now?
@@ -37,8 +48,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	//private boolean quizRunning;//is the user in a quiz right now?
 	private StudentData currentStudent;//who is the user and what have they seen?
 	//private boolean inPreTest;//are they taking the pretest
-
 	
+	//the image for the main world map
+	private Image map;
+
 	//buttons for the countries
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
 	
@@ -48,8 +61,21 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	//buttons for the UI
 	//NB: these must be AppButtons or actionPerformed will break!
 	private AppButton mapModeChangeButton;
-	private AppButton quizButton;
+	private AppButton quizButton;//start/end a quiz
 	private AppButton backButton;//go back to world view from continentView
+	
+	//JLabels for the infoBox
+	//JPanel holding all of the country information
+	private JPanel infoBox;
+	private JPanel photoBox;
+
+	//image
+	private JLabel imageLabel;
+	private Image photoImage;
+	private ImageIcon imageIcon;
+
+	//JLabel that holds the quiz question
+	private JLabel questionLabel;
 	
 	/* --||-- END VARIABLES --||-- */
 	
@@ -57,31 +83,40 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * Creates a new MapPanel based on data from the given DataManager.
 	 * 
 	 * @param newWorldData the DataManager to load data from
+	 * @throws IOException 
 	 */
 
-	public MapPanel(DataManager newWorldData, StudentData newStudentData, project.MapMode mapType){
+	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode mapType) throws IOException{
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
+		currentMapMode = mapType; 
 		
 		//make a HashMap for the buttons
 		buttons = new HashMap<String, AppButton>();
 		
+		//set up for images
+		imageIcon = new ImageIcon();
+		imageLabel = new JLabel();
+		
 		//create a button for each country
 		String[] countryButtonList = worldData.getCountryList();
 		for(int i = 0; i < countryButtonList.length; i++){
+			//create a button
 			buttons.put(countryButtonList[i], new AppButton(countryButtonList[i]));
+			//add the ActionListener to the button
+			buttons.get(countryButtonList[i]).addActionListener(this);
 		}
 		
 		//set up a QuizRunner and basic state
-		String initialQuizTopic = "NULL"; //TODO:= something derived from StudentData
+		//String initialQuizTopic = "North America"; //TODO:= something derived from StudentData
 		
-		quizRunner = new QuizRunner(this, worldData, initialQuizTopic);
-		quizRunner.startQuiz(initialQuizTopic, currentMapMode);
+		quizRunner = new QuizRunner(this, worldData, currentStudent);
+		//quizRunner.startQuiz(initialQuizTopic, currentMapMode);
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
-		setUp(mapType);
+		setUp(currentMapMode);
 	}
 	
 	/**
@@ -89,20 +124,36 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * Helper function for the constructor.
 	 * <p>
 	 * (Assumes that worldData has been set previously.)
+	 * @throws IOException 
 	 */
-	private void setUp(MapMode type){
+	private void setUp(MapMode mapMode) throws IOException{
+		
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
+		if(mapMode == MapMode.ECONOMIC){
+			map = ImageIO.read(new File("EconMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+		}//if MapMode type is economic
+		else{
+			map = ImageIO.read(new File("HealthMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+		}//else
+		repaint();
 		
 		quizButton = new AppButton();
-		quizButton.setText("End Quiz");
+		quizButton.setText("Start Quiz");
+		quizButton.setBounds(800, 25, 100, 50);
+		quizButton.addActionListener(this);
+
+		backButton = new AppButton();
+		backButton.setText("Back");
+		backButton.setBounds(350, 25, 100, 50);
+		backButton.addActionListener(this);
 		
-		setLayout(new BorderLayout());
+		setLayout(null);
 		//set default values for what we're looking at
 		currentView = "World";
 		currentCountry = "none";
-		currentMapMode = MapMode.ECONOMIC;
 		
 		setBackground(Color.black);
+<<<<<<< HEAD
 		ImageIcon map = new ImageIcon("lifeExpectancyEdit.png"); 
 		setSize(map.getIconWidth(), map.getIconHeight());
 		
@@ -120,33 +171,104 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 		mapLabel.validate();
 		mapLabel.repaint();
+=======
+		setSize(1600, 500);
+>>>>>>> origin/Adam
 		
 		addMouseListener(this);
 		
-		changeContinent("World");//set up buttons for the current view
-	}
+		infoBox = new JPanel();
+		photoBox = new JPanel();
+		add(infoBox);
+		add(photoBox);
+		add(quizButton);
+		add(backButton);
+		
+		infoBox.setBounds(0, 500, 1200, 300);
+		infoBox.setBackground(Color.WHITE);
+		infoBox.setOpaque(true);
+		repaint();
+	}//setUp
 	
 	/**
 	 * Helper function that performs all the work (UI, etc.) to change the view
 	 * to a given continent.
 	 * 
 	 * @param continentToChangeTo the new continent to view
+	 * @throws IOException 
 	 */
-	public void changeContinent(String continentToChangeTo){
+	public void changeContinent(String continentToChangeTo) throws IOException{
 		//clear screen of buttons
 		sweepButtons();
-		
 		currentView = continentToChangeTo;
 		
 		//note that we've now seen this new continent
 		currentStudent.addContinentSeen(continentToChangeTo, currentMapMode);
 		
-		//TODO: load new image here as appropriate
+		//grab the correct file
+		if(currentMapMode == MapMode.ECONOMIC){
+			if(continentToChangeTo.equals("World")){
+				map = ImageIO.read(new File("EconMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if going back to World
+			if(continentToChangeTo.equals("Africa")){
+				map = ImageIO.read(new File("EconAfrica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if EconAfrica
+			if(continentToChangeTo.equals("Asia")){
+				map = ImageIO.read(new File("EconAsia.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if EconAsia
+			if(continentToChangeTo.equals("Europe")){
+				map = ImageIO.read(new File("EconEurope.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if EconEurope
+			if(continentToChangeTo.equals("North America")){
+				map = ImageIO.read(new File("EconNorthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if EconNorthAmerica
+			if(continentToChangeTo.equals("Oceania")){
+				map = ImageIO.read(new File("EconOceania.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if EconAsia
+			if(continentToChangeTo.equals("South America")){
+				map = ImageIO.read(new File("EconSouthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if EconSouthAmerica
+		}//if MapMode is economic
+		else{
+			if(continentToChangeTo.equals("World")){
+				map = ImageIO.read(new File("HealthMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if going back to World
+			if(continentToChangeTo.equals("Africa")){
+				map = ImageIO.read(new File("HealthAfrica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if HealthAfrica
+			if(continentToChangeTo.equals("Asia")){
+				map = ImageIO.read(new File("HealthAsia.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if HealthAsia
+			if(continentToChangeTo.equals("Europe")){ 
+				map = ImageIO.read(new File("HealthEurope.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if HealthEurope
+			if(continentToChangeTo.equals("North America")){
+				map = ImageIO.read(new File("HealthNorthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if HealthNorthAmerica
+			if(continentToChangeTo.equals("Oceania")){
+				map = ImageIO.read(new File("HealthOceania.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if HealthAsia
+			if(continentToChangeTo.equals("South America")){
+				map = ImageIO.read(new File("HealthSouthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+			}//if HealthSouthAmerica
+		}//if MapMode is Health
 		//TODO: update the InfoBox here as well
+		//updateInfoBox(worldData.getDataForContinent(currentView));
+		
+		repaint();
 		
 		//set up new buttons
 		layoutButtons();
 	}
+	
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		if (map != null){
+			int x = 0;
+			int y = 0;
+			g.drawImage(map,x,y,this);
+		}//if image not null
+	}//paint
 	
 	/**
 	 * Remove all the country buttons currently on the screen.
@@ -158,7 +280,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			
 			//remove each one from the panel
 			for(int i = 0; i < countriesToSweep.size(); i++){
-				remove(buttons.get(countriesToSweep.get(i)));	
+				remove(buttons.get(countriesToSweep.get(i)));
 			}
 		}
 	}
@@ -183,16 +305,16 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				int yPositionForButton = countryToLayOut.getButtonYPosition();
 				
 				//set coordinate of button
+				buttons.get(countriesToLoad.get(i)).setSize(20, 20);
 				buttons.get(countriesToLoad.get(i)).setLocation(xPositionForButton, yPositionForButton);
 				
 				//add it to the panel
 				add(buttons.get(countriesToLoad.get(i)));
-				
-				//make it visible
 				buttons.get(countriesToLoad.get(i)).setVisible(true);
+				repaint();
 			}
 		} 
-	}
+	}//layoutButtons
 	
 	/**
 	 * Helper function that performs all the work (UI, etc.) to change the view
@@ -209,6 +331,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//note that we've seen this new country
 
 		currentStudent.addCountrySeen(currentCountry, currentView, currentMapMode);
+<<<<<<< HEAD
 
 		//TODO: load all the map images here
 		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
@@ -216,6 +339,47 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		JLabel mapLabel = new JLabel();
 		mapLabel.setIcon(map);
 
+=======
+	}
+	
+	public void writeInfoOnBottom(String stringToDisplay){
+		//remove the old TextArea, so we can add the new one below to a clean slate
+		infoBox.removeAll();
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setText(stringToDisplay);
+	    textArea.setEditable(false);
+	    textArea.setWrapStyleWord(true);
+	    textArea.setLineWrap(true);
+	    textArea.setForeground(new Color(0,0,0));
+	    textArea.setOpaque(false);
+	    textArea.setVisible(true);
+	    JScrollPane scrollPane = new JScrollPane(textArea);
+	    scrollPane.setPreferredSize(new Dimension(700, 225));
+	    scrollPane.setOpaque(false);
+	    scrollPane.getViewport().setOpaque(false);
+	    scrollPane.setBorder(BorderFactory.createEmptyBorder());
+	    infoBox.setBounds(0, 500, 800, 300);
+	    infoBox.add(scrollPane);
+	    scrollPane.setVisible(true);
+		revalidate();
+	}
+	
+	public void showPicture(String stringPath){
+		try {
+			photoImage = ImageIO.read(new File(stringPath)).getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		imageIcon = new ImageIcon(photoImage);
+		imageLabel.setIcon(imageIcon);
+		imageLabel.setVisible(true);
+		imageLabel.setBounds(900, 550, 250, 250);
+		
+		photoBox.setBounds(800,500,400,300);
+		photoBox.add(imageLabel);
+>>>>>>> origin/Adam
 	}
 	
 	/**
@@ -224,52 +388,56 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @param newCountry the data to display about the given country
 	 */
 	private void updateInfoBox(CountryData newCountry){
-		//TODO: implement this once layout is done
-		
-		//clear the infobox
-		
-		//extract data from the CountryData and format it appropriately
-		//then add it
-		
+
+		infoBox.removeAll();
+
 		if(currentMapMode == MapMode.ECONOMIC){
-			JLabel gdpPerCapita = new JLabel();
-			JLabel gdpRealGrowthRate = new JLabel();
-			JLabel agriculturePercentageOfGdp = new JLabel();
-			JLabel economicFreedomScore= new JLabel();
-			JLabel lowestTenIncome = new JLabel();
-			JLabel highestTenIncome = new JLabel();
-			JLabel majorIndustries = new JLabel();
-			JLabel unemploymentRate = new JLabel();
-			JLabel majorEconomicIssue = new JLabel();
-			JLabel makeADifferenceEconomic = new JLabel();
-			
-			//CountryData workingCountry = worldData.getDataForCountry(currentCountry);
-			gdpPerCapita.setText(newCountry.getGpdPerCapita());
-			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
-			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
-			economicFreedomScore.setText(newCountry.getEconomicFreedomScore());
-			lowestTenIncome.setText(newCountry.getLowestTenIncome());
-			highestTenIncome.setText(newCountry.getHighestTenIncome());
-			majorIndustries.setText(newCountry.getMajorIndustries());
-			unemploymentRate.setText(newCountry.getUnemploymentRate());
-			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
-			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
-			
+
+			String stringToDisplay = newCountry.getCountryName() + "\n\nGDP Per Capita:  " +
+					newCountry.getGpdPerCapita() + "\n\nGDP Real Growth Rate:  " + 
+					newCountry.getGdpRealGrowthRate() + "\n\nAgriculture as a percentage of GDP:  " + 
+					newCountry.getagriculturePercentageOfGdp() + "\n\nEconomic Freedom Score:  " +
+					newCountry.getEconomicFreedomScore() + "\n\nLowest Ten Percent's Income as Percentage of National Income:  " +
+					newCountry.getLowestTenIncome() + "\n\nHighest Ten Percent's Income as Percentage of National Income:  " + 
+					newCountry.getHighestTenIncome() + "\n\nMajor Industries:  " + newCountry.getMajorIndustries() + 
+					"\n\nUnemployment Rate:  " + newCountry.getUnemploymentRate() +
+					"\n\nMajor Economic Issue:  " + newCountry.getMajorEconomicIssue() + 
+					"\n\nHow you can make a difference:  "+ newCountry.getMakeADifferenceEconomic();
+			writeInfoOnBottom(stringToDisplay);
+			showPicture(newCountry.getPhotoPathEconomic());
+
 		}//if Economic mode
-		
-		
-	}
+
+		if(currentMapMode == MapMode.HEALTH){
+
+			String stringToDisplay = newCountry.getCountryName() + "\n\n" +
+					"Life Expectancy:  " + newCountry.getLifeExpectancy() +
+					"\n\nMaternal Mortality Rate:  " + newCountry.getMaternalMortalityRate() +
+					"\n\nInfant Mortality Rate:  " + newCountry.getInfantMortalityRate() +
+					"\n\nPercentage of Children Underweight:  " + newCountry.getChildrenUnderweightPercentage() +
+					"\n\nPhysician Density:  " + newCountry.getPhysicianDensity() +
+					"\n\nRisk of Infectious Disease " + newCountry.getRiskOfInfectiousDisease() +
+					"\n\nMost Common Diseases:  " + newCountry.getMajorHealthIssue() + 
+					"\n\nHow you can make a difference:  " + newCountry.getMakeADifferenceHealth();
+			writeInfoOnBottom(stringToDisplay);
+			showPicture(newCountry.getPhotoPathHealth());
+
+		}//if Health mode
+	}//updateInfoBox
 	
-	private void setUpNextQuestion(){
+	private void setUpNextQuestion() throws IOException{
 		if(quizRunner.questionsRemainToAsk()){//if there are more questions to ask
 			String question = quizRunner.getQuestion();
-			//TODO: display the question in the UI
+			infoBox.removeAll();
+			photoBox.removeAll();
+			writeInfoOnBottom(question);
+			repaint();
 		} else {//the quiz is over
 			endQuiz("You have successfully completed the quiz!");
 		}
 	}
 	
-	private void endQuiz(String quizEndMessage){
+	private void endQuiz(String quizEndMessage) throws IOException{
 		//show a message to the user
 		JOptionPane.showMessageDialog(this, quizEndMessage, "Quiz ended", JOptionPane.INFORMATION_MESSAGE);
 		
@@ -284,6 +452,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//reset the UI and put it back in explore mode
 		changeContinent(currentView);
+		writeInfoOnBottom("Your results on the quiz:\n" + quizRunner.getQuizEndReport());
 	}
 	
 	/**
@@ -293,14 +462,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e){
-		System.out.println("Event " + e.toString() + " did the thing!");
-		
 		//if the button clicked was the button for a country and we're not in a quiz
 		//change the view to that country
 		if(!quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast works…make all buttons AppButtons to ensure that
 			String countryClicked = ((AppButton) e.getSource()).getId();
-			
-			//update appropriately
+
+			//update things appropriately
 			changeCountry(countryClicked);
 		} else if(quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//country button clicked during a quiz
 			//check the answer
@@ -312,49 +479,77 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				JOptionPane.showMessageDialog(this, "Correct answer!", "Correct", JOptionPane.INFORMATION_MESSAGE);
 				
 				//now move on to the next question
-				setUpNextQuestion();
+				try {
+					//System.out.println("Next question pre");
+					setUpNextQuestion();
+					//System.out.println("Next question post");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			} else {//tell them they screwed up
-				JOptionPane.showMessageDialog(this, "Incorrect answer!", "Incorrect", JOptionPane.WARNING_MESSAGE);
+				String outputMessage = "Incorrect answer!\n\n(You have " + quizRunner.getRemainingAttempts() + " remaining attempts.)";
+				JOptionPane.showMessageDialog(this, outputMessage, "Incorrect", JOptionPane.WARNING_MESSAGE);
 				
 				if(!quizRunner.hasRemainingAttempts()){//if they've run out of attempts on this question
 					//alert the user
-					String outputMessage = "You've run out of attempts to answer this question.\nThe quiz will now move onto the next question.";
-					JOptionPane.showMessageDialog(this, outputMessage, "No more attempts", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "You've run out of attempts to answer this question.\nThe quiz will now move onto the next question.", "No more attempts", JOptionPane.INFORMATION_MESSAGE);
 					
 					//move onto the next question
-					setUpNextQuestion();
+					try {
+						setUpNextQuestion();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();//see what happened
+					}
 				}
 			}
 		} else if(e.getSource().equals(backButton)){//back button
-			if(!currentView.equals("World")){//we only need to change things if we're not in world view
-				//update appropriately
-				changeContinent("World");
+			if(!quizRunner.getQuizRunning()){//the back button should only work if the user's not in a quiz
+				if(!currentView.equals("World")){//we only need to change things if we're not in world view
+					//update appropriately
+					try {
+						changeContinent("World");
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
 			}
-		} else if(e.getSource().equals(quizButton)){//start/stop quiz
+		} else if(e.getSource().equals(quizButton)){
 			if(quizRunner.getQuizRunning()){//if they're in a quiz
 				if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
-					String outputMessage = "You must finish the pre-test first!";
-					JOptionPane.showMessageDialog(this, outputMessage, "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(this, "You must finish the pre-test first!", "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
 				} else {
-					endQuiz("Thanks for playing!");
+					try {
+						endQuiz("Thanks for playing!");
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
 				//first check to make sure they've actually looked at countries, so we have something to test them on
-				if(currentView != "World" && !currentStudent.hasSeenCountriesInContinent(currentView, currentMapMode)){
+				if(currentView != "World" && !currentStudent.hasSeenCountriesInContinent(currentView, currentMapMode)){//if they're looking at a continent
 					String outputMessage = "You haven't studied any countries in " + currentView + ",\nso you can't take a quiz on it yet!";
 					JOptionPane.showMessageDialog(this, outputMessage, "Warning!", JOptionPane.WARNING_MESSAGE);
-				} else if(currentView == "World" && !currentStudent.hasSeenCountriesInContinent("World", currentMapMode)){
+				} else if(currentView == "World" && !currentStudent.hasSeenCountriesInContinent("World", currentMapMode)){//if they're looking at the world
 					String outputMessage = "You haven't studied any countries,\nso you can't take a quiz yet!";
 					JOptionPane.showMessageDialog(this, outputMessage, "Warning!", JOptionPane.WARNING_MESSAGE);
-				} else {
+				} else {//they've looked at countries so we can start a quix
 					//change the label on the button
 					quizButton.setText("End Quiz");
-					
+
 					//start the quiz
 					quizRunner.startQuiz(currentView, currentMapMode);
-					
+
 					//load the first question
-					setUpNextQuestion();
+					try {
+						setUpNextQuestion();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}
 		}
@@ -372,18 +567,21 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			//get the locations of the click
 			int mouseX = e.getX();
 			int mouseY = e.getY();
-			
 			//check it against the bounding box of each country
 			String continentNames[] = worldData.getContinentList();
+			
 			for(int i = 0; i < continentNames.length; i++){
 				if(!continentNames[i].equals("World")){//don't check against the world's bounding box
 					//get data on the continent
 					ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
 					
 					if(continentData.isPointInBounds(mouseX, mouseY)){//if we're inside this continent
-						//update appropriately
-						changeContinent(continentNames[i]);
-						
+						try {
+							changeContinent(continentNames[i]);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						//stop checking by terminating the for loop
 						break;
 					}
@@ -436,6 +634,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//Does nothing; required by interface
 	}
 	
+<<<<<<< HEAD
 
 	/**
 	 * Returns the data for the current user of the program.
@@ -447,3 +646,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
 
 }//class MapPanel
+=======
+}//class MapPanel
+>>>>>>> origin/Adam
