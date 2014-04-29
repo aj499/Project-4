@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import com.sun.java.util.jar.pack.Package.File;
 
 public class DataManager {
 	private HashMap<String, CountryData> countryData;
@@ -129,10 +128,6 @@ public class DataManager {
 		int range = maximum - minimum + 1;
 		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;
 		return econVariableList.get(indexToChooseVariableToAskAbout);
-	}
-	
-	public static void main(String args[]){
-		DataManager dm = new DataManager("CountryData.txt");
 	}
 	
 	

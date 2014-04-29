@@ -21,7 +21,6 @@ public class ContinentData extends CountryData{
 		countryList.add(countryName);
 	}
 	
-	
 	public void setLeftBound(int newLeftBound){
 		leftBound = newLeftBound;
 	}
