@@ -179,6 +179,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	 * 
 	 * @param e the event caused by the click on the button clicked
 	 */
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(startButton)){//Start button
@@ -187,6 +188,21 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 					goToMapPanel(mapType);	
 				} catch(IOException exceptionThrown){
 					//TODO: something here!
+
+	public class startAction implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(mapType != null){
+				try {
+					setSize(width - 175, height);
+					if(mapType == mapType.HEALTH){
+						System.out.println("YAY");
+					}
+					goToMapPanel(mapType);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+
 				}
 				
 			} else {//if no option was selected, alert the user
@@ -205,6 +221,13 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		} else if(e.getSource().equals(healthButton)){//Health radio button
 			mapType = MapMode.HEALTH;
 		}
+
+		}//actionPerformed
+	}//class startAction
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		
 	}//general actionPerformed
 	
 	
