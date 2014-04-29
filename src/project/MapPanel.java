@@ -69,6 +69,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	//JLabels for the infoBox
 	//JPanel holding all of the country information
 	private JPanel infoBox;
+	private JPanel infoBox2;
 	private JPanel photoBox;
 
 	//image
@@ -107,7 +108,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			buttons.put(countryButtonList[i], new AppButton(countryButtonList[i]));
 			//add the ActionListener to the button
 			buttons.get(countryButtonList[i]).addActionListener(this);
-		}
+		}//for
 		
 		//set up a QuizRunner and basic state
 		//String initialQuizTopic = "North America"; //TODO:= something derived from StudentData
@@ -117,7 +118,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//delegate to helper function for the heavy-duty UI setup
 		setUp(currentMapMode);
-	}
+	}//mapPanel
 	
 	/**
 	 * Does Swing set up for a MapPanel.
@@ -128,7 +129,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 */
 	private void setUp(MapMode mapMode){
 		
-		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
+		//Checks to see which mode the user selected to choose which map image to display
 		try{
 			if(mapMode == MapMode.ECONOMIC){
 				map = ImageIO.read(new File("EconMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
@@ -138,37 +139,45 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			}//else
 		} catch(IOException e){
 			System.out.println("Loading map failed! Sorry.");
-		}
+		}//try
 		
 		repaint();
 		
+		//initializes the quiz button
 		quizButton = new AppButton();
 		quizButton.setText("Start Quiz");
 		quizButton.setBounds(800, 25, 100, 50);
 		quizButton.addActionListener(this);
 
+		//initializes the back button
 		backButton = new AppButton();
 		backButton.setText("Back");
 		backButton.setBounds(350, 25, 100, 50);
 		backButton.addActionListener(this);
 		
+		//allows for coordinate layout control
 		setLayout(null);
 		//set default values for what we're looking at
 		currentView = "World";
 		currentCountry = "none";
-		
 		setBackground(Color.black);
 		setSize(1600, 500);
 		
+		//makes the panel itself a mouse listener
 		addMouseListener(this);
 		
+		//initializes the info and photobox
 		infoBox = new JPanel();
+		infoBox2 = new JPanel();
 		photoBox = new JPanel();
+		//adds everything to the panel
 		add(infoBox);
+		add(infoBox2);
 		add(photoBox);
 		add(quizButton);
 		add(backButton);
 		
+		//initializes instructions to display in the infobox
 		String instructionString = "Welcome to the World Map Explorer! Please press a continent to view its data and countries. If you wish to be quizzed on the information you have learned, press start quiz while looking at a specific continent. Once you have finished the quiz, feel free to explore other countries and take new quizzes.";
 		JTextArea instructions = new JTextArea();
 		instructions.setText(instructionString);
@@ -184,14 +193,18 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	    scrollPane.setOpaque(false);
 	    scrollPane.getViewport().setOpaque(false);
 	    scrollPane.setBorder(BorderFactory.createEmptyBorder());
-	    infoBox.setBounds(0, 500, 800, 300);
+	    
+	    //infoBox.setBounds(0, 500, 800, 300);
 	    infoBox.add(scrollPane);
 	    scrollPane.setVisible(true);
 		revalidate();
 		
-		infoBox.setBounds(0, 500, 1200, 300);
+		infoBox.setBounds(0, 500, 1200, 150);
 		infoBox.setBackground(Color.WHITE);
 		infoBox.setOpaque(true);
+		infoBox2.setBounds(0, 650, 1200, 150);
+		infoBox2.setBackground(Color.WHITE);
+		infoBox2.setOpaque(true);
 		repaint();
 	}//setUp
 	
@@ -266,6 +279,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		layoutButtons();
 	}
 	
+	/**
+	 * paint
+	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		if (map != null){
@@ -286,9 +302,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			//remove each one from the panel
 			for(int i = 0; i < countriesToSweep.size(); i++){
 				remove(buttons.get(countriesToSweep.get(i)));
-			}
-		}
-	}
+			}//for
+		}//if
+	}//sweepButtons
 	
 	/**
 	 * Lays out the buttons for the currently visible continent's countries.
@@ -317,8 +333,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				add(buttons.get(countriesToLoad.get(i)));
 				buttons.get(countriesToLoad.get(i)).setVisible(true);
 				repaint();
-			}
-		} 
+			}//for
+		}//if
 	}//layoutButtons
 	
 	/**
@@ -332,10 +348,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//update the info displayed in the info box
 		updateInfoBox(worldData.getDataForCountry(currentCountry));
+		updateInfoBox2(worldData.getDataForCountry(currentCountry));
 		
 		//note that we've seen this new country
 		currentStudent.addCountrySeen(currentCountry, currentView, currentMapMode);
-	}
+	}//changeCountry
 	
 	public void writeInfoOnBottom(String stringToDisplay){
 		//remove the old TextArea, so we can add the new one below to a clean slate
@@ -354,11 +371,34 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	    scrollPane.setOpaque(false);
 	    scrollPane.getViewport().setOpaque(false);
 	    scrollPane.setBorder(BorderFactory.createEmptyBorder());
-	    infoBox.setBounds(0, 500, 800, 300);
+	    infoBox.setBounds(0, 500, 800, 150);
 	    infoBox.add(scrollPane);
 	    scrollPane.setVisible(true);
 		revalidate();
-	}
+	}//writeInfoOnButtom
+	
+	public void writeInfo2OnBottom(String stringToDisplay){
+		//remove the old TextArea, so we can add the new one below to a clean slate
+		infoBox2.removeAll();
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setText(stringToDisplay);
+	    textArea.setEditable(false);
+	    textArea.setWrapStyleWord(true);
+	    textArea.setLineWrap(true);
+	    textArea.setForeground(new Color(0,0,0));
+	    textArea.setOpaque(false);
+	    textArea.setVisible(true);
+	    JScrollPane scrollPane = new JScrollPane(textArea);
+	    scrollPane.setPreferredSize(new Dimension(700, 225));
+	    scrollPane.setOpaque(false);
+	    scrollPane.getViewport().setOpaque(false);
+	    scrollPane.setBorder(BorderFactory.createEmptyBorder());
+	    infoBox2.setBounds(0, 650, 800, 150);
+	    infoBox2.add(scrollPane);
+	    scrollPane.setVisible(true);
+		revalidate();
+	}//writeInfoOnButtom
 	
 	public void showPicture(String stringPath){
 		try {
@@ -366,15 +406,15 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}//catch
 		imageIcon = new ImageIcon(photoImage);
 		imageLabel.setIcon(imageIcon);
 		imageLabel.setVisible(true);
-		imageLabel.setBounds(900, 550, 250, 250);
+		imageLabel.setBounds(900, 500, 250, 250);
 		
 		photoBox.setBounds(800,500,400,300);
 		photoBox.add(imageLabel);
-	}
+	}//showPicture
 	
 	/**
 	 * Fill the InfoBox with the given data on a country.
@@ -395,8 +435,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					newCountry.getLowestTenIncome() + "\n\nHighest Ten Percent's Income as Percentage of National Income:  " + 
 					newCountry.getHighestTenIncome() + "\n\nMajor Industries:  " + newCountry.getMajorIndustries() + 
 					"\n\nUnemployment Rate:  " + newCountry.getUnemploymentRate() +
-					"\n\nMajor Economic Issue:  " + newCountry.getMajorEconomicIssue() + 
-					"\n\nHow you can make a difference:  "+ newCountry.getMakeADifferenceEconomic();
+					"\n\nMajor Economic Issue:  " + newCountry.getMajorEconomicIssue();
 			writeInfoOnBottom(stringToDisplay);
 			showPicture(newCountry.getPhotoPathEconomic());
 
@@ -419,6 +458,25 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		}//if Health mode
 	}//updateInfoBox
 	
+	private void updateInfoBox2(CountryData newCountry){
+
+		infoBox2.removeAll();
+
+		if(currentMapMode == MapMode.ECONOMIC){
+
+			String stringToDisplay = "\n\nHow you can make a difference:  "+ newCountry.getMakeADifferenceEconomic();
+			writeInfo2OnBottom(stringToDisplay);
+
+		}//if Economic mode
+
+		if(currentMapMode == MapMode.HEALTH){
+
+			String stringToDisplay = "\n\nHow you can make a difference:  " + newCountry.getMakeADifferenceHealth();
+			writeInfo2OnBottom(stringToDisplay);
+
+		}//if Health mode
+	}//updateInfoBox
+	
 	private void setUpNextQuestion() throws IOException{
 		if(quizRunner.questionsRemainToAsk()){//if there are more questions to ask
 			String question = quizRunner.getQuestion();
@@ -428,8 +486,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			repaint();
 		} else {//the quiz is over
 			endQuiz("You have successfully completed the quiz!");
-		}
-	}
+		}//else
+	}//setUpNextQuestion
 	
 	private void endQuiz(String quizEndMessage) throws IOException{
 		//show a message to the user
@@ -447,7 +505,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//reset the UI and put it back in explore mode
 		changeContinent(currentView);
 		writeInfoOnBottom("Your results on the quiz:\n" + quizRunner.getQuizEndReport());
-	}
+	}//endQuiz
 	
 	/**
 	 * Respond to misc. events generated by the UI.
@@ -480,7 +538,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}
+				}//catch
 			} else {//tell them they screwed up
 				String outputMessage = "Incorrect answer!\n\n(You have " + quizRunner.getRemainingAttempts() + " remaining attempts.)";
 				JOptionPane.showMessageDialog(this, outputMessage, "Incorrect", JOptionPane.WARNING_MESSAGE);
@@ -495,9 +553,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();//see what happened
-					}
-				}
-			}
+					}//catch
+				}//if
+			}//else
 		} else if(e.getSource().equals(backButton)){//back button
 			if(!quizRunner.getQuizRunning()){//the back button should only work if the user's not in a quiz
 				if(!currentView.equals("World")){//we only need to change things if we're not in world view
@@ -507,9 +565,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
-					}
-				}
-			}
+					}//catch
+				}//if
+			}//if
 		} else if(e.getSource().equals(quizButton)){
 			if(quizRunner.getQuizRunning()){//if they're in a quiz
 				if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
@@ -520,8 +578,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
-					}
-				}
+					}//catch
+				}//else
 			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
 				//first check to make sure they've actually looked at countries, so we have something to test them on
 				if(currentView != "World" && !currentStudent.hasSeenCountriesInContinent(currentView, currentMapMode)){//if they're looking at a continent
@@ -543,11 +601,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
-					}
-				}
-			}
-		}
-	}
+					}//catch
+				}//else
+			}//else if
+		}//else if
+	}//actionPerformed
 
 	/**
 	 * Respond to mouse clicks.
@@ -575,14 +633,14 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
-						}
+						}//catch
 						//stop checking by terminating the for loop
 						break;
-					}
-				}
-			}
-		}
-	}
+					}//if
+				}//if
+			}//for
+		}//if
+	}//mouseClicked
 
 	/**
 	 * Respond to the mouse entering this component.
@@ -593,7 +651,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public void mouseEntered(MouseEvent e){
 		//Auto-generated method stub
 		//Does nothing; required by interface
-	}
+	}//mouseEntered
 
 	/**
 	 * Respond to the mouse exiting this component.
@@ -604,7 +662,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public void mouseExited(MouseEvent e){
 		//Auto-generated method stub
 		//Does nothing; required by interface
-	}
+	}//mouseExited
 
 	/**
 	 * Respond to mouse presses.
@@ -615,7 +673,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public void mousePressed(MouseEvent e){
 		//Auto-generated method stub
 		//Does nothing; required by interface		
-	}
+	}//mousePressed
 
 	/**
 	 * Respond to mouse releases.
@@ -626,6 +684,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public void mouseReleased(MouseEvent e){
 		//Auto-generated method stub
 		//Does nothing; required by interface
-	}
+	}//mouseReleased
 	
 }//class MapPanel

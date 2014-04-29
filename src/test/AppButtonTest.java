@@ -28,6 +28,6 @@ public class AppButtonTest {
 		
 		assertNotNull(ab);
 		assertTrue(ab.getId().equals("TestButton"));
-	}
+	}//testNonDefaultConstructor
 
-}
+}//AppButtonTest

@@ -37,8 +37,8 @@ public class StudentData {
 		for(int i = 0; i < continents.length; i++){
 			countriesSeenInContinentHealth.put(continents[i], false);
 			countriesSeenInContinentEconomic.put(continents[i], false);
-		}
-	}
+		}//for
+	}//constructor
 
 	/**
 	 * Indicate that the student has looked at the info for the given country
@@ -56,8 +56,8 @@ public class StudentData {
 			countriesSeenEconomic.add(country);
 			countriesSeenInContinentEconomic.put(continentContainingCountry, true);
 			countriesSeenInContinentEconomic.put("World", true);
-		}
-	}
+		}//else if
+	}//addCountrySeen
 
 	/**
 	 * Indicate that the student has looked at the info for the given continent
@@ -71,8 +71,8 @@ public class StudentData {
 			continentsSeenHealth.add(continent);
 		} else if(modeSeenIn == MapMode.ECONOMIC && !continentsSeenEconomic.contains(continent)){
 			continentsSeenEconomic.add(continent);
-		}
-	}
+		}//else if
+	}//addContinentSeen
 
 	/**
 	 * Returns the name of the student.
@@ -80,7 +80,7 @@ public class StudentData {
 	 */
 	public String getName(){
 		return name;
-	}
+	}//getName
 
 	/**
 	 * Returns a list of the countries seen by the student in health mode.
@@ -88,7 +88,7 @@ public class StudentData {
 	 */
 	public Vector<String> getCountriesSeenHealth(){
 		return countriesSeenHealth;
-	}
+	}//getCountriesSeenHealth
 
 	/**
 	 * Returns a list of the countries seen by the student in economic mode.
@@ -96,7 +96,7 @@ public class StudentData {
 	 */
 	public Vector<String> getCountriesSeenEconomic(){
 		return countriesSeenEconomic;
-	}
+	}//getCountriesSeenEconomic
 
 	/**
 	 * Returns a list of the continents seen by the student in health mode.
@@ -104,7 +104,7 @@ public class StudentData {
 	 */
 	public Vector<String> getContinentsSeenHealth(){
 		return continentsSeenHealth;
-	}
+	}//getContinentsSeenHealth
 
 	/**
 	 * Returns a list of the continents seen by the student in economic mode.
@@ -112,7 +112,7 @@ public class StudentData {
 	 */
 	public Vector<String> getContinentsSeenEconomic(){
 		return continentsSeenEconomic;
-	}
+	}//getContinentsSeenEconomic
 
 	/**
 	 * Returns whether or not the student has looked at a given country in the indicated mode.
@@ -129,8 +129,8 @@ public class StudentData {
 			return countriesSeenEconomic.contains(countryToCheck);
 		default:
 			return false; //backup, unreachable; to make Eclipse happy
-		}
-	}
+		}//switch
+	}//hasCountryBeenSeen
 
 	/**
 	 * Returns whether or not the student has looked at a given continent in the indicated mode.
@@ -148,9 +148,9 @@ public class StudentData {
 			return continentsSeenEconomic.contains(continentToCheck);
 		default:
 			return false; //backup, unreachable; to make Eclipse happy
-		}
-	}
-
+		}//switch
+	}//hasContinentBeenSeen
+	
 	/**
 	 * Returns whether or not the student has seen any countries in the given continent in the indicated mode.
 	 * 
@@ -166,11 +166,10 @@ public class StudentData {
 			return countriesSeenInContinentEconomic.get(continentToCheck);
 		default:
 			return false; //backup, unreachable; to make Eclipse happy
-		}
-	}
+		}//switch
+	}//hasSeenCountriesInContinent
 	
 	public String getPreTestTopic(){
 		return preTestTopic;
-	}
-
-}
+	}//getPreTestTopic
+}//StudentData class

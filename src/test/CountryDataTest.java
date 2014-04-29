@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import project.CountryData;
 
-
 public class CountryDataTest {
 	
 	@Test
@@ -532,4 +531,4 @@ public class CountryDataTest {
 		//test to see if the question that it generates matches any of the choices i put
 	}
 
-}
+}//CountryDataTest
