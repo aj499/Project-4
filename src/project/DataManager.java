@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import com.sun.java.util.jar.pack.Package.File;
+
 public class DataManager {
 	private HashMap<String, CountryData> countryData;
 	private HashMap<String, ContinentData> continentData;
@@ -20,9 +22,9 @@ public class DataManager {
 	 * @param newFileLocation
 	 */
 	DataManager(String newFileLocation){
+
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
-		
 		dataLoaded=false;
 		fileLocation = newFileLocation;
 		parseData();
@@ -52,7 +54,6 @@ public class DataManager {
 					currentContinent.setRightBound(Integer.parseInt(bufferedReader.readLine()));
 					currentContinent.setTopBound(Integer.parseInt(bufferedReader.readLine()));
 					currentContinent.setBottomBound(Integer.parseInt(bufferedReader.readLine()));
-
 					currentLine = bufferedReader.readLine();
 					while ((currentLine = bufferedReader.readLine()).length() > 0){
 						currentContinent.addToCountryList(currentLine);
@@ -64,13 +65,11 @@ public class DataManager {
 				else{
 					CountryData currentCountry = new CountryData();
 					currentCountry = new CountryData();
-					
 					currentCountry.setCountryName(currentLine);
 					currentCountry.setAll(bufferedReader);
 					currentCountry.setButtonXPosition(Integer.parseInt(bufferedReader.readLine()));
 					currentCountry.setButtonYPosition(Integer.parseInt(bufferedReader.readLine()));
 					countryData.put(currentCountry.getCountryName(), currentCountry);
-					
 					bufferedReader.readLine();
 				}
 			}
@@ -83,9 +82,6 @@ public class DataManager {
 			e.printStackTrace();
 		}//catch
 	}
-
-
-
 
 
 	/**
@@ -134,5 +130,11 @@ public class DataManager {
 		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;
 		return econVariableList.get(indexToChooseVariableToAskAbout);
 	}
+	
+	public static void main(String args[]){
+		DataManager dm = new DataManager("CountryData.txt");
+	}
+	
+	
 	
 }
