@@ -70,6 +70,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private Image photoImage;
 	private ImageIcon imageIcon;
 	
+	//labels
+	private JLabel currentModeLabel;//quiz mode or explore mode
+	
 	/* --||-- END VARIABLES --||-- */
 	
 	/**
@@ -176,6 +179,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		infoBox.setBounds(0, 500, 1200, 300);
 		infoBox.setBackground(Color.WHITE);
 		infoBox.setOpaque(true);
+		
+		currentModeLabel = new JLabel("EXPLORE");
+		currentModeLabel.setFont(getFont().deriveFont(24f));
+		currentModeLabel.setBounds(10, 10, 150, 30);
+		add(currentModeLabel);
+		
 		repaint();
 	}//setUp
 	
@@ -359,7 +368,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		try {
 			photoImage = ImageIO.read(new File(stringPath)).getScaledInstance(250, 250, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		imageIcon = new ImageIcon(photoImage);
@@ -441,6 +449,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//reset the UI and put it back in explore mode
 		changeContinent(currentView);
+		currentModeLabel.setText("EXPLORE");
 		writeInfoOnBottom("Your results on the quiz:\n" + quizRunner.getQuizEndReport());
 	}
 	
@@ -458,6 +467,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 			//update things appropriately
 			changeCountry(countryClicked);
+			
 		} else if(quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//country button clicked during a quiz
 			//check the answer
 			boolean answerWasCorrect = quizRunner.checkAnswer(((AppButton) e.getSource()).getId());
@@ -476,7 +486,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-			} else {//tell them they screwed up
+			} else {//they got it wrong, so tell them they screwed up
 				String outputMessage = "Incorrect answer!\n\n(You have " + quizRunner.getRemainingAttempts() + " remaining attempts.)";
 				JOptionPane.showMessageDialog(this, outputMessage, "Incorrect", JOptionPane.WARNING_MESSAGE);
 				
@@ -507,15 +517,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			}
 		} else if(e.getSource().equals(quizButton)){
 			if(quizRunner.getQuizRunning()){//if they're in a quiz
-				/*if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
-					JOptionPane.showMessageDialog(this, "You must finish the pre-test first!", "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
-				} else*/ {
-					try {
-						endQuiz("Thanks for playing!");
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+				try {
+					endQuiz("Thanks for playing!");
+				} catch (IOException e1) {
+					e1.printStackTrace();
 				}
 			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
 				//first check to make sure they've actually looked at countries, so we have something to test them on
@@ -528,6 +533,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				} else {//they've looked at countries so we can start a quix
 					//change the label on the button
 					quizButton.setText("End Quiz");
+					
+					//set the mode label in the top corner of the string
+					currentModeLabel.setText("QUIZ");
 
 					//start the quiz
 					quizRunner.startQuiz(currentView, currentMapMode);
