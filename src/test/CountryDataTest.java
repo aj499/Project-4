@@ -26,7 +26,7 @@ public class CountryDataTest {
 		
 		result= data.getCountryName();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -37,7 +37,7 @@ public class CountryDataTest {
 		
 		result= data.getCountryName();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -50,7 +50,7 @@ public class CountryDataTest {
 		
 		result= data.getGpdPerCapita();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -61,7 +61,7 @@ public class CountryDataTest {
 		
 		result= data.getGpdPerCapita();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -74,7 +74,7 @@ public class CountryDataTest {
 		
 		result= data.getGdpRealGrowthRate();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -85,7 +85,7 @@ public class CountryDataTest {
 		
 		result= data.getGdpRealGrowthRate();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -98,7 +98,7 @@ public class CountryDataTest {
 		
 		result= data.getagriculturePercentageOfGdp();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -109,7 +109,7 @@ public class CountryDataTest {
 		
 		result= data.getagriculturePercentageOfGdp();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -122,7 +122,7 @@ public class CountryDataTest {
 		
 		result= data.getEconomicFreedomScore();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	
@@ -134,7 +134,7 @@ public class CountryDataTest {
 		
 		result= data.getEconomicFreedomScore();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -147,7 +147,7 @@ public class CountryDataTest {
 		
 		result= data.getLowestTenIncome();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -158,7 +158,7 @@ public class CountryDataTest {
 		
 		result= data.getLowestTenIncome();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -171,18 +171,18 @@ public class CountryDataTest {
 		
 		result= data.getHighestTenIncome();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
 	public void gethighestTenIncomeTest(){
 		CountryData data= new CountryData();
 		String result;
-		String expectedResult = "no lowest ten income";
+		String expectedResult = "no highest ten income";
 		
 		result= data.getHighestTenIncome();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -195,7 +195,7 @@ public class CountryDataTest {
 		
 		result= data.getMajorIndustries();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -206,7 +206,7 @@ public class CountryDataTest {
 		
 		result= data.getMajorIndustries();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -219,7 +219,7 @@ public class CountryDataTest {
 		
 		result= data.getUnemploymentRate();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -230,7 +230,7 @@ public class CountryDataTest {
 		
 		result= data.getUnemploymentRate();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -243,7 +243,7 @@ public class CountryDataTest {
 		
 		result= data.getMajorEconomicIssue();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -254,7 +254,7 @@ public class CountryDataTest {
 		
 		result= data.getMajorEconomicIssue();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -267,7 +267,7 @@ public class CountryDataTest {
 		
 		result= data.getMakeADifferenceEconomic();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -278,7 +278,7 @@ public class CountryDataTest {
 		
 		result= data.getMakeADifferenceEconomic();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -291,18 +291,18 @@ public class CountryDataTest {
 		
 		result= data.getPhotoPathEconomic();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
 	public void getphotoPathEconomicTest(){
 		CountryData data= new CountryData();
 		String result;
-		String expectedResult = "can't make an economic difference";
+		String expectedResult = "no photo path economic";
 		
 		result= data.getPhotoPathEconomic();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -315,7 +315,7 @@ public class CountryDataTest {
 		
 		result= data.getLifeExpectancy();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -326,7 +326,7 @@ public class CountryDataTest {
 		
 		result= data.getLifeExpectancy();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -339,7 +339,7 @@ public class CountryDataTest {
 		
 		result= data.getMaternalMortalityRate();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -350,7 +350,7 @@ public class CountryDataTest {
 		
 		result= data.getMaternalMortalityRate();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -363,7 +363,7 @@ public class CountryDataTest {
 		
 		result= data.getInfantMortalityRate();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -374,7 +374,7 @@ public class CountryDataTest {
 		
 		result= data.getInfantMortalityRate();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -387,7 +387,7 @@ public class CountryDataTest {
 		
 		result= data.getChildrenUnderweightPercentage();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -398,7 +398,7 @@ public class CountryDataTest {
 		
 		result= data.getChildrenUnderweightPercentage();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -411,7 +411,7 @@ public class CountryDataTest {
 		
 		result= data.getPhysicianDensity();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -422,7 +422,7 @@ public class CountryDataTest {
 		
 		result= data.getPhysicianDensity();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -435,7 +435,7 @@ public class CountryDataTest {
 		
 		result= data.getRiskOfInfectiousDisease();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -446,7 +446,7 @@ public class CountryDataTest {
 		
 		result= data.getRiskOfInfectiousDisease();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -459,7 +459,7 @@ public class CountryDataTest {
 		
 		result= data.getMostCommonDiseases();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -470,7 +470,7 @@ public class CountryDataTest {
 		
 		result= data.getMostCommonDiseases();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -483,7 +483,7 @@ public class CountryDataTest {
 		
 		result= data.getMakeADifferenceHealth();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -494,7 +494,7 @@ public class CountryDataTest {
 		
 		result= data.getMakeADifferenceHealth();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -507,7 +507,7 @@ public class CountryDataTest {
 		
 		result= data.getPhotoPathHealth();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test
@@ -518,7 +518,7 @@ public class CountryDataTest {
 		
 		result= data.getPhotoPathHealth();
 		
-		assertEquals(expectedResult, result, 0);
+		assertTrue(expectedResult.equals(result));
 	}
 	
 	@Test

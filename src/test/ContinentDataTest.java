@@ -26,7 +26,7 @@ public class ContinentDataTest {
 	}
 	
 	@Test
-	public void inBoundsTest() {
+	public void inBoundsTest() {//this also tests getters and setters
 		ContinentData data= new ContinentData();
 		data.setLeftBound(0);
 		data.setRightBound(200);
