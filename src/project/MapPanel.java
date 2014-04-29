@@ -63,9 +63,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
 	//JPanel holding all of the country information
 	private JPanel infoBox;
+	//JPanel showing how you can make a difference
 	private JPanel infoBox2;
+	//JPanel holding country photo
 	private JPanel photoBox;
-
+	
 	//images
 	private JLabel imageLabel;
 	private Image photoImage;
@@ -174,7 +176,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	    instructions.setVisible(true);
 	    instructions.setFont(instructions.getFont().deriveFont(23f));
 	    JScrollPane scrollPane = new JScrollPane(instructions);
-	    scrollPane.setPreferredSize(new Dimension(700, 225));
+	    scrollPane.setPreferredSize(new Dimension(700, 200));
 	    scrollPane.setOpaque(false);
 	    scrollPane.getViewport().setOpaque(false);
 	    scrollPane.setBorder(BorderFactory.createEmptyBorder());
@@ -184,10 +186,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	    scrollPane.setVisible(true);
 		revalidate();
 		
-		infoBox.setBounds(0, 500, 1200, 150);
+		infoBox.setBounds(0, 500, 1200, 200);
 		infoBox.setBackground(Color.WHITE);
 		infoBox.setOpaque(true);
-		infoBox2.setBounds(0, 650, 1200, 150);
+		infoBox2.setBounds(0, 700, 1200, 50);
 		infoBox2.setBackground(Color.WHITE);
 		infoBox2.setOpaque(true);
 		repaint();
@@ -260,10 +262,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//clear the info box at the bottom
 		writeInfoOnBottom("");
-		
 		//repaint
 		repaint();
-		
 		//set up new buttons
 		layoutButtons();
 	}
@@ -359,11 +359,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	    textArea.setOpaque(false);
 	    textArea.setVisible(true);
 	    JScrollPane scrollPane = new JScrollPane(textArea);
-	    scrollPane.setPreferredSize(new Dimension(700, 225));
+	    scrollPane.setPreferredSize(new Dimension(700, 200));
 	    scrollPane.setOpaque(false);
 	    scrollPane.getViewport().setOpaque(false);
 	    scrollPane.setBorder(BorderFactory.createEmptyBorder());
-	    infoBox.setBounds(0, 500, 800, 150);
+	    infoBox.setBounds(0, 500, 800, 200);
 	    infoBox.add(scrollPane);
 	    scrollPane.setVisible(true);
 		revalidate();
@@ -386,7 +386,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	    scrollPane.setOpaque(false);
 	    scrollPane.getViewport().setOpaque(false);
 	    scrollPane.setBorder(BorderFactory.createEmptyBorder());
-	    infoBox2.setBounds(0, 650, 800, 150);
+	    infoBox2.setBounds(0, 700, 800, 50);
 	    infoBox2.add(scrollPane);
 	    scrollPane.setVisible(true);
 		revalidate();
@@ -442,8 +442,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					"\n\nPercentage of Children Underweight:  " + newCountry.getChildrenUnderweightPercentage() +
 					"\n\nPhysician Density:  " + newCountry.getPhysicianDensity() +
 					"\n\nRisk of Infectious Disease " + newCountry.getRiskOfInfectiousDisease() +
-					"\n\nMost Common Diseases:  " + newCountry.getMajorHealthIssue() + 
-					"\n\nHow you can make a difference:  " + newCountry.getMakeADifferenceHealth();
+					"\n\nMost Common Diseases:  " + newCountry.getMajorHealthIssue();
 			writeInfoOnBottom(stringToDisplay);
 			showPicture(newCountry.getPhotoPathHealth());
 
