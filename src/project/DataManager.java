@@ -31,7 +31,6 @@ public class DataManager {
 
 
 	private void parseData(){
-
 		try{
 			String filename = fileLocation;
 			int numContinents = 6;
@@ -57,11 +56,11 @@ public class DataManager {
 					currentLine = bufferedReader.readLine();
 					while ((currentLine = bufferedReader.readLine()).length() > 0){
 						currentContinent.addToCountryList(currentLine);
-					}//while
+					}
 					
 					continentData.put(currentContinent.getCountryName(), currentContinent);
 					continentCounter++;	
-				}//if
+				}
 				else{
 					CountryData currentCountry = new CountryData();
 					currentCountry = new CountryData();
@@ -73,8 +72,8 @@ public class DataManager {
 					countryData.put(currentCountry.getCountryName(), currentCountry);
 					
 					bufferedReader.readLine();
-				}//else
-			}//while
+				}
+			}
 			
 			bufferedReader.close();
 			dataLoaded = true;
@@ -88,6 +87,7 @@ public class DataManager {
 
 
 
+
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -95,7 +95,7 @@ public class DataManager {
 	 */
 	public String[] getCountryList(){
 		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
-	}//getCountryList
+	}
 	
 	/**
 	 * Returns a list of all the continents in the countryData hash.
@@ -103,15 +103,15 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
-
 		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
 	}
 
 
+
 	public CountryData getDataForCountry(String countryName){
 		return countryData.get(countryName);
-	}//getDataForCountry
-
+	}
+	
 
 
 	public ContinentData getDataForContinent(String continentName){
@@ -127,7 +127,6 @@ public class DataManager {
 		econVariableList.add("economicFreedomScore");
 		econVariableList.add("majorIndustries");
 		econVariableList.add("unemploymentRate");
-		
 		Random generator = new Random();
 		int minimum = 0;
 		int maximum = econVariableList.size()-1;
@@ -135,5 +134,5 @@ public class DataManager {
 		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;
 		return econVariableList.get(indexToChooseVariableToAskAbout);
 	}
-		
+	
 }
