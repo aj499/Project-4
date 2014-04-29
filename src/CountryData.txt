@@ -216,6 +216,31 @@ afghanistanhealth.png
 950
 350
 
+Argentina
+Argentina GDP per capita
+Argentina GDP real growth rate
+Argentina agriculture percentage of GDP
+Argentina economic freedom score
+Argentina lowest ten income
+Argentina highest ten income
+Argentina major industries
+Argentina unemployment rate
+Argentina major economic issue
+Argentina make a difference economic
+Argentina photo path economic
+Argentina life expectancy
+Argentina maternal mortality rate
+Argentina infant mortality rate
+Argentina children underweight percentage
+Argentina physician density
+Argentina risk of infectious disease
+Argentina most common diseases
+Argentina major health issue
+Argentina make a difference health
+Argentina photo path help
+600
+400
+
 Australia
 43,000% (2013 est.)
 2.5% (2013 est.)
@@ -516,7 +541,7 @@ colombiahealth.jpg
 500
 400
 
-Democratic Republic on Congo
+Democratic Republic of the Congo
 $400 (2013 est.) The lowest in Africa and the world.
 6.2% (2013 est.)
 44.3%
@@ -891,7 +916,7 @@ Indonesia photo path help
 1300
 400
 
-The Philippines
+Philippines
 Phillipines GDP per capita
 Phillipines GDP real growth rate
 Phillipines agriculture percentage of GDP

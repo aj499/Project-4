@@ -175,64 +175,52 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		if(currentMapMode == MapMode.ECONOMIC){
 			if(continentToChangeTo.equals("World")){
 				map = ImageIO.read(new File("EconMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if going back to World
 			if(continentToChangeTo.equals("Africa")){
 				map = ImageIO.read(new File("EconAfrica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if EconAfrica
 			if(continentToChangeTo.equals("Asia")){
 				map = ImageIO.read(new File("EconAsia.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if EconAsia
 			if(continentToChangeTo.equals("Europe")){
 				map = ImageIO.read(new File("EconEurope.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if EconEurope
 			if(continentToChangeTo.equals("North America")){
 				map = ImageIO.read(new File("EconNorthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if EconNorthAmerica
 			if(continentToChangeTo.equals("Oceania")){
 				map = ImageIO.read(new File("EconOceania.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if EconAsia
 			if(continentToChangeTo.equals("South America")){
 				map = ImageIO.read(new File("EconSouthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if EconSouthAmerica
 		}//if MapMode is economic
 		else{
 			if(continentToChangeTo.equals("World")){
 				map = ImageIO.read(new File("HealthMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if going back to World
 			if(continentToChangeTo.equals("Africa")){
 				map = ImageIO.read(new File("HealthAfrica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if HealthAfrica
 			if(continentToChangeTo.equals("Asia")){
 				map = ImageIO.read(new File("HealthAsia.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if HealthAsia
 			if(continentToChangeTo.equals("Europe")){ 
 				map = ImageIO.read(new File("HealthEurope.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if HealthEurope
 			if(continentToChangeTo.equals("North America")){
 				map = ImageIO.read(new File("HealthNorthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if HealthNorthAmerica
 			if(continentToChangeTo.equals("Oceania")){
 				map = ImageIO.read(new File("HealthOceania.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if HealthAsia
 			if(continentToChangeTo.equals("South America")){
 				map = ImageIO.read(new File("HealthSouthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
-				repaint();
 			}//if HealthSouthAmerica
 		}//if MapMode is Health
 		//TODO: update the InfoBox here as well
+		
+		repaint();
 		
 		//set up new buttons
 		layoutButtons();
