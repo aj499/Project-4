@@ -392,8 +392,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
 	private void setUpNextQuestion() throws IOException{
 		if(quizRunner.questionsRemainToAsk()){//if there are more questions to ask
+			//get the question
 			String question = quizRunner.getQuestion();
 			//TODO: display the question in the UI
+			
+			
 		} else {//the quiz is over
 			endQuiz("You have successfully completed the quiz!");
 		}
@@ -465,13 +468,15 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				}
 			}
 		} else if(e.getSource().equals(backButton)){//back button
-			if(!currentView.equals("World")){//we only need to change things if we're not in world view
-				//update appropriately
-				try {
-					changeContinent("World");
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+			if(!quizRunner.getQuizRunning()){//the back button should only work if the user's not in a quiz
+				if(!currentView.equals("World")){//we only need to change things if we're not in world view
+					//update appropriately
+					try {
+						changeContinent("World");
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}
 		} else if(e.getSource().equals(quizButton)){
