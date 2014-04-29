@@ -1,12 +1,5 @@
 package project;
 
-import java.awt.Image;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Vector;
 
 public class ContinentData extends CountryData{
@@ -48,7 +41,7 @@ public class ContinentData extends CountryData{
 	 */
 	public boolean isPointInBounds(int pointX, int pointY){
 		if(pointX > leftBound && pointX < rightBound){
-			if(pointY > topBound && pointY < leftBound){
+			if(pointY > topBound && pointY < bottomBound){
 				return true;
 			}
 		}

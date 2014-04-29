@@ -3,7 +3,6 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,11 +18,12 @@ public class DataManager {
 	 * Constructor takes a String that is the filepath
 	 * @param newFileLocation
 	 */
-	DataManager(String newFileLocation){
+	public DataManager(String newFileLocation){
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
 		
 		dataLoaded=false;
+<<<<<<< HEAD
 		setFileLocation(newFileLocation);
 	}
 	
@@ -33,21 +33,30 @@ public class DataManager {
 	 * @param newFileLocation
 	 */
 	public void setFileLocation(String newFileLocation){
+=======
+>>>>>>> origin/Adam
 		fileLocation = newFileLocation;
+		
+		parseData();
 	}
 	
-	public void parseData(){
-
-		
-		
+	private void parseData(){
 		try{
+<<<<<<< HEAD
 			String filename ="/Users/michaelmcaneny/Desktop/exampleData.txt";
+=======
+			String filename = fileLocation;
+			int numContinents = 6;
+			int continentCounter = 1;
+
+>>>>>>> origin/Adam
 			FileInputStream fileInputStream = new FileInputStream(filename);
 			DataInputStream dataInputStream = new DataInputStream(fileInputStream);
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
 					dataInputStream));
 			String currentLine;
 			while ((currentLine = bufferedReader.readLine())!=null){
+<<<<<<< HEAD
 				CountryData currentCountry = new CountryData();
 				currentCountry.setCountryName(currentLine);
 				
@@ -77,6 +86,39 @@ public class DataManager {
 				countryData.put(currentCountry.getCountryName(), currentCountry);
 				System.out.println("key was " + currentCountry.getCountryName());
 				bufferedReader.readLine();
+=======
+				CountryData currentCountry;
+				ContinentData currentContinent;
+				if (continentCounter <= numContinents){
+					currentContinent = new ContinentData();
+					currentContinent.setCountryName(currentLine);
+					currentContinent.setAll(bufferedReader);
+					currentContinent.setLeftBound(Integer.parseInt(bufferedReader.readLine()));
+					currentContinent.setRightBound(Integer.parseInt(bufferedReader.readLine()));
+					currentContinent.setTopBound(Integer.parseInt(bufferedReader.readLine()));
+					currentContinent.setBottomBound(Integer.parseInt(bufferedReader.readLine()));
+
+					currentLine = bufferedReader.readLine();
+					while ((currentLine = bufferedReader.readLine()).length() > 0){
+						currentContinent.addToCountryList(currentLine);
+					}
+					
+					continentData.put(currentContinent.getCountryName(), currentContinent);
+					continentCounter++;	
+				}
+				else{
+					
+					currentCountry = new CountryData();
+					
+					currentCountry.setCountryName(currentLine);
+					currentCountry.setAll(bufferedReader);
+					currentCountry.setButtonXPosition(Integer.parseInt(bufferedReader.readLine()));
+					currentCountry.setButtonYPosition(Integer.parseInt(bufferedReader.readLine()));
+					countryData.put(currentCountry.getCountryName(), currentCountry);
+					
+					bufferedReader.readLine();
+				}
+>>>>>>> origin/Adam
 			}
 			
 			bufferedReader.close();
@@ -87,17 +129,26 @@ public class DataManager {
 		
 	}
 
+<<<<<<< HEAD
 	
 	
 		
 	
+=======
+
+>>>>>>> origin/Adam
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
 	 * @return a list of all the countries in the countryData hash
 	 */
 	public String[] getCountryList(){
+<<<<<<< HEAD
 		return (String[]) countryData.keySet().toArray();
+=======
+		//pass String Array to get correct return type (see API doc for Set<T>::toArray(T[] a))
+		return (String[]) countryData.keySet().toArray(new String[countryData.keySet().size()]);
+>>>>>>> origin/Adam
 	}
 	
 	/**
@@ -106,25 +157,33 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
+<<<<<<< HEAD
 		return (String[]) continentData.keySet().toArray();
 	}
 	
 	public CountryData getDataForCountry(String countryName){
 		//TODO: actually implement this function!
 		return new CountryData();
+=======
+		//pass String Array to get correct return type (see API doc for Set<T>::toArray(T[] a))
+		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
+	}
+	
+	public CountryData getDataForCountry(String countryName){
+		return countryData.get(countryName);
+>>>>>>> origin/Adam
 	}
 	
 
 
 	public ContinentData getDataForContinent(String continentName){
-		//TODO: actually implement this function!
-		return new ContinentData();
+		//TODO: implement error checking here!
+		return continentData.get(continentName);
 	}
 	
-	public String randomlyChooseVariableForSuperlativeQuestion(){
+	public String getRandomlyChosenVariableForSuperlativeQuestion(){
 		ArrayList<String> econVariableList = new ArrayList<String>();
 		econVariableList.add("gpdPerCapita");
-		econVariableList.add("gdpRealGrowthRate");
 		econVariableList.add("gdpRealGrowthRate");
 		econVariableList.add("agriculturePercentageOfGDP");
 		econVariableList.add("economicFreedomScore");
@@ -133,12 +192,13 @@ public class DataManager {
 		
 		
 		Random generator = new Random();
-		int minimum = 0;
+		/*int minimum = 0;
 		int maximum = econVariableList.size()-1;
 		int range = maximum - minimum + 1;
-		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;
-		return econVariableList.get(indexToChooseVariableToAskAbout);
+		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;*/
+		return econVariableList.get(generator.nextInt(econVariableList.size()));
 	}
+<<<<<<< HEAD
 	
 	/*public String[] generateEconSuperlativeQuestion(String continentName, String dataVariable){
 		//continentName= getCurrentView();
@@ -173,5 +233,8 @@ public class DataManager {
 		System.out.println(dm.countryData.size());
 		
 	}*/
+=======
+>>>>>>> origin/Adam
 
+}
 

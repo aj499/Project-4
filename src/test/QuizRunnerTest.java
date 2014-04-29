@@ -51,7 +51,7 @@ public class QuizRunnerTest {
 	 * Make sure that incorrect answers are marked as incorrect.
 	 */
 	@Test
-	public void checkAnswerWithIncorrectAnswer(){
+	public void testCheckAnswerWithIncorrectAnswer(){
 		String incorrectAnswer = "Soviet Russia";
 		qr = new QuizRunner(mp, dm, "World");
 		qr.startQuiz("World", MapMode.HEALTH);
@@ -60,6 +60,35 @@ public class QuizRunnerTest {
 		boolean answerWasCorrect = qr.checkAnswer(incorrectAnswer);
 		
 		assertFalse(answerWasCorrect);
+	}
+	
+	//we don't have a test for correct answer, since no one outside
+	//the QuizRunner can check for what the correct answer is
+	
+	/**
+	 * Make sure that ending the quiz sets variables appropriately.
+	 */
+	@Test
+	public void testEndQuiz(){
+		qr = new QuizRunner(mp, dm, "World");
+		qr.startQuiz("World", MapMode.HEALTH);
+		qr.endQuiz();
+		
+		assertFalse(qr.getQuizRunning());
+		assertFalse(qr.getInPreTest());
+	}
+	
+	/**
+	 * Make sure that the performance report is generate correctly.
+	 */
+	@Test
+	public void testGetQuizEndReport(){
+		String expectedReport = "You answered 0 out of 10 questions correctly\nand scored 0 percent.";
+		qr = new QuizRunner(mp, dm, "World");
+		qr.startQuiz("World", MapMode.HEALTH);
+		qr.endQuiz();
+		
+		assertTrue(expectedReport.equals(qr.getQuizEndReport()));
 	}
 
 }

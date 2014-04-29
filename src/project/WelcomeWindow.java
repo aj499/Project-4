@@ -1,5 +1,9 @@
 package project;
 
+<<<<<<< HEAD
+=======
+//begin summoning the forces of evil, aka the Java graphics libraries
+>>>>>>> origin/Adam
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -8,9 +12,12 @@ import java.awt.TextField;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+=======
+>>>>>>> origin/Adam
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
@@ -54,15 +61,33 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		window.setLayout(null);
 		
 		startButton = new JButton("Start");
+<<<<<<< HEAD
 		startButton.addActionListener(new startAction());
+=======
+		//Adds an action listener to the start button
+		startButton.addActionListener(this);
+		//Sets the start button's size
+>>>>>>> origin/Adam
 		startButton.setPreferredSize(new Dimension(100, 50));
 		
 		econButton = new JRadioButton("Economics");
+<<<<<<< HEAD
 		econButton.addActionListener(new econAction());
+=======
+		//Adds an action listener to the econ button
+		econButton.addActionListener(this);
+		//Sets the econ button's size
+>>>>>>> origin/Adam
 		econButton.setPreferredSize(new Dimension(200, 20));
 		
 		healthButton = new JRadioButton("Health");
+<<<<<<< HEAD
 		healthButton.addActionListener(new healthAction());
+=======
+		//Adds an action listener to the health button
+		healthButton.addActionListener(this);
+		//Sets the health button's size
+>>>>>>> origin/Adam
 		healthButton.setPreferredSize(new Dimension(200, 20));
 		
 		typeOptions = new ButtonGroup();
@@ -91,17 +116,33 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		
 	}//init
 	
+<<<<<<< HEAD
 	public class ImagePanel extends JPanel{
+=======
+	/**
+	 * ImagePanel class
+	 * 
+	 * This class is a JPanel that draws a graphic onto the back of a JPanel
+	 *
+	 */
+	private class ImagePanel extends JPanel{
+>>>>>>> origin/Adam
 		private static final long serialVersionUID = 1L;
 		private Image image = null;
-		private int width;
-		private int height;
+		//private int width;
+		//private int height;
 
 		public ImagePanel(Image image){
 			this.image = image;
+<<<<<<< HEAD
 			this.width = image.getWidth(this);
 			this.height = image.getHeight(this);
 		}
+=======
+			//this.width = image.getWidth(this);
+			//this.height = image.getHeight(this);
+		}//constructor
+>>>>>>> origin/Adam
 		public void paintComponent(Graphics g){
 			super.paintComponent(g);
 			if (image != null){
@@ -119,6 +160,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		window.setVisible(false);
 		this.setContentPane(mapPanel);
 	}//goToMapPanel
+<<<<<<< HEAD
 	
 	public class startAction implements ActionListener{
 		@Override
@@ -137,19 +179,37 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	public class econAction implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			mapType = MapMode.ECONOMIC;
-		}//actionPerformed
-	}//class startAction
-	
-	public class healthAction implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			mapType = MapMode.HEALTH;
-		}//actionPerformed
-	}//class startAction
+=======
 
+	/**
+	 * Respond to button events created by the user clicking on the buttons
+	 * on the screen (the Economic/Health radio buttons and the Start button).
+	 * 
+	 * @param e the event caused by the click on the button clicked
+	 */
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource().equals(startButton)){//Start button
+			if(mapType != null){//if an option was selected, go on to the main map
+				goToMapPanel(mapType);
+			} else {//if no option was selected, alert the user
+				JLabel warning = new JLabel("Please choose a subject");
+				warning.setBounds(referenceMap.getIconWidth()/2 + 25, 500, 100, 20);
+				warning.setVisible(true);
+				warning.setOpaque(true);
+				window.requestFocus();
+				window.add(warning);
+				window.setVisible(true);
+				window.requestFocus();
+				content.add(window);
+			}
+		} else if(e.getSource().equals(econButton)){//Economic radio button
+>>>>>>> origin/Adam
+			mapType = MapMode.ECONOMIC;
+		} else if(e.getSource().equals(healthButton)){//Health radio button
+			mapType = MapMode.HEALTH;
+		}
+		
 	}//general actionPerformed
 	
 }//class WelcomeWindow
