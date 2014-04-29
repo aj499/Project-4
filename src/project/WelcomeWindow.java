@@ -181,6 +181,9 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 			if(mapType != null){
 				try {
 					setSize(width, height);
+					if(mapType == mapType.HEALTH){
+						System.out.println("YAY");
+					}
 					goToMapPanel(mapType);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
@@ -212,6 +215,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			mapType = MapMode.HEALTH;
+			System.out.print("changed to health");
 		}//actionPerformed
 	}//class startAction
 

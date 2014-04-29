@@ -93,10 +93,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @throws IOException 
 	 */
 
-	public MapPanel(DataManager newWorldData, StudentData newStudentData, project.MapMode mapType) throws IOException{
+	public MapPanel(DataManager newWorldData, StudentData newStudentData, MapMode mapType) throws IOException{
 		//handle passed-in data
 		worldData = newWorldData;
 		currentStudent = newStudentData;
+		currentMapMode = mapType; 
 		buttons = new HashMap<String, AppButton>();
 		
 		//create a button for each country
@@ -113,7 +114,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
-		setUp(mapType);
+		setUp(currentMapMode);
 	}
 	
 	/**
@@ -123,10 +124,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * (Assumes that worldData has been set previously.)
 	 * @throws IOException 
 	 */
-	private void setUp(MapMode type) throws IOException{
+	private void setUp(MapMode mapMode) throws IOException{
 		
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
-		if(type == MapMode.ECONOMIC){
+		if(mapMode == MapMode.ECONOMIC){
 			map = ImageIO.read(new File("EconMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 			repaint();
 		}//if MapMode type is economic
@@ -137,31 +138,23 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		quizButton = new AppButton();
 		quizButton.setText("End Quiz");
 		
-		setLayout(new BorderLayout());
+		setLayout(null);
 		//set default values for what we're looking at
 		currentView = "World";
 		currentCountry = "none";
-		currentMapMode = MapMode.ECONOMIC;
 		
 		setBackground(Color.black);
 		setSize(1600, 500);
 		
-		mapLabel = new JLabel();
+		
+		addMouseListener(this);
 		infoBox = new JPanel();
-		//infoBox.setPreferredSize(new Dimension(100, map.getIconHeight()));
-		infoBox.setLocation(200,200);
+		add(infoBox);
+		infoBox.setBounds(1200, 0, 400, 500);
 		infoBox.setBackground(Color.RED);
 		infoBox.setOpaque(true);
-
-		add(mapLabel, BorderLayout.WEST);	
-		add(infoBox, BorderLayout.EAST);
-		addMouseListener(this);
-
-		mapLabel.validate();
-		mapLabel.repaint();
-		
-		//layoutButtons();//set up buttons for the current view
-	}
+		repaint();
+	}//setUp
 	
 	/**
 	 * Helper function that performs all the work (UI, etc.) to change the view
@@ -173,63 +166,69 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public void changeContinent(String continentToChangeTo) throws IOException{
 		//clear screen of buttons
 		sweepButtons();
-		
+		System.out.println("In change continent");
+		System.out.println("Should be Africa: " + continentToChangeTo);
 		currentView = continentToChangeTo;
 		
 		//note that we've now seen this new continent
 		currentStudent.addContinentSeen(continentToChangeTo, currentMapMode);
 		
-		//TODO: load new image here as appropriate
 		if(currentMapMode == MapMode.ECONOMIC){
-			if(continentToChangeTo == "Africa"){
-				System.out.print("Nice");
+			if(continentToChangeTo.equals("World")){
+				map = ImageIO.read(new File("EconMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+				repaint();
+			}//if going back to World
+			if(continentToChangeTo.equals("Africa")){
 				map = ImageIO.read(new File("EconAfrica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if EconAfrica
-			if(continentToChangeTo == "Asia"){
+			if(continentToChangeTo.equals("Asia")){
 				map = ImageIO.read(new File("EconAsia.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if EconAsia
-			if(continentToChangeTo == "Europe"){
+			if(continentToChangeTo.equals("Europe")){
 				map = ImageIO.read(new File("EconEurope.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if EconEurope
-			if(continentToChangeTo == "North America"){
+			if(continentToChangeTo.equals("North America")){
 				map = ImageIO.read(new File("EconNorthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if EconNorthAmerica
-			if(continentToChangeTo == "Oceania"){
+			if(continentToChangeTo.equals("Oceania")){
 				map = ImageIO.read(new File("EconOceania.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if EconAsia
-			if(continentToChangeTo == "South America"){
+			if(continentToChangeTo.equals("South America")){
 				map = ImageIO.read(new File("EconSouthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if EconSouthAmerica
 		}//if MapMode is economic
 		else{
-			if(continentToChangeTo == "Africa"){
-				System.out.print("Nice");
+			if(continentToChangeTo.equals("World")){
+				map = ImageIO.read(new File("HealthMap.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+				repaint();
+			}//if going back to World
+			if(continentToChangeTo.equals("Africa")){
 				map = ImageIO.read(new File("HealthAfrica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if HealthAfrica
-			if(continentToChangeTo == "Asia"){
+			if(continentToChangeTo.equals("Asia")){
 				map = ImageIO.read(new File("HealthAsia.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if HealthAsia
-			if(continentToChangeTo == "Europe"){ 
+			if(continentToChangeTo.equals("Europe")){ 
 				map = ImageIO.read(new File("HealthEurope.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if HealthEurope
-			if(continentToChangeTo == "North America"){
+			if(continentToChangeTo.equals("North America")){
 				map = ImageIO.read(new File("HealthNorthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if HealthNorthAmerica
-			if(continentToChangeTo == "Oceania"){
+			if(continentToChangeTo.equals("Oceania")){
 				map = ImageIO.read(new File("HealthOceania.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if HealthAsia
-			if(continentToChangeTo == "South America"){
+			if(continentToChangeTo.equals("South America")){
 				map = ImageIO.read(new File("HealthSouthAmerica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if HealthSouthAmerica
@@ -272,7 +271,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			//get a list of buttons to add to the layout
 			Vector<String> countriesToLoad = worldData.getDataForContinent(currentView).getCountryList();
 			
-			CountryData countryToLayOut = new CountryData();
+			CountryData countryToLayOut;
 			
 			//add each one to the panel
 			for(int i = 0; i < countriesToLoad.size(); i++){
@@ -284,13 +283,16 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				int yPositionForButton = countryToLayOut.getButtonYPosition();
 				
 				//set coordinate of button
+				buttons.get(countriesToLoad.get(i)).setSize(20, 20);
 				buttons.get(countriesToLoad.get(i)).setLocation(xPositionForButton, yPositionForButton);
 				
 				//add it to the panel
 				add(buttons.get(countriesToLoad.get(i)));
+				buttons.get(countriesToLoad.get(i)).setVisible(true);
+				repaint();
 			}
 		} 
-	}
+	}//layoutButtons
 	
 	/**
 	 * Helper function that performs all the work (UI, etc.) to change the view
@@ -314,12 +316,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @param newCountry the data to display about the given country
 	 */
 	private void updateInfoBox(CountryData newCountry){
-		//TODO: implement this once layout is done
-		
-		//clear the infobox
-		
-		//extract data from the CountryData and format it appropriately
-		//then add it
 		
 		if(currentMapMode == MapMode.ECONOMIC){
 			gdpPerCapita = new JLabel();
@@ -333,6 +329,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			majorEconomicIssue = new JLabel();
 			makeADifferenceEconomic = new JLabel();
 			
+			gdpPerCapita.setSize(400,50);
 			gdpPerCapita.setText(newCountry.getGpdPerCapita());
 			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
 			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
@@ -343,6 +340,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			unemploymentRate.setText(newCountry.getUnemploymentRate());
 			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
 			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
+			
+			infoBox.add(gdpPerCapita);
 			
 		}//if Economic mode
 		
@@ -506,14 +505,16 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				System.out.print("ContinentNames: " + continentNames[i]);
 				if(!continentNames[i].equals("World")){//don't check against the world's bounding box
 					//get data on the continent
-					System.out.print("Clicked4");
+					System.out.println("Clicked4");
 					//ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
-					ContinentData continentData = worldData.getDataForContinent("Africa");
+					ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
+					System.out.println("Continent name: " + continentNames[i]);
 					System.out.println("Continent name (econFree): " + continentData.getEconomicFreedomScore());
-					System.out.println("Clicked4.5");
 					System.out.println("X-Coord: " + mouseX + " Y-Coord: " + mouseY);
-					System.out.println("TopBound: " + worldData.getDataForContinent("Africa").getTopBound());
-					System.out.println("BottomBound: " + worldData.getDataForContinent("Africa").getBottomBound());
+					System.out.println("TopBound: " + worldData.getDataForContinent(continentNames[i]).getTopBound());
+					System.out.println("BottomBound: " + worldData.getDataForContinent(continentNames[i]).getBottomBound());
+					System.out.println("LeftBound: " + worldData.getDataForContinent(continentNames[i]).getLeftBound());
+					System.out.println("RightBound: " + worldData.getDataForContinent(continentNames[i]).getRightBound());
 					
 					if(continentData.isPointInBounds(mouseX, mouseY)){//if we're inside this continent
 						//update appropriately

@@ -47,7 +47,7 @@ public class ContinentData extends CountryData{
 	}
 	
 	public int getRightBound(){
-		return bottomBound;
+		return rightBound;
 	}
 	
 	public int getBottomBound(){
