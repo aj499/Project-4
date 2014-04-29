@@ -63,18 +63,13 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	//private image that holds the image of a photo of the country to be transferred to the image icon
 	private Image photoImage;
 	//private imageicon that holds the imageicon of a photo of the country
-	private ImageIcon photo;
+	private ImageIcon imageIcon;
 	//private JLabel that holds the imageicon photo
-	private JLabel photoLabel;
+	private JLabel imageLabel;
 	
 	//JPanel holding all of the country information
 	private JPanel infoBox;
 	private JPanel photoBox;
-	
-	//image
-	private JLabel imageLabel;
-	private Image photoImage;
-	private ImageIcon imageIcon;
 	
 	//JLabel that holds the quiz question
 	private JLabel questionLabel;
@@ -155,15 +150,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		addMouseListener(this);
 		infoBox = new JPanel();
-<<<<<<< HEAD
-		add(infoBox);
-		add(quizButton);
-		add(backButton);
-		infoBox.setBounds(0, 500, 1200, 300);
-		infoBox.setBackground(Color.CYAN);
-		infoBox.setOpaque(true);
-		infoBox.setLayout(null);
-=======
+
 		photoBox = new JPanel();
 
 		add(infoBox);
@@ -171,9 +158,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 		infoBox.setBackground(Color.WHITE);
 		infoBox.setOpaque(true);
-
-		
->>>>>>> Mike
 		repaint();
 	}//setUp
 	
@@ -365,58 +349,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 		
 		if(currentMapMode == MapMode.ECONOMIC){
-<<<<<<< HEAD
-			gdpPerCapita = new JLabel();
-			gdpRealGrowthRate = new JLabel();
-			agriculturePercentageOfGdp = new JLabel();
-			economicFreedomScore= new JLabel();
-			lowestTenIncome = new JLabel();
-			highestTenIncome = new JLabel();
-			majorIndustries = new JLabel();
-			unemploymentRate = new JLabel();
-			majorEconomicIssue = new JLabel();
-			makeADifferenceEconomic = new JLabel();
-			photoLabel = new JLabel();
-			
-			gdpPerCapita.setSize(1200,0);
-			gdpPerCapita.setText(newCountry.getGpdPerCapita());
-			gdpRealGrowthRate.setSize(1200, 50);
-			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
-			agriculturePercentageOfGdp.setSize(1200,100);
-			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
-			economicFreedomScore.setSize(1200,150);
-			economicFreedomScore.setText(newCountry.getEconomicFreedomScore());
-			lowestTenIncome.setSize(1200,200);;
-			lowestTenIncome.setText(newCountry.getLowestTenIncome());
-			highestTenIncome.setSize(1200,250);
-			highestTenIncome.setText(newCountry.getHighestTenIncome());
-			majorIndustries.setSize(1200,300);
-			majorIndustries.setText(newCountry.getMajorIndustries());
-			unemploymentRate.setSize(1200,350);
-			unemploymentRate.setText(newCountry.getUnemploymentRate());
-			majorEconomicIssue.setSize(1200,400);
-			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
-			makeADifferenceEconomic.setSize(1200,450);
-			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
-			photoImage = ImageIO.read(new File(newCountry.getPhotoPathEconomic())).getScaledInstance(250, 250, Image.SCALE_SMOOTH);
-			photo = new ImageIcon(photoImage);
-			photoLabel.setIcon(photo);
-			photoLabel.setVisible(true);
-			photoLabel.setBounds(900, 550, 250, 250);
-
-			infoBox.add(gdpRealGrowthRate);
-			infoBox.add(agriculturePercentageOfGdp);
-			infoBox.add(economicFreedomScore);
-			infoBox.add(lowestTenIncome);
-			infoBox.add(highestTenIncome);
-			infoBox.add(majorIndustries);
-			infoBox.add(unemploymentRate);
-			infoBox.add(majorEconomicIssue);
-			infoBox.add(makeADifferenceEconomic);
-			infoBox.add(photoLabel);
-			repaint();
-=======
->>>>>>> Mike
 			
 			String stringToDisplay = newCountry.getCountryName() + "\n\nGDP Per Capita:  " +
 					newCountry.getGpdPerCapita() + "\n\nGDP Real Growth Rate:  " + 
@@ -447,56 +379,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		}//if Economic mode
 		
 		if(currentMapMode == MapMode.HEALTH){
-<<<<<<< HEAD
-			lifeExpectancy = new JLabel();
-			maternalMortalityRate = new JLabel();
-			infantMortalityRate = new JLabel();
-			childrenUnderweightPercentage = new JLabel();
-			physicianDensity = new JLabel();
-			riskOfInfectiousDisease = new JLabel();
-			mostCommonDiseases = new JLabel();
-			majorHealthIssue = new JLabel();
-			makeADifferenceHealth = new JLabel();
-			photoLabel = new JLabel();
-
-			lifeExpectancy.setSize(1200,0);
-			lifeExpectancy.setText(newCountry.getLifeExpectancy());
-			maternalMortalityRate.setSize(1200,50);
-			maternalMortalityRate.setText(newCountry.getMaternalMortalityRate());
-			infantMortalityRate.setSize(1200,100);
-			infantMortalityRate.setText(newCountry.getInfantMortalityRate());
-			childrenUnderweightPercentage.setSize(1200,150);
-			childrenUnderweightPercentage.setText(newCountry.getChildrenUnderweightPercentage());
-			physicianDensity.setSize(1200,200);
-			physicianDensity.setText(newCountry.getPhysicianDensity());
-			riskOfInfectiousDisease.setSize(1200,250);
-			riskOfInfectiousDisease.setText(newCountry.getRiskOfInfectiousDisease());
-			mostCommonDiseases.setSize(1200,300);
-			mostCommonDiseases.setText(newCountry.getMostCommonDiseases());
-			majorHealthIssue.setSize(1200,350);
-			majorHealthIssue.setText(newCountry.getMajorHealthIssue());
-			makeADifferenceHealth.setSize(1200,400);
-			makeADifferenceHealth.setText(newCountry.getMakeADifferenceHealth());
-			photoImage = ImageIO.read(new File(newCountry.getPhotoPathHealth())).getScaledInstance(250, 250, Image.SCALE_SMOOTH);
-			photo = new ImageIcon(photoImage);
-			photoLabel.setIcon(photo);
-			photoLabel.setVisible(true);
-			photoLabel.setSize(250,250);
-			//photoLabel.setLocation(null);
-			photoLabel.setBounds(900, 550, 250, 250);
-			
-			infoBox.add(lifeExpectancy);
-			infoBox.add(maternalMortalityRate);
-			infoBox.add(infantMortalityRate);
-			infoBox.add(childrenUnderweightPercentage);
-			infoBox.add(physicianDensity);
-			infoBox.add(riskOfInfectiousDisease);
-			infoBox.add(mostCommonDiseases);
-			infoBox.add(majorHealthIssue);
-			infoBox.add(makeADifferenceHealth);
-			infoBox.add(photoLabel);
-			repaint();
-=======
 
 			String stringToDisplay = newCountry.getCountryName() + "\n\n" +
 					"Life Expectancy:  " + newCountry.getLifeExpectancy() +
@@ -508,7 +390,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					"\n\nMost Common Diseases:  " + newCountry.getMajorHealthIssue() + 
 					"\n\nHow you can make a difference:  " + newCountry.getMakeADifferenceHealth();
 			writeInfoOnBottom(stringToDisplay);
->>>>>>> Mike
 			
 		}//if Health mode
 	}//updateInfoBox
