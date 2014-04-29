@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Vector;
 
 public class QuizRunner {
-	private static final int TOTAL_QUESTIONS_TO_ASK = 20;
+	private static final int TOTAL_QUESTIONS_TO_ASK = 10;
 	private static final int MAX_ATTEMPTS_PER_QUESTION = 3;
 	
 	private String currentQuestion;
@@ -21,6 +21,8 @@ public class QuizRunner {
 	private boolean quizRunning;
 	
 	private Vector<String> questionsAsked;
+	
+	Vector<String> continentsToAskAboutByQuestion;
 	
 	private DataManager worldData;
 	private MapPanel parent;//so we can change the continent shown when quizing across continents
@@ -49,6 +51,31 @@ public class QuizRunner {
 		
 		currentQuestionNumber = 0;
 		questionsAnsweredCorrectly = 0;
+		
+		questionsAsked = new Vector<String>();
+		
+		continentsToAskAboutByQuestion = new Vector<String>();
+		
+		String[] continents = {"North America", "South America", "Europe", "Asia", "Africa", "Oceania"};
+		
+		Vector<String> continentsSeen = new Vector<String>();
+		for(int i = 0; i < continents.length; i++){
+			if(student.hasSeenCountriesInContinent(continents[i], currentMode)){
+				continentsSeen.add(continents[i]);
+			}
+		}
+		
+		int numQuestionsPerContinent = TOTAL_QUESTIONS_TO_ASK / continentsSeen.size();
+		
+		for(int i = 0; i < continentsSeen.size(); i++){
+			for(int j = 0; j < numQuestionsPerContinent; j++){
+				continentsToAskAboutByQuestion.add(continentsSeen.get(i));
+			}
+		}
+		
+		if(continentsToAskAboutByQuestion.size() < TOTAL_QUESTIONS_TO_ASK){
+			continentsToAskAboutByQuestion.add(continentsSeen.get(0));
+		}
 	}
 	
 	public void loadQuestion(){// throws IOException{
@@ -87,11 +114,17 @@ public class QuizRunner {
 				}
 			}
 		} else {
+			/*
 			//run through each continent in turn
 			//this is stupid hacky bullshit but who cares
-			String[] continents = {"North America", "South America", "Europe", "Asia", "Africa"};
+			String[] continents = {"North America", "South America", "Europe", "Asia", "Africa", "Oceania"};
 			
-			currentTopic = continents[(int) Math.floor(((float) currentQuestionNumber) / 2.0)];
+			
+			
+			//currentTopic = continents[(int) Math.floor(((float) currentQuestionNumber) * ((float) continents.length) / TOTAL_QUESTIONS_TO_ASK)];
+			*/
+			
+			currentTopic = continentsToAskAboutByQuestion.get(currentQuestionNumber);
 			
 			try{
 				parent.changeContinent(currentTopic);//make it so the user can see what's what
@@ -142,6 +175,7 @@ public class QuizRunner {
 	}
 	
 	public boolean questionsRemainToAsk(){
+		System.out.println("CQN: " + currentQuestionNumber);
 		return currentQuestionNumber < TOTAL_QUESTIONS_TO_ASK;
 	}
 	
@@ -149,9 +183,13 @@ public class QuizRunner {
 		return currentQuestionAttempts < MAX_ATTEMPTS_PER_QUESTION;
 	}
 	
+	public int getRemainingAttempts(){
+		return MAX_ATTEMPTS_PER_QUESTION - currentQuestionAttempts;
+	}
+	
 	public String getQuizEndReport(){
 		String report = "You answered " + questionsAnsweredCorrectly + " out of " + TOTAL_QUESTIONS_TO_ASK + " questions correctly";
-		report += "\nand scored " + (int) ((((float) questionsAnsweredCorrectly) / ((float) TOTAL_QUESTIONS_TO_ASK)) * 100) + " percent.";
+		report += " and scored " + (int) ((((float) questionsAnsweredCorrectly) / ((float) TOTAL_QUESTIONS_TO_ASK)) * 100) + "%.";
 		
 		return report;
 	}

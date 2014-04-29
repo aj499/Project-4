@@ -440,15 +440,16 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				
 				//now move on to the next question
 				try {
-					System.out.println("Next question pre");
+					//System.out.println("Next question pre");
 					setUpNextQuestion();
-					System.out.println("Next question post");
+					//System.out.println("Next question post");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			} else {//tell them they screwed up
-				JOptionPane.showMessageDialog(this, "Incorrect answer!", "Incorrect", JOptionPane.WARNING_MESSAGE);
+				String outputMessage = "Incorrect answer!\n\n(You have " + quizRunner.getRemainingAttempts() + " remaining attempts.)";
+				JOptionPane.showMessageDialog(this, outputMessage, "Incorrect", JOptionPane.WARNING_MESSAGE);
 				
 				if(!quizRunner.hasRemainingAttempts()){//if they've run out of attempts on this question
 					//alert the user
