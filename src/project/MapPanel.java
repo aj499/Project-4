@@ -101,8 +101,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//create a button for each country
 		String[] countryButtonList = worldData.getCountryList();
-		System.out.println("HI");
-		System.out.print(countryButtonList.length);
 		for(int i = 0; i < countryButtonList.length; i++){
 			buttons.put(countryButtonList[i], new AppButton(countryButtonList[i]));
 		}
@@ -183,7 +181,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//TODO: load new image here as appropriate
 		if(currentMapMode == MapMode.ECONOMIC){
-			System.out.print("Ok");
 			if(continentToChangeTo == "Africa"){
 				System.out.print("Nice");
 				map = ImageIO.read(new File("EconAfrica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
@@ -212,6 +209,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		}//if MapMode is economic
 		else{
 			if(continentToChangeTo == "Africa"){
+				System.out.print("Nice");
 				map = ImageIO.read(new File("HealthAfrica.png")).getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
 				repaint();
 			}//if HealthAfrica
@@ -502,20 +500,24 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			System.out.print("Clicked2");
 			//check it against the bounding box of each country
 			String continentNames[] = worldData.getContinentList();
+			
 			for(int i = 0; i < continentNames.length; i++){
 				System.out.print("Clicked3");
+				System.out.print("ContinentNames: " + continentNames[i]);
 				if(!continentNames[i].equals("World")){//don't check against the world's bounding box
 					//get data on the continent
 					System.out.print("Clicked4");
-					ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
-					System.out.println("Continent name?; " + worldData.getDataForContinent(continentNames[i]).getCountryName());
+					//ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
+					ContinentData continentData = worldData.getDataForContinent("Africa");
+					System.out.println("Continent name (econFree): " + continentData.getEconomicFreedomScore());
 					System.out.println("Clicked4.5");
 					System.out.println("X-Coord: " + mouseX + " Y-Coord: " + mouseY);
 					System.out.println("TopBound: " + worldData.getDataForContinent("Africa").getTopBound());
 					System.out.println("BottomBound: " + worldData.getDataForContinent("Africa").getBottomBound());
+					
 					if(continentData.isPointInBounds(mouseX, mouseY)){//if we're inside this continent
 						//update appropriately
-						System.out.print("Clicked5");
+						System.out.print("Clicked5!");
 						try {
 							changeContinent(continentNames[i]);
 						} catch (IOException e1) {

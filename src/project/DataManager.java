@@ -24,7 +24,7 @@ public class DataManager {
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
 		dataLoaded=false;
-
+		
 		fileLocation = newFileLocation;
 		parseData();
 	}//constructor
@@ -83,7 +83,6 @@ public class DataManager {
 		}
 	}
 
-
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -109,8 +108,7 @@ public class DataManager {
 
 
 	public ContinentData getDataForContinent(String continentName){
-		//TODO: actually implement this function!
-		return new ContinentData();
+		return continentData.get(continentName);
 	}//getDataForContinent
 	
 	public String randomlyChooseVariableForSuperlativeQuestion(){
@@ -145,7 +143,6 @@ public class DataManager {
 		}
 		
 	}
-	
 	
 	public static void main(String args[]){
 
