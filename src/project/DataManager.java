@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.Vector;
 
 
 public class DataManager {
@@ -51,7 +52,6 @@ public class DataManager {
 					currentContinent.setTopBound(Integer.parseInt(bufferedReader.readLine()));
 					currentContinent.setBottomBound(Integer.parseInt(bufferedReader.readLine()));
 
-					currentLine = bufferedReader.readLine();
 					while ((currentLine = bufferedReader.readLine()).length() > 0){
 						currentContinent.addToCountryList(currentLine);
 					}//while
@@ -124,5 +124,6 @@ public class DataManager {
 		return econVariableList.get(generator.nextInt(econVariableList.size()));
 	}
 		
+	
 
 }//class
