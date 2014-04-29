@@ -130,6 +130,6 @@ public class DataManager {
 		return econVariableList.get(indexToChooseVariableToAskAbout);
 	}
 	
-	
+
 	
 }
