@@ -9,7 +9,7 @@ various types of agriculture, commodities, industry
 Not available
 In March 2013, Africa was identified as the world's poorest inhabited continent; however, the World Bank expects that most African countries will reach "middle income" status (defined as at least US $1,000 per person a year) by 2025 if current growth rates continue. In 2013, Africa was the world’s fastest-growing continent at 5.6% a year, and GDP is expected to rise by an average of over 6% a year between 2013 and 2023. Growth has been present throughout the continent, with over one-third of Sub-Saharan African countries posting 6% or higher growth rates, and another 40% growing between 4% to 6% per year.
 N/A
-Africa photo path economic
+africaecon.jpg
 56.4 years
 500 deaths/100,000 live births
 64 deaths/1000 live births
@@ -19,7 +19,7 @@ N/A
 N/A
 HIV/AIDS continues to devastate the WHO Africa Region, which has 11% of the world's population but 60% of the people with HIV/AIDS. Although HIV/AIDS remains the leading cause of death for adults, more and more people are receiving life-saving treatment. Also, more than 90% of the estimated 300–500 million malaria cases that occur worldwide every year are in Africans, mainly in children under five years of age, but most countries are moving towards better treatment policies.
 N/A
-Africa photo path help
+africahealth.jpg
 475
 775
 150
@@ -43,7 +43,7 @@ oil, mining, textiles, coffee, soybeans, wheat, rice, corn, sugarcane, cocoa, ci
 6.72%
 The economies of South America vary greatly.  Some countries, including Brazil, Argentina and Venezuela, that face the Atlantic Ocean, mistrust globalization and gives the state a large role in the economy. Others, that face the Pacific such as Mexico, Peru, Chile and Colombia, embrace free trade and free markets.  A risk is that commodity prices are falling and many of the economies depend on these for income.
 N/A
-South America photo path economic
+southamericaecon.jpg
 74.6 years
 80 deaths/100,000 live births
 16 deaths/1000 live births
@@ -53,7 +53,7 @@ N/A
 N/A
 Health varies between countries with some having government funded health systems and others struggling to improve health equity across their countries.  In many cases there is a large disparity between rural and urban areas.  Rural areas often lack access to water and sanitation while this is rarely a problem in the more industrialized areas.
 N/A
-South America photo path help
+southamericahealth.jpg
 250
 400
 225
@@ -74,7 +74,7 @@ services, manufacturing, energy, telecommunications, agriculture
 8.0%
 The economy of North America is marked by a sharp division between the predominantly English speaking countries of Canada and the United States, which are among the wealthiest and most developed nations in the world, and countries of Central America and the Caribbean in the former Latin America that are less developed. Mexico and Caribbean nations of the Commonwealth of Nations are somehow between the economic extremes of the development of North America.
 N/A
-North America photo path economic
+northamericaecon.jpg
 78.9 years
 20 deaths/100,000 live births
 5.8 deaths/1,000 live births
@@ -84,7 +84,7 @@ N/A
 N/A
 Healthcare in North America varies between countries and is comprised of both privately funded and publically funded systems.  There is a great disparity between the quality of health between the more advanced economies and the developing countries.
 N/A
-North America photo path help
+northamericahealth.jpg
 100
 450
 20
@@ -106,7 +106,7 @@ among the world's largest and most technologically advanced, the european indust
 9.2%
 Despite EU/IMF rescue programs in Greece, Ireland, Portugal, Spain and Cyprus, and fiscal consolidation measures in many other EU member states, significant risks to growth remain, including high public and private debt loads, crimped lending as banks raise capital, aging populations, onerous regulations, and high unemployment.  In September 2012 the European Central Bank indicated its willingness to purchase bonds from troubled eurozone member states that agree to a formal program of fiscal and structural reforms, aiming to reduce their borrowing costs and restore confidence in the eurozone. The eurozone has since made great strides towards a banking union to increase financial stability and improve lending conditions.
 N/A
-Europe photo path economic
+europeecon.jpg
 76 years
 15 deaths/100,000 live births
 10/1000 live births
@@ -116,7 +116,7 @@ N/A
 N/A
 Healthcare in Europe is provided through a wide range of different systems run at the national level. The systems are primarily publicly funded through taxation (universal health care). Private funding for health care may represent personal contributions towards meeting the non-taxpayer refunded portion of health care or may reflect totally private (non-subsidized) health care either paid out of pocket or met by some form of personal or employer funded insurance. All EU and many other European countries offer their citizens a European Health Insurance Card which, on a reciprocal basis, provides insurance for emergency medical treatment insurance when visiting other participating European countries.
 N/A
-Europe photo path help
+europehealth.jpg
 525
 675
 30
@@ -137,7 +137,7 @@ textiles, technology, agriculture, automobiles, services
 3.6%
 Asia is the fastest growing economic region and the largest continental economy by GDP PPP in the world. China is the largest economy in Asia and the second largest economy in the world.  Asia, with the exception of Japan, South Korea, Taiwan, Hong Kong and Singapore, is currently undergoing rapid growth and industrialization spearheaded by China and India, the two fastest growing major economies in the world. While East Asian and Southeast Asian countries generally rely on manufacturing and trade for growth, countries in the Middle East depend more on the production of commodities, principally oil, for economic growth. Over the years, with rapid economic growth and large trade surplus with the rest of the world, Asia has accumulated over US$4 trillion of foreign exchange reserves - more than half of the world's total.
 N/A
-Asia photo path economic
+asiaecon.jpg
 66 years
 150 deaths/100,000 live births
 46.6 deaths/1000 live births
@@ -147,7 +147,7 @@ N/A
 N/A
 Countries in Asia and the Pacific have reached unprecedented levels of prosperity, but millions of people are still mired in poverty and poor health, with no sign of their being able to breach the barrier to better medical care. Despite irrefutable evidence of this troubling gap between rich and poor, few governments and health specialists have access to the data they need to address the problem.
 N/A
-Asia photo path help
+asiahealth.jpg
 700
 1100
 10
@@ -173,7 +173,7 @@ services, agriculture, livestock
 7%
 This region has a diverse mix of economies from the highly developed and globally competitive financial market of Australia to the much less developed economies that belong to many of its island neighbours. New Zealand is the only other 1st world nation in the region, although the economy of Australia is by far the largest and most dominant economy in the region and one of the largest in the world.
 N/A
-Oceania photo path economic
+oceaniaecon.jpg
 77 years
 93 deaths/100,000 live births
 10 deaths/1000 live births
@@ -183,7 +183,7 @@ N/A
 N/A
 There is a very big disparity between Australia, New Zealand, and the other countries in the region in terms of health.  Even within Australia, there are marginalized groups that do not have equal access to health services and could use more sanitary conditions to help decrease disease.
 N/A
-Oceania photo path help
+oceaniahealth.jpg
 900
 1150
 300
@@ -816,27 +816,26 @@ yemenhealth.png
 150
 
 Pakistan
-Pakistan GDP per capita
-Pakistan GDP real growth rate
-Pakistan agriculture percentage of GDP
-Pakistan economic freedom score
-Pakistan lowest ten income
-Pakistan highest ten income
-Pakistan major industries
-Pakistan unemployment rate
-Pakistan major economic issue
-Pakistan make a difference economic
-Pakistan photo path economic
-Pakistan life expectancy
-Pakistan maternal mortality rate
-Pakistan infant mortality rate
-Pakistan children underweight percentage
-Pakistan physician density
-Pakistan risk of infectious disease
-Pakistan most common diseases
-Pakistan major health issue
-Pakistan make a difference health
-Pakistan photo path help
+$3,100 (2013 est.)
+3.6% (2013 est.)
+25.3%
+55.2 (126th)
+3.9%
+39.3% 
+textiles (garments, bed linen, cotton cloth, yarn), rice, leather goods, sports goods, chemicals, manufactures, carpets and rugs
+6.6% (2013 est.)
+Pakistan has poor regulations surrounding working conditions in factories, which are omnipresent because of its thriving textile industry.  In 2012 one of these factories caught fire and killed more than 250 workers.  
+The British organization Institute for Global Labour and Human Rights promotes the defense of internationally recognized worker rights in the global economy.  Their high profile public campaigns and widespread media coverage have been instrumental in creating the anti-sweatshop movement in the United States and internationally.  Your donation, as small as $25, makes their activism possible.
+pakistanecon.jpg
+67.05 years
+260 deaths/100,000 live births (2010)
+57.48 deaths/1,000 live births
+30.9% (2011)
+0.81 physicians/1,000 population (2009)
+high
+bacterial diarrhea, hepatitis A and E, and typhoid fever, dengue fever and malaria, rabies
+Malaria is a problem faced by the lower-class people in Pakistan. The unsanitary conditions and stagnant water bodies in the rural areas and city slums provide excellent breeding grounds for mosquitoes. Use of nets and mosquito repellents is becoming more common.  The non-profit, Malaria No More works to distribute mosquito nets and rapid diagnostic tests in countries with a high prevalence of malaria.  They also engage in health education to raise awareness about the disease.  Donations help fund programs, ranging from mobilizing interventions to providing health education to supporting our life-saving work for at-risk families.
+pakistanhealth.jpg
 505
 340
 
@@ -866,101 +865,101 @@ indiahealth.jpg
 375
 
 Indonesia
-Indonesia GDP per capita
-Indonesia GDP real growth rate
-Indonesia agriculture percentage of GDP
-Indonesia economic freedom score
-Indonesia lowest ten income
-Indonesia highest ten income
-Indonesia major industries
-Indonesia unemployment rate
-Indonesia major economic issue
-Indonesia make a difference economic
-Indonesia photo path economic
-Indonesia life expectancy
-Indonesia maternal mortality rate
-Indonesia infant mortality rate
-Indonesia children underweight percentage
-Indonesia physician density
-Indonesia risk of infectious disease
-Indonesia most common diseases
-Indonesia major health issue
-Indonesia make a difference health
-Indonesia photo path help
+$5,200 (2013 est.)
+5.3% (2013 est.)
+14.3%
+58.5 (100th)
+Lowest 10% Income as a percentage of Country Income: 3.3%
+29.9% (2009)
+petroleum and natural gas, textiles, automotive, electrical appliances, apparel, footwear, mining, cement, medical instuments and appliances, handicrafts, chemical fertilizers, plywood, rubber, processed food, jewelry, and tourism
+6.6% (2013 est.)
+Indonesia still struggles with poverty and unemployment, inadequate infrastructure, corruption, a complex regulatory environment, and unequal resource distribution among regions. The government also faces the challenges of quelling labor unrest and reducing fuel subsidies in the face of high oil prices.
+Save the Children brings long term and sustainable benefits to more Indonesian children and works to establish effective, self-sustaining approaches to poverty issues.  For $40, a stock of baby fish, along with a fishing pole, fishhooks, lines and fishing net, can be given to a family who can feed themselves and start a business to help them escape poverty.  For $120 you can give two goats and a sheep. Farm animals sustain families by keeping them fed and by providing valuable income. As herds begin to grow, families have even more potential to lift themselves out of poverty.
+indonesiaecon.jpg
+72.17 years
+220 deaths/100,000 live births (2010)
+25.16 deaths/1,000 live births
+18.6% (2010)
+0.2 physicians/1,000 population (2012)
+very high
+bacterial diarrhea, hepatitis A, and typhoid fever, dengue fever and malaria
+Major health related issue facing this country:  The maternal mortality rate has stagnated in recent years and has even increased.  Experts blame the increase in the rate on the failure to decrease the fertility rate because of lack of awareness about family planning.
+CHANGE is an organization that advocates for the sexual and reproductive health of women and girls around the world.  They address family planning, HIV/AIDS and other sexually transmitted infections, and maternal health.  Donations facilitate research and analysis and allow for building a network of advocacy.
+indonesiahealth.jpg
 815
 475
 
 Philippines
-Philippines GDP per capita
-Philippines GDP real growth rate
-Philippines agriculture percentage of GDP
-Philippines economic freedom score
-Philippines lowest ten income
-Philippines highest ten income
-Philippines major industries
-Philippines unemployment rate
-Philippines major economic issue
-Philippines make a difference economic
-Philippines photo path economic
-Philippines life expectancy
-Philippines maternal mortality rate
-Philippines infant mortality rate
-Philippines children underweight percentage
-Philippines physician density
-Philippines risk of infectious disease
-Philippines most common diseases
-Philippines major health issue
-Philippines make a difference health
-Philippines photo path help
+$4,700 (2013 est.)
+6.8% (2013 est.)
+11.2%
+60.1 (89th)
+Lowest 10% Income as a percentage of Country Income: 2.6%
+33.6% (2009 est.)
+electronics assembly, garments, footwear, pharmaceuticals, chemicals, wood products, food processing, petroleum refining, fishing
+7.4% (2013 est.)
+Education funding in the Philippines decreased after the economic crisis of 2008 following the conditions imposed by different funding agencies. Class sizes increased and teachers are teaching more classes per week. School infrastructural development programs and teachers’ salaries have yet to be affected.
+The Peace Corps currently has an initiative to build a resource center for youth and adults to have access to reading and resource materials and technology on a regular basis so as to improve literacy in either mother tongue, Filipino, and/or English.  A primary objective of the resource center is to provide for the community learning resources such as books, computer, internet, printing, and weekly and monthly activities such as book readings for children. Donations go directly to this project, which still needs $7762.38 more to be completed.  
+philippinesecon.jpg
+72.48 years
+99 deaths/100,000 live births (2010)
+17.64 deaths/1,000 live births
+20.2% (2011)
+1.15 physicians/1,000 population (2004)
+high
+bacterial diarrhea, hepatitis A, and typhoid fever, dengue fever and malaria, leptospirosis
+Major health related issue facing this country: The Philippines’ position as an island country and extensive coastal regions make it very vulnerable to natural disasters, like hurricanes.  Disaster planning needs assistance.
+The American Red Cross continues to help families recover and rebuild from Typhoon Haiyan, a storm that tore through the Philippines with record strength winds and high storm surges.  Approximately 16 million people across 40 provinces were affected by the typhoon and more than 1 million homes were destroyed.  Donations go to the Red Cross working side by side with families to rebuild their homes and their livelihoods.
+philippineshealth.jpg
 860
 440
 
 Sierra Leone
-Sierra Leone GDP per capita
-Sierra Leone GDP real growth rate
-Sierra Leone agriculture percentage of GDP
-Sierra Leone economic freedom score
-Sierra Leone lowest ten income
-Sierra Leone highest ten income
-Sierra Leone major industries
-Sierra Leone unemployment rate
-Sierra Leone major economic issue
-Sierra Leone make a difference economic
-Sierra Leone photo path economic
-Sierra Leone life expectancy
-Sierra Leone maternal mortality rate
-Sierra Leone infant mortality rate
-Sierra Leone children underweight percentage
-Sierra Leone physician density
-Sierra Leone risk of infectious disease
-Sierra Leone most common diseases
-Sierra Leone major health issue
-Sierra Leone make a difference health
-Sierra Leone photo path help
+$1,400 (2013 est.)
+13.3% (2013 est.)
+47.9%
+50.5 (148th)
+Lowest 10% Income as a percentage of Country Income: 2.6%
+33.6%
+diamond mining; iron ore, rutile and bauxite mining; small-scale manufacturing (beverages, textiles, cigarettes, footwear); petroleum refining, small commercial ship repair
+Not available
+In recent years economic growth has been driven by mining - particularly of iron ore and oil exploration. The country exports rutile, diamonds, and bauxite, and is vulnerable to fluctuations in international commodity prices.  Its conditions in and fighting over its diamond mines are a point of strong contention.  For example, the movie “Blood Diamond” was inspired by the conflicts in Sierra Leone.
+Amnesty International is working on promoting changes that require that diamonds be certified “conflict free”.  The retail sector in particular fails to provide sufficient assurance to consumers that the diamonds they sell are conflict-free. They want your help to find out how policies are being communicated at the shop level, and what actions, if any, are being taken to ensure that policies are more than just rhetoric. To help, you can write letters to strengthen enforcement of the Clean Diamond Trade Act, survey jewelers in your area and help to educate consumers.
+sierraleoneecon.jpg
+57.39 years
+890 deaths/100,000 live births (2010)
+73.29 deaths/1,000 live births
+18.6% (2010)
+0.02 physicians/1,000 population (2010)
+very high
+bacterial and protozoal diarrhea, hepatitis A, and typhoid fever, malaria, dengue fever, and yellow fever, schistosomiasis, rabies, lassa fever
+Major health related issue facing this country:  Sierra Leone’s maternal mortality rate is almost 2 times the African average of 500 deaths/100,000 live births.  They are in desperate need of resources for mothers.  One in eight women risk dying during pregnancy or childbirth. This is one of the highest maternal death rates in the world.  Thousands of women bleed to death after giving birth. Most die in their homes. Some die on the way to hospital, in taxis, on motorbikes, or on foot. In Sierra Leone, less than half of deliveries are attended by a skilled birth attendant and less than one in five are carried out in health facilities.
+Political will from the government of Sierra Leone is there to ensure the free health care policy is in place, but there are several issues that still need to be addressed in order for the quality of care to be improved and rates of maternal deaths significantly reduced.  Amnesty International suggests that you read the cases of specific women and write to the government of Sierra Leone, acknowledging their efforts but also calling for wider systematic changes in order to significantly improve the lives of pregnant women in Sierra Leone.
+sierraleonehealth.jpg
 381
 187
 
 Rwanda
-Rwanda GDP per capita
-Rwanda GDP real growth rate
-Rwanda agriculture percentage of GDP
-Rwanda economic freedom score
-Rwanda lowest ten income
-Rwanda highest ten income
-Rwanda major industries
-Rwanda unemployment rate
-Rwanda major economic issue
-Rwanda make a difference economic
-Rwanda photo path economic
-Rwanda life expectancy
-Rwanda maternal mortality rate
-Rwanda infant mortality rate
-Rwanda children underweight percentage
-Rwanda physician density
-Rwanda risk of infectious disease
-Rwanda most common diseases
-Rwanda major health issue
-Rwanda make a difference health
-Rwanda photo path help
+$1,500 (2013 est.)
+7.5% (2013 est.)
+31.9%
+64.7 (65th)
+2.1%
+43.2% (2011 est.)
+cement, agricultural products, small-scale beverages, soap, furniture, shoes, plastic goods, textiles, cigarettes
+ Not available
+The Rwandan Government is seeking to become regional leader in information and communication technologies. In 2010, Rwanda neared completion of the first modern Special Economic Zone (SEZ) in Kigali. The SEZ seeks to attract investment in all sectors, but specifically in agribusiness, information and communications technologies, trade and logistics, mining, and construction.  Although they have made these advancements, there is still a need to get rid of poverty.  
+Opportunity International has a bank in Rwanda that practices microfinance.  In Rwanda, women currently outnumber men and are playing a major role in the growing economy. Opportunity Rwanda has long championed the empowerment of women, who comprise more than 93 percent of our clients and 55 percent of their staff.  They offer business loans, education finance, agricultural finance, savings, insurance, and cell phone banking.  To get involved, you can donate, start fundraisers, or go on an insight trip.
+rwandaecon.jpg
+59.26 years
+340 deaths/100,000 live births (2010)
+59.59 deaths/1,000 live births
+11.7% (2011)
+0.06 physicians/1,000 population (2010)
+very high
+bacterial diarrhea, hepatitis A, and typhoid fever, malaria and dengue fever, rabies
+Major health related issue facing this country:  Around 206,900 people in Rwanda are infected with AIDS.  Many health centers lack essential physical facilities, equipment and supplies. Electricity supply is erratic throughout Rwanda, impacting hospitals, health centers and laboratories. Blood safety, data management and drug storage are all impacted by the erratic electricity supply. While stigma continues to be a problem for people living with HIV/AIDS, it would appear that the situation is slowly improving due to good information sharing at all levels about HIV/AIDS.
+The RED Foundation works to stop HIV/AIDS from spreading.  It works with major brands, which agree to donate up to 50% of the proceeds from a particular product to the foundation.  By simply looking for products marked with the RED logo, you can help contribute to the fight against HIV/AIDS.
+rwandahealth.jpg
 615
 252
