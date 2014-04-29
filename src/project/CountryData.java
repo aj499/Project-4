@@ -1,22 +1,5 @@
 package project;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-/**
- * CountryData class
- * this class stores a country and the data about the country 
- */
-
-import java.util.ArrayList;
-import java.util.Random;
-
-/**
- * This class contains specific data about each country
- */
-=======
-
-=======
->>>>>>> Adam
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,11 +10,6 @@ import java.util.Random;
  * CountryData class
  * this class stores a country and the data about the country 
  */
-<<<<<<< HEAD
-
->>>>>>> Adam
-=======
->>>>>>> Adam
 public class CountryData {
 
 	private String countryName;
@@ -58,20 +36,7 @@ public class CountryData {
 	private String photoPathHealth;
 
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-	/**
-	 * A constructor that sets default values for all variables in country
-	 * CountryData()
-	 */
-
-
-
-	CountryData() {
-=======
-=======
 	
->>>>>>> Adam
 	private int buttonXPosition;
 	private int buttonYPosition;
 	
@@ -80,11 +45,6 @@ public class CountryData {
 	 * CountryData()
 	 */
 	public CountryData() {
-<<<<<<< HEAD
->>>>>>> Adam
-
-=======
->>>>>>> Adam
 		countryName= "new country";
 		gdpPerCapita= "no money";
 		gdpRealGrowthRate="doesn't grow"; 

@@ -1,24 +1,7 @@
 Africa
-Africa GDP per capita
-Africa GDP real growth rate
-Africa agriculture percentage of GDP
-Africa economic freedom score
-Africa lowest ten income
-Africa highest ten income
-Africa major industries
-Africa unemployment rate
-Africa major economic issue
-Africa make a difference economic
+$1,4164.3%16.21%N/ANot availableNot availablevarious types of agriculture, commodities, industryNot availableIn March 2013, Africa was identified as the world's poorest inhabited continent; however, the World Bank expects that most African countries will reach "middle income" status (defined as at least US $1,000 per person a year) by 2025 if current growth rates continue. In 2013, Africa was the world’s fastest-growing continent at 5.6% a year, and GDP is expected to rise by an average of over 6% a year between 2013 and 2023. Growth has been present throughout the continent, with over one-third of Sub-Saharan African countries posting 6% or higher growth rates, and another 40% growing between 4% to 6% per year.N/A
 Africa photo path economic
-Africa life expectancy
-Africa maternal mortality rate
-Africa infant mortality rate
-Africa children underweight percentage
-Africa physician density
-Africa risk of infectious disease
-Africa most common diseases
-Africa major health issue
-Africa make a difference health
+56.4 years500 deaths/100,000 live births64 deaths/1000 live births21%0.199 physicians/1000 populationN/AN/AHIV/AIDS continues to devastate the WHO Africa Region, which has 11% of the world's population but 60% of the people with HIV/AIDS. Although HIV/AIDS remains the leading cause of death for adults, more and more people are receiving life-saving treatment. Also, more than 90% of the estimated 300–500 million malaria cases that occur worldwide every year are in Africans, mainly in children under five years of age, but most countries are moving towards better treatment policies.N/A
 Africa photo path help
 475
 775
@@ -33,26 +16,9 @@ Democratic Republic of the Congo
 Rwanda
 
 South America
-South America GDP per capita
-South America GDP real growth rate
-South America agriculture percentage of GDP
-South America economic freedom score
-South America lowest ten income
-South America highest ten income
-South America major industries
-South America unemployment rate
-South America major economic issue
-South America make a difference economic
+$95752.93%5.32%N/AN/AN/Aoil, mining, textiles, coffee, soybeans, wheat, rice, corn, sugarcane, cocoa, citrus, beef, bananas and shrimp6.72%The economies of South America vary greatly.  Some countries, including Brazil, Argentina and Venezuela, that face the Atlantic Ocean, mistrust globalization and gives the state a large role in the economy. Others, that face the Pacific such as Mexico, Peru, Chile and Colombia, embrace free trade and free markets.  A risk is that commodity prices are falling and many of the economies depend on these for income.N/A
 South America photo path economic
-South America life expectancy
-South America maternal mortality rate
-South America infant mortality rate
-South America children underweight percentage
-South America physician density
-South America risk of infectious disease
-South America most common diseases
-South America major health issue
-South America make a difference health
+74.6 years80 deaths/100,000 live births16 deaths/1000 live birthsN/A1.95 physicians/1000 populationN/AN/AHealth varies between countries with some having government funded health systems and others struggling to improve health equity across their countries.  In many cases there is a large disparity between rural and urban areas.  Rural areas often lack access to water and sanitation while this is rarely a problem in the more industrialized areas.N/A
 South America photo path help
 250
 400
@@ -65,26 +31,8 @@ Colombia
 Venezuela
 
 North America
-North America GDP per capita
-North America GDP real growth rate
-North America agriculture percentage of GDP
-North America economic freedom score
-North America lowest ten income
-North America highest ten income
-North America major industries
-North America unemployment rate
-North America major economic issue
-North America make a difference economic
-North America photo path economic
-North America life expectancy
-North America maternal mortality rate
-North America infant mortality rate
-North America children underweight percentage
-North America physician density
-North America risk of infectious disease
-North America most common diseases
-North America major health issue
-North America make a difference health
+$51,7002.68%1.24%N/AN/AN/Aservices, manufacturing, energy, telecommunications, agriculture8.0%The economy of North America is marked by a sharp division between the predominantly English speaking countries of Canada and the United States, which are among the wealthiest and most developed nations in the world, and countries of Central America and the Caribbean in the former Latin America that are less developed. Mexico and Caribbean nations of the Commonwealth of Nations are somehow between the economic extremes of the development of North America.N/ANorth America photo path economic
+78.9 years20 deaths/100,000 live births5.8 deaths/1,000 live birthsN/A2.4 physicians/1,000 populationN/AN/AHealthcare in North America varies between countries and is comprised of both privately funded and publically funded systems.  There is a great disparity between the quality of health between the more advanced economies and the developing countries.N/A
 North America photo path help
 100
 450
@@ -97,26 +45,9 @@ Haiti
 Guatemala
 
 Europe
-Europe GDP per capita
-Europe GDP real growth rate
-Europe agriculture percentage of GDP
-Europe economic freedom score
-Europe lowest ten income
-Europe highest ten income
-Europe major industries
-Europe unemployment rate
-Europe major economic issue
-Europe make a difference economic
+$23,8568.2%1.94%N/AN/AN/Aamong the world's largest and most technologically advanced, the european industrial base includes: ferrous and non-ferrous metal production and processing, metal products, petroleum, coal, cement, chemicals, pharmaceuticals, aerospace, rail transportation equipment, passenger and commercial vehicles, construction equipment, industrial equipment, shipbuilding, electrical power equipment, machine tools and automated manufacturing systems, electronics and telecommunications equipment, fishing, food and beverage processing, furniture, paper, textiles9.2%Despite EU/IMF rescue programs in Greece, Ireland, Portugal, Spain and Cyprus, and fiscal consolidation measures in many other EU member states, significant risks to growth remain, including high public and private debt loads, crimped lending as banks raise capital, aging populations, onerous regulations, and high unemployment.  In September 2012 the European Central Bank indicated its willingness to purchase bonds from troubled eurozone member states that agree to a formal program of fiscal and structural reforms, aiming to reduce their borrowing costs and restore confidence in the eurozone. The eurozone has since made great strides towards a banking union to increase financial stability and improve lending conditions.N/A
 Europe photo path economic
-Europe life expectancy
-Europe maternal mortality rate
-Europe infant mortality rate
-Europe children underweight percentage
-Europe physician density
-Europe risk of infectious disease
-Europe most common diseases
-Europe major health issue
-Europe make a difference health
+76 years15 deaths/100,000 live births10/1000 live birthsN/A3.34 physicians/1000 populationN/AN/AHealthcare in Europe is provided through a wide range of different systems run at the national level. The systems are primarily publicly funded through taxation (universal health care). Private funding for health care may represent personal contributions towards meeting the non-taxpayer refunded portion of health care or may reflect totally private (non-subsidized) health care either paid out of pocket or met by some form of personal or employer funded insurance. All EU and many other European countries offer their citizens a European Health Insurance Card which, on a reciprocal basis, provides insurance for emergency medical treatment insurance when visiting other participating European countries.N/A
 Europe photo path help
 525
 675
@@ -128,26 +59,8 @@ Spain
 UK
 
 Asia
-Asia GDP per capita
-Asia GDP real growth rate
-Asia agriculture percentage of GDP
-Asia economic freedom score
-Asia lowest ten income
-Asia highest ten income
-Asia major industries
-Asia unemployment rate
-Asia major economic issue
-Asia make a difference economic
-Asia photo path economic
-Asia life expectancy
-Asia maternal mortality rate
-Asia infant mortality rate
-Asia children underweight percentage
-Asia physician density
-Asia risk of infectious disease
-Asia most common diseases
-Asia major health issue
-Asia make a difference health
+$13964.8%18.3%N/AN/AN/Atextiles, technology, agriculture, automobiles, services3.6%Asia is the fastest growing economic region and the largest continental economy by GDP PPP in the world. China is the largest economy in Asia and the second largest economy in the world.  Asia, with the exception of Japan, South Korea, Taiwan, Hong Kong and Singapore, is currently undergoing rapid growth and industrialization spearheaded by China and India, the two fastest growing major economies in the world. While East Asian and Southeast Asian countries generally rely on manufacturing and trade for growth, countries in the Middle East depend more on the production of commodities, principally oil, for economic growth. Over the years, with rapid economic growth and large trade surplus with the rest of the world, Asia has accumulated over US$4 trillion of foreign exchange reserves - more than half of the world's total.N/AAsia photo path economic
+66 years150 deaths/100,000 live births46.6 deaths/1000 live births27%0.67 physicians/1000 populationN/AN/ACountries in Asia and the Pacific have reached unprecedented levels of prosperity, but millions of people are still mired in poverty and poor health, with no sign of their being able to breach the barrier to better medical care. Despite irrefutable evidence of this troubling gap between rich and poor, few governments and health specialists have access to the data they need to address the problem.N/A
 Asia photo path help
 700
 1100
@@ -164,27 +77,10 @@ Indonesia
 Phillipines
 
 Oceania
-Oceania GDP per capita
-Oceania GDP real growth rate
-Oceania agriculture percentage of GDP
-Oceania economic freedom score
-Oceania lowest ten income
-Oceania highest ten income
-Oceania major industries
-Oceania unemployment rate
-Oceania major economic issue
-Oceania make a difference economic
+$39,0252.9%N/AN/AN/AN/Aservices, agriculture, livestock7%This region has a diverse mix of economies from the highly developed and globally competitive financial market of Australia to the much less developed economies that belong to many of its island neighbours. New Zealand is the only other 1st world nation in the region, although the economy of Australia is by far the largest and most dominant economy in the region and one of the largest in the world.N/A
 Oceania photo path economic
-Oceania life expectancy
-Oceania maternal mortality rate
-Oceania infant mortality rate
-Oceania children underweight percentage
-Oceania physician density
-Oceania risk of infectious disease
-Oceania most common diseases
-Oceania major health issue
-Oceania make a difference health
-Oceania photo path help
+77 years
+93 deaths/100,000 live births10 deaths/1000 live birthsN/AN/AN/AN/AThere is a very big disparity between Australia, New Zealand, and the other countries in the region in terms of health.  Even within Australia, there are marginalized groups that do not have equal access to health services and could use more sanitary conditions to help decrease disease.N/AOceania photo path help
 900
 1150
 300
