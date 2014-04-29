@@ -431,18 +431,17 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		if(quizRunner.questionsRemainToAsk()){//if there are more questions to ask
 			//get the question
 			String question = quizRunner.getQuestion();
-<<<<<<< HEAD
+
 			infoBox.removeAll();
 			questionLabel = new JLabel();
 			questionLabel.setText(question);
 			infoBox.setSize(1200,0);
 			infoBox.add(questionLabel);
 			repaint();
-=======
+
 			//TODO: display the question in the UI
 			
-			
->>>>>>> Adam
+
 		} else {//the quiz is over
 			endQuiz("You have successfully completed the quiz!");
 		}
