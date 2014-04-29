@@ -1,5 +1,6 @@
 package project;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.Vector;
 
@@ -43,7 +44,7 @@ public class QuizRunner {
 		questionsAnsweredCorrectly = 0;
 	}
 	
-	public void loadQuestion(){
+	public void loadQuestion() throws IOException{
 		String prospectiveQuestion;
 		
 		Vector<String> countriesToAskAbout;

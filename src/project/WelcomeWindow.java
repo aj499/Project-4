@@ -69,7 +69,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		referenceMap = new ImageIcon("HealthMap.png");
 		//Sets the size of the applet to the reference map size
 		//setSize(referenceMap.getIconWidth(), referenceMap.getIconHeight());
-		setSize(width, height);
+		setSize(width - 400, height);
 		
 		//Creates the start button
 		startButton = new JButton("Start");
@@ -106,12 +106,12 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		JLabel instructions = new JLabel("Please select either economics or health before pressing the start button.");
 		
 		//Organizes the assorted components
-		startButton.setBounds(referenceMap.getIconWidth()/2 - 210, 350, 75, 50);
-		econButton.setBounds(referenceMap.getIconWidth()/2 - 130, 350, 100, 50);
-		healthButton.setBounds(referenceMap.getIconWidth()/2 - 25, 350, 75, 50);
-		prompt.setBounds((referenceMap.getIconWidth()/2) - 210, 400, 150, 20);
-		username.setBounds(referenceMap.getIconWidth()/2 - 60, 400, 100, 20);
-		instructions.setBounds((referenceMap.getIconWidth()/2) - 300, 450, 500, 20);
+		startButton.setBounds(475, 350, 75, 50);
+		econButton.setBounds(550, 350, 100, 50);
+		healthButton.setBounds(650, 350, 75, 50);
+		prompt.setBounds(475, 400, 150, 20);
+		username.setBounds(625, 400, 100, 20);
+		instructions.setBounds(350, 450, 500, 20);
 		
 		//Adds the components to the JPanel before adding those to the content pane
 		window.add(startButton);
@@ -164,7 +164,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	 */
 	private void goToMapPanel(MapMode mapType) throws IOException{
 		//Creates a new MapPanel
-		mapPanel = new MapPanel(new DataManager("CountryData.txt"), new StudentData("Dummy Student!"), mapType);
+		mapPanel = new MapPanel(new DataManager("/Users/Lee/Desktop/CountryData.txt"), new StudentData("Dummy Student!"), mapType);
 		//Switches the visibility of the existing JPanles
 		mapPanel.setVisible(true);
 		window.setVisible(false);
@@ -180,6 +180,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(mapType != null){
 				try {
+					setSize(width, height);
 					goToMapPanel(mapType);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block

@@ -24,29 +24,12 @@ public class DataManager {
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
 		dataLoaded=false;
-<<<<<<< HEAD
-		setFileLocation(newFileLocation);
-	}//constructor
-	
-	/**
-	 * sets the filepath
-	 * @param newFileLocation
-	 */
-	public void setFileLocation(String newFileLocation){
-		fileLocation = newFileLocation;
-	}//setFileLocation
 
-	public void parseData(){
-=======
 		fileLocation = newFileLocation;
 		parseData();
-	}
-	
-
-
-	
+	}//constructor
+		
 	private void parseData(){
->>>>>>> Mike
 		try{
 			String filename = fileLocation;
 			int numContinents = 6;
@@ -93,23 +76,12 @@ public class DataManager {
 			
 			bufferedReader.close();
 			dataLoaded = true;
-<<<<<<< HEAD
-			
-		}//try
-		catch(Exception e){
-			e.printStackTrace();
-		}//catch
-	}//parseData
-=======
+
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 	}
-
-
-
->>>>>>> Mike
 
 
 	/**
@@ -127,30 +99,19 @@ public class DataManager {
 	 * @return a list of all the continents in the countryData hash
 	 */
 	public String[] getContinentList(){
-<<<<<<< HEAD
-		System.out.print("In get continent list: " + continentData.keySet().size());
 		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
 	}//getContinentList
-=======
-		return (String[]) continentData.keySet().toArray(new String[continentData.keySet().size()]);
-	}
->>>>>>> Mike
 	
 	public CountryData getDataForCountry(String countryName){
 
 		return countryData.get(countryName);
-<<<<<<< HEAD
 	}//getDataForCountry
 
-=======
-	}
-	
->>>>>>> Mike
 
 	public ContinentData getDataForContinent(String continentName){
 		//TODO: actually implement this function!
 		return new ContinentData();
-	}
+	}//getDataForContinent
 	
 	public String randomlyChooseVariableForSuperlativeQuestion(){
 		ArrayList<String> econVariableList = new ArrayList<String>();
@@ -161,14 +122,6 @@ public class DataManager {
 		econVariableList.add("economicFreedomScore");
 		econVariableList.add("majorIndustries");
 		econVariableList.add("unemploymentRate");
-		
-<<<<<<< HEAD
-		return continentData.get(continentName);
-	}//getDataForContinent
-
-}//class DataManager
-	
-=======
 		
 		Random generator = new Random();
 		int minimum = 0;
@@ -196,7 +149,7 @@ public class DataManager {
 	
 	public static void main(String args[]){
 
-		DataManager dm = new DataManager("/Users/michaelmcaneny/Desktop/CountryData.txt");
+		DataManager dm = new DataManager("project/CountryData.txt");
 		ContinentData cd = new ContinentData();
 
 		String[] continents = new String[6];
@@ -204,9 +157,6 @@ public class DataManager {
 		for (int i = 0; i<continents.length;i++){
 			System.out.println(continents[i]);
 		}
-	}
-	*/
+	}*/
 
 }
-
->>>>>>> Mike
