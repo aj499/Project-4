@@ -3,6 +3,7 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -84,7 +85,6 @@ public class DataManager {
 		
 	}
 
-
 	/**
 	 * Returns a list of all the countries in the countryData hash.
 	 * 
@@ -133,5 +133,4 @@ public class DataManager {
 		return econVariableList.get(generator.nextInt(econVariableList.size()));
 	}
 
-}
-
+}//class

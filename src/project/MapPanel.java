@@ -3,23 +3,33 @@ package project;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
+import java.util.Vector;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JToggleButton;
+
+
+
 
 public class MapPanel extends JPanel implements ActionListener, MouseListener{
-	
+
+
 	public enum Continent{
 		WORLD, NORTH_AMERICA, SOUTH_AMERICA, EUROPE, AFRICA, ASIA;
 	}
+	
+	/*public enum MapMode{
+		ECONOMIC, HEALTH; //TODO: rename later as appropriate to content?
+	}*/
+	
 	/* --||-- BEGIN VARIABLES --||-- */
 	
 	//to make Eclipse shut up
@@ -28,13 +38,22 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private DataManager worldData;
 	private QuizRunner quizRunner;
 	
+	//Width of the window
+	private final static int width = 600;
+	//Height of the window
+	private final static int height = 700;
+	
+
 	//state variables
 	private String currentView;//which continent are we looking at?	
 	private String currentCountry;//what country are we looking at right now?
 	private MapMode currentMapMode;//what mode is the map in?
 	//private boolean quizRunning;//is the user in a quiz right now?
 	private StudentData currentStudent;//who is the user and what have they seen?
+	private boolean inPreTest;//are they taking the pretest
+
 	//private boolean inPreTest;//are they taking the pretest
+
 
 	
 	//buttons for the countries
@@ -49,6 +68,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private AppButton quizButton;
 	private AppButton backButton;//go back to world view from continentView
 	
+	//Toggle Button for moving between explore mode and quiz mode
+	JLabel toggleButtonLabel;
+	JToggleButton toggleButton;
+	
 	/* --||-- END VARIABLES --||-- */
 	
 	/**
@@ -56,6 +79,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * 
 	 * @param newWorldData the DataManager to load data from
 	 */
+
 
 	public MapPanel(DataManager newWorldData, StudentData newStudentData, project.MapMode mapType){
 		//handle passed-in data
@@ -79,6 +103,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//TODO: get and set the rest of the data on the subject of the pre-test from currentStudent
 		
 		//delegate to helper function for UI setup
+
 		setUp(mapType);
 	}
 	
@@ -88,12 +113,17 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * <p>
 	 * (Assumes that worldData has been set previously.)
 	 */
+
 	private void setUp(MapMode type){
 		//TODO: set text on all buttons correctly, including setting up the quiz button for being in-quiz
 		
 		quizButton = new AppButton();
 		quizButton.setText("End Quiz");
+	}
 		
+
+	private void setUp(){
+
 		setLayout(new BorderLayout());
 		//set default values for what we're looking at
 		currentView = "World";
@@ -103,6 +133,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		setBackground(Color.black);
 		ImageIcon map = new ImageIcon("HealthMap.png"); 
 		setSize(map.getIconWidth(), map.getIconHeight());
+
 		
 		JLabel mapLabel = new JLabel();
 		JPanel infoBox = new JPanel();
@@ -110,14 +141,18 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		infoBox.setLocation(200,200);
 		infoBox.setBackground(Color.RED);
 		infoBox.setOpaque(true);
+		
+		
 
 		mapLabel.setIcon(map);
 
 		add(mapLabel, BorderLayout.WEST);	
 		add(infoBox, BorderLayout.EAST);
 
+
 		mapLabel.validate();
 		mapLabel.repaint();
+
 		
 		addMouseListener(this);
 		
@@ -296,6 +331,16 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		if(!quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast works…make all buttons AppButtons to ensure that
 			String countryClicked = ((AppButton) e.getSource()).getId();
 			
+
+			//change currentCountry appropriately
+			currentCountry = countryClicked;
+			
+			//update the StudentData
+			currentStudent.addCountrySeen(currentCountry, currentView, currentMapMode);
+			
+			//update the info box
+			//updateInfoBox(worldData.getDataForCountry(countryClicked));
+
 			//update appropriately
 			changeCountry(countryClicked);
 		} else if(quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//country button clicked during a quiz
@@ -326,8 +371,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				//update appropriately
 				changeContinent("World");
 			}
-		} else if(e.getSource().equals(quizButton)){//start/stop quiz
-			if(quizRunner.getQuizRunning()){//if they're in a quiz
+		} else if(quizRunner.getQuizRunning()){//if they're in a quiz
 				if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
 					String outputMessage = "You must finish the pre-test first!";
 					JOptionPane.showMessageDialog(this, outputMessage, "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
@@ -342,7 +386,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				} else if(currentView == "World" && !currentStudent.hasSeenCountriesInContinent("World", currentMapMode)){
 					String outputMessage = "You haven't studied any countries,\nso you can't take a quiz yet!";
 					JOptionPane.showMessageDialog(this, outputMessage, "Warning!", JOptionPane.WARNING_MESSAGE);
-				} else {
+				} else {//they've looked at countries so we can start a quix
 					//change the label on the button
 					quizButton.setText("End Quiz");
 					
@@ -354,7 +398,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				}
 			}
 		}
-	}
 
 	/**
 	 * Respond to mouse clicks.
@@ -377,9 +420,28 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					ContinentData continentData = worldData.getDataForContinent(continentNames[i]);
 					
 					if(continentData.isPointInBounds(mouseX, mouseY)){//if we're inside this continent
+
+						//note that we've changed continent
+						currentView = continentNames[i];
+
+						
+						//update StudentData
+						currentStudent.addContinentSeen(currentView, currentMapMode);
+						
+						//TODO: change layout appropriately here
+						
+
+						
+						//update StudentData
+						currentStudent.addContinentSeen(currentView, currentMapMode);
+						
+						//TODO: change layout appropriately here
+
 						//update appropriately
 						changeContinent(continentNames[i]);
+
 						
+
 						//stop checking by terminating the for loop
 						break;
 					}

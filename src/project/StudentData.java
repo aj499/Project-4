@@ -128,7 +128,7 @@ public class StudentData {
 			return false; //backup, unreachable; to make Eclipse happy
 		}
 	}
-	
+
 	/**
 	 * Returns whether or not the student has looked at a given continent in the indicated mode.
 	 * 
@@ -136,6 +136,7 @@ public class StudentData {
 	 * @param modeSeenIn the mode we want to know whether or not the student viewed it
 	 * @return whether or not the student looked at the given continent in the given mode
 	 */
+
 	public boolean hasContinentBeenSeen(String continentToCheck, MapMode modeSeenIn){
 		switch(modeSeenIn){
 		case HEALTH:

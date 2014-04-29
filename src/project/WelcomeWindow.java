@@ -32,7 +32,16 @@ import javax.swing.JRadioButton;
 public class WelcomeWindow extends JApplet implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
+
+	//Width of the window
+	private final static int width = 600;
+	//Height of the window
+	private final static int height = 300;
 	
+	//Welcome message
+	private final String WELCOME_MESSAGE = "Welcome to the World Map";
+	
+
 	//Initial JPanel that will be presented on the applet
 	private JPanel window;
 	//MapPanel object that is the main JPanel that will be presented on the applet
@@ -118,7 +127,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		content.add(window);
 		
 	}//init
-	
+
 	/**
 	 * ImagePanel class
 	 * 
@@ -193,5 +202,6 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		}
 		
 	}//general actionPerformed
+	
 	
 }//class WelcomeWindow
