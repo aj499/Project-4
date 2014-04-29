@@ -42,8 +42,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private StudentData currentStudent;//who is the user and what have they seen?
 	//private boolean inPreTest;//are they taking the pretest
 
+	//private image that holds the image of the current map
 	private Image map;
-
 	//buttons for the countries
 	private HashMap<String, AppButton> buttons;//a hash of all the buttons for the countries
 	
@@ -78,6 +78,13 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private JLabel mostCommonDiseases;
 	private JLabel majorHealthIssue;
 	private JLabel makeADifferenceHealth;
+	
+	//private image that holds the image of a photo of the country to be transferred to the image icon
+	private Image photoImage;
+	//private imageicon that holds the imageicon of a photo of the country
+	private ImageIcon photo;
+	//private JLabel that holds the imageicon photo
+	private JLabel photoLabel;
 	
 	//JPanel holding all of the country information
 	private JPanel infoBox;
@@ -150,13 +157,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		addMouseListener(this);
 		infoBox = new JPanel();
-		//infoBox.setLayout(new GridLayout(5,1));
-		//infoBox.setLayout(new BoxLayout(infoBox, BoxLayout.LINE_AXIS));
-		//infoBox.setLayout(new SpringLayout());
 		add(infoBox);
 		infoBox.setBounds(0, 500, 1200, 300);
 		infoBox.setBackground(Color.CYAN);
 		infoBox.setOpaque(true);
+		infoBox.setLayout(null);
 		repaint();
 	}//setUp
 	
@@ -301,8 +306,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * to the given county.
 	 * 
 	 * @param countryToChangeTo the new country to view
+	 * @throws IOException 
 	 */
-	private void changeCountry(String countryToChangeTo){
+	private void changeCountry(String countryToChangeTo) throws IOException{
 		currentCountry = countryToChangeTo;
 		
 		//update the info displayed in the info box
@@ -316,8 +322,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * Fill the InfoBox with the given data on a country.
 	 * 
 	 * @param newCountry the data to display about the given country
+	 * @throws IOException 
 	 */
-	private void updateInfoBox(CountryData newCountry){
+	private void updateInfoBox(CountryData newCountry) throws IOException{
 
 		infoBox.removeAll();
 		
@@ -332,18 +339,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			unemploymentRate = new JLabel();
 			majorEconomicIssue = new JLabel();
 			makeADifferenceEconomic = new JLabel();
-			/*JLabel infoText = new JLabel();
-			String superstring = newCountry.getGpdPerCapita() + "<br>" + newCountry.getGdpRealGrowthRate() + "<br>" 
-								+ newCountry.getagriculturePercentageOfGdp() + '\n' + newCountry.getEconomicFreedomScore()
-								+ '\n' + newCountry.getLowestTenIncome() + '\n' + newCountry.getHighestTenIncome() 
-								+ '\n' + newCountry.getMajorIndustries() + '\n' + newCountry.getUnemploymentRate()
-								+ '\n' + newCountry.getMajorEconomicIssue() + '\n' +  newCountry.getMakeADifferenceEconomic();
-			infoText.setText("<html><p>" + superstring + "</p></html>");
-			infoText.setSize(200,400);*/
+			photoLabel = new JLabel();
+			
 			gdpPerCapita.setSize(1200,0);
 			gdpPerCapita.setText(newCountry.getGpdPerCapita());
 			gdpRealGrowthRate.setSize(1200, 50);
-			gdpRealGrowthRate.setBackground(Color.RED);
 			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
 			agriculturePercentageOfGdp.setSize(1200,100);
 			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
@@ -361,6 +361,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
 			makeADifferenceEconomic.setSize(1200,450);
 			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
+			photoImage = ImageIO.read(new File(newCountry.getPhotoPathEconomic())).getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+			photo = new ImageIcon(photoImage);
+			photoLabel.setIcon(photo);
+			photoLabel.setVisible(true);
+			photoLabel.setBounds(900, 550, 250, 250);
 
 			infoBox.add(gdpRealGrowthRate);
 			infoBox.add(agriculturePercentageOfGdp);
@@ -371,6 +376,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			infoBox.add(unemploymentRate);
 			infoBox.add(majorEconomicIssue);
 			infoBox.add(makeADifferenceEconomic);
+			infoBox.add(photoLabel);
 			repaint();
 			
 		}//if Economic mode
@@ -385,17 +391,33 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			mostCommonDiseases = new JLabel();
 			majorHealthIssue = new JLabel();
 			makeADifferenceHealth = new JLabel();
+			photoLabel = new JLabel();
 
-			lifeExpectancy.setSize(400,50);
+			lifeExpectancy.setSize(1200,0);
 			lifeExpectancy.setText(newCountry.getLifeExpectancy());
+			maternalMortalityRate.setSize(1200,50);
 			maternalMortalityRate.setText(newCountry.getMaternalMortalityRate());
+			infantMortalityRate.setSize(1200,100);
 			infantMortalityRate.setText(newCountry.getInfantMortalityRate());
+			childrenUnderweightPercentage.setSize(1200,150);
 			childrenUnderweightPercentage.setText(newCountry.getChildrenUnderweightPercentage());
+			physicianDensity.setSize(1200,200);
 			physicianDensity.setText(newCountry.getPhysicianDensity());
+			riskOfInfectiousDisease.setSize(1200,250);
 			riskOfInfectiousDisease.setText(newCountry.getRiskOfInfectiousDisease());
+			mostCommonDiseases.setSize(1200,300);
 			mostCommonDiseases.setText(newCountry.getMostCommonDiseases());
+			majorHealthIssue.setSize(1200,350);
 			majorHealthIssue.setText(newCountry.getMajorHealthIssue());
-			makeADifferenceHealth.setText(newCountry.getMakeADifferenceEconomic());
+			makeADifferenceHealth.setSize(1200,400);
+			makeADifferenceHealth.setText(newCountry.getMakeADifferenceHealth());
+			photoImage = ImageIO.read(new File(newCountry.getPhotoPathHealth())).getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+			photo = new ImageIcon(photoImage);
+			photoLabel.setIcon(photo);
+			photoLabel.setVisible(true);
+			photoLabel.setSize(250,250);
+			photoLabel.setLocation(null);
+			//photoLabel.setBounds(900, 550, 250, 250);
 			
 			infoBox.add(lifeExpectancy);
 			infoBox.add(maternalMortalityRate);
@@ -406,6 +428,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			infoBox.add(mostCommonDiseases);
 			infoBox.add(majorHealthIssue);
 			infoBox.add(makeADifferenceHealth);
+			infoBox.add(photoLabel);
 			repaint();
 			
 		}//if Health mode
@@ -455,7 +478,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			String countryClicked = ((AppButton) e.getSource()).getId();
 			
 			//update appropriately
-			changeCountry(countryClicked);
+			try {
+				changeCountry(countryClicked);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		} else if(quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//country button clicked during a quiz
 			//check the answer
 			boolean answerWasCorrect = quizRunner.checkAnswer(((AppButton) e.getSource()).getId());
@@ -536,7 +564,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e){
 		//only check for clicks on continents if we're looking at the whole world
-		System.out.print("Clicked");
 		if(currentView.equals("World")){
 			//get the locations of the click
 			int mouseX = e.getX();

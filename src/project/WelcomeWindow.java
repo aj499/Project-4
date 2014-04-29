@@ -192,14 +192,14 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 			}//if an option was pressed
 			else{
 				JLabel warning = new JLabel("Please choose a subject");
-				warning.setBounds(referenceMap.getIconWidth()/2 + 25, 500, 100, 20);
+				warning.setBounds(525, 425, 150, 20);
 				warning.setVisible(true);
-				warning.setOpaque(true);
-				window.requestFocus();
 				window.add(warning);
 				window.setVisible(true);
 				window.requestFocus();
 				content.add(window);
+				content.validate();
+				repaint();
 			}//else
 		}//actionPerformed
 	}//class startAction
