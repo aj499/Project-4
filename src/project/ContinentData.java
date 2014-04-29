@@ -6,7 +6,7 @@ public class ContinentData extends CountryData{
 	private int topBound, bottomBound, rightBound, leftBound;
 	private Vector<String> countryList;
 
-	ContinentData() {
+	public ContinentData() {
 		countryList = new Vector<String>();
 	}
 	
