@@ -1,9 +1,8 @@
 package project;
 
-<<<<<<< HEAD
-=======
+
 //begin summoning the forces of evil, aka the Java graphics libraries
->>>>>>> origin/Adam
+
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -12,12 +11,6 @@ import java.awt.TextField;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-<<<<<<< HEAD
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-=======
->>>>>>> origin/Adam
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
@@ -61,33 +54,26 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		window.setLayout(null);
 		
 		startButton = new JButton("Start");
-<<<<<<< HEAD
-		startButton.addActionListener(new startAction());
-=======
+
 		//Adds an action listener to the start button
 		startButton.addActionListener(this);
 		//Sets the start button's size
->>>>>>> origin/Adam
+
 		startButton.setPreferredSize(new Dimension(100, 50));
 		
 		econButton = new JRadioButton("Economics");
-<<<<<<< HEAD
-		econButton.addActionListener(new econAction());
-=======
+
 		//Adds an action listener to the econ button
 		econButton.addActionListener(this);
 		//Sets the econ button's size
->>>>>>> origin/Adam
+
 		econButton.setPreferredSize(new Dimension(200, 20));
 		
 		healthButton = new JRadioButton("Health");
-<<<<<<< HEAD
-		healthButton.addActionListener(new healthAction());
-=======
+
 		//Adds an action listener to the health button
 		healthButton.addActionListener(this);
 		//Sets the health button's size
->>>>>>> origin/Adam
 		healthButton.setPreferredSize(new Dimension(200, 20));
 		
 		typeOptions = new ButtonGroup();
@@ -116,9 +102,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		
 	}//init
 	
-<<<<<<< HEAD
-	public class ImagePanel extends JPanel{
-=======
+
 	/**
 	 * ImagePanel class
 	 * 
@@ -126,7 +110,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	 *
 	 */
 	private class ImagePanel extends JPanel{
->>>>>>> origin/Adam
+
 		private static final long serialVersionUID = 1L;
 		private Image image = null;
 		//private int width;
@@ -134,15 +118,11 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 
 		public ImagePanel(Image image){
 			this.image = image;
-<<<<<<< HEAD
-			this.width = image.getWidth(this);
-			this.height = image.getHeight(this);
-		}
-=======
+
 			//this.width = image.getWidth(this);
 			//this.height = image.getHeight(this);
 		}//constructor
->>>>>>> origin/Adam
+
 		public void paintComponent(Graphics g){
 			super.paintComponent(g);
 			if (image != null){
@@ -160,26 +140,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		window.setVisible(false);
 		this.setContentPane(mapPanel);
 	}//goToMapPanel
-<<<<<<< HEAD
-	
-	public class startAction implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(mapType != null){
-				goToMapPanel(mapType);
-			}//if an option was pressed
-			else{
-				JLabel warning = new JLabel();
-				warning.setText("Please choose a subject");
-				add(warning);
-			}//else
-		}//actionPerformed
-	}//class startAction
-	
-	public class econAction implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-=======
+
 
 	/**
 	 * Respond to button events created by the user clicking on the buttons
@@ -204,7 +165,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 				content.add(window);
 			}
 		} else if(e.getSource().equals(econButton)){//Economic radio button
->>>>>>> origin/Adam
+
 			mapType = MapMode.ECONOMIC;
 		} else if(e.getSource().equals(healthButton)){//Health radio button
 			mapType = MapMode.HEALTH;

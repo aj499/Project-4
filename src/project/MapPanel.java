@@ -8,16 +8,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
-<<<<<<< HEAD
-import java.util.Vector;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-=======
+
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.util.Vector;
->>>>>>> origin/Adam
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -211,9 +207,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		updateInfoBox(worldData.getDataForCountry(currentCountry));
 		
 		//note that we've seen this new country
-<<<<<<< HEAD
-		currentStudent.addCountrySeen(currentCountry, currentMapMode);
-=======
+
 		currentStudent.addCountrySeen(currentCountry, currentView, currentMapMode);
 
 		//TODO: load all the map images here
@@ -221,7 +215,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		ImageIcon map = new ImageIcon("mapImage2.png"); 
 		JLabel mapLabel = new JLabel();
 		mapLabel.setIcon(map);
->>>>>>> origin/Adam
+
 	}
 	
 	/**
@@ -442,8 +436,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		//Does nothing; required by interface
 	}
 	
-<<<<<<< HEAD
-=======
+
 	/**
 	 * Returns the data for the current user of the program.
 	 * @return the data for the current user of the program
@@ -452,5 +445,5 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		return currentStudent;
 	}
 	
->>>>>>> origin/Adam
+
 }//class MapPanel

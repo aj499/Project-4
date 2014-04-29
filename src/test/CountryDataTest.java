@@ -9,6 +9,7 @@ import project.CountryData;
 
 public class CountryDataTest {
 	
+
 	@Test
 	public void testConstructor() {
 		CountryData data;
