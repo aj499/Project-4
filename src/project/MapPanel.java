@@ -14,7 +14,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Vector;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -149,9 +148,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		addMouseListener(this);
 		infoBox = new JPanel();
+		/*JLabel test = new JLabel("HI");
+		test.setSize(400, 10);*/
 		add(infoBox);
+		//infoBox.add(test);
 		infoBox.setBounds(1200, 0, 400, 500);
-		infoBox.setBackground(Color.RED);
+		infoBox.setBackground(Color.CYAN);
 		infoBox.setOpaque(true);
 		repaint();
 	}//setUp
@@ -304,6 +306,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		currentCountry = countryToChangeTo;
 		
 		//update the info displayed in the info box
+		System.out.println("in changecountry");
 		updateInfoBox(worldData.getDataForCountry(currentCountry));
 		
 		//note that we've seen this new country
@@ -316,6 +319,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 * @param newCountry the data to display about the given country
 	 */
 	private void updateInfoBox(CountryData newCountry){
+
+		infoBox.removeAll();
 		
 		if(currentMapMode == MapMode.ECONOMIC){
 			gdpPerCapita = new JLabel();
@@ -330,7 +335,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			makeADifferenceEconomic = new JLabel();
 			
 			gdpPerCapita.setSize(400,50);
-			gdpPerCapita.setText(newCountry.getGpdPerCapita());
+			gdpPerCapita.setText("HI");
+			//gdpPerCapita.setText(newCountry.getGpdPerCapita());
 			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
 			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
 			economicFreedomScore.setText(newCountry.getEconomicFreedomScore());
@@ -342,6 +348,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
 			
 			infoBox.add(gdpPerCapita);
+			repaint();
 			
 		}//if Economic mode
 		
@@ -356,7 +363,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			majorHealthIssue = new JLabel();
 			makeADifferenceHealth = new JLabel();
 
-			lifeExpectancy.setText(newCountry.getLifeExpectancy());
+			lifeExpectancy.setSize(400,50);
+			lifeExpectancy.setText("HI");
+			//lifeExpectancy.setText(newCountry.getLifeExpectancy());
 			maternalMortalityRate.setText(newCountry.getMaternalMortalityRate());
 			infantMortalityRate.setText(newCountry.getInfantMortalityRate());
 			childrenUnderweightPercentage.setText(newCountry.getChildrenUnderweightPercentage());
@@ -365,6 +374,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			mostCommonDiseases.setText(newCountry.getMostCommonDiseases());
 			majorHealthIssue.setText(newCountry.getMajorHealthIssue());
 			makeADifferenceHealth.setText(newCountry.getMakeADifferenceEconomic());
+			
+			infoBox.add(lifeExpectancy);
+			repaint();
 			
 		}//if Health mode
 	}//updateInfoBox
