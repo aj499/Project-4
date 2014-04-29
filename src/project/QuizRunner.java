@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.util.Random;
 import java.util.Vector;
 
+/*
+ * A class that handles the internal logic for a quiz.
+ * <p>
+ * This includes question selection, answer checking, and managing of user attempts. 
+ */
 public class QuizRunner {
 	private static final int TOTAL_QUESTIONS_TO_ASK = 10;
 	private static final int MAX_ATTEMPTS_PER_QUESTION = 3;
@@ -210,7 +215,7 @@ public class QuizRunner {
 	/**
 	 * Loads an appropriate question and returns it.
 	 * 
-	 * @return 
+	 * @return the new question loaded
 	 */
 	public String getQuestion(){
 		//load a question
@@ -220,19 +225,35 @@ public class QuizRunner {
 		return currentQuestion;
 	}
 	
+	/**
+	 * Returns the number of questions left in the current quiz.
+	 * 
+	 * @return the number of questions left in the current quiz
+	 */
 	public boolean questionsRemainToAsk(){
-		System.out.println("CQN: " + currentQuestionNumber);
 		return currentQuestionNumber < TOTAL_QUESTIONS_TO_ASK;
 	}
 	
+	/**
+	 * Returns whether or not the user can make any more attempts at answering the current question. 
+	 * @return whether or not the user can make any more attempts at answering the current question
+	 */
 	public boolean hasRemainingAttempts(){
 		return currentQuestionAttempts < MAX_ATTEMPTS_PER_QUESTION;
 	}
 	
+	/**
+	 * Returns the number of attempts at answering the current question the user has left.
+	 * @return the number of attempts at answering the current question the user has left
+	 */
 	public int getRemainingAttempts(){
 		return MAX_ATTEMPTS_PER_QUESTION - currentQuestionAttempts;
 	}
 	
+	/**
+	 * Returns a report on how the user performed on the most recent quiz.  
+	 * @return a report on how the user performed on the most recent quiz
+	 */
 	public String getQuizEndReport(){
 		String report = "You answered " + questionsAnsweredCorrectly + " out of " + TOTAL_QUESTIONS_TO_ASK + " questions correctly";
 		report += " and scored " + (int) ((((float) questionsAnsweredCorrectly) / ((float) TOTAL_QUESTIONS_TO_ASK)) * 100) + "%.";

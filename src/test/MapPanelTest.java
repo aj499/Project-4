@@ -2,8 +2,6 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.io.IOException;
-
 import org.junit.Test;
 
 import project.DataManager;
@@ -24,13 +22,9 @@ public class MapPanelTest {
 	@Test
 	public void testConstructor() {
 		dm = new DataManager(DATA_FILE_LOCATION);
-		sd = new StudentData("Tasha", "South America");
+		sd = new StudentData("Tasha");
 		
-		//try{
-			mp = new MapPanel(dm, sd, MapMode.ECONOMIC);	
-		//} catch(IOException e){
-			//fail("IOException thrown: " + e.getMessage());
-		//}
+		mp = new MapPanel(dm, sd, MapMode.ECONOMIC);
 		
 		
 		assertNotNull(mp);

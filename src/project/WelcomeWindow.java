@@ -168,8 +168,7 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		//get the name entered by the student
 		String studentName = username.getText();
 		//Creates a new MapPanel
-		//TODO: CHANGE THIS 'North America' TO SOMETHING MEANINGFUL
-		mapPanel = new MapPanel(new DataManager("CountryData.txt"), new StudentData(studentName, "North America"), mapType);
+		mapPanel = new MapPanel(new DataManager("CountryData.txt"), new StudentData(studentName), mapType);
 		//Switches the visibility of the existing JPanels
 		mapPanel.setVisible(true);
 		window.setVisible(false);
@@ -190,7 +189,8 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 					setSize(width, height+300);
 					goToMapPanel(mapType);	
 				} catch(IOException exceptionThrown){
-					//TODO: something here!
+					//or not if this fails things end really badly, so let's just crash, I guess
+					System.exit(1);
 				}
 
 			} else {//if no option was selected, alert the user

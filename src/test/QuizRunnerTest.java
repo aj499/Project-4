@@ -2,8 +2,6 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.io.IOException;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,24 +15,24 @@ public class QuizRunnerTest {
 	final String DATA_FILE_LOCATION = "src/CountryData.txt";//see note in DataManagerTest
 	DataManager dm = new DataManager(DATA_FILE_LOCATION);
 	MapPanel mp;
-	StudentData sd = new StudentData("Dave", "Oceania");
+	StudentData sd = new StudentData("Dave Strider");
 	
 	QuizRunner qr;
 	
+	/**
+	 * Set things up before each test.
+	 */
 	@Before
 	public void setUpMapPanel(){
-		//try{
-			mp = new MapPanel(dm, sd, MapMode.HEALTH);
-			
-			sd.addContinentSeen("Africa", MapMode.HEALTH);
-			sd.addContinentSeen("Africa", MapMode.ECONOMIC);
-			sd.addCountrySeen("Chad", "Africa", MapMode.HEALTH);
-			sd.addCountrySeen("Chad", "Africa", MapMode.ECONOMIC);
-			sd.addCountrySeen("Yemen", "Africa", MapMode.HEALTH);
-			sd.addCountrySeen("Yemen", "Africa", MapMode.ECONOMIC);
-		//} catch(IOException e){
-			//fail("IOException thrown on constructing MapPanel: " + e.getMessage());
-		//}
+		mp = new MapPanel(dm, sd, MapMode.HEALTH);
+
+		//make it so that the student's seen some things to be tested upon
+		sd.addContinentSeen("Africa", MapMode.HEALTH);
+		sd.addContinentSeen("Africa", MapMode.ECONOMIC);
+		sd.addCountrySeen("Chad", "Africa", MapMode.HEALTH);
+		sd.addCountrySeen("Chad", "Africa", MapMode.ECONOMIC);
+		sd.addCountrySeen("Yemen", "Africa", MapMode.HEALTH);
+		sd.addCountrySeen("Yemen", "Africa", MapMode.ECONOMIC);
 	}
 	
 	/**
@@ -86,7 +84,7 @@ public class QuizRunnerTest {
 	}
 	
 	//we don't have a test for correct answer, since no one outside
-	//the QuizRunner can check for what the correct answer is
+	//the QuizRunner can know what the correct answer is
 	
 	/**
 	 * Make sure that ending the quiz sets variables appropriately.
@@ -98,7 +96,6 @@ public class QuizRunnerTest {
 		qr.endQuiz();
 		
 		assertFalse(qr.getQuizRunning());
-		assertFalse(qr.getInPreTest());
 	}
 	
 	/**

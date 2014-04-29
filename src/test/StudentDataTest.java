@@ -8,9 +8,8 @@ import project.StudentData;
 
 public class StudentDataTest {
 	public static final String STUDENT_NAME = "Taiga";
-	public static final String STUDENT_PRE_TEST_TOPIC = "Europe";
 	
-	StudentData sd;
+	StudentData sd = new StudentData(STUDENT_NAME);
 	
 	/**
 	 * Make sure that the constructor sets the student's name correctly
@@ -18,8 +17,6 @@ public class StudentDataTest {
 	 */
 	@Test
 	public void testConstructor() {
-		sd = new StudentData(STUDENT_NAME, STUDENT_PRE_TEST_TOPIC);
-		
 		assertTrue(STUDENT_NAME.equals(sd.getName()));
 		assertEquals(sd.getContinentsSeenHealth().size(), 0);
 		assertEquals(sd.getContinentsSeenEconomic().size(), 0);
@@ -32,8 +29,6 @@ public class StudentDataTest {
 	 */
 	@Test
 	public void testAddCountrySeen(){
-		sd = new StudentData(STUDENT_NAME, STUDENT_PRE_TEST_TOPIC);
-		
 		assertEquals(sd.getCountriesSeenHealth().size(), 0);
 		
 		sd.addCountrySeen("Ghana", "Africa", MapMode.HEALTH);
@@ -46,8 +41,6 @@ public class StudentDataTest {
 	 */
 	@Test
 	public void testAddContinentSeen(){
-		sd = new StudentData(STUDENT_NAME, STUDENT_PRE_TEST_TOPIC);
-		
 		assertEquals(sd.getContinentsSeenEconomic().size(), 0);
 		
 		sd.addContinentSeen("Australia", MapMode.ECONOMIC);
@@ -60,8 +53,6 @@ public class StudentDataTest {
 	 */
 	@Test
 	public void testHasCountryBeenSeenWithSeenCountry(){
-		sd = new StudentData(STUDENT_NAME, STUDENT_PRE_TEST_TOPIC);
-		
 		assertEquals(sd.getCountriesSeenHealth().size(), 0);
 		
 		sd.addCountrySeen("Ghana", "Africa", MapMode.HEALTH);
@@ -74,8 +65,6 @@ public class StudentDataTest {
 	 */
 	@Test
 	public void testHasCountryBeenSeenWithUnseenCountry(){
-		sd = new StudentData(STUDENT_NAME, STUDENT_PRE_TEST_TOPIC);
-		
 		assertEquals(sd.getCountriesSeenHealth().size(), 0);
 		
 		assertFalse(sd.hasCountryBeenSeen("Ghana", MapMode.HEALTH));
@@ -86,8 +75,6 @@ public class StudentDataTest {
 	 */
 	@Test
 	public void testHasContinentBeenSeenWithSeenContinent(){
-		sd = new StudentData(STUDENT_NAME, STUDENT_PRE_TEST_TOPIC);
-		
 		assertEquals(sd.getContinentsSeenHealth().size(), 0);
 		
 		sd.addContinentSeen("Australia", MapMode.HEALTH);
@@ -100,8 +87,6 @@ public class StudentDataTest {
 	 */
 	@Test
 	public void testHasContinentBeenSeenWithUnseenContinent(){
-		sd = new StudentData(STUDENT_NAME, STUDENT_PRE_TEST_TOPIC);
-		
 		assertEquals(sd.getContinentsSeenHealth().size(), 0);
 		
 		assertFalse(sd.hasContinentBeenSeen("Australia", MapMode.HEALTH));
@@ -113,8 +98,6 @@ public class StudentDataTest {
 	 */
 	@Test
 	public void testHasSeenCountriesInContinentWithCountriesSeen(){
-		sd = new StudentData(STUDENT_NAME, STUDENT_PRE_TEST_TOPIC);
-		
 		assertEquals(sd.getCountriesSeenEconomic().size(), 0);
 		
 		sd.addCountrySeen("Ghana", "Africa", MapMode.ECONOMIC);
@@ -128,8 +111,6 @@ public class StudentDataTest {
 	 */
 	@Test
 	public void testHasSeenCountriesInContinentWithNoCountriesSeen(){
-		sd = new StudentData(STUDENT_NAME, STUDENT_PRE_TEST_TOPIC);
-		
 		assertEquals(sd.getCountriesSeenEconomic().size(), 0);
 		
 		assertFalse(sd.hasSeenCountriesInContinent("Africa", MapMode.ECONOMIC));
