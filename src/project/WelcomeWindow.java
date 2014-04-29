@@ -68,21 +68,21 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		//Creates the start button
 		startButton = new JButton("Start");
 		//Adds an action listener to the start button
-		startButton.addActionListener(new startAction());
+		startButton.addActionListener(this);
 		//Sets the start button's size
 		startButton.setPreferredSize(new Dimension(100, 50));
 		
 		//Creates one of the two radio buttons for the economics option
 		econButton = new JRadioButton("Economics");
 		//Adds an action listener to the econ button
-		econButton.addActionListener(new econAction());
+		econButton.addActionListener(this);
 		//Sets the econ button's size
 		econButton.setPreferredSize(new Dimension(200, 20));
 		
 		//Creates the other of the two radio buttons for the health option
 		healthButton = new JRadioButton("Health");
 		//Adds an action listener to the health button
-		healthButton.addActionListener(new healthAction());
+		healthButton.addActionListener(this);
 		//Sets the health button's size
 		healthButton.setPreferredSize(new Dimension(200, 20));
 		
@@ -163,18 +163,19 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		window.setVisible(false);
 		this.setContentPane(mapPanel);
 	}//goToMapPanel
-	
+
 	/**
-	 * startAction
-	 *
+	 * Respond to button events created by the user clicking on the buttons
+	 * on the screen (the Economic/Health radio buttons and the Start button).
+	 * 
+	 * @param e the event caused by the click on the button clicked
 	 */
-	public class startAction implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(mapType != null){
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource().equals(startButton)){//Start button
+			if(mapType != null){//if an option was selected, go on to the main map
 				goToMapPanel(mapType);
-			}//if an option was pressed
-			else{
+			} else {//if no option was selected, alert the user
 				JLabel warning = new JLabel("Please choose a subject");
 				warning.setBounds(referenceMap.getIconWidth()/2 + 25, 500, 100, 20);
 				warning.setVisible(true);
@@ -184,26 +185,13 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 				window.setVisible(true);
 				window.requestFocus();
 				content.add(window);
-			}//else
-		}//actionPerformed
-	}//class startAction
-	
-	public class econAction implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
+			}
+		} else if(e.getSource().equals(econButton)){//Economic radio button
 			mapType = MapMode.ECONOMIC;
-		}//actionPerformed
-	}//class startAction
-	
-	public class healthAction implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
+		} else if(e.getSource().equals(healthButton)){//Health radio button
 			mapType = MapMode.HEALTH;
-		}//actionPerformed
-	}//class startAction
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
+		}
+		
 	}//general actionPerformed
 	
 }//class WelcomeWindow
