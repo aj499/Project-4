@@ -496,7 +496,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			//get the locations of the click
 			int mouseX = e.getX();
 			int mouseY = e.getY();
-			System.out.print("Clicked2");
 			//check it against the bounding box of each country
 			String continentNames[] = worldData.getContinentList();
 			

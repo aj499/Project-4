@@ -10,10 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/Min
 public class DataManager {
 	private HashMap<String, CountryData> countryData;
 	private HashMap<String, ContinentData> continentData;
@@ -134,35 +131,4 @@ public class DataManager {
 	}
 		
 	
-<<<<<<< HEAD
-
-	
-=======
-	/*public String[] generateEconSuperlativeQuestion(String continentName, String dataVariable){
-		//continentName= getCurrentView();
-			switch (dataVariable){	
-				case "gpdPerCapita":
-					return new String[] {"Which is the poorest country in " + continentName + " ?",
-							//gdpPerCapitaSortedAfrica.get(0).getCountryName()};
-					}
-					
-		}
-			
-		}
-		
-	}
-	
-	public static void main(String args[]){
-
-		DataManager dm = new DataManager("project/CountryData.txt");
-		ContinentData cd = new ContinentData();
-
-		String[] continents = new String[6];
-		continents = dm.getCountryList();
-		for (int i = 0; i<continents.length;i++){
-			System.out.println(continents[i]);
-		}
-	}*/
-
->>>>>>> origin/Min
 }
