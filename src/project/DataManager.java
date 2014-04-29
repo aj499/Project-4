@@ -3,8 +3,6 @@ package project;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +19,7 @@ public class DataManager {
 	 * Constructor takes a String that is the filepath
 	 * @param newFileLocation
 	 */
-	DataManager(String newFileLocation){
+	public DataManager(String newFileLocation){
 		countryData = new HashMap<String, CountryData>();
 		continentData = new HashMap<String, ContinentData>();
 		dataLoaded=false;
@@ -112,7 +110,7 @@ public class DataManager {
 		return continentData.get(continentName);
 	}//getDataForContinent
 	
-	public String randomlyChooseVariableForSuperlativeQuestion(){
+	public String getRandomlyChosenVariableForSuperlativeQuestion(){
 		ArrayList<String> econVariableList = new ArrayList<String>();
 		econVariableList.add("gpdPerCapita");
 		econVariableList.add("gdpRealGrowthRate");
@@ -123,13 +121,8 @@ public class DataManager {
 		econVariableList.add("unemploymentRate");
 		
 		Random generator = new Random();
-		int minimum = 0;
-		int maximum = econVariableList.size()-1;
-		int range = maximum - minimum + 1;
-		int indexToChooseVariableToAskAbout =  generator.nextInt(range) + minimum;
-		return econVariableList.get(indexToChooseVariableToAskAbout);
+		return econVariableList.get(generator.nextInt(econVariableList.size()));
 	}
 		
 
-	
-}
+}//class
