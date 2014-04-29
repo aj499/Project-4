@@ -512,9 +512,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			}
 		} else if(e.getSource().equals(quizButton)){
 			if(quizRunner.getQuizRunning()){//if they're in a quiz
-				if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
+				/*if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
 					JOptionPane.showMessageDialog(this, "You must finish the pre-test first!", "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
-				} else {
+				} else*/ {
 					try {
 						endQuiz("Thanks for playing!");
 					} catch (IOException e1) {
