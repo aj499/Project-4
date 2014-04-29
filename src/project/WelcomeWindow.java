@@ -74,21 +74,21 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		//Creates the start button
 		startButton = new JButton("Start");
 		//Adds an action listener to the start button
-		startButton.addActionListener(new startAction());
+		startButton.addActionListener(this);
 		//Sets the start button's size
 		startButton.setPreferredSize(new Dimension(100, 50));
 
 		//Creates one of the two radio buttons for the economics option
 		econButton = new JRadioButton("Economics");
 		//Adds an action listener to the econ button
-		econButton.addActionListener(new econAction());
+		econButton.addActionListener(this);
 		//Sets the econ button's size
 		econButton.setPreferredSize(new Dimension(200, 20));
 
 		//Creates the other of the two radio buttons for the health option
 		healthButton = new JRadioButton("Health");
 		//Adds an action listener to the health button
-		healthButton.addActionListener(new healthAction());
+		healthButton.addActionListener(this);
 		//Sets the health button's size
 		healthButton.setPreferredSize(new Dimension(200, 20));
 
@@ -124,14 +124,14 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 		content.add(window);
 
 	}//init
-	
+
 	/**
 	 * ImagePanel class
 	 * 
 	 * This class is a JPanel that draws a graphic onto the back of a JPanel
 	 *
 	 */
-	public class ImagePanel extends JPanel{
+	private class ImagePanel extends JPanel{
 		private static final long serialVersionUID = 1L;
 		private Image image = null;
 
@@ -159,23 +159,22 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 	 * @throws IOException 
 	 */
 	private void goToMapPanel(MapMode mapType) throws IOException{
+		//get the name entered by the student
+		String studentName = username.getText();
 		//Creates a new MapPanel
-<<<<<<< HEAD
 		mapPanel = new MapPanel(new DataManager("CountryData.txt"), new StudentData(studentName), mapType);
-=======
-		mapPanel = new MapPanel(new DataManager("CountryData.txt"), new StudentData("Dummy Student!"), mapType);
->>>>>>> Mike
 		//Switches the visibility of the existing JPanels
 		mapPanel.setVisible(true);
 		window.setVisible(false);
 		this.setContentPane(mapPanel);
 	}//goToMapPanel
-	
+
 	/**
-	 * startAction
-	 *
+	 * Respond to button events created by the user clicking on the buttons
+	 * on the screen (the Economic/Health radio buttons and the Start button).
+	 * 
+	 * @param e the event caused by the click on the button clicked
 	 */
-<<<<<<< HEAD
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(startButton)){//Start button
@@ -187,60 +186,22 @@ public class WelcomeWindow extends JApplet implements ActionListener{
 				}
 
 			} else {//if no option was selected, alert the user
-=======
-	public class startAction implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(mapType != null){
-				try {
-					setSize(width, height + 300);
-					if(mapType == mapType.HEALTH){
-						System.out.println("YAY");
-					}
-					goToMapPanel(mapType);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}//if an option was pressed
-			else{
->>>>>>> Mike
 				JLabel warning = new JLabel("Please choose a subject");
-				warning.setBounds(525, 425, 150, 20);
+				warning.setBounds(referenceMap.getIconWidth()/2 + 25, 500, 100, 20);
 				warning.setVisible(true);
+				warning.setOpaque(true);
+				window.requestFocus();
 				window.add(warning);
 				window.setVisible(true);
 				window.requestFocus();
 				content.add(window);
-				content.validate();
-				repaint();
-			}//else
-		}//actionPerformed
-	}//class startAction
-	
-	public class econAction implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
+			}
+		} else if(e.getSource().equals(econButton)){//Economic radio button
 			mapType = MapMode.ECONOMIC;
-		}//actionPerformed
-	}//class startAction
-	
-	public class healthAction implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
+		} else if(e.getSource().equals(healthButton)){//Health radio button
 			mapType = MapMode.HEALTH;
-<<<<<<< HEAD
 		}
 	}//general actionPerformed
 
 
-=======
-		}//actionPerformed
-	}//class startAction
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-	}//general actionPerformed
-	
->>>>>>> Mike
 }//class WelcomeWindow
