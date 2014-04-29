@@ -5,7 +5,7 @@ import java.util.Vector;
 /**
  * ContinentData
  * 
- * ContinentData is an object that extends CountryData.
+ * ContinentData is an object that extends CountryData and holds the data for a continent.
  */
 public class ContinentData extends CountryData{
 	//private integers that hold the coordinate bounds for a continent

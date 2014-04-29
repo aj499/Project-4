@@ -73,6 +73,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private Image photoImage;
 	private ImageIcon imageIcon;
 	
+	//labels
+	private JLabel currentModeLabel;//quiz mode or explore mode
+	
 	/* --||-- END VARIABLES --||-- */
 	
 	/**
@@ -190,8 +193,16 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		infoBox.setBackground(Color.WHITE);
 		infoBox.setOpaque(true);
 		infoBox2.setBounds(0, 700, 1200, 50);
+		
+		currentModeLabel = new JLabel("EXPLORE MODE");
+		currentModeLabel.setFont(getFont().deriveFont(24f));//set font size
+		currentModeLabel.setBounds(10, 10, 250, 30);
+		add(currentModeLabel);
+		
+		infoBox2.setBounds(0, 650, 1200, 150);
 		infoBox2.setBackground(Color.WHITE);
 		infoBox2.setOpaque(true);
+
 		repaint();
 	}//setUp
 	
@@ -262,6 +273,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//clear the info box at the bottom
 		writeInfoOnBottom("");
+		writeInfo2OnBottom("");
 		//repaint
 		repaint();
 		//set up new buttons
@@ -396,7 +408,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		try {
 			photoImage = ImageIO.read(new File(stringPath)).getScaledInstance(250, 250, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}//catch
 		imageIcon = new ImageIcon(photoImage);
@@ -441,7 +452,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 					"\n\nInfant Mortality Rate:  " + newCountry.getInfantMortalityRate() +
 					"\n\nPercentage of Children Underweight:  " + newCountry.getChildrenUnderweightPercentage() +
 					"\n\nPhysician Density:  " + newCountry.getPhysicianDensity() +
-					"\n\nRisk of Infectious Disease " + newCountry.getRiskOfInfectiousDisease() +
 					"\n\nMost Common Diseases:  " + newCountry.getMajorHealthIssue();
 			writeInfoOnBottom(stringToDisplay);
 			showPicture(newCountry.getPhotoPathHealth());
@@ -458,9 +468,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			String stringToDisplay = "\n\nHow you can make a difference:  "+ newCountry.getMakeADifferenceEconomic();
 			writeInfo2OnBottom(stringToDisplay);
 
-		}//if Economic mode
-
-		if(currentMapMode == MapMode.HEALTH){
+		} else if(currentMapMode == MapMode.HEALTH){
 
 			String stringToDisplay = "\n\nHow you can make a difference:  " + newCountry.getMakeADifferenceHealth();
 			writeInfo2OnBottom(stringToDisplay);
@@ -468,11 +476,22 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		}//if Health mode
 	}//updateInfoBox
 	
+	/**
+	 * Sets up the UI for the next question in the quiz.
+	 * 
+	 * @throws IOException
+	 */
 	private void setUpNextQuestion() throws IOException{
 		if(quizRunner.questionsRemainToAsk()){//if there are more questions to ask
+			//get the question to display
 			String question = quizRunner.getQuestion();
+			
+			//clear the UI
 			infoBox.removeAll();
+			infoBox2.removeAll();
 			photoBox.removeAll();
+			
+			//display the question
 			writeInfoOnBottom(question);
 			repaint();
 		} else {//the quiz is over
@@ -480,6 +499,12 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		}//else
 	}//setUpNextQuestion
 	
+	/**
+	 * Ends the currently running quiz and shows the given message to the user.
+	 * 
+	 * @param quizEndMessage the message to show to the user.
+	 * @throws IOException
+	 */
 	private void endQuiz(String quizEndMessage) throws IOException{
 		//show a message to the user
 		JOptionPane.showMessageDialog(this, quizEndMessage, "Quiz ended", JOptionPane.INFORMATION_MESSAGE);
@@ -495,6 +520,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		//reset the UI and put it back in explore mode
 		changeContinent(currentView);
+		currentModeLabel.setText("EXPLORE MODE");
 		writeInfoOnBottom("Your results on the quiz:\n" + quizRunner.getQuizEndReport());
 	}//endQuiz
 	
@@ -512,6 +538,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 
 			//update things appropriately
 			changeCountry(countryClicked);
+			
 		} else if(quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//country button clicked during a quiz
 			//check the answer
 			boolean answerWasCorrect = quizRunner.checkAnswer(((AppButton) e.getSource()).getId());
@@ -529,8 +556,8 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}//catch
-			} else {//tell them they screwed up
+				}
+			} else {//they got it wrong, so tell them they screwed up
 				String outputMessage = "Incorrect answer!\n\n(You have " + quizRunner.getRemainingAttempts() + " remaining attempts.)";
 				JOptionPane.showMessageDialog(this, outputMessage, "Incorrect", JOptionPane.WARNING_MESSAGE);
 				
@@ -561,16 +588,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			}//if
 		} else if(e.getSource().equals(quizButton)){
 			if(quizRunner.getQuizRunning()){//if they're in a quiz
-				/*if(quizRunner.getInPreTest()){//don't let people bail on the pre-test
-					JOptionPane.showMessageDialog(this, "You must finish the pre-test first!", "Cannot leave pre-test", JOptionPane.WARNING_MESSAGE);
-				} else*/ {
-					try {
-						endQuiz("Thanks for playing!");
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}//catch
-				}//else
+				try {
+					endQuiz("Thanks for playing!");
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			} else if(!quizRunner.getQuizRunning()){//they're not in a quiz, so let's start one!
 				//first check to make sure they've actually looked at countries, so we have something to test them on
 				if(currentView != "World" && !currentStudent.hasSeenCountriesInContinent(currentView, currentMapMode)){//if they're looking at a continent
@@ -582,6 +604,9 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 				} else {//they've looked at countries so we can start a quix
 					//change the label on the button
 					quizButton.setText("End Quiz");
+					
+					//set the mode label in the top corner of the string
+					currentModeLabel.setText("QUIZ MODE");
 
 					//start the quiz
 					quizRunner.startQuiz(currentView, currentMapMode);
