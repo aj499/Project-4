@@ -1,6 +1,7 @@
 package project;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * CountryData class
  * this class stores a country and the data about the country 
@@ -14,6 +15,8 @@ import java.util.Random;
  */
 =======
 
+=======
+>>>>>>> Adam
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,7 +27,10 @@ import java.util.Random;
  * CountryData class
  * this class stores a country and the data about the country 
  */
+<<<<<<< HEAD
 
+>>>>>>> Adam
+=======
 >>>>>>> Adam
 public class CountryData {
 
@@ -53,6 +59,7 @@ public class CountryData {
 
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	/**
 	 * A constructor that sets default values for all variables in country
 	 * CountryData()
@@ -62,13 +69,22 @@ public class CountryData {
 
 	CountryData() {
 =======
+=======
+	
+>>>>>>> Adam
 	private int buttonXPosition;
 	private int buttonYPosition;
 	
-
+	/**
+	 * A constructor that sets default values for all variables in country
+	 * CountryData()
+	 */
 	public CountryData() {
+<<<<<<< HEAD
 >>>>>>> Adam
 
+=======
+>>>>>>> Adam
 		countryName= "new country";
 		gdpPerCapita= "no money";
 		gdpRealGrowthRate="doesn't grow"; 
@@ -380,7 +396,7 @@ public class CountryData {
 	
 	public void setAll(BufferedReader bufferedReader){
 		try {
-			setGpdPerCapita(bufferedReader.readLine());
+			setGdpPerCapita(bufferedReader.readLine());
 			setGdpRealGrowthRate(bufferedReader.readLine());
 			setAgriculturePercentageOfGdp(bufferedReader.readLine());
 			setEconomicFreedomScore(bufferedReader.readLine());
@@ -408,6 +424,7 @@ public class CountryData {
 
 	}
 	
+
 
 	public String generateEconQuestion(){
 

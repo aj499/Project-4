@@ -1,19 +1,25 @@
 package project;
 
+import java.awt.Image;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class ContinentData extends CountryData{
 	private int topBound, bottomBound, rightBound, leftBound;
 	private Vector<String> countryList;
 
-	ContinentData() {
+	public ContinentData() {
 		countryList = new Vector<String>();
 	}
 	
 	public void addToCountryList(String countryName){
 		countryList.add(countryName);
 	}
-	
 	
 	public void setLeftBound(int newLeftBound){
 		leftBound = newLeftBound;
@@ -40,7 +46,7 @@ public class ContinentData extends CountryData{
 	}
 	
 	public int getRightBound(){
-		return bottomBound;
+		return rightBound;
 	}
 	
 	public int getBottomBound(){
@@ -61,7 +67,6 @@ public class ContinentData extends CountryData{
 				return true;
 			}
 		}
-
 		return false;
 	}
 

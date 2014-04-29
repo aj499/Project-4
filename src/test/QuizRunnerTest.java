@@ -2,7 +2,11 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
+import org.junit.Before;
 import org.junit.Test;
+
 import project.DataManager;
 import project.MapMode;
 import project.MapPanel;
@@ -11,8 +15,17 @@ import project.StudentData;
 
 public class QuizRunnerTest {
 	DataManager dm = null;//TODO: load an actual dummy data manager here!
-	MapPanel mp = new MapPanel(dm, new StudentData("TEST"), MapMode.HEALTH);
+	MapPanel mp;
 	QuizRunner qr;
+	
+	@Before
+	public void setUpMapPanel(){
+		try{
+			mp = new MapPanel(dm, new StudentData("TEST"), MapMode.HEALTH);
+		} catch(IOException e){
+			fail("IOException thrown on constructing MapPanel: " + e.getMessage());
+		}
+	}
 	
 	/**
 	 * Make sure that the constructor works.
