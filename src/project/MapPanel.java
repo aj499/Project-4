@@ -2,6 +2,7 @@ package project;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Vector;
+
 import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -82,10 +84,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	private JLabel majorHealthIssue;
 	private JLabel makeADifferenceHealth;
 	
-	//JLabel holding map images
-	JLabel mapLabel;
 	//JPanel holding all of the country information
-	JPanel infoBox;
+	private JPanel infoBox;
+	
+	//JLabel that holds the quiz question
+	private JLabel questionLabel;
 	
 	/* --||-- END VARIABLES --||-- */
 	
@@ -111,7 +114,10 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		for(int i = 0; i < countryButtonList.length; i++){
 			//create a button
 			buttons.put(countryButtonList[i], new AppButton(countryButtonList[i]));
+<<<<<<< HEAD
 			//add the ActionListener to the button
+=======
+>>>>>>> origin/Min
 			buttons.get(countryButtonList[i]).addActionListener(this);
 		}
 		
@@ -157,11 +163,11 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		
 		addMouseListener(this);
 		infoBox = new JPanel();
-		/*JLabel test = new JLabel("HI");
-		test.setSize(400, 10);*/
+		//infoBox.setLayout(new GridLayout(5,1));
+		//infoBox.setLayout(new BoxLayout(infoBox, BoxLayout.LINE_AXIS));
+		//infoBox.setLayout(new SpringLayout());
 		add(infoBox);
-		//infoBox.add(test);
-		infoBox.setBounds(1200, 0, 400, 500);
+		infoBox.setBounds(0, 500, 1200, 300);
 		infoBox.setBackground(Color.CYAN);
 		infoBox.setOpaque(true);
 		repaint();
@@ -177,8 +183,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	public void changeContinent(String continentToChangeTo) throws IOException{
 		//clear screen of buttons
 		sweepButtons();
-		System.out.println("In change continent");
-		System.out.println("Should be Africa: " + continentToChangeTo);
 		currentView = continentToChangeTo;
 		
 		//note that we've now seen this new continent
@@ -315,7 +319,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		currentCountry = countryToChangeTo;
 		
 		//update the info displayed in the info box
-		System.out.println("in changecountry");
 		updateInfoBox(worldData.getDataForCountry(currentCountry));
 		
 		//note that we've seen this new country
@@ -342,21 +345,45 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			unemploymentRate = new JLabel();
 			majorEconomicIssue = new JLabel();
 			makeADifferenceEconomic = new JLabel();
-			
-			gdpPerCapita.setSize(400,50);
-			gdpPerCapita.setText("HI");
-			//gdpPerCapita.setText(newCountry.getGpdPerCapita());
+			/*JLabel infoText = new JLabel();
+			String superstring = newCountry.getGpdPerCapita() + "<br>" + newCountry.getGdpRealGrowthRate() + "<br>" 
+								+ newCountry.getagriculturePercentageOfGdp() + '\n' + newCountry.getEconomicFreedomScore()
+								+ '\n' + newCountry.getLowestTenIncome() + '\n' + newCountry.getHighestTenIncome() 
+								+ '\n' + newCountry.getMajorIndustries() + '\n' + newCountry.getUnemploymentRate()
+								+ '\n' + newCountry.getMajorEconomicIssue() + '\n' +  newCountry.getMakeADifferenceEconomic();
+			infoText.setText("<html><p>" + superstring + "</p></html>");
+			infoText.setSize(200,400);*/
+			gdpPerCapita.setSize(1200,0);
+			gdpPerCapita.setText(newCountry.getGpdPerCapita());
+			gdpRealGrowthRate.setSize(1200, 50);
+			gdpRealGrowthRate.setBackground(Color.RED);
 			gdpRealGrowthRate.setText(newCountry.getGdpRealGrowthRate());
+			agriculturePercentageOfGdp.setSize(1200,100);
 			agriculturePercentageOfGdp.setText(newCountry.getagriculturePercentageOfGdp());
+			economicFreedomScore.setSize(1200,150);
 			economicFreedomScore.setText(newCountry.getEconomicFreedomScore());
+			lowestTenIncome.setSize(1200,200);;
 			lowestTenIncome.setText(newCountry.getLowestTenIncome());
+			highestTenIncome.setSize(1200,250);
 			highestTenIncome.setText(newCountry.getHighestTenIncome());
+			majorIndustries.setSize(1200,300);
 			majorIndustries.setText(newCountry.getMajorIndustries());
+			unemploymentRate.setSize(1200,350);
 			unemploymentRate.setText(newCountry.getUnemploymentRate());
+			majorEconomicIssue.setSize(1200,400);
 			majorEconomicIssue.setText(newCountry.getMajorEconomicIssue());
+			makeADifferenceEconomic.setSize(1200,450);
 			makeADifferenceEconomic.setText(newCountry.getMakeADifferenceEconomic());
-			
-			infoBox.add(gdpPerCapita);
+
+			infoBox.add(gdpRealGrowthRate);
+			infoBox.add(agriculturePercentageOfGdp);
+			infoBox.add(economicFreedomScore);
+			infoBox.add(lowestTenIncome);
+			infoBox.add(highestTenIncome);
+			infoBox.add(majorIndustries);
+			infoBox.add(unemploymentRate);
+			infoBox.add(majorEconomicIssue);
+			infoBox.add(makeADifferenceEconomic);
 			repaint();
 			
 		}//if Economic mode
@@ -373,8 +400,7 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			makeADifferenceHealth = new JLabel();
 
 			lifeExpectancy.setSize(400,50);
-			lifeExpectancy.setText("HI");
-			//lifeExpectancy.setText(newCountry.getLifeExpectancy());
+			lifeExpectancy.setText(newCountry.getLifeExpectancy());
 			maternalMortalityRate.setText(newCountry.getMaternalMortalityRate());
 			infantMortalityRate.setText(newCountry.getInfantMortalityRate());
 			childrenUnderweightPercentage.setText(newCountry.getChildrenUnderweightPercentage());
@@ -385,6 +411,14 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 			makeADifferenceHealth.setText(newCountry.getMakeADifferenceEconomic());
 			
 			infoBox.add(lifeExpectancy);
+			infoBox.add(maternalMortalityRate);
+			infoBox.add(infantMortalityRate);
+			infoBox.add(childrenUnderweightPercentage);
+			infoBox.add(physicianDensity);
+			infoBox.add(riskOfInfectiousDisease);
+			infoBox.add(mostCommonDiseases);
+			infoBox.add(majorHealthIssue);
+			infoBox.add(makeADifferenceHealth);
 			repaint();
 			
 		}//if Health mode
@@ -394,9 +428,18 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 		if(quizRunner.questionsRemainToAsk()){//if there are more questions to ask
 			//get the question
 			String question = quizRunner.getQuestion();
+<<<<<<< HEAD
 			//TODO: display the question in the UI
 			
 			
+=======
+			infoBox.removeAll();
+			questionLabel = new JLabel();
+			questionLabel.setText(question);
+			infoBox.setSize(1200,0);
+			infoBox.add(questionLabel);
+			repaint();
+>>>>>>> origin/Min
 		} else {//the quiz is over
 			endQuiz("You have successfully completed the quiz!");
 		}
@@ -426,8 +469,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e){
-		System.out.println("Event " + e.toString() + " did the thing!");
-		
 		//if the button clicked was the button for a country and we're not in a quiz
 		//change the view to that country
 		if(!quizRunner.getQuizRunning() && buttons.containsKey(((AppButton) e.getSource()).getId())){//hopefully this cast works…make all buttons AppButtons to ensure that
