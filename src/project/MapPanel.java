@@ -57,7 +57,6 @@ public class MapPanel extends JPanel implements ActionListener, MouseListener{
 	
 	//buttons for the UI
 	//NB: these must be AppButtons or actionPerformed will break!
-	private AppButton mapModeChangeButton;
 	private AppButton quizButton;//start/end a quiz
 	private AppButton backButton;//go back to world view from continentView
 	
