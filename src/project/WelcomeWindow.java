@@ -7,8 +7,12 @@
 // 
 // In accordance with the class policies and Georgetown's Honor Code, 
 // We certify that, with the exceptions of the lecture notes and those 
-// items noted below, We have neither given nor received any assistance 
+// items noted below, we have neither given nor received any assistance 
 // on this project. 
+//
+// -some misc. assistance from TA Andrew
+// -help with the appletviewer via the Oracle tutorial linked by Prof.
+//  Singh on the discussion board
 // 
 // Description: A program to teach students about world issues of health
 // and economics and build engagement and awareness. A quiz mode is also
