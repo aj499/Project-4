@@ -6,11 +6,13 @@
 // COSC 150 
 // 
 // In accordance with the class policies and Georgetown's Honor Code, 
-// I certify that, with the exceptions of the lecture notes and those 
-// items noted below, I have neither given nor received any assistance 
+// We certify that, with the exceptions of the lecture notes and those 
+// items noted below, We have neither given nor received any assistance 
 // on this project. 
 // 
-// Description: 
+// Description: A program to teach students about world issues of health
+// and economics and build engagement and awareness. A quiz mode is also
+// included so that students may test their knowledge.
 // 
 
 package project;

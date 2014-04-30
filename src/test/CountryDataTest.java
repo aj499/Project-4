@@ -8,12 +8,15 @@ import project.CountryData;
 
 public class CountryDataTest {
 	
+	//TEST CONSTRUCTOR
 	@Test
 	public void testConstructor() {
 		CountryData data;
 		data = new CountryData();
 		assertNotNull(data);
 	}
+	
+	//BEGIN GETTER AND SETTER TESTS
 	
 	@Test
 	public void setCountryNameTest(){
@@ -520,15 +523,26 @@ public class CountryDataTest {
 		assertTrue(expectedResult.equals(result));
 	}
 	
+	//END GETTER AND SETTER TESTS 
+	
+	//TEST QUESTION GENERATORS
+	
 	@Test
 	public void generateEconQuestionTest(){
 		CountryData data= new CountryData();
-		//test to see if the question that it generates matches any of the choices i put
+		
+		String question = data.generateEconQuestion();
+		
+		assertNotNull(question);
 	}
 	
 	@Test
 	public void generateHealthQuestionTest(){
-		//test to see if the question that it generates matches any of the choices i put
+		CountryData data= new CountryData();
+		
+		String question = data.generateHealthQuestion();
+		
+		assertNotNull(question);
 	}
 
 }//CountryDataTest

@@ -11,6 +11,7 @@ import project.StudentData;
 
 public class MapPanelTest {
 	final String DATA_FILE_LOCATION = "src/CountryData.txt";//see note on filepath in DataManagerTest
+	
 	MapPanel mp;
 	DataManager dm;
 	StudentData sd;

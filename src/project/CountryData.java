@@ -63,7 +63,7 @@ public class CountryData {
 		mostCommonDiseases="no common colds"; 
 		majorHealthIssue="everyone's healthy";
 		makeADifferenceHealth="can't make a health difference";
-		photoPathHealth="no photi path health";
+		photoPathHealth="no photo path health";
 	}//constructor
 
 	//SETTERS//----------------------------------------

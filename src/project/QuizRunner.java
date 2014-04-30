@@ -255,7 +255,7 @@ public class QuizRunner {
 	 * @return a report on how the user performed on the most recent quiz
 	 */
 	public String getQuizEndReport(){
-		String report = "You answered " + questionsAnsweredCorrectly + " out of " + TOTAL_QUESTIONS_TO_ASK + " questions correctly";
+		String report = student.getName() + ", you answered " + questionsAnsweredCorrectly + " out of " + TOTAL_QUESTIONS_TO_ASK + " questions correctly";
 		report += " and scored " + (int) ((((float) questionsAnsweredCorrectly) / ((float) TOTAL_QUESTIONS_TO_ASK)) * 100) + "%.";
 		
 		return report;

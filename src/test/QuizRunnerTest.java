@@ -103,7 +103,7 @@ public class QuizRunnerTest {
 	 */
 	@Test
 	public void testGetQuizEndReport(){
-		String expectedReport = "You answered 0 out of 10 questions correctly and scored 0%.";
+		String expectedReport = "Dave Strider, you answered 0 out of 10 questions correctly and scored 0%.";
 		qr = new QuizRunner(mp, dm, sd);
 		qr.startQuiz("World", MapMode.HEALTH);
 		qr.endQuiz();

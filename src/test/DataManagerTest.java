@@ -3,12 +3,15 @@ package test;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import project.ContinentData;
+import project.CountryData;
 import project.DataManager;
 
 public class DataManagerTest {
 	//NB: this filepath works for us, but if it fails for you you may
 	//need to play around with it a bit
 	final String DATA_FILE_LOCATION = "src/CountryData.txt";
+	
 	DataManager dm;
 	
 	/**
@@ -24,24 +27,27 @@ public class DataManagerTest {
 		assertTrue(dm.getCountryList().length > 0);
 	}
 	
-	/**
-	 * Make sure that a sensible String (ie one that refers to a variable that actually exists) is returned.
-	 */
+	//everything else is either private or a getter…
+	
+	//so let's make sure that all our getters work
 	@Test
-	public void testGetRandomlyChosenVariableForSuperlativeQuestion(){
+	public void testGetDataForCountry(){
 		dm = new DataManager(DATA_FILE_LOCATION);
 		
-		String returnedValue = dm.getRandomlyChosenVariableForSuperlativeQuestion();
+		CountryData cd = dm.getDataForCountry("UK");
 		
-		//ugly, but it works, I guess?
-		assertTrue(returnedValue.equals("gdpPerCapita")
-				|| (returnedValue.equals("gdpRealGrowthRate"))
-				|| (returnedValue.equals("agriculturePercentageOfGDP"))
-				|| (returnedValue.equals("economicFreedomScore"))
-				|| (returnedValue.equals("majorIndustries"))
-				|| (returnedValue.equals("unemploymentRate")));
+		assertNotNull(cd);
+		assertTrue(cd.getCountryName().equals("UK"));
 	}
 	
-	
+	@Test
+	public void testGetDataForContinent(){
+		dm = new DataManager(DATA_FILE_LOCATION);
+		
+		ContinentData cd = dm.getDataForContinent("Asia");
+		
+		assertNotNull(cd);
+		assertTrue(cd.getCountryName().equals("Asia"));
+	}
 
 }
